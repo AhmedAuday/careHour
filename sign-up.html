@@ -14,10 +14,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!-- Typography CSS -->
     <link rel="stylesheet" href="css/typography.css" />
-<!-- Style CSS for sign up -->
+    <!-- Style CSS for sign up -->
     <link rel="stylesheet" href="css/signup.css" />
-    
-
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css" />
   </head>
@@ -30,16 +28,9 @@
     <!-- Wrapper Start -->
     <div class="wrapper">
       <!-- Sidebar  -->
-    
-              
-              
-          </nav>
-          <div class="p-3"></div>
-        </div>
-      </div>
+
       <!-- Page Content  -->
       <div id="content-page" class="content-page">
-     
         <!-- TOP Nav Bar END -->
         <div class="container-fluid">
           <div class="row">
@@ -49,12 +40,21 @@
                   <div class="iq-edit-list">
                     <ul class="iq-edit-profile d-flex nav nav-pills">
                       <li class="col-md-3 p-0">
-                        <a class="nav-link active" data-toggle="pill" href="#personal-information">
+                        <a
+                          class="nav-link active"
+                          data-toggle="pill"
+                          href="#personal-information"
+                        >
                           Personal Information
                         </a>
                       </li>
                       <li class="col-md-3 p-0">
-                        <a class="nav-link" id="change-pwd-link" data-toggle="pill" href="#chang-pwd" >
+                        <a
+                          class="nav-link"
+                          id="change-pwd-link"
+                          data-toggle="pill"
+                          href="#chang-pwd"
+                        >
                           Change Password
                         </a>
                       </li>
@@ -119,11 +119,16 @@
                                 value="Jets"
                               />
                             </div>
-                         
+
                             <div class="form-group col-sm-6">
-                                <label for="Phone number">Phone number:</label>
-                                <input type="text" value="+964"  class="form-control" oninput="this.value=this.value.replace(/[^0-9]/g,'');" >
-                              </div>
+                              <label for="Phone number">Phone number:</label>
+                              <input
+                                type="text"
+                                value="+964"
+                                class="form-control"
+                                oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                              />
+                            </div>
 
                             <div class="form-group col-sm-6">
                               <label for="uname">User Name:</label>
@@ -229,48 +234,45 @@
                             </div>
 
                             <div class="form-group col-sm-6">
-                                <label>allergies:</label>
-                                <select
-                                  class="form-control"
-                                  id="exampleFormControlSelect3"
-                                >
-                                  <option>Asthma</option>
-                                  <option>Eczema </option>
-                                  <option selected="">Food allergies</option>
-                                  <option>Insect sting allergies</option>
-                                  <option>Drug allergies</option>
-                                </select>
-                              </div>
-                              <div class="form-group col-sm-6">
-                                <label>State:</label>
-                                <select
-                                  class="form-control"
-                                  id="exampleFormControlSelect4"
-                                >
-                                  <option>California</option>
-                                  <option>Florida</option>
-                                  <option selected="">Georgia</option>
-                                  <option>Connecticut</option>
-                                  <option>Louisiana</option>
-                                </select>
-                              </div>
+                              <label>allergies:</label>
+                              <select
+                                class="form-control"
+                                id="exampleFormControlSelect3"
+                              >
+                                <option>Asthma</option>
+                                <option>Eczema</option>
+                                <option selected="">Food allergies</option>
+                                <option>Insect sting allergies</option>
+                                <option>Drug allergies</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-sm-6">
+                              <label>State:</label>
+                              <select
+                                class="form-control"
+                                id="exampleFormControlSelect4"
+                              >
+                                <option>California</option>
+                                <option>Florida</option>
+                                <option selected="">Georgia</option>
+                                <option>Connecticut</option>
+                                <option>Louisiana</option>
+                              </select>
+                            </div>
 
-                              <div class="form-group col-sm-12">
-                                <label>spicifie your allerge:</label>
-                                <textarea
-                                  class="form-control"
-                                  name="address"
-                                  rows="5"
-                                  style="line-height: 22px"
-                                >
+                            <div class="form-group col-sm-12">
+                              <label>spicifie your allerge:</label>
+                              <textarea
+                                class="form-control"
+                                name="address"
+                                rows="5"
+                                style="line-height: 22px"
+                              >
 spicifie you allerge if you have one
                                                </textarea
-                                >
-                              </div>
+                              >
+                            </div>
 
-
-                     
-                            
                             <div class="form-group col-sm-12">
                               <label>Address:</label>
                               <textarea
@@ -288,7 +290,11 @@ spicifie you allerge if you have one
                               >
                             </div>
                           </div>
-                          <button type="submit" id="btn btn-primary mr-2" class="button">
+                          <button
+                            type="submit"
+                            id="btn btn-primary mr-2"
+                            class="button"
+                          >
                             Submit
                           </button>
                           <button type="reset" class="btn iq-bg-danger">
@@ -600,6 +606,6 @@ spicifie you allerge if you have one
     <!-- Custom JavaScript -->
     <script src="js/custom.js"></script>
     <!-- sign up JavaScript -->
-    <script src="sign-up.js"></script>
+    <script src="js/sign-up.js"></script>
   </body>
 </html>
