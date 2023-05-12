@@ -14,15 +14,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>XRay - Responsive Bootstrap 4 Admin Dashboard Template</title>
         <!-- Favicon -->
-        <link rel="shortcut icon" href="/images/favicon.ico" />
+        <link rel="shortcut icon" href="../../images/favicon.ico" />
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../css/bootstrap.min.css" />
         <!-- Typography CSS -->
-        <link rel="stylesheet" href="/css/typography.css" />
+        <link rel="stylesheet" href="../../css/typography.css" />
         <!-- Style CSS -->
-        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="../../css/style.css" />
         <!-- Responsive CSS -->
-        <link rel="stylesheet" href="/css/responsive.css" />
+        <link rel="stylesheet" href="../../css/responsive.css" />
     </head>
 
     <body>
@@ -36,8 +36,8 @@
             <!-- Sidebar  -->
             <div class="iq-sidebar">
                 <div class="iq-sidebar-logo d-flex justify-content-between">
-                    <a href="index.php">
-                        <img src="/images/logo.png" class="img-fluid" alt="" />
+                    <a href="index.html">
+                        <img src="../../images/logo.png" class="img-fluid" alt="" />
                         <span>CareHour</span>
                     </a>
                     <div class="iq-menu-bt-sidebar">
@@ -57,12 +57,12 @@
                             </li>
 
                             <li>
-                                <a href="dashboard-3.php" class="iq-waves-effect"><i
+                                <a href="dashboard-3.html" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>Patient Dashboard</span></a>
                             </li>
 
                             <li>
-                                <a href="document.php" class="iq-waves-effect"><i
+                                <a href="document.html" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>document</span></a>
                             </li>
 
@@ -72,11 +72,11 @@
                                         class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                                 <ul id="doctor-info" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
                                     <li class="active">
-                                        <a href="doctor-list.php"><i class="ri-file-list-fill"></i>All Doctors</a>
+                                        <a href="doctor-list.html"><i class="ri-file-list-fill"></i>All Doctors</a>
                                     </li>
 
                                     <li>
-                                        <a href="my-docotor-list.php"><i class="ri-profile-fill"></i>MY Doctors</a>
+                                        <a href="my-docotor-list.html"><i class="ri-profile-fill"></i>MY Doctors</a>
                                     </li>
                                 </ul>
                             </li>
@@ -280,16 +280,6 @@
                                                             </div>
                                                         </div>
                                                     </a>
-                                                    <?php
-                                                    
-                                                        $doctor = new Doctors();
-                                                        $doctors = $doctor->getAll();
-
-                                                        foreach ($doctors as $d){
-                                                            
-                                                        }
-                                                    
-                                                    ?>
                                                     <a href="#" class="iq-sub-card">
                                                         <div class="media align-items-center">
                                                             <div class="">
@@ -353,7 +343,7 @@
                                                     </div>
                                                 </a>
 
-                                                <a href="privacy-setting.php" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="privacy-setting.html" class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-lock-line"></i>
@@ -367,7 +357,7 @@
                                                     </div>
                                                 </a>
                                                 <div class="d-inline-block w-100 text-center p-3">
-                                                    <a class="bg-primary iq-sign-btn" href="sign-in.php"
+                                                    <a class="bg-primary iq-sign-btn" href="sign-in.html"
                                                         role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
                                                 </div>
                                             </div>
@@ -394,7 +384,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/12.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="../../images/user/12.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -421,584 +411,136 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
+                                    <a href="profile.html" class="btn btn-primary">View Profile</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/13.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Paul Molive</h4>
-                                        <p class="mb-0">Heart Surgeons</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/14.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Terry Aki</h4>
-                                        <p class="mb-0">Medicine Specialists</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/15.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Poppa Cherry</h4>
-                                        <p class="mb-0">Family Physicians</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/16.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Saul T. Balls</h4>
-                                        <p class="mb-0">Gynaecology</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/17.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Hal Appeno</h4>
-                                        <p class="mb-0">MD</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/18.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Polly Tech</h4>
-                                        <p class="mb-0">Eye Special</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/12.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Pat Agonia</h4>
-                                        <p class="mb-0">Therapy Special</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/13.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Barry Cade</h4>
-                                        <p class="mb-0">Heart Surgeons</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/14.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr.Jimmy Changa</h4>
-                                        <p class="mb-0">Cardiologists</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/15.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Sue Vaneer</h4>
-                                        <p class="mb-0">Orthopedics Special</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/16.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Monty Carlo</h4>
-                                        <p class="mb-0">Anesthesiologists</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/17.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Rick O'Shea</h4>
-                                        <p class="mb-0">General</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/18.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Bunny Joy</h4>
-                                        <p class="mb-0">Gynaecology</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/12.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Shonda Leer</h4>
-                                        <p class="mb-0">Orthopedics Special</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/13.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Ira Membrit</h4>
-                                        <p class="mb-0">MD</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+
+
+
+                        <?php
+
+//TODO:fix the connection to be cross to all page DB connection
+// require_once 'MySQL/DBconnection.php';
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "carehour";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql="SELECT `first_name`,`last_name`,`specialization`,`bio` FROM `doctors` WHERE 1;";
+
+$result = mysqli_query($conn, $sql);
+
+while ($row = mysqli_fetch_assoc($result)){
+
+   echo "
+             <div class='col-sm-6 col-md-3'>
+              <div class='iq-card'>
+                <div class='iq-card-body text-center'>
+                  <div class='doc-profile'>
+                    <img
+                      class='rounded-circle img-fluid avatar-80'
+                      src='../../images/user/12.jpg'
+                      alt='profile'
+                    />
+                  </div>
+                  <div class='iq-doc-info mt-3'>
+                    <h4>Dr. ".$row['first_name'].' '.$row['last_name']."</h4>
+                    <p class='mb-0'>".$row['specialization']."</p>
+                    
+                  </div>
+                  <div class='iq-doc-description mt-2'>
+                    <p class='mb-0'>
+                      ".$row['bio']."
+                    </p>
+                  </div>
+                  <div class='iq-doc-social-info mt-3 mb-3'>
+                    <ul class='m-0 p-0 list-inline'>
+                      <li>
+                        <a href='#'><i class='ri-facebook-fill'></i></a>
+                      </li>
+                      <li>
+                        <a href='#'><i class='ri-twitter-fill'></i></a>
+                      </li>
+                      <li>
+                        <a href='#'><i class='ri-google-fill'></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <a href='profile.html' class='btn btn-primary'
+                    >View Profile</a
+                  >
                 </div>
-                <!-- Footer -->
-                <footer class="bg-white iq-footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-2"></div>
-                            <div class="col-lg-6 text-right">
-                                Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
+              </div>
+            </div>
+          ";
+
+}
+
+
+?>
+
+
+
+
+                    </div>
+                    <!-- Footer -->
+                    <footer class="bg-white iq-footer">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-2"></div>
+                                <div class="col-lg-6 text-right">
+                                    Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </footer>
-                <!-- Footer END -->
+                    </footer>
+                    <!-- Footer END -->
+                </div>
             </div>
-        </div>
-        <!-- Wrapper END -->
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="/js/jquery.min.js"></script>
-        <script src="/js/popper.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        <!-- Appear JavaScript -->
-        <script src="/js/jquery.appear.js"></script>
-        <!-- Countdown JavaScript -->
-        <script src="/js/countdown.min.js"></script>
-        <!-- Counterup JavaScript -->
-        <script src="/js/waypoints.min.js"></script>
-        <script src="/js/jquery.counterup.min.js"></script>
-        <!-- Wow JavaScript -->
-        <script src="/js/wow.min.js"></script>
-        <!-- Apexcharts JavaScript -->
-        <script src="/js/apexcharts.js"></script>
-        <!-- Slick JavaScript -->
-        <script src="/js/slick.min.js"></script>
-        <!-- Select2 JavaScript -->
-        <script src="/js/select2.min.js"></script>
-        <!-- Owl Carousel JavaScript -->
-        <script src="/js/owl.carousel.min.js"></script>
-        <!-- Magnific Popup JavaScript -->
-        <script src="/js/jquery.magnific-popup.min.js"></script>
-        <!-- Smooth Scrollbar JavaScript -->
-        <script src="/js/smooth-scrollbar.js"></script>
-        <!-- lottie JavaScript -->
-        <script src="/js/lottie.js"></script>
-        <!-- Chart Custom JavaScript -->
-        <script src="/js/chart-custom.js"></script>
-        <!-- Custom JavaScript -->
-        <script src="/js/custom.js"></script>
+            <!-- Wrapper END -->
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="../../js/jquery.min.js"></script>
+            <script src="../../js/popper.min.js"></script>
+            <script src="../../js/bootstrap.min.js"></script>
+            <!-- Appear JavaScript -->
+            <script src="../../js/jquery.appear.js"></script>
+            <!-- Countdown JavaScript -->
+            <script src="../../js/countdown.min.js"></script>
+            <!-- Counterup JavaScript -->
+            <script src="../../js/waypoints.min.js"></script>
+            <script src="../../js/jquery.counterup.min.js"></script>
+            <!-- Wow JavaScript -->
+            <script src="../../js/wow.min.js"></script>
+            <!-- Apexcharts JavaScript -->
+            <script src="../../js/apexcharts.js"></script>
+            <!-- Slick JavaScript -->
+            <script src="../../js/slick.min.js"></script>
+            <!-- Select2 JavaScript -->
+            <script src="../../js/select2.min.js"></script>
+            <!-- Owl Carousel JavaScript -->
+            <script src="../../js/owl.carousel.min.js"></script>
+            <!-- Magnific Popup JavaScript -->
+            <script src="../../js/jquery.magnific-popup.min.js"></script>
+            <!-- Smooth Scrollbar JavaScript -->
+            <script src="../../js/smooth-scrollbar.js"></script>
+            <!-- lottie JavaScript -->
+            <script src="../../js/lottie.js"></script>
+            <!-- Chart Custom JavaScript -->
+            <script src="../../js/chart-custom.js"></script>
+            <!-- Custom JavaScript -->
+            <script src="../../js/custom.js"></script>
     </body>
 
 </html>
