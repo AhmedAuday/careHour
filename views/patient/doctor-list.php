@@ -542,6 +542,9 @@
               </div>
             </div>
 
+
+
+
 <?php
 
 //TODO:fix the connection to be cross to all page DB connection
@@ -606,7 +609,7 @@ while ($row = mysqli_fetch_assoc($result)){
                 </div>
               </div>
             </div>
-          </div>";
+          ";
 
 }
 
