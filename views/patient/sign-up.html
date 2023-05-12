@@ -45,10 +45,10 @@
                           data-toggle="pill"
                           href="#personal-information"
                         >
-                          Personal Information
+                          Register
                         </a>
                       </li>
-                      <li class="col-md-3 p-0">
+                      <!-- <li class="col-md-3 p-0">
                         <a
                           class="nav-link"
                           id="change-pwd-link"
@@ -57,7 +57,7 @@
                         >
                           Change Password
                         </a>
-                      </li>
+                      </li> -->
                     </ul>
                   </div>
                 </div>
@@ -268,7 +268,7 @@
                                 rows="5"
                                 style="line-height: 22px"
                               >
-spicifie you allerge if you have one
+                                    spicifie you allerge if you have one
                                                </textarea
                               >
                             </div>
@@ -290,64 +290,33 @@ spicifie you allerge if you have one
                               >
                             </div>
                           </div>
-                          <button
-                            type="submit"
-                            id="btn btn-primary mr-2"
-                            class="button"
-                          >
-                            Submit
-                          </button>
-                          <button type="reset" class="btn iq-bg-danger">
-                            cancel
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="chang-pwd" role="tabpanel">
-                    <div class="iq-card">
-                      <div
-                        class="iq-card-header d-flex justify-content-between"
-                      >
-                        <div class="iq-header-title">
-                          <h4 class="card-title">Change Password</h4>
-                        </div>
-                      </div>
-                      <div class="iq-card-body">
-                        <form>
-                          <div class="form-group">
-                            <label for="cpass">Current Password:</label>
-                            <a href="javascripe:void();" class="float-right"
-                              >Forgot Password</a
+                          <!-- TODO Fix This Part  -->
+
+                          <div class="d-inline-block w-100">
+                            <div
+                              class="custom-control custom-checkbox d-inline-block mt-2 pt-1"
                             >
-                            <input
-                              type="Password"
-                              class="form-control"
-                              id="cpass"
-                              value=""
-                            />
+                              <input
+                                type="checkbox"
+                                class="custom-control-input"
+                                id="customCheck1"
+                              />
+                              <label
+                                class="custom-control-label"
+                                for="customCheck1"
+                                >Agree And Continue</label
+                              >
+                            </div>
+                            <button
+                              type="submit"
+                              class="btn btn-primary float-left"
+                            >
+                              Register
+                            </button>
                           </div>
-                          <div class="form-group">
-                            <label for="npass">New Password:</label>
-                            <input
-                              type="Password"
-                              class="form-control"
-                              id="npass"
-                              value=""
-                            />
-                          </div>
-                          <div class="form-group">
-                            <label for="vpass">Verify Password:</label>
-                            <input
-                              type="Password"
-                              class="form-control"
-                              id="vpass"
-                              value=""
-                            />
-                          </div>
-                          <button type="submit" class="btn btn-primary mr-2">
-                            Submit
-                          </button>
+
+                         <!-- End of TODO Fix This Part  -->
+
                           <button type="reset" class="btn iq-bg-danger">
                             cancel
                           </button>
@@ -355,6 +324,9 @@ spicifie you allerge if you have one
                       </div>
                     </div>
                   </div>
+
+                  <!-- TODO Find about this section  -->
+             
                   <div class="tab-pane fade" id="emailandsms" role="tabpanel">
                     <div class="iq-card">
                       <div
@@ -543,9 +515,19 @@ spicifie you allerge if you have one
                               value="https://getbootstrap.com"
                             />
                           </div>
-                          <button type="submit" class="btn btn-primary mr-2">
-                            Submit
-                          </button>
+
+                          <!-- the sign up button -->
+
+                          <div class="d-inline-block w-100">
+                            <button
+                              type="submit"
+                              class="btn btn-primary float-right"
+                            >
+                              Sign Up
+                            </button>
+                          </div>
+
+                          <!-- end of the sign up button -->
                           <button type="reset" class="btn iq-bg-danger">
                             cancel
                           </button>
@@ -554,6 +536,10 @@ spicifie you allerge if you have one
                     </div>
                   </div>
                 </div>
+
+                <!-- ?????-?????- -->
+
+
               </div>
             </div>
           </div>
@@ -564,7 +550,7 @@ spicifie you allerge if you have one
             <div class="row">
               <div class="col-lg-2"></div>
               <div class="col-lg-6 text-right">
-                Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
+                Copyright 2023 <a>CareHour</a> All Rights Reserved.
               </div>
             </div>
           </div>
