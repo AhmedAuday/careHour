@@ -1,0 +1,11 @@
+id
+patient_id
+notes
+created_at
+timee
+#is_numeric
+#is_numeric
+#is_string
+#is_string
+#is_numeric
+#is_string

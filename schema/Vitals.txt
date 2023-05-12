@@ -1,0 +1,17 @@
+id
+patient_id
+date_time
+temperature
+blood_pressure
+heart_rate
+respiratory_rate
+timee
+#is_numeric
+#is_numeric
+#is_string
+#is_string
+#is_string
+#is_numeric
+#is_numeric
+#is_numeric
+#is_string

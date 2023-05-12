@@ -1,0 +1,14 @@
+id
+patient_id
+disability_name
+onset_date
+notes
+timee
+time
+#is_numeric
+#is_numeric
+#is_string
+#is_string
+#is_string
+#is_numeric
+#is_string
