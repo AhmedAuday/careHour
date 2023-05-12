@@ -1,3 +1,10 @@
+<?php
+
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -273,6 +280,16 @@
                                                             </div>
                                                         </div>
                                                     </a>
+                                                    <?php
+                                                    
+                                                        $doctor = new Doctors();
+                                                        $doctors = $doctor->getAll();
+
+                                                        foreach ($doctors as $d){
+                                                            
+                                                        }
+                                                    
+                                                    ?>
                                                     <a href="#" class="iq-sub-card">
                                                         <div class="media align-items-center">
                                                             <div class="">

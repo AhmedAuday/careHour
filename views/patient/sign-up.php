@@ -386,6 +386,11 @@
                 </footer>
                 <!-- Footer END -->
             </div>
+
+
+
+
+            <!-- end of page content  -->
         </div>
         <!-- Wrapper END -->
         <!-- Optional JavaScript -->
