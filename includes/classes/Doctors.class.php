@@ -63,7 +63,7 @@
       }else{
         return false;
       }
-    } 
+    }
 
     public function getAll($limit = 1000000){
       if(!is_numeric($limit)){ return '[]'; }
@@ -683,8 +683,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `doctors` (`id`, `user_id`, `first_name`, `middle_name`, `last_name`, `phone`, `image_of_id`, `profile_image`, `gender`, `dob`, `specialty`, `education`, `experience_years`, `start_office_hour`, `end_office_hour`, `bio`, `timee`, `time`) VALUES 
-      ('$this->id', '$this->user_id', '$this->first_name', '$this->middle_name', '$this->last_name', '$this->phone', '$this->image_of_id', '$this->profile_image', '$this->gender', '$this->dob', '$this->specialty', '$this->education', '$this->experience_years', '$this->start_office_hour', '$this->end_office_hour', '$this->bio', '$this->timee', '$this->time')";
+      $sql = "INSERT INTO `doctors` (`user_id`, `first_name`, `middle_name`, `last_name`, `phone`, `image_of_id`, `profile_image`, `gender`, `dob`, `specialty`, `education`, `experience_years`, `start_office_hour`, `end_office_hour`, `bio`, `timee`, `time`) VALUES
+      ('$this->user_id', '$this->first_name', '$this->middle_name', '$this->last_name', '$this->phone', '$this->image_of_id', '$this->profile_image', '$this->gender', '$this->dob', '$this->specialty', '$this->education', '$this->experience_years', '$this->start_office_hour', '$this->end_office_hour', '$this->bio', '$this->timee', '$this->time')";
       if($this->db()->query($sql)){
         return true;
       }else{

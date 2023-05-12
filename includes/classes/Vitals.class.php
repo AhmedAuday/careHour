@@ -45,7 +45,7 @@
       }else{
         return false;
       }
-    } 
+    }
 
     public function getAll($limit = 1000000){
       if(!is_numeric($limit)){ return '[]'; }
@@ -305,8 +305,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `vitals` (`id`, `patient_id`, `date_time`, `temperature`, `blood_pressure`, `heart_rate`, `respiratory_rate`, `timee`, `time`) VALUES 
-      ('$this->id', '$this->patient_id', '$this->date_time', '$this->temperature', '$this->blood_pressure', '$this->heart_rate', '$this->respiratory_rate', '$this->timee', '$this->time')";
+      $sql = "INSERT INTO `vitals` (`patient_id`, `date_time`, `temperature`, `blood_pressure`, `heart_rate`, `respiratory_rate`, `timee`, `time`) VALUES
+      ('$this->patient_id', '$this->date_time', '$this->temperature', '$this->blood_pressure', '$this->heart_rate', '$this->respiratory_rate', '$this->timee', '$this->time')";
       if($this->db()->query($sql)){
         return true;
       }else{

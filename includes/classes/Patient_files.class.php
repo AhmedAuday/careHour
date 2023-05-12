@@ -43,7 +43,7 @@
       }else{
         return false;
       }
-    } 
+    }
 
     public function getAll($limit = 1000000){
       if(!is_numeric($limit)){ return '[]'; }
@@ -273,8 +273,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `patient_files` (`id`, `patient_id`, `doctor_id`, `file_name`, `file_type`, `created_at`, `timee`, `time`) VALUES 
-      ('$this->id', '$this->patient_id', '$this->doctor_id', '$this->file_name', '$this->file_type', '$this->created_at', '$this->timee', '$this->time')";
+      $sql = "INSERT INTO `patient_files` (`patient_id`, `doctor_id`, `file_name`, `file_type`, `created_at`, `timee`, `time`) VALUES
+      ('$this->patient_id', '$this->doctor_id', '$this->file_name', '$this->file_type', '$this->created_at', '$this->timee', '$this->time')";
       if($this->db()->query($sql)){
         return true;
       }else{
