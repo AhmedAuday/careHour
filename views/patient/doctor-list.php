@@ -370,7 +370,7 @@
                 </div>
                 <!-- TOP Nav Bar END -->
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class=$d->">
                         <div class="col-sm-12">
                             <div class="iq-card">
                                 <div class="iq-card-header d-flex justify-content-between">
@@ -421,27 +421,18 @@
 
                         <?php
 
-//TODO:fix the connection to be cross to all page DB connection
-// require_once 'MySQL/DBconnection.php';
+ $doctor = new Doctors();
+ $doctors = $doctor->getAll();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "carehour";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql="SELECT `first_name`,`last_name`,`specialization`,`bio` FROM `doctors` WHERE 1;";
-
-$result = mysqli_query($conn, $sql);
-
-while ($row = mysqli_fetch_assoc($result)){
+foreach ($doctors as $d){
+$exp = new Exp();
+$exp->setDoctor_id($s->id);
+$exp->getByDoctor_id();
+echo $exp->getText();
+$exp->setText("hello");
+$exp->add();
+$exp->setText("hello2");
+$exp->add();
 
    echo "
              <div class='col-sm-6 col-md-3'>
@@ -455,13 +446,13 @@ while ($row = mysqli_fetch_assoc($result)){
                     />
                   </div>
                   <div class='iq-doc-info mt-3'>
-                    <h4>Dr. ".$row['first_name'].' '.$row['last_name']."</h4>
-                    <p class='mb-0'>".$row['specialization']."</p>
+                    <h4>Dr. ".$d->first_name.' '.$d->last_name."</h4>
+                    <p class='mb-0'>".$d->specialty."</p>
                     
                   </div>
                   <div class='iq-doc-description mt-2'>
                     <p class='mb-0'>
-                      ".$row['bio']."
+                      ".$d->bio."
                     </p>
                   </div>
                   <div class='iq-doc-social-info mt-3 mb-3'>
@@ -497,7 +488,7 @@ while ($row = mysqli_fetch_assoc($result)){
                     <!-- Footer -->
                     <footer class="bg-white iq-footer">
                         <div class="container-fluid">
-                            <div class="row">
+                            <div class=$d->">
                                 <div class="col-lg-2"></div>
                                 <div class="col-lg-6 text-right">
                                     Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
