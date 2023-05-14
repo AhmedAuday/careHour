@@ -5,22 +5,22 @@
 
       $admin = new Admins();
 
-      if(!empty($_POST['email']) && !empty($_POST['uname'])){
-        $admin->setEmail($_POST['email']);
-        $admin->setUsername($_POST['uname']);
-        $admin->setPassword(encrypt($_POST['password']));
-        $admin->setRole($_POST['role']);
-        $admin->setCreated_at(getCurrentTime());
-        $admin->setUpdated_at(getCurrentTime());
-        $admin->setDeleted_at(getCurrentTime());
-        $admin->setDeleted(0);
-        $admin->setActive(1);
-        $admin->setToken(encode($_POST['email']));
-        $admin->setToken_expire(getCurrentTime());
-        $admin->add();
-        $admin->getLastRow();
-        $admin->giveAuthority();
-      }
+      // if(!empty($_POST['email']) && !empty($_POST['uname'])){
+      //   $admin->setEmail($_POST['email']);
+      //   $admin->setUsername($_POST['uname']);
+      //   $admin->setPassword(encrypt($_POST['password']));
+      //   $admin->setRole($_POST['role']);
+      //   $admin->setCreated_at(getCurrentTime());
+      //   $admin->setUpdated_at(getCurrentTime());
+      //   $admin->setDeleted_at(getCurrentTime());
+      //   $admin->setDeleted(0);
+      //   $admin->setActive(1);
+      //   $admin->setToken(encode($_POST['email']));
+      //   $admin->setToken_expire(getCurrentTime());
+      //   $admin->add();
+      //   $admin->getLastRow();
+      //   $admin->giveAuthority();
+      // }
 ?>
 
 <!DOCTYPE html>
@@ -146,7 +146,9 @@
                                 class="form-control"
                                 name="pwd"
                                 placeholder="Password"
+                                id="pwd"
                               />
+                              
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -157,7 +159,9 @@
                                 class="form-control"
                                 name="cpwd"
                                 placeholder="Confirm Password"
+                                id="cpwd"
                               />
+                              <span id='message'></span>
                             </div>
                           </div>
                         </div>
@@ -471,7 +475,7 @@
                 </ul>
               </div>
               <div class="col-lg-6 text-right">
-                Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
+                Copyright <?=date("Y")?> <a href="#">CareHour</a> All Rights Reserved.
               </div>
             </div>
           </div>
@@ -512,5 +516,29 @@
     <script src="../../js/chart-custom.js"></script>
     <!-- Custom JavaScript -->
     <script src="../../js/custom.js"></script>
+    <!-- Checking confirm password -->
+    
+    <!-- make a function keyup to confirm password pwd and cpwd wothout reload the page-->
+    <script>
+      $('#pwd, #cpwd').on('keyup', function () {
+  if ($('#pwd').val() == $('#cpwd').val()) {
+    $('#message').html('Matching').css('color', 'green');
+  } else 
+    $('#message').html('Not Matching').css('color', 'red');
+  // make a lenght password checking bigger than 8
+  if($('#pwd').val().length < 8){
+    $('#message').html('Password must be at least 8 characters').css('color', 'red');
+  }
+  // checking for characters in password to be at least 1 and capital letter
+  if($('#pwd').val().match(/[a-z]/g) && $('#pwd').val().match(/[A-Z]/g)){
+    $('#message').html('Password must contain at least 1 capital letter').css('color', 'red');
+  }
+  
+
+
+
+
+});
+    </script>
   </body>
 </html>
