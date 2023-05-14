@@ -1,3 +1,28 @@
+<?php
+      include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+      include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+      include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+      $admin = new Admins();
+
+      if(!empty($_POST['email']) && !empty($_POST['uname'])){
+        $admin->setEmail($_POST['email']);
+        $admin->setUsername($_POST['uname']);
+        $admin->setPassword(encrypt($_POST['password']));
+        $admin->setRole($_POST['role']);
+        $admin->setCreated_at(getCurrentTime());
+        $admin->setUpdated_at(getCurrentTime());
+        $admin->setDeleted_at(getCurrentTime());
+        $admin->setDeleted(0);
+        $admin->setActive(1);
+        $admin->setToken(encode($_POST['email']));
+        $admin->setToken_expire(getCurrentTime());
+        $admin->add();
+        $admin->getLastRow();
+        $admin->giveAuthority();
+      }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -1,9 +1,9 @@
 <?php
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/config.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/config.inc.php';//get it from config dile or from database
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/encrypt.inc.php';
 
   class Admins extends Database {
-    private $sqlCondition = 1;
+    private $sqlCondition = 1;//to make the class more flexible
     private $id;
     private $username;
     private $email;
@@ -206,7 +206,7 @@
 
     public function getBySet($limit){
       if(!is_numeric($limit)){ return '[]'; }
-      $sql = "SELECT * FROM `admins` WHERE `id` LIKE '%$this->id%' AND `username` LIKE '%$this->username%' AND `email` LIKE '%$this->email%' AND `passwordd` LIKE '%$this->passwordd%' AND `timee` LIKE '%$this->timee%' AND `time` LIKE '%$this->time%' LIMIT $limit";
+      $sql = "SELECT * FROM `admins` WHERE `id` LIKE '%$this->id%' AND `username` LIKE '%$this->username%' AND `email` LIKE '%$this->email%' AND `passwordd` LIKE '%$this->passwordd%' AND `timee` LIKE '%$this->timee%'  LIMIT $limit";
       $result = $this->db()->query($sql);
       $data = $result->fetchAll();
       $json_data = json_encode($data);
