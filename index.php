@@ -1,3 +1,22 @@
+<?php
+
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/classes/Patients.class.php';
+
+
+$patint=new Patients();
+
+$patint->getById(session_id());
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -390,8 +409,8 @@
                                                     class="avatar-130 img-fluid" />
                                             </div>
                                             <div class="text-center mt-3">
-                                                <h4><b>Bess Willis</b></h4>
-                                                <p>27 years, California</p>
+                                                <h4><b><?= $patint->getFirst_name()." ".$patint->getMiddle_name()?></b></h4>
+                                                <p><?= date("Y:M:D")-$patint->getDate_of_birth()?>. California</p>
                                             </div>
                                             <ul
                                                 class="doctoe-sedual d-flex align-items-center justify-content-between p-0 mt-4 mb-0">
