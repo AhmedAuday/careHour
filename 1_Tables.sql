@@ -204,8 +204,6 @@ CREATE TABLE prescriptions (
     prescription_date DATE NOT NULL,
     dosage VARCHAR(255) NOT NULL,
     timee INT NOT NULL,
-    FOREIGN KEY (medication_id)
-        REFERENCES medications (id),
     FOREIGN KEY (patient_id)
         REFERENCES patients (id),
     FOREIGN KEY (doctor_id)
