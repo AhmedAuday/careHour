@@ -1,0 +1,23 @@
+Do not forget
+#for get by username 
+first set a var to username 
+EX/
+$admin=setUsername("TellmyName");
+$admin->getByusername();
+setting to anything related to the user admin 
+ex/
+$admin->setPasswordd("Kakanazanm");
+$admin->update();
+
+
+
+/////////////////////////////
+
+delete admin
+
+$admin=new Admin();
+
+$admin->setID($admin->getbyiD());//this basically find the session id and set to the object
+
+$admin->delete();//that it to delete
+///////
