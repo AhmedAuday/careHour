@@ -32,7 +32,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>XRay - Responsive Bootstrap 4 Admin Dashboard Template</title>
+    <title>CareHour SignUp</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" />
     <!-- Bootstrap CSS -->
