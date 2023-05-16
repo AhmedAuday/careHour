@@ -59,9 +59,9 @@
   </head>
   <body>
     <!-- loader Start -->
-    <div id="loading">
+    <!-- <div id="loading">
       <div id="loading-center"></div>
-    </div>
+    </div> -->
     <!-- loader END -->
     <!-- Wrapper Start -->
     <div class="wrapper">

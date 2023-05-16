@@ -20,9 +20,9 @@
 
     <body>
         <!-- loader Start -->
-        <div id="loading">
+        <!-- <div id="loading">
             <div id="loading-center"></div>
-        </div>
+        </div> -->
         <!-- loader END -->
         <!-- Sign in Start -->
         <section class="sign-in-page">
@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="sign-info">
                                     <span class="dark-color d-inline-block line-height-2">Don't have an account? <a
-                                            href="sign-up.php">Sign up</a></span>
+                                            href="sign-up-v2.php">Sign up</a></span>
                                 </div>
                             </form>
                         </div>
