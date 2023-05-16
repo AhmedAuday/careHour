@@ -171,6 +171,7 @@
                         name="next"
                         class="btn btn-primary next action-button float-right"
                         value="Next"
+                        id="next1"
                       >
                         Next
                       </button>
@@ -533,7 +534,22 @@
   if($('#pwd').val().match(/[a-z]/g) && $('#pwd').val().match(/[A-Z]/g)){
     $('#message').html('Password must contain at least 1 capital letter').css('color', 'red');
   }
-  
+  // checking for special characters in password to be at least 1
+  if($('#pwd').val().match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)){
+    $('#message').html('Password must contain at least 1 special character').css('color', 'red');
+  }
+  // checking for space in password
+  if($('#pwd').val().match(/s/)){
+    $('#message').html('Password must not contain space').css('color', 'red');
+  }
+  // next1 should check if both password and confirm password are matching then enable the next button
+  if($('#pwd').val() == $('#cpwd').val()){
+    $('#next1').prop('disabled', false);
+  // if not matching then disable the next button
+  }else{
+    $('#next1').prop('disabled', true);
+  }
+      
 
 
 
