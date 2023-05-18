@@ -3,7 +3,43 @@
       include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
       include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 
-      $admin = new Admins();
+      $patient = new Patient_user();
+      if(isset($_POST['submit'])){
+      if(!empty($_POST['email']) && !empty($_POST['uname'])){
+        $patient->setEmail($_POST['email']);
+        $patient->setUsername($_POST['uname']);
+        $patient->setPassword(encrypt($_POST['password']));
+        $patient->setTimee(time());
+        $patient->add();
+        $patient->getLastRow();
+        $patient->giveAuthority();
+      }
+      if(!empty($_POST['fname'])){
+        $patient_data = new Patients();
+        $patient_data->setPatient_id($patient->getId());
+        $patient_data->setFirst_name($_POST['fname']);
+        $patient_data->setMiddle_name($_POST['mname']);
+        $patient_data->setLast_name($_POST['lname']);
+        $patient_data->setDate_of_birth($_POST['dob']);
+        $patient_data->setBlood_type($_POST['blood_type']);
+        $patient_data->setGender($_POST['customRadio1']);
+        $patient_data->setAddress($_POST['address']);
+        $patient_data->setCity($_POST['city']);
+        $patient_data->setPhone_number($_POST['phone']);
+        $patient_data->setTimee(time());
+        $patient_data->setTime(time());
+        $patient_data->add();
+        $patient->getLastRow();
+        $patient_data->giveAuthority();
+      }}
+    
+      
+
+            
+      
+
+
+
 
       // if(!empty($_POST['email']) && !empty($_POST['uname'])){
       //   $admin->setEmail($_POST['email']);
@@ -80,7 +116,7 @@
                   </div>
                 </div>
                 <div class="iq-card-body">
-                  <form id="form-wizard1" class="text-center mt-4">
+                  <form id="form-wizard1" class="text-center mt-4" method="POST">
                     <ul id="top-tab-list" class="p-0">
                       <li class="active" id="account">
                         <a href="javascript:void();">
@@ -406,7 +442,7 @@
                       </div>
                       <button
                         type="button"
-                        name="next"
+                        name="submit"
                         class="btn btn-primary next action-button float-right"
                         value="Submit"
                       >
@@ -468,10 +504,10 @@
               <div class="col-lg-6">
                 <ul class="list-inline mb-0">
                   <li class="list-inline-item">
-                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="">Privacy Policy</a>
                   </li>
                   <li class="list-inline-item">
-                    <a href="terms-of-service.html">Terms of Use</a>
+                    <a href="">Terms of Use</a>
                   </li>
                 </ul>
               </div>
