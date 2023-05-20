@@ -333,7 +333,7 @@
                                                     </h5>
                                                     <span class="text-white font-size-12">Available</span>
                                                 </div>
-                                                <a href="profile.php" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="admin_profile.php" class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-file-user-line"></i>
@@ -372,19 +372,7 @@
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <a href="privacy-setting.php" class="iq-sub-card iq-bg-primary-hover">
-                                                    <div class="media align-items-center">
-                                                        <div class="rounded iq-card-icon iq-bg-primary">
-                                                            <i class="ri-lock-line"></i>
-                                                        </div>
-                                                        <div class="media-body ml-3">
-                                                            <h6 class="mb-0">Privacy Settings</h6>
-                                                            <p class="mb-0 font-size-12">
-                                                                Control your privacy parameters.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </a>
+
                                                 <div class="d-inline-block w-100 text-center p-3">
                                                     <a class="bg-primary iq-sign-btn" href="sign-in.php"
                                                         role="button">Sign out<i class="ri-login-box-line
