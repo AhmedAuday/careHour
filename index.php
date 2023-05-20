@@ -8,9 +8,7 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/includes/classes/Patients.class.php';
 
 $patint=new Patients();
 
-$patint->getById(session_id());
-
-
+$patint->getById("1");
 
 
 
@@ -395,7 +393,7 @@ $patint->getById(session_id());
                     </div>
                 </div>
                 <!-- TOP Nav Bar END -->
-                Page Start
+
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-4 row m-0 p-0">
@@ -409,8 +407,15 @@ $patint->getById(session_id());
                                                     class="avatar-130 img-fluid" />
                                             </div>
                                             <div class="text-center mt-3">
-                                                <h4><b><?= $patint->getFirst_name()." ".$patint->getMiddle_name()?></b></h4>
-                                                <p><?= date("Y:M:D")-$patint->getDate_of_birth()?>. California</p>
+                                                <h4>
+                                                    <b>
+                                                        <?= $patint->getFirst_name()." ".$patint->getMiddle_name()?>
+                                                    </b>
+                                                </h4>
+                                                <p><?= date("Y:M:D")-$patint->getDate_of_birth()?></p>
+                                                <p>
+                                                    <?php echo "Patient" ?>
+                                                </p>
                                             </div>
                                             <ul
                                                 class="doctoe-sedual d-flex align-items-center justify-content-between p-0 mt-4 mb-0">
