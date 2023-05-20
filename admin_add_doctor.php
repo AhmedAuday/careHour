@@ -113,7 +113,7 @@
                             <div class="iq-search-bar">
                                 <form action="#" class="searchbox">
                                     <input type="text" class="text search-input" placeholder="Type
-                    here to search..." />
+                                          here to search..." />
                                     <a class="search-link" href="#"><i class="ri-search-line"></i></a>
                                 </form>
                             </div>
@@ -308,7 +308,7 @@
                             <ul class="navbar-list">
                                 <li>
                                     <a href="#" class="search-toggle iq-waves-effect d-flex
-                    align-items-center">
+                                           align-items-center">
                                         <img src="images/user/1.jpg" class="img-fluid rounded mr-3" alt="user" />
                                         <div class="caption">
                                             <h6 class="mb-0 line-height">Bini Jets</h6>
@@ -324,7 +324,7 @@
                                                     </h5>
                                                     <span class="text-white font-size-12">Available</span>
                                                 </div>
-                                                <a href="profile.php" class="iq-sub-card
+                                                <a href="admin_profile.php" class="iq-sub-card
                           iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
@@ -366,20 +366,7 @@
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <a href="privacy-setting.php" class="iq-sub-card
-                          iq-bg-primary-hover">
-                                                    <div class="media align-items-center">
-                                                        <div class="rounded iq-card-icon iq-bg-primary">
-                                                            <i class="ri-lock-line"></i>
-                                                        </div>
-                                                        <div class="media-body ml-3">
-                                                            <h6 class="mb-0">Privacy Settings</h6>
-                                                            <p class="mb-0 font-size-12">
-                                                                Control your privacy parameters.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </a>
+
                                                 <div class="d-inline-block w-100 text-center p-3">
                                                     <a class="bg-primary iq-sign-btn" href="sign-in.php"
                                                         role="button">Sign out<i class="ri-login-box-line
