@@ -6,7 +6,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1,
       shrink-to-fit=no" />
-        <title>XRay - Responsive Bootstrap 4 Admin Dashboard Template</title>
+        <title>CareHour</title>
         <!-- Favicon -->
         <link rel="shortcut icon" href="images/favicon.ico" />
         <!-- Bootstrap CSS -->
@@ -39,7 +39,7 @@
                 <div class="iq-sidebar-logo d-flex justify-content-between">
                     <a href="">
                         <img src="images/logo.png" class="img-fluid" alt="" />
-                        <span>XRay</span>
+                        <span>CareHour</span>
                     </a>
                     <div class="iq-menu-bt-sidebar">
                         <div class="iq-menu-bt align-self-center">
@@ -113,7 +113,7 @@
                             <div class="top-logo">
                                 <a href="" class="logo">
                                     <img src="images/logo.png" class="img-fluid" alt="" />
-                                    <span>XRay</span>
+                                    <span>CareHour</span>
                                 </a>
                             </div>
                         </div>
