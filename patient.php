@@ -1,14 +1,14 @@
 <?php
 
-include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
-include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
-include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
-include_once $_SERVER["DOCUMENT_ROOT"].'/includes/classes/Patients.class.php';
+// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/classes/Patients.class.php';
 
 
-$patint=new Patients();
+// $patint=new Patients();
 
-$patint->getById("1");
+// $patint->getById("1");
 
 
 
@@ -45,9 +45,9 @@ $patint->getById("1");
 
     <body class="sidebar-main-menu">
         <!-- loader Start -->
-        <div id="loading">
+        <!--<div id="loading">
             <div id="loading-center"></div>
-        </div>
+        </div>-->
         <!-- loader END -->
 
         <!-- Wrapper Start -->
