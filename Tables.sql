@@ -8,7 +8,7 @@ CREATE TABLE admins (
     email VARCHAR(255) NOT NULL UNIQUE,
     image_of_id MEDIUMBLOB NOT NULL ,
     passwordd VARCHAR(255) NOT NULL,
-    timee INT NOT NULL
+    time INT NOT NULL
 );
 
 
@@ -35,7 +35,7 @@ CREATE TABLE doctors (
     start_office_hour TIMESTAMP ,
     end_office_hour TIMESTAMP ,
     bio TEXT NOT NULL,
-    timee INT,
+    time INT,
     FOREIGN KEY (user_id)
         REFERENCES admins (id)
         ON UPDATE CASCADE
@@ -60,7 +60,7 @@ CREATE TABLE patients (
     addresses VARCHAR(100),
     city VARCHAR(50),
     phone_number VARCHAR(13),
-    timee INT NOT NULL,
+    time INT NOT NULL,
     );
 
 
@@ -72,7 +72,7 @@ CREATE TABLE patient_files (
     file_type VARCHAR(50) NOT NULL,
     documents LONGBLOB NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    timee INT NOT NULL,
+    time INT NOT NULL,
     FOREIGN KEY (patient_id)
         REFERENCES patients (id)
         ON UPDATE CASCADE
@@ -91,7 +91,7 @@ CREATE TABLE patient_history (
     notes TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    timee INT NOT NULL,
+    time INT NOT NULL,
     FOREIGN KEY (files_id)
         REFERENCES patient_files (id)
         ON UPDATE CASCADE
@@ -105,7 +105,7 @@ CREATE TABLE appointments (
     appointment_date DATETIME NOT NULL,
     appointment_type ENUM ('Consultation', 'Follow-up', 'Procedure') NOT NULL,
     notes TEXT,
-    timee INT NOT NULL,
+    time INT NOT NULL,
 
     FOREIGN KEY (doctor_id)
         REFERENCES doctors (id)
@@ -125,7 +125,7 @@ CREATE TABLE allergies (
     name VARCHAR(100) NOT NULL,
     severity ENUM ('Mild', 'Moderate', 'Severe') NOT NULL,
     spicifie_allerge TEXT ,
-    timee INT NOT NULL,
+    time INT NOT NULL,
     FOREIGN KEY (patient_id)
         REFERENCES patients (id)
         ON UPDATE CASCADE
@@ -140,7 +140,7 @@ CREATE TABLE surgeries (
     surgery_name VARCHAR(100) NOT NULL,
     surgery_date DATE NOT NULL,
     notes TEXT,
-    timee INT NOT NULL,
+    time INT NOT NULL,
     FOREIGN KEY (patient_id)
         REFERENCES patients (id)
         ON UPDATE CASCADE
@@ -160,7 +160,7 @@ CREATE TABLE vitals (
     blood_pressure VARCHAR(10) NOT NULL,
     heart_rate INT NOT NULL,
     respiratory_rate INT NOT NULL,
-    timee INT NOT NULL,
+    time INT NOT NULL,
     FOREIGN KEY (patient_id)
         REFERENCES patients (id)
         ON UPDATE CASCADE
@@ -174,7 +174,7 @@ CREATE TABLE symptoms (
     start_date DATE NOT NULL,
     end_date DATE,
     notes TEXT,
-    timee INT NOT NULL,
+    time INT NOT NULL,
     FOREIGN KEY (patient_id)
         REFERENCES patients (id)
         ON UPDATE CASCADE
@@ -187,7 +187,7 @@ CREATE TABLE disabilities (
     disability_name VARCHAR(100) NOT NULL,
     onset_date DATE NOT NULL,
     notes VARCHAR(100),
-    timee INT NOT NULL,
+    time INT NOT NULL,
     FOREIGN KEY (patient_id)
         REFERENCES patients (id)
         ON UPDATE CASCADE
@@ -202,7 +202,7 @@ CREATE TABLE prescriptions (
     medication_id INT NOT NULL,
     prescription_date DATE NOT NULL,
     dosage VARCHAR(255) NOT NULL,
-    timee INT NOT NULL,
+    time INT NOT NULL,
     FOREIGN KEY (patient_id)
         REFERENCES patients (id)
         ON UPDATE CASCADE
@@ -220,7 +220,7 @@ CREATE TABLE medical_procedures (
     procedure_date DATE NOT NULL,
     procedure_type VARCHAR(255) NOT NULL,
     procedure_notes VARCHAR(255),
-    timee INT NOT NULL,
+    time INT NOT NULL,
     FOREIGN KEY (patient_id)
         REFERENCES patients (id)
         ON UPDATE CASCADE
