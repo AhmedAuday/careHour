@@ -2,9 +2,9 @@
 
     class Database{
         private $host = "localhost";
-        private $user = "DB_USERNAME";
-        private $pwd = "DB_PASSWORD";
-        private $dbName = "DB_NAME";
+        private $user = "root";
+        private $pwd = "";
+        private $dbName = "carehour";
 
         protected function db(){
           try {
