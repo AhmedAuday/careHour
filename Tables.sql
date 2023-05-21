@@ -2,32 +2,16 @@
 # USE CareHour;
 
 
-CREATE Table patient_user(
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    passwordd VARCHAR(255) NOT NULL,
-
-    timee INT NOT NULL
-);
-
-
 CREATE TABLE admins (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
+    image_of_id MEDIUMBLOB NOT NULL ,
     passwordd VARCHAR(255) NOT NULL,
     timee INT NOT NULL
 );
 
-CREATE TABLE doctor_users (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    passwordd VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    timee INT NOT NULL
-);
+
 
 CREATE TABLE doctors (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -35,12 +19,17 @@ CREATE TABLE doctors (
     first_name VARCHAR(50) NOT NULL,
     middle_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    passwordd VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     phone VARCHAR(20) NOT NULL,
     image_of_id MEDIUMBLOB NOT NULL ,
     profile_image MEDIUMBLOB NOT NULL ,
     gender ENUM ('male', 'female', 'other') NOT NULL,
     dob DATE NOT NULL,
     specialty VARCHAR(255) NOT NULL,
+    addresses VARCHAR(100) NOT NULL,
     education TEXT NOT NULL,
     experience_years INT NOT NULL,
     start_office_hour TIMESTAMP ,
@@ -48,7 +37,7 @@ CREATE TABLE doctors (
     bio TEXT NOT NULL,
     timee INT,
     FOREIGN KEY (user_id)
-        REFERENCES doctor_users (id)
+        REFERENCES admins (id)
         ON UPDATE CASCADE
         ON DELETE CASCADE
     );
@@ -57,23 +46,21 @@ CREATE TABLE doctors (
 
 CREATE TABLE patients (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL UNIQUE,
-    first_name VARCHAR(50) NOT NULL,#
-    middle_name VARCHAR(50) NOT NULL,#
-    last_name VARCHAR(50) NOT NULL,#
-    date_of_birth DATE NOT NULL,#
-    blood_type VARCHAR(3),#
+    first_name VARCHAR(50) NOT NULL,
+    middle_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    passwordd VARCHAR(255) NOT NULL,
+    image_of_id MEDIUMBLOB NOT NULL ,
+    profile_image MEDIUMBLOB NOT NULL ,
+    date_of_birth DATE NOT NULL,
+    blood_type VARCHAR(3),
     gender ENUM ('Male', 'Female', 'Other') NOT NULL,#
-    address VARCHAR(100),#
-    city VARCHAR(50),#
-    phone_number VARCHAR(13),#
+    addresses VARCHAR(100),
+    city VARCHAR(50),
+    phone_number VARCHAR(13),
     timee INT NOT NULL,
-
-
-    FOREIGN KEY (user_id)
-        REFERENCES patient_user (id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE
     );
 
 
@@ -83,6 +70,7 @@ CREATE TABLE patient_files (
     doctor_id INT NOT NULL,
     file_name VARCHAR(100) NOT NULL,
     file_type VARCHAR(50) NOT NULL,
+    documents LONGBLOB NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     timee INT NOT NULL,
     FOREIGN KEY (patient_id)
@@ -140,7 +128,8 @@ CREATE TABLE allergies (
     timee INT NOT NULL,
     FOREIGN KEY (patient_id)
         REFERENCES patients (id)
-
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
     );
 
 
@@ -153,9 +142,13 @@ CREATE TABLE surgeries (
     notes TEXT,
     timee INT NOT NULL,
     FOREIGN KEY (patient_id)
-        REFERENCES patients (id),
-        FOREIGN KEY (doctor_id)
+        REFERENCES patients (id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    FOREIGN KEY (doctor_id)
         REFERENCES doctors (id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
     );
 
 CREATE TABLE vitals (
@@ -170,6 +163,8 @@ CREATE TABLE vitals (
     timee INT NOT NULL,
     FOREIGN KEY (patient_id)
         REFERENCES patients (id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
     );
 
 CREATE TABLE symptoms (
@@ -182,6 +177,8 @@ CREATE TABLE symptoms (
     timee INT NOT NULL,
     FOREIGN KEY (patient_id)
         REFERENCES patients (id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
     );
 
 CREATE TABLE disabilities (
@@ -193,6 +190,8 @@ CREATE TABLE disabilities (
     timee INT NOT NULL,
     FOREIGN KEY (patient_id)
         REFERENCES patients (id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
     );
 
 
@@ -205,9 +204,13 @@ CREATE TABLE prescriptions (
     dosage VARCHAR(255) NOT NULL,
     timee INT NOT NULL,
     FOREIGN KEY (patient_id)
-        REFERENCES patients (id),
+        REFERENCES patients (id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
     FOREIGN KEY (doctor_id)
         REFERENCES doctors (id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
     );
 
 CREATE TABLE medical_procedures (
@@ -219,8 +222,12 @@ CREATE TABLE medical_procedures (
     procedure_notes VARCHAR(255),
     timee INT NOT NULL,
     FOREIGN KEY (patient_id)
-        REFERENCES patients (id),
+        REFERENCES patients (id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
     FOREIGN KEY (doctor_id)
         REFERENCES doctors (id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
     );
 

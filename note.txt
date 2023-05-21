@@ -21,3 +21,5 @@ $admin->setID($admin->getbyiD());//this basically find the session id and set to
 
 $admin->delete();//that it to delete
 ///////
+
+making a suggustion API call and qoutes 
