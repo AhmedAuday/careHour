@@ -1,5 +1,3 @@
-
-
 <?php
 //fetch online api using php to get then show on pop
 // $url = 'https://api.quotable.io/random';
@@ -26,6 +24,7 @@ curl_setopt_array($curl, [
         "x-api-key: ikvZ6B8DHjPbdg/jQ9RgNQ==uclebjeFzSf94Ic3"
     ],
 ]);
+
 $response = curl_exec($curl);
 $err = curl_error($curl);
 curl_close($curl);
