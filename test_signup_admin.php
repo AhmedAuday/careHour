@@ -19,9 +19,9 @@
 
 
 <form method="POST">
-email:<input type="text" name="email" placeholder="email"><br>
-username<input type="text" name="uname" placeholder="uname"><br>
-password<input type="text" name="password" placeholder="password"><br>
-<input type="submit" name="submit" value="submit">
+    email:<input type="text" name="email" placeholder="email"><br>
+    username<input type="text" name="uname" placeholder="uname"><br>
+    password<input type="text" name="password" placeholder="password"><br>
+    <input type="submit" name="submit" value="submit">
 
-    </form>
+</form>

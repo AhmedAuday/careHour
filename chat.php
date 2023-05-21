@@ -712,8 +712,7 @@
                                                 <div class="chat-message">
                                                     <p>Absolutely!</p>
                                                     <p>
-                                                        XRay Dashboard is the responsive bootstrap 4 admin
-                                                        template.
+                                                        CareHour
                                                     </p>
                                                 </div>
                                             </div>
@@ -937,8 +936,7 @@
                                                 <div class="chat-message">
                                                     <p>Absolutely!</p>
                                                     <p>
-                                                        XRay Dashboard is the responsive bootstrap 4 admin
-                                                        template.
+                                                        CareHour
                                                     </p>
                                                 </div>
                                             </div>
@@ -1160,8 +1158,7 @@
                                                 <div class="chat-message">
                                                     <p>Absolutely!</p>
                                                     <p>
-                                                        XRay Dashboard is the responsive bootstrap 4 admin
-                                                        template.
+                                                        CareHour
                                                     </p>
                                                 </div>
                                             </div>
@@ -1383,8 +1380,7 @@
                                                 <div class="chat-message">
                                                     <p>Absolutely!</p>
                                                     <p>
-                                                        XRay Dashboard is the responsive bootstrap 4 admin
-                                                        template.
+                                                        CareHour
                                                     </p>
                                                 </div>
                                             </div>
@@ -1608,8 +1604,7 @@
                                                 <div class="chat-message">
                                                     <p>Absolutely!</p>
                                                     <p>
-                                                        XRay Dashboard is the responsive bootstrap 4 admin
-                                                        template.
+                                                        CareHour
                                                     </p>
                                                 </div>
                                             </div>
@@ -1831,8 +1826,7 @@
                                                 <div class="chat-message">
                                                     <p>Absolutely!</p>
                                                     <p>
-                                                        XRay Dashboard is the responsive bootstrap 4 admin
-                                                        template.
+                                                        CareHour
                                                     </p>
                                                 </div>
                                             </div>
@@ -2054,8 +2048,7 @@
                                                 <div class="chat-message">
                                                     <p>Absolutely!</p>
                                                     <p>
-                                                        XRay Dashboard is the responsive bootstrap 4 admin
-                                                        template.
+                                                        CareHour
                                                     </p>
                                                 </div>
                                             </div>
@@ -2279,8 +2272,7 @@
                                                 <div class="chat-message">
                                                     <p>Absolutely!</p>
                                                     <p>
-                                                        XRay Dashboard is the responsive bootstrap 4 admin
-                                                        template.
+                                                        CareHour
                                                     </p>
                                                 </div>
                                             </div>
@@ -2502,8 +2494,7 @@
                                                 <div class="chat-message">
                                                     <p>Absolutely!</p>
                                                     <p>
-                                                        XRay Dashboard is the responsive bootstrap 4 admin
-                                                        template.
+                                                        CareHour
                                                     </p>
                                                 </div>
                                             </div>
@@ -2727,8 +2718,7 @@
                                                 <div class="chat-message">
                                                     <p>Absolutely!</p>
                                                     <p>
-                                                        XRay Dashboard is the responsive bootstrap 4 admin
-                                                        template.
+                                                        CareHour
                                                     </p>
                                                 </div>
                                             </div>

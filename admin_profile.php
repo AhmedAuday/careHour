@@ -1,29 +1,11 @@
-<?php
-
-include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
-include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
-include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
-include_once $_SERVER["DOCUMENT_ROOT"].'/includes/classes/Patients.class.php';
-
-
-$patint=new Patients();
-
-$patint->getById("1");
-
-
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1,
-      shrink-to-fit=no" />
-        <title>CareHour</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Care Hour</title>
         <!-- Favicon -->
         <link rel="shortcut icon" href="/images/favicon.ico" />
         <!-- Bootstrap CSS -->
@@ -34,28 +16,20 @@ $patint->getById("1");
         <link rel="stylesheet" href="/css/style.css" />
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="/css/responsive.css" />
-        <!-- Full calendar -->
-        <link href="/fullcalendar/core/main.css" rel="stylesheet" />
-        <link href="/fullcalendar/daygrid/main.css" rel="stylesheet" />
-        <link href="/fullcalendar/timegrid/main.css" rel="stylesheet" />
-        <link href="/fullcalendar/list/main.css" rel="stylesheet" />
-
-        <link rel="stylesheet" href="/css/flatpickr.min.css" />
     </head>
 
-    <body class="sidebar-main-menu">
+    <body>
         <!-- loader Start -->
         <div id="loading">
             <div id="loading-center"></div>
         </div>
         <!-- loader END -->
-
         <!-- Wrapper Start -->
         <div class="wrapper">
             <!-- Sidebar  -->
             <div class="iq-sidebar">
                 <div class="iq-sidebar-logo d-flex justify-content-between">
-                    <a href="dashboard-3.php">
+                    <a href="index.php">
                         <img src="/images/logo.png" class="img-fluid" alt="" />
                         <span>CareHour</span>
                     </a>
@@ -87,13 +61,12 @@ $patint->getById("1");
 
                             <li>
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"
-                                    aria-expanded="false"><i class="ri-user-3-fill"></i><span>Doctors</span><i
+                                    aria-expanded="true"><i class="ri-user-3-fill"></i><span>Doctors</span><i
                                         class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                                 <ul id="doctor-info" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                                     <li>
                                         <a href="doctor-list.php"><i class="ri-file-list-fill"></i>All Doctors</a>
                                     </li>
-
                                     <li>
                                         <a href="my-docotor-list.php"><i class="ri-profile-fill"></i>MY Doctors</a>
                                     </li>
@@ -109,13 +82,10 @@ $patint->getById("1");
                     <div class="p-3"></div>
                 </div>
             </div>
-
-            <!-- end Side Bar  -->
-
             <!-- Page Content  -->
             <div id="content-page" class="content-page">
                 <!-- TOP Nav Bar -->
-                <div class="iq-top-navbar header-top-sticky">
+                <div class="iq-top-navbar">
                     <div class="iq-navbar-custom">
                         <div class="iq-sidebar-logo">
                             <div class="top-logo">
@@ -128,8 +98,7 @@ $patint->getById("1");
                         <nav class="navbar navbar-expand-lg navbar-light p-0">
                             <div class="iq-search-bar">
                                 <form action="#" class="searchbox">
-                                    <input type="text" class="text search-input" placeholder="Type
-                    here to search..." />
+                                    <input type="text" class="text search-input" placeholder="Type here to search..." />
                                     <a class="search-link" href="#"><i class="ri-search-line"></i></a>
                                 </form>
                             </div>
@@ -182,7 +151,6 @@ $patint->getById("1");
                                                                 class="badge badge-light float-right pt-1">4</small>
                                                         </h5>
                                                     </div>
-
                                                     <a href="#" class="iq-sub-card">
                                                         <div class="media align-items-center">
                                                             <div class="">
@@ -381,7 +349,7 @@ $patint->getById("1");
                                                     </div>
                                                 </a>
                                                 <div class="d-inline-block w-100 text-center p-3">
-                                                    <a class="bg-primary iq-sign-btn" href="logout.php"
+                                                    <a class="bg-primary iq-sign-btn" href="sign-in.php"
                                                         role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
                                                 </div>
                                             </div>
@@ -393,365 +361,396 @@ $patint->getById("1");
                     </div>
                 </div>
                 <!-- TOP Nav Bar END -->
-
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-4 row m-0 p-0">
-                            <div class="col-sm-12">
-                                <div class="iq-card iq-card-block iq-card-stretch iq-card-height iq-user-profile-block"
-                                    style="height: 75%">
-                                    <div class="iq-card-body">
-                                        <div class="user-details-block">
-                                            <div class="user-profile text-center">
-                                                <img src="/images/user/11.png" alt="profile-img"
-                                                    class="avatar-130 img-fluid" />
+                        <div class="col-lg-4">
+                            <div class="iq-card">
+                                <div class="iq-card-body pl-0 pr-0 pt-0">
+                                    <div class="doctor-details-block">
+                                        <div class="doc-profile-bg bg-primary" style="height: 150px"></div>
+                                        <div class="doctor-profile text-center">
+                                            <img src="/images/user/11.png" alt="profile-img"
+                                                class="avatar-130 img-fluid" />
+                                        </div>
+                                        <div class="text-center mt-3 pl-3 pr-3">
+                                            <h4><b>Bini Jets</b></h4>
+                                            <p>Doctor</p>
+                                            <p class="mb-0">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                elit. Delectus repudiandae eveniet harum.
+                                            </p>
+                                        </div>
+                                        <hr />
+                                        <ul
+                                            class="doctoe-sedual d-flex align-items-center justify-content-between p-0 m-0">
+                                            <li class="text-center">
+                                                <h3 class="counter">4500</h3>
+                                                <span>Operations</span>
+                                            </li>
+                                            <li class="text-center">
+                                                <h3 class="counter">100</h3>
+                                                <span>Hospital</span>
+                                            </li>
+                                            <li class="text-center">
+                                                <h3 class="counter">10000</h3>
+                                                <span>Patients</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="iq-card">
+                                <div class="iq-card-header d-flex justify-content-between">
+                                    <div class="iq-header-title">
+                                        <h4 class="card-title">Personal Information</h4>
+                                    </div>
+                                </div>
+                                <div class="iq-card-body">
+                                    <div class="about-info m-0 p-0">
+                                        <div class="row">
+                                            <div class="col-4">First Name:</div>
+                                            <div class="col-8">Bini</div>
+                                            <div class="col-4">Last Name:</div>
+                                            <div class="col-8">Jets</div>
+                                            <div class="col-4">Age:</div>
+                                            <div class="col-8">27</div>
+                                            <div class="col-4">Position:</div>
+                                            <div class="col-8">Senior doctor</div>
+                                            <div class="col-4">Email:</div>
+                                            <div class="col-8">
+                                                <a href="mailto:biniJets24@demo.com">
+                                                    biniJets24@demo.com
+                                                </a>
                                             </div>
-                                            <div class="text-center mt-3">
-                                                <h4>
-                                                    <b>
-                                                        <?= $patint->getFirst_name()." ".$patint->getMiddle_name()?>
-                                                    </b>
-                                                </h4>
-                                                <p><?= date("Y:M:D")-$patint->getDate_of_birth()?></p>
-                                                <p>
-                                                    <?php echo "Patient" ?>
-                                                </p>
+                                            <div class="col-4">Phone:</div>
+                                            <div class="col-8">
+                                                <a href="tel:001-2351-25612">001 2351 256 12</a>
                                             </div>
-                                            <ul
-                                                class="doctoe-sedual d-flex align-items-center justify-content-between p-0 mt-4 mb-0">
-                                                <li class="text-center">
-                                                    <h6 class="text-primary">Weight</h6>
-                                                    <h3>60<span>kg</span></h3>
-                                                </li>
-                                                <li class="text-center">
-                                                    <h6 class="text-primary">Height</h6>
-                                                    <h3>170<span>cm</span></h3>
-                                                </li>
-                                                <li class="text-center">
-                                                    <h6 class="text-primary">Goal</h6>
-                                                    <h3 class="text-warning">55<span>kg</span></h3>
-                                                </li>
-                                            </ul>
+                                            <div class="col-4">Location:</div>
+                                            <div class="col-8">USA</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12">
-                                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-                                    <div class="iq-card-body">
-                                        <div class="patient-steps">
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <div class="col-md-6">
-                                                    <div class="data-block">
-                                                        <p class="mb-0">Walked</p>
-                                                        <h5>4532 steps</h5>
-                                                    </div>
-                                                    <div class="data-block mt-3">
-                                                        <p class="mb-0">My Goal</p>
-                                                        <h5>6500 steps</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="progress-round patient-progress mx-auto"
-                                                        data-value="80">
-                                                        <span class="progress-left">
-                                                            <span class="progress-bar border-secondary"></span>
-                                                        </span>
-                                                        <span class="progress-right">
-                                                            <span class="progress-bar border-secondary"></span>
-                                                        </span>
-                                                        <div
-                                                            class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center text-center">
-                                                            <div class="h4 mb-0">
-                                                                4532<br />
-                                                                <span class="font-size-14">left</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <ul
-                                                class="patient-role list-inline d-flex align-items-center p-0 mt-4 mb-0">
-                                                <li class="text-left">
-                                                    <h6 class="text-primary">Carbs</h6>
-                                                    <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                        <div class="iq-progress-bar">
-                                                            <span class="bg-primary" data-percent="85"></span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="text-left">
-                                                    <h6 class="text-primary">Protein</h6>
-                                                    <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                        <div class="iq-progress-bar">
-                                                            <span class="bg-danger" data-percent="65"></span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="text-left">
-                                                    <h6 class="text-primary">Fat</h6>
-                                                    <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                        <div class="iq-progress-bar">
-                                                            <span class="bg-info" data-percent="70"></span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <hr />
-                                        <div class="patient-steps2">
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <div class="col-md-6">
-                                                    <div class="data-block">
-                                                        <p class="mb-0">Burned</p>
-                                                        <h5>325 kcal</h5>
-                                                    </div>
-                                                    <div class="data-block mt-3">
-                                                        <p class="mb-0">My Goal</p>
-                                                        <h5>800 kcal</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="progress-round patient-progress mx-auto"
-                                                        data-value="60">
-                                                        <span class="progress-left">
-                                                            <span class="progress-bar border-secondary"></span>
-                                                        </span>
-                                                        <span class="progress-right">
-                                                            <span class="progress-bar border-secondary"></span>
-                                                        </span>
-                                                        <div
-                                                            class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center text-center">
-                                                            <div class="h4 mb-0 text-warning">
-                                                                325<br />
-                                                                <span class="font-size-14 text-secondary">left</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <ul
-                                                class="patient-role list-inline d-flex align-items-center p-0 mt-4 mb-0">
-                                                <li class="text-left">
-                                                    <h6 class="text-primary">Carbs</h6>
-                                                    <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                        <div class="iq-progress-bar">
-                                                            <span class="bg-primary" data-percent="50"></span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="text-left">
-                                                    <h6 class="text-primary">Protein</h6>
-                                                    <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                        <div class="iq-progress-bar">
-                                                            <span class="bg-danger" data-percent="60"></span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="text-left">
-                                                    <h6 class="text-primary">Fat</h6>
-                                                    <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                        <div class="iq-progress-bar">
-                                                            <span class="bg-info" data-percent="70"></span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
+                            <div class="iq-card">
+                                <div class="iq-card-header d-flex justify-content-between">
+                                    <div class="iq-header-title">
+                                        <h4 class="card-title">Photos</h4>
                                     </div>
+                                </div>
+                                <div class="iq-card-body">
+                                    <ul class="profile-img-gallary d-flex flex-wrap p-0 m-0">
+                                        <li class="col-md-4 col-6 pb-3">
+                                            <a href="javascript:void();"><img src="/images/page-img/g1.jpg"
+                                                    alt="gallary-image" class="img-fluid" /></a>
+                                        </li>
+                                        <li class="col-md-4 col-6 pb-3">
+                                            <a href="javascript:void();"><img src="/images/page-img/g2.jpg"
+                                                    alt="gallary-image" class="img-fluid" /></a>
+                                        </li>
+                                        <li class="col-md-4 col-6 pb-3">
+                                            <a href="javascript:void();"><img src="/images/page-img/g3.jpg"
+                                                    alt="gallary-image" class="img-fluid" /></a>
+                                        </li>
+                                        <li class="col-md-4 col-6 pb-3">
+                                            <a href="javascript:void();"><img src="/images/page-img/g4.jpg"
+                                                    alt="gallary-image" class="img-fluid" /></a>
+                                        </li>
+                                        <li class="col-md-4 col-6 pb-3">
+                                            <a href="javascript:void();"><img src="/images/page-img/g5.jpg"
+                                                    alt="gallary-image" class="img-fluid" /></a>
+                                        </li>
+                                        <li class="col-md-4 col-6 pb-3">
+                                            <a href="javascript:void();"><img src="/images/page-img/g6.jpg"
+                                                    alt="gallary-image" class="img-fluid" /></a>
+                                        </li>
+                                        <li class="col-md-4 col-6 pb-0">
+                                            <a href="javascript:void();"><img src="/images/page-img/g7.jpg"
+                                                    alt="gallary-image" class="img-fluid" /></a>
+                                        </li>
+                                        <li class="col-md-4 col-6 pb-0">
+                                            <a href="javascript:void();"><img src="/images/page-img/g8.jpg"
+                                                    alt="gallary-image" class="img-fluid" /></a>
+                                        </li>
+                                        <li class="col-md-4 col-6 pb-0">
+                                            <a href="javascript:void();"><img src="/images/page-img/g9.jpg"
+                                                    alt="gallary-image" class="img-fluid" /></a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-8">
-                            <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-                                <div class="iq-card-body pb-0">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="iq-card">
-                                                <div class="iq-card-body bg-primary rounded pt-2 pb-2 pr-2">
-                                                    <div class="d-flex align-items-center justify-content-between">
-                                                        <p class="mb-0">
-                                                            Advice! Connect your Apple Watch for better
-                                                            results.
-                                                        </p>
-                                                        <div class="rounded iq-card-icon bg-white">
-                                                            <img src="/images/page-img/37.png" class="img-fluid"
-                                                                alt="icon" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="iq-card">
-                                                <div class="iq-header-title">
-                                                    <h4 class="card-title text-primary">
-                                                        Popular Training
-                                                    </h4>
-                                                </div>
-                                                <div class="iq-card-body pl-0 pr-0 pb-0">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <div class="training-block d-flex align-items-center">
-                                                                <div class="rounded-circle iq-card-icon iq-bg-primary">
-                                                                    <img src="/images/page-img/34.png" class="img-fluid"
-                                                                        alt="icon" />
-                                                                </div>
-                                                                <div class="ml-3">
-                                                                    <h5 class="">Power Training</h5>
-                                                                    <p class="mb-0">395 kcal / h</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="training-block d-flex align-items-center">
-                                                                <div class="rounded-circle iq-card-icon iq-bg-primary">
-                                                                    <img src="/images/page-img/35.png" class="img-fluid"
-                                                                        alt="icon" />
-                                                                </div>
-                                                                <div class="ml-3">
-                                                                    <h5 class="">Yoga Training</h5>
-                                                                    <p class="mb-0">395 kcal / h</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="training-block d-flex align-items-center">
-                                                                <div class="rounded-circle iq-card-icon iq-bg-primary">
-                                                                    <img src="/images/page-img/36.png" class="img-fluid"
-                                                                        alt="icon" />
-                                                                </div>
-                                                                <div class="ml-3">
-                                                                    <h5 class="">Stretching</h5>
-                                                                    <p class="mb-0">395 kcal / h</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="iq-card">
+                                        <div class="iq-card-header d-flex justify-content-between">
+                                            <div class="iq-header-title">
+                                                <h4 class="card-title">Speciality</h4>
                                             </div>
                                         </div>
-                                        <div class="col-lg-8">
-                                            <div class="iq-card">
-                                                <div class="iq-card-header d-flex justify-content-between p-0 bg-white">
-                                                    <div class="iq-header-title">
-                                                        <h4 class="card-title text-primary">
-                                                            Activity Statistic
-                                                        </h4>
+                                        <div class="iq-card-body">
+                                            <ul class="speciality-list m-0 p-0">
+                                                <li class="d-flex mb-4 align-items-center">
+                                                    <div class="user-img img-fluid">
+                                                        <a href="#" class="iq-bg-primary"><i
+                                                                class="ri-award-fill"></i></a>
                                                     </div>
-                                                </div>
-                                                <div class="iq-card-body p-0">
-                                                    <div id="patient-chart-1"></div>
-                                                </div>
+                                                    <div class="media-support-info ml-3">
+                                                        <h6>professional</h6>
+                                                        <p class="mb-0">Certified Skin Treatment</p>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex mb-4 align-items-center">
+                                                    <div class="user-img img-fluid">
+                                                        <a href="#" class="iq-bg-warning"><i
+                                                                class="ri-award-fill"></i></a>
+                                                    </div>
+                                                    <div class="media-support-info ml-3">
+                                                        <h6>Certified</h6>
+                                                        <p class="mb-0">Cold Laser Operation</p>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex mb-4 align-items-center">
+                                                    <div class="user-img img-fluid">
+                                                        <a href="#" class="iq-bg-info"><i class="ri-award-fill"></i></a>
+                                                    </div>
+                                                    <div class="media-support-info ml-3">
+                                                        <h6>Medication Laser</h6>
+                                                        <p class="mb-0">Hair Lose Product</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="iq-card">
+                                        <div class="iq-card-header d-flex justify-content-between">
+                                            <div class="iq-header-title">
+                                                <h4 class="card-title">Notifications</h4>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
-                                            <div class="iq-card mb-0">
-                                                <div class="iq-card-header d-flex justify-content-between p-0 bg-white">
-                                                    <div class="iq-header-title">
-                                                        <h4 class="card-title text-primary">My Training</h4>
-                                                    </div>
-                                                    <div class="iq-card-header-toolbar d-flex align-items-center">
-                                                        <div class="dropdown">
-                                                            <span class="dropdown-toggle iq-bg-primary btn"
-                                                                id="dropdownMenuButton4" data-toggle="dropdown">
-                                                                <i class="ri-add-line m-0 text-primary"></i>
-                                                            </span>
-                                                            <div class="dropdown-menu dropdown-menu-right"
-                                                                aria-labelledby="dropdownMenuButton4">
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="ri-eye-fill mr-2"></i>View</a>
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="ri-printer-fill mr-2"></i>Print</a>
-                                                                <a class="dropdown-item" href="#"><i
-                                                                        class="ri-file-download-fill mr-2"></i>Download</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="iq-card-body p-0">
-                                                    <table class="table mb-0 table-borderless table-box-shadow">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Training</th>
-                                                                <th scope="col">TRX Cardio</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>Burned</td>
-                                                                <td>350 kcal</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Spend</td>
-                                                                <td>1hr 45m</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                    <table class="table mb-0 table-borderless mt-4 table-box-shadow">
-                                                        <thead>
-                                                            <tr>
-                                                                <th scope="col">Training</th>
-                                                                <th scope="col">Stretching</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>Burned</td>
-                                                                <td>180 kcal</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Spend</td>
-                                                                <td>30m</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                        <div class="iq-card-body">
+                                            <ul class="iq-timeline">
+                                                <li>
+                                                    <div class="timeline-dots border-success"></div>
+                                                    <h6 class="">Dr. Joy Send you Photo</h6>
+                                                    <small class="mt-1">23 November 2019</small>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-dots border-danger"></div>
+                                                    <h6 class="">Reminder : Opertion Time!</h6>
+                                                    <small class="mt-1">20 November 2019</small>
+                                                </li>
+                                                <li>
+                                                    <div class="timeline-dots border-primary"></div>
+                                                    <h6 class="mb-1">Patient Call</h6>
+                                                    <small class="mt-1">19 November 2019</small>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="iq-card">
+                                        <div class="iq-card-header d-flex justify-content-between">
+                                            <div class="iq-header-title">
+                                                <h4 class="card-title">Schedule</h4>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="iq-card">
-                                                <div class="iq-card-header d-flex justify-content-between p-0 bg-white">
-                                                    <div class="iq-header-title">
-                                                        <h4 class="card-title text-primary">Heart Rate</h4>
+                                        <div class="iq-card-body">
+                                            <ul class="list-inline m-0 p-0">
+                                                <li>
+                                                    <h6 class="float-left mb-1">
+                                                        Ruby saul (Blood Check)
+                                                    </h6>
+                                                    <small class="float-right mt-1">Today</small>
+                                                    <div class="d-inline-block w-100">
+                                                        <p class="badge badge-primary">09:00 AM</p>
                                                     </div>
-                                                </div>
-                                                <div class="iq-card-body p-0">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="mr-3">
-                                                            <h4 class="">75 bpm</h4>
-                                                            <p class="mb-0 text-primary">Health Zone</p>
-                                                        </div>
-                                                        <div class="rounded-circle iq-card-icon iq-bg-primary">
-                                                            <i class="ri-windy-fill"></i>
-                                                        </div>
+                                                </li>
+                                                <li>
+                                                    <h6 class="float-left mb-1">Anna Mull (Fever)</h6>
+                                                    <small class="float-right mt-1">Today</small>
+                                                    <div class="d-inline-block w-100">
+                                                        <p class="badge badge-danger">09:15 AM</p>
                                                     </div>
-                                                </div>
+                                                </li>
+                                                <li>
+                                                    <h6 class="float-left mb-1">Petey Cruiser (X-ray)</h6>
+                                                    <small class="float-right mt-1">Today</small>
+                                                    <div class="d-inline-block w-100">
+                                                        <p class="badge badge-warning">10:00 AM</p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <h6 class="float-left mb-1">
+                                                        Anna Sthesia (Full body Check up)
+                                                    </h6>
+                                                    <small class="float-right mt-1">Today</small>
+                                                    <div class="d-inline-block w-100">
+                                                        <p class="badge badge-info">01:00 PM</p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <h6 class="float-left mb-1">
+                                                        Paul Molive (Operation)
+                                                    </h6>
+                                                    <small class="float-right mt-1">Tomorrow</small>
+                                                    <div class="d-inline-block w-100">
+                                                        <p class="badge badge-success">09:00 AM</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="iq-card">
+                                        <div class="iq-card-header d-flex justify-content-between">
+                                            <div class="iq-header-title">
+                                                <h4 class="card-title">Patients Notes</h4>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="iq-card">
-                                                <div class="iq-card-header d-flex justify-content-between p-0 bg-white">
-                                                    <div class="iq-header-title">
-                                                        <h4 class="card-title text-primary">
-                                                            Water Balance
-                                                        </h4>
+                                        <div class="iq-card-body">
+                                            <ul class="list-inline m-0 p-0">
+                                                <li class="d-flex align-items-center justify-content-between mb-3">
+                                                    <div>
+                                                        <h6>Treatment was good!</h6>
+                                                        <p class="mb-0">Eye Test</p>
                                                     </div>
-                                                </div>
-                                                <div class="iq-card-body p-0">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="mr-3 text-left">
-                                                            <p class="mb-0">Drunk</p>
-                                                            <h4 class="">1250 ml/ 2000 ml</h4>
-                                                        </div>
-                                                        <div class="rounded-circle iq-card-icon iq-bg-primary">
-                                                            <i class="ri-add-fill"></i>
-                                                        </div>
+                                                    <div>
+                                                        <a href="#" class="btn iq-bg-primary">Open</a>
                                                     </div>
-                                                </div>
+                                                </li>
+                                                <li class="d-flex align-items-center justify-content-between mb-3">
+                                                    <div>
+                                                        <h6>My Helth in better Now</h6>
+                                                        <p class="mb-0">Fever Test</p>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#" class="btn iq-bg-primary">Open</a>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex align-items-center justify-content-between mb-3">
+                                                    <div>
+                                                        <h6>No Effacted</h6>
+                                                        <p class="mb-0">Thyroid Test</p>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#" class="btn iq-bg-danger">Close</a>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex align-items-center justify-content-between mb-3">
+                                                    <div>
+                                                        <h6>Operation Successfull</h6>
+                                                        <p class="mb-0">Orthopaedic</p>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#" class="btn iq-bg-primary">Open</a>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex align-items-center justify-content-between mb-3">
+                                                    <div>
+                                                        <h6>Mediacal Care is just a click away</h6>
+                                                        <p class="mb-0">Join Pain</p>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#" class="btn iq-bg-danger">Close</a>
+                                                    </div>
+                                                </li>
+                                                <li class="d-flex align-items-center justify-content-between">
+                                                    <div>
+                                                        <h6>Treatment is good</h6>
+                                                        <p class="mb-0">Skin Treatment</p>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#" class="btn iq-bg-primary">Open</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="iq-card">
+                                        <div class="iq-card-header d-flex justify-content-between">
+                                            <div class="iq-header-title">
+                                                <h4 class="card-title">Education</h4>
                                             </div>
+                                        </div>
+                                        <div class="iq-card-body">
+                                            <table class="table mb-0 table-borderless">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Year</th>
+                                                        <th scope="col">Degree</th>
+                                                        <th scope="col">Institute</th>
+                                                        <th scope="col">Result</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>2010</td>
+                                                        <td>MBBS, M.D</td>
+                                                        <td>University of Wyoming</td>
+                                                        <td>
+                                                            <span class="badge badge-success">Distinction</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2014</td>
+                                                        <td>M.D. of Medicine</td>
+                                                        <td>Netherland Medical College</td>
+                                                        <td>
+                                                            <span class="badge badge-success">Distinction</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="iq-card">
+                                        <div class="iq-card-header d-flex justify-content-between">
+                                            <div class="iq-header-title">
+                                                <h4 class="card-title">Experience</h4>
+                                            </div>
+                                        </div>
+                                        <div class="iq-card-body">
+                                            <table class="table mb-0 table-borderless">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Year</th>
+                                                        <th scope="col">Department</th>
+                                                        <th scope="col">Position</th>
+                                                        <th scope="col">Hospital</th>
+                                                        <th scope="col">Feedback</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>2014 - 2018</td>
+                                                        <td>MBBS, M.D</td>
+                                                        <td>Senior doctor</td>
+                                                        <td>Midtown Medical Clinic</td>
+                                                        <td>
+                                                            <span class="badge badge-primary">Good</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2018 - 2020</td>
+                                                        <td>M.D. of Medicine</td>
+                                                        <td>Associate Prof.</td>
+                                                        <td>Netherland Medical College</td>
+                                                        <td>
+                                                            <span class="badge badge-success">excellence</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -774,7 +773,6 @@ $patint->getById("1");
             </div>
         </div>
         <!-- Wrapper END -->
-
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="/js/jquery.min.js"></script>
@@ -803,16 +801,6 @@ $patint->getById("1");
         <script src="/js/smooth-scrollbar.js"></script>
         <!-- lottie JavaScript -->
         <script src="/js/lottie.js"></script>
-        <!-- am core JavaScript -->
-        <script src="/js/core.js"></script>
-        <!-- am charts JavaScript -->
-        <script src="/js/charts.js"></script>
-        <!-- am animated JavaScript -->
-        <script src="/js/animated.js"></script>
-        <!-- am kelly JavaScript -->
-        <script src="/js/kelly.js"></script>
-        <!-- Flatpicker Js -->
-        <script src="/js/flatpickr.js"></script>
         <!-- Chart Custom JavaScript -->
         <script src="/js/chart-custom.js"></script>
         <!-- Custom JavaScript -->

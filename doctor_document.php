@@ -1,10 +1,3 @@
-<?php
-
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,32 +5,38 @@
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>CareHour</title>
+        <title>Care Hour</title>
         <!-- Favicon -->
-        <link rel="shortcut icon" href="../../images/favicon.ico" />
+        <link rel="shortcut icon" href="/images/favicon.ico" />
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
         <!-- Typography CSS -->
-        <link rel="stylesheet" href="../../css/typography.css" />
+        <link rel="stylesheet" href="/css/typography.css" />
         <!-- Style CSS -->
-        <link rel="stylesheet" href="../../css/style.css" />
+        <link rel="stylesheet" href="/css/style.css" />
         <!-- Responsive CSS -->
-        <link rel="stylesheet" href="../../css/responsive.css" />
+        <link rel="stylesheet" href="/css/responsive.css" />
+        <!-- Full calendar -->
+        <link href="/fullcalendar/core/main.css" rel="stylesheet" />
+        <link href="/fullcalendar/daygrid/main.css" rel="stylesheet" />
+        <link href="/fullcalendar/timegrid/main.css" rel="stylesheet" />
+        <link href="/fullcalendar/list/main.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
     </head>
 
     <body>
         <!-- loader Start -->
-        <!-- <div id="loading">
+        <div id="loading">
             <div id="loading-center"></div>
-        </div> -->
+        </div>
         <!-- loader END -->
         <!-- Wrapper Start -->
         <div class="wrapper">
             <!-- Sidebar  -->
             <div class="iq-sidebar">
                 <div class="iq-sidebar-logo d-flex justify-content-between">
-                    <a href="index.html">
-                        <img src="../../images/logo.png" class="img-fluid" alt="" />
+                    <a href="index.php">
+                        <img src="/images/logo.png" class="img-fluid" alt="" />
                         <span>CareHour</span>
                     </a>
                     <div class="iq-menu-bt-sidebar">
@@ -55,28 +54,24 @@
                             <li class="iq-menu-title">
                                 <i class="ri-subtract-line"></i><span>Dashboard</span>
                             </li>
-
                             <li>
-                                <a href="dashboard-3.html" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>Patient Dashboard</span></a>
+                                <a href="doctor_main_dashboard.php" class="iq-waves-effect"><i
+                                        class="ri-group-fill"></i><span>Doctor Dashboard</span></a>
                             </li>
 
-                            <li>
-                                <a href="document.html" class="iq-waves-effect"><i
+                            <li class="active">
+                                <a href="doctor_document.php" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>document</span></a>
                             </li>
 
-                            <li class="active main-active">
+                            <li>
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"
-                                    aria-expanded="true"><i class="ri-user-3-fill"></i><span>Doctors</span><i
+                                    aria-expanded="false"><i class="ri-user-3-fill"></i><span>PATIENTS</span><i
                                         class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                                <ul id="doctor-info" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
-                                    <li class="active">
-                                        <a href="doctor-list.html"><i class="ri-file-list-fill"></i>All Doctors</a>
-                                    </li>
+                                <ul id="doctor-info" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
 
                                     <li>
-                                        <a href="my-docotor-list.html"><i class="ri-profile-fill"></i>MY Doctors</a>
+                                        <a href="my-docotor-list.php"><i class="ri-profile-fill"></i>My Patient</a>
                                     </li>
                                 </ul>
                             </li>
@@ -90,14 +85,16 @@
                     <div class="p-3"></div>
                 </div>
             </div>
-            <!-- Page Content  -->
+            <!-- End OF Sided BAr  -->
+
+            <!-- Begin page content -->
             <div id="content-page" class="content-page">
                 <!-- TOP Nav Bar -->
                 <div class="iq-top-navbar">
                     <div class="iq-navbar-custom">
                         <div class="iq-sidebar-logo">
                             <div class="top-logo">
-                                <a href="index.php" class="logo">
+                                <a href="dashboard-3.php" class="logo">
                                     <img src="/images/logo.png" class="img-fluid" alt="" />
                                     <span>CareHour</span>
                                 </a>
@@ -106,7 +103,8 @@
                         <nav class="navbar navbar-expand-lg navbar-light p-0">
                             <div class="iq-search-bar">
                                 <form action="#" class="searchbox">
-                                    <input type="text" class="text search-input" placeholder="Type here to search..." />
+                                    <input type="text" class="text search-input" placeholder="Type
+                    here to search..." />
                                     <a class="search-link" href="#"><i class="ri-search-line"></i></a>
                                 </form>
                             </div>
@@ -123,24 +121,6 @@
                             </div>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav ml-auto navbar-list">
-                                    <li class="nav-item">
-                                        <a class="search-toggle iq-waves-effect language-title" href="#"><img
-                                                src="/images/small/flag-01.png" alt="img-flaf" class="img-fluid mr-1"
-                                                style="height: 16px; width: 16px" />
-                                            English <i class="ri-arrow-down-s-line"></i></a>
-                                        <div class="iq-sub-dropdown">
-                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-02.png"
-                                                    alt="img-flaf" class="img-fluid mr-2" />French</a>
-                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-03.png"
-                                                    alt="img-flaf" class="img-fluid mr-2" />Spanish</a>
-                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-04.png"
-                                                    alt="img-flaf" class="img-fluid mr-2" />Italian</a>
-                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-05.png"
-                                                    alt="img-flaf" class="img-fluid mr-2" />German</a>
-                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-06.png"
-                                                    alt="img-flaf" class="img-fluid mr-2" />Japanese</a>
-                                        </div>
-                                    </li>
                                     <li class="nav-item iq-full-screen">
                                         <a href="#" class="iq-waves-effect" id="btnFullscreen"><i
                                                 class="ri-fullscreen-line"></i></a>
@@ -343,7 +323,7 @@
                                                     </div>
                                                 </a>
 
-                                                <a href="privacy-setting.html" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="privacy-setting.php" class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-lock-line"></i>
@@ -357,7 +337,7 @@
                                                     </div>
                                                 </a>
                                                 <div class="d-inline-block w-100 text-center p-3">
-                                                    <a class="bg-primary iq-sign-btn" href="sign-in.html"
+                                                    <a class="bg-primary iq-sign-btn" href="sign-in.php"
                                                         role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
                                                 </div>
                                             </div>
@@ -369,103 +349,64 @@
                     </div>
                 </div>
                 <!-- TOP Nav Bar END -->
-                <div class="container-fluid">
-                    <div class=$d->">
-                        <div class="col-sm-12">
-                            <div class="iq-card">
-                                <div class="iq-card-header d-flex justify-content-between">
-                                    <div class="iq-header-title">
-                                        <h4 class="card-title">Doctors List</h4>
-                                    </div>
-                                </div>
+
+                <!-- Footer -->
+                <footer class="bg-white iq-footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-6 text-right">
+                                Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
                             </div>
                         </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="../../images/user/12.jpg"
-                                            alt="profile" />
-                                    </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Anna Mull</h4>
-                                        <p class="mb-0">Cardiologists</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.html" class="btn btn-primary">View Profile</a>
-                                </div>
-                            </div>
-                        </div>
-
-
-
                     </div>
-                    <!-- Footer -->
-                    <footer class="bg-white iq-footer">
-                        <div class="container-fluid">
-                            <div class=$d->">
-                                <div class="col-lg-2"></div>
-                                <div class="col-lg-6 text-right">
-                                    Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
-                    <!-- Footer END -->
-                </div>
+                </footer>
+                <!-- Footer END -->
             </div>
-            <!-- Wrapper END -->
-            <!-- Optional JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="../../js/jquery.min.js"></script>
-            <script src="../../js/popper.min.js"></script>
-            <script src="../../js/bootstrap.min.js"></script>
-            <!-- Appear JavaScript -->
-            <script src="../../js/jquery.appear.js"></script>
-            <!-- Countdown JavaScript -->
-            <script src="../../js/countdown.min.js"></script>
-            <!-- Counterup JavaScript -->
-            <script src="../../js/waypoints.min.js"></script>
-            <script src="../../js/jquery.counterup.min.js"></script>
-            <!-- Wow JavaScript -->
-            <script src="../../js/wow.min.js"></script>
-            <!-- Apexcharts JavaScript -->
-            <script src="../../js/apexcharts.js"></script>
-            <!-- Slick JavaScript -->
-            <script src="../../js/slick.min.js"></script>
-            <!-- Select2 JavaScript -->
-            <script src="../../js/select2.min.js"></script>
-            <!-- Owl Carousel JavaScript -->
-            <script src="../../js/owl.carousel.min.js"></script>
-            <!-- Magnific Popup JavaScript -->
-            <script src="../../js/jquery.magnific-popup.min.js"></script>
-            <!-- Smooth Scrollbar JavaScript -->
-            <script src="../../js/smooth-scrollbar.js"></script>
-            <!-- lottie JavaScript -->
-            <script src="../../js/lottie.js"></script>
-            <!-- Chart Custom JavaScript -->
-            <script src="../../js/chart-custom.js"></script>
-            <!-- Custom JavaScript -->
-            <script src="../../js/custom.js"></script>
+        </div>
+        <!-- Wrapper END -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <!-- Appear JavaScript -->
+        <script src="/js/jquery.appear.js"></script>
+        <!-- Countdown JavaScript -->
+        <script src="/js/countdown.min.js"></script>
+        <!-- Counterup JavaScript -->
+        <script src="/js/waypoints.min.js"></script>
+        <script src="/js/jquery.counterup.min.js"></script>
+        <!-- Wow JavaScript -->
+        <script src="/js/wow.min.js"></script>
+        <!-- Apexcharts JavaScript -->
+        <script src="/js/apexcharts.js"></script>
+        <!-- Slick JavaScript -->
+        <script src="/js/slick.min.js"></script>
+        <!-- Select2 JavaScript -->
+        <script src="/js/select2.min.js"></script>
+        <!-- Owl Carousel JavaScript -->
+        <script src="/js/owl.carousel.min.js"></script>
+        <!-- Magnific Popup JavaScript -->
+        <script src="/js/jquery.magnific-popup.min.js"></script>
+        <!-- Smooth Scrollbar JavaScript -->
+        <script src="/js/smooth-scrollbar.js"></script>
+        <!-- lottie JavaScript -->
+        <script src="/js/lottie.js"></script>
+        <!-- am core JavaScript -->
+        <script src="/js/core.js"></script>
+        <!-- am charts JavaScript -->
+        <script src="/js/charts.js"></script>
+        <!-- am animated JavaScript -->
+        <script src="/js/animated.js"></script>
+        <!-- am kelly JavaScript -->
+        <script src="/js/kelly.js"></script>
+        <!-- Flatpicker Js -->
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <!-- Chart Custom JavaScript -->
+        <script src="/js/chart-custom.js"></script>
+        <!-- Custom JavaScript -->
+        <script src="/js/custom.js"></script>
     </body>
 
 </html>

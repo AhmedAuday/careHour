@@ -29,7 +29,7 @@
             <!-- Sidebar  -->
             <div class="iq-sidebar">
                 <div class="iq-sidebar-logo d-flex justify-content-between">
-                    <a href="index.php">
+                    <a href="">
                         <img src="/images/logo.png" class="img-fluid" alt="" />
                         <span>CareHour</span>
                     </a>
@@ -50,27 +50,25 @@
                             </li>
 
                             <li>
-                                <a href="dashboard-3.php" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>Patient Dashboard</span></a>
+                                <a href="doctor_main_dashboard.php" class="iq-waves-effect"><i
+                                        class="ri-group-fill"></i><span>Doctor Dashboard</span></a>
                             </li>
 
                             <li>
-                                <a href="document.php" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>document</span></a>
+                                <a href="doctor_document.php" class="iq-waves-effect"><i
+                                        class="ri-group-fill"></i><span>Document</span></a>
                             </li>
 
                             <li class="active main-active">
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"
-                                    aria-expanded="true"><i class="ri-user-3-fill"></i><span>Doctors</span><i
+                                    aria-expanded="true"><i class="ri-user-3-fill"></i><span>Patient</span><i
                                         class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                                 <ul id="doctor-info" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
-                                    <li>
-                                        <a href="doctor-list.php"><i class="ri-file-list-fill"></i>All Doctors</a>
-                                    </li>
 
                                     <li class="active">
-                                        <a href="my-docotor-list.php"><i class="ri-profile-fill"></i>MY Doctors</a>
+                                        <a href="my-docotor-list.php"><i class="ri-profile-fill"></i>MY Patients</a>
                                     </li>
+
                                 </ul>
                             </li>
 
@@ -90,7 +88,7 @@
                     <div class="iq-navbar-custom">
                         <div class="iq-sidebar-logo">
                             <div class="top-logo">
-                                <a href="index.php" class="logo">
+                                <a href="" class="logo">
                                     <img src="/images/logo.png" class="img-fluid" alt="" />
                                     <span>CareHour</span>
                                 </a>

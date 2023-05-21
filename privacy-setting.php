@@ -92,7 +92,7 @@
                             <div class="top-logo">
                                 <a href="index.php" class="logo">
                                     <img src="/images/logo.png" class="img-fluid" alt="" />
-                                    <span>XRay</span>
+                                    <span>CareHour</span>
                                 </a>
                             </div>
                         </div>

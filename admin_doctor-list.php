@@ -7,15 +7,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>CareHour</title>
         <!-- Favicon -->
-        <link rel="shortcut icon" href="/images/favicon.ico" />
+        <link rel="shortcut icon" href="images/favicon.ico" />
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
         <!-- Typography CSS -->
-        <link rel="stylesheet" href="/css/typography.css" />
+        <link rel="stylesheet" href="css/typography.css" />
         <!-- Style CSS -->
-        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="css/style.css" />
         <!-- Responsive CSS -->
-        <link rel="stylesheet" href="/css/responsive.css" />
+        <link rel="stylesheet" href="css/responsive.css" />
     </head>
 
     <body>
@@ -29,8 +29,8 @@
             <!-- Sidebar  -->
             <div class="iq-sidebar">
                 <div class="iq-sidebar-logo d-flex justify-content-between">
-                    <a href="index.php">
-                        <img src="/images/logo.png" class="img-fluid" alt="" />
+                    <a href="">
+                        <img src="images/logo.png" class="img-fluid" alt="" />
                         <span>CareHour</span>
                     </a>
                     <div class="iq-menu-bt-sidebar">
@@ -45,38 +45,50 @@
                 <div id="sidebar-scrollbar">
                     <nav class="iq-sidebar-menu">
                         <ul id="iq-sidebar-toggle" class="iq-menu">
+
                             <li class="iq-menu-title">
                                 <i class="ri-subtract-line"></i><span>Dashboard</span>
                             </li>
-
                             <li>
-                                <a href="dashboard-3.php" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>Patient Dashboard</span></a>
+                                <a href="admin_main_dashboard.php" class="iq-waves-effect"><i
+                                        class="ri-briefcase-4-fill"></i><span>Dashboard</span></a>
                             </li>
 
                             <li>
-                                <a href="document.php" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>document</span></a>
+                                <a href="admin_patient_dashboard.php" class="iq-waves-effect"><i
+                                        class="ri-briefcase-4-fill"></i><span>Patient Dashboard</span></a>
                             </li>
 
-                            <li class="active main-active">
+
+
+
+
+                            <li>
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"
-                                    aria-expanded="true"><i class="ri-user-3-fill"></i><span>Doctors</span><i
+                                    aria-expanded="false"><i class="ri-user-3-fill"></i><span>Doctors</span><i
                                         class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                                <ul id="doctor-info" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
-                                    <li>
-                                        <a href="doctor-list.php"><i class="ri-file-list-fill"></i>All Doctors</a>
-                                    </li>
-
+                                <ul id="doctor-info" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                                     <li class="active">
-                                        <a href="my-docotor-list.php"><i class="ri-profile-fill"></i>MY Doctors</a>
+                                        <a href="admin_doctor-list.php"><i class="ri-file-list-fill"></i>All
+                                            Doctors</a>
+                                    </li>
+                                    <li>
+                                        <a href="admin_add_doctor.php"><i class="ri-user-add-fill"></i>
+                                            Add Doctor</a>
+                                    </li>
+                                    <li>
+                                        <a href="admin_doctor_profile.php"><i class="ri-profile-fill"></i>Doctor
+                                            Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="admin_doctor_profile_edit.php"><i class="ri-file-edit-fill"></i>
+                                            Edit Doctor</a>
                                     </li>
                                 </ul>
                             </li>
-
                             <li>
-                                <a href="chat.php" class="iq-waves-effect"><i
-                                        class="ri-message-fill"></i><span>Chat</span></a>
+                                <a href="calendar.php" class="iq-waves-effect"><i
+                                        class="ri-calendar-event-fill"></i><span>Calendar</span></a>
                             </li>
                         </ul>
                     </nav>
@@ -90,8 +102,8 @@
                     <div class="iq-navbar-custom">
                         <div class="iq-sidebar-logo">
                             <div class="top-logo">
-                                <a href="index.php" class="logo">
-                                    <img src="/images/logo.png" class="img-fluid" alt="" />
+                                <a href="" class="logo">
+                                    <img src="images/logo.png" class="img-fluid" alt="" />
                                     <span>CareHour</span>
                                 </a>
                             </div>
@@ -118,19 +130,19 @@
                                 <ul class="navbar-nav ml-auto navbar-list">
                                     <li class="nav-item">
                                         <a class="search-toggle iq-waves-effect language-title" href="#"><img
-                                                src="/images/small/flag-01.png" alt="img-flaf" class="img-fluid mr-1"
+                                                src="images/small/flag-01.png" alt="img-flaf" class="img-fluid mr-1"
                                                 style="height: 16px; width: 16px" />
                                             English <i class="ri-arrow-down-s-line"></i></a>
                                         <div class="iq-sub-dropdown">
-                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-02.png"
+                                            <a class="iq-sub-card" href="#"><img src="images/small/flag-02.png"
                                                     alt="img-flaf" class="img-fluid mr-2" />French</a>
-                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-03.png"
+                                            <a class="iq-sub-card" href="#"><img src="images/small/flag-03.png"
                                                     alt="img-flaf" class="img-fluid mr-2" />Spanish</a>
-                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-04.png"
+                                            <a class="iq-sub-card" href="#"><img src="images/small/flag-04.png"
                                                     alt="img-flaf" class="img-fluid mr-2" />Italian</a>
-                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-05.png"
+                                            <a class="iq-sub-card" href="#"><img src="images/small/flag-05.png"
                                                     alt="img-flaf" class="img-fluid mr-2" />German</a>
-                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-06.png"
+                                            <a class="iq-sub-card" href="#"><img src="images/small/flag-06.png"
                                                     alt="img-flaf" class="img-fluid mr-2" />Japanese</a>
                                         </div>
                                     </li>
@@ -155,7 +167,7 @@
                                                     <a href="#" class="iq-sub-card">
                                                         <div class="media align-items-center">
                                                             <div class="">
-                                                                <img class="avatar-40 rounded" src="/images/user/01.jpg"
+                                                                <img class="avatar-40 rounded" src="images/user/01.jpg"
                                                                     alt="" />
                                                             </div>
                                                             <div class="media-body ml-3">
@@ -168,7 +180,7 @@
                                                     <a href="#" class="iq-sub-card">
                                                         <div class="media align-items-center">
                                                             <div class="">
-                                                                <img class="avatar-40 rounded" src="/images/user/02.jpg"
+                                                                <img class="avatar-40 rounded" src="images/user/02.jpg"
                                                                     alt="" />
                                                             </div>
                                                             <div class="media-body ml-3">
@@ -182,7 +194,7 @@
                                                     <a href="#" class="iq-sub-card">
                                                         <div class="media align-items-center">
                                                             <div class="">
-                                                                <img class="avatar-40 rounded" src="/images/user/03.jpg"
+                                                                <img class="avatar-40 rounded" src="images/user/03.jpg"
                                                                     alt="" />
                                                             </div>
                                                             <div class="media-body ml-3">
@@ -196,7 +208,7 @@
                                                     <a href="#" class="iq-sub-card">
                                                         <div class="media align-items-center">
                                                             <div class="">
-                                                                <img class="avatar-40 rounded" src="/images/user/04.jpg"
+                                                                <img class="avatar-40 rounded" src="images/user/04.jpg"
                                                                     alt="" />
                                                             </div>
                                                             <div class="media-body ml-3">
@@ -228,7 +240,7 @@
                                                     <a href="#" class="iq-sub-card">
                                                         <div class="media align-items-center">
                                                             <div class="">
-                                                                <img class="avatar-40 rounded" src="/images/user/01.jpg"
+                                                                <img class="avatar-40 rounded" src="images/user/01.jpg"
                                                                     alt="" />
                                                             </div>
                                                             <div class="media-body ml-3">
@@ -240,7 +252,7 @@
                                                     <a href="#" class="iq-sub-card">
                                                         <div class="media align-items-center">
                                                             <div class="">
-                                                                <img class="avatar-40 rounded" src="/images/user/02.jpg"
+                                                                <img class="avatar-40 rounded" src="images/user/02.jpg"
                                                                     alt="" />
                                                             </div>
                                                             <div class="media-body ml-3">
@@ -252,7 +264,7 @@
                                                     <a href="#" class="iq-sub-card">
                                                         <div class="media align-items-center">
                                                             <div class="">
-                                                                <img class="avatar-40 rounded" src="/images/user/03.jpg"
+                                                                <img class="avatar-40 rounded" src="images/user/03.jpg"
                                                                     alt="" />
                                                             </div>
                                                             <div class="media-body ml-3">
@@ -264,7 +276,7 @@
                                                     <a href="#" class="iq-sub-card">
                                                         <div class="media align-items-center">
                                                             <div class="">
-                                                                <img class="avatar-40 rounded" src="/images/user/04.jpg"
+                                                                <img class="avatar-40 rounded" src="images/user/04.jpg"
                                                                     alt="" />
                                                             </div>
                                                             <div class="media-body ml-3">
@@ -276,7 +288,7 @@
                                                     <a href="#" class="iq-sub-card">
                                                         <div class="media align-items-center">
                                                             <div class="">
-                                                                <img class="avatar-40 rounded" src="/images/user/05.jpg"
+                                                                <img class="avatar-40 rounded" src="images/user/05.jpg"
                                                                     alt="" />
                                                             </div>
                                                             <div class="media-body ml-3">
@@ -294,7 +306,7 @@
                             <ul class="navbar-list">
                                 <li>
                                     <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
-                                        <img src="/images/user/1.jpg" class="img-fluid rounded mr-3" alt="user" />
+                                        <img src="images/user/1.jpg" class="img-fluid rounded mr-3" alt="user" />
                                         <div class="caption">
                                             <h6 class="mb-0 line-height">Bini Jets</h6>
                                             <span class="font-size-12">Available</span>
@@ -309,7 +321,7 @@
                                                     </h5>
                                                     <span class="text-white font-size-12">Available</span>
                                                 </div>
-                                                <a href="pprofile.php" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="admin_profile.php" class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-file-user-line"></i>
@@ -335,20 +347,20 @@
                                                         </div>
                                                     </div>
                                                 </a>
-
-                                                <a href="privacy-setting.php" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="account-setting.php" class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
-                                                            <i class="ri-lock-line"></i>
+                                                            <i class="ri-account-box-line"></i>
                                                         </div>
                                                         <div class="media-body ml-3">
-                                                            <h6 class="mb-0">Privacy Settings</h6>
+                                                            <h6 class="mb-0">Account settings</h6>
                                                             <p class="mb-0 font-size-12">
-                                                                Control your privacy parameters.
+                                                                Manage your account parameters.
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </a>
+
                                                 <div class="d-inline-block w-100 text-center p-3">
                                                     <a class="bg-primary iq-sign-btn" href="sign-in.php"
                                                         role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
@@ -377,7 +389,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/12.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/12.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -412,7 +424,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/13.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/13.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -447,7 +459,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/14.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/14.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -482,7 +494,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/15.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/15.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -517,7 +529,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/16.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/16.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -552,7 +564,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/17.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/17.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -587,7 +599,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/18.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/18.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -622,7 +634,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/12.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/12.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -657,7 +669,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/13.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/13.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -692,7 +704,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/14.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/14.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -727,7 +739,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/15.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/15.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -762,7 +774,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/16.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/16.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -797,7 +809,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/17.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/17.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -832,7 +844,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/18.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/18.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -867,7 +879,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/12.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/12.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -902,7 +914,7 @@
                             <div class="iq-card">
                                 <div class="iq-card-body text-center">
                                     <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="/images/user/13.jpg"
+                                        <img class="rounded-circle img-fluid avatar-80" src="images/user/13.jpg"
                                             alt="profile" />
                                     </div>
                                     <div class="iq-doc-info mt-3">
@@ -929,7 +941,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <a href="profile.php" class="btn btn-primary">View Profile</a>
+                                    <a href="admin_doctor_profile.php" class="btn btn-primary">View Profile</a>
                                 </div>
                             </div>
                         </div>
@@ -952,36 +964,36 @@
         <!-- Wrapper END -->
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="/js/jquery.min.js"></script>
-        <script src="/js/popper.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <!-- Appear JavaScript -->
-        <script src="/js/jquery.appear.js"></script>
+        <script src="js/jquery.appear.js"></script>
         <!-- Countdown JavaScript -->
-        <script src="/js/countdown.min.js"></script>
+        <script src="js/countdown.min.js"></script>
         <!-- Counterup JavaScript -->
-        <script src="/js/waypoints.min.js"></script>
-        <script src="/js/jquery.counterup.min.js"></script>
+        <script src="js/waypoints.min.js"></script>
+        <script src="js/jquery.counterup.min.js"></script>
         <!-- Wow JavaScript -->
-        <script src="/js/wow.min.js"></script>
+        <script src="js/wow.min.js"></script>
         <!-- Apexcharts JavaScript -->
-        <script src="/js/apexcharts.js"></script>
+        <script src="js/apexcharts.js"></script>
         <!-- Slick JavaScript -->
-        <script src="/js/slick.min.js"></script>
+        <script src="js/slick.min.js"></script>
         <!-- Select2 JavaScript -->
-        <script src="/js/select2.min.js"></script>
+        <script src="js/select2.min.js"></script>
         <!-- Owl Carousel JavaScript -->
-        <script src="/js/owl.carousel.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
         <!-- Magnific Popup JavaScript -->
-        <script src="/js/jquery.magnific-popup.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
         <!-- Smooth Scrollbar JavaScript -->
-        <script src="/js/smooth-scrollbar.js"></script>
+        <script src="js/smooth-scrollbar.js"></script>
         <!-- lottie JavaScript -->
-        <script src="/js/lottie.js"></script>
+        <script src="js/lottie.js"></script>
         <!-- Chart Custom JavaScript -->
-        <script src="/js/chart-custom.js"></script>
+        <script src="js/chart-custom.js"></script>
         <!-- Custom JavaScript -->
-        <script src="/js/custom.js"></script>
+        <script src="js/custom.js"></script>
     </body>
 
 </html>
