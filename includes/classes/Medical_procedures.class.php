@@ -10,7 +10,6 @@
     private $procedure_date;
     private $procedure_type;
     private $procedure_notes;
-    private $timee;
     private $time;
 
     public function __construct($id = null){
@@ -30,7 +29,6 @@
           $this->procedure_date = $row['procedure_date'];
           $this->procedure_type = $row['procedure_type'];
           $this->procedure_notes = $row['procedure_notes'];
-          $this->timee = $row['timee'];
           $this->time = $row['time'];
         }
       }
@@ -43,7 +41,7 @@
       }else{
         return false;
       }
-    }
+    } 
 
     public function getAll($limit = 1000000){
       if(!is_numeric($limit)){ return '[]'; }
@@ -83,7 +81,6 @@
         $this->procedure_date = $row['procedure_date'];
         $this->procedure_type = $row['procedure_type'];
         $this->procedure_notes = $row['procedure_notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -102,7 +99,6 @@
         $this->procedure_date = $row['procedure_date'];
         $this->procedure_type = $row['procedure_type'];
         $this->procedure_notes = $row['procedure_notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -121,7 +117,6 @@
         $this->procedure_date = $row['procedure_date'];
         $this->procedure_type = $row['procedure_type'];
         $this->procedure_notes = $row['procedure_notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -140,7 +135,6 @@
         $this->procedure_date = $row['procedure_date'];
         $this->procedure_type = $row['procedure_type'];
         $this->procedure_notes = $row['procedure_notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -159,7 +153,6 @@
         $this->procedure_date = $row['procedure_date'];
         $this->procedure_type = $row['procedure_type'];
         $this->procedure_notes = $row['procedure_notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -178,26 +171,6 @@
         $this->procedure_date = $row['procedure_date'];
         $this->procedure_type = $row['procedure_type'];
         $this->procedure_notes = $row['procedure_notes'];
-        $this->timee = $row['timee'];
-        $this->time = $row['time'];
-        return true;
-      }else{
-         return false;
-      }
-    }
-
-    public function getByTimee(){
-      $sql = "SELECT * FROM `medical_procedures` WHERE `timee`='$this->timee'";
-      $result = $this->db()->query($sql);
-      if($result->rowCount() > 0){
-        $row = $result->fetch();
-        $this->id = $row['id'];
-        $this->patient_id = $row['patient_id'];
-        $this->doctor_id = $row['doctor_id'];
-        $this->procedure_date = $row['procedure_date'];
-        $this->procedure_type = $row['procedure_type'];
-        $this->procedure_notes = $row['procedure_notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -216,7 +189,6 @@
         $this->procedure_date = $row['procedure_date'];
         $this->procedure_type = $row['procedure_type'];
         $this->procedure_notes = $row['procedure_notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -235,7 +207,6 @@
         $this->procedure_date = $row['procedure_date'];
         $this->procedure_type = $row['procedure_type'];
         $this->procedure_notes = $row['procedure_notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -254,7 +225,6 @@
         $this->procedure_date = $row['procedure_date'];
         $this->procedure_type = $row['procedure_type'];
         $this->procedure_notes = $row['procedure_notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -264,7 +234,7 @@
 
     public function getBySet($limit){
       if(!is_numeric($limit)){ return '[]'; }
-      $sql = "SELECT * FROM `medical_procedures` WHERE `id` LIKE '%$this->id%' AND `patient_id` LIKE '%$this->patient_id%' AND `doctor_id` LIKE '%$this->doctor_id%' AND `procedure_date` LIKE '%$this->procedure_date%' AND `procedure_type` LIKE '%$this->procedure_type%' AND `procedure_notes` LIKE '%$this->procedure_notes%' AND `timee` LIKE '%$this->timee%' AND `time` LIKE '%$this->time%' LIMIT $limit";
+      $sql = "SELECT * FROM `medical_procedures` WHERE `id` LIKE '%$this->id%' AND `patient_id` LIKE '%$this->patient_id%' AND `doctor_id` LIKE '%$this->doctor_id%' AND `procedure_date` LIKE '%$this->procedure_date%' AND `procedure_type` LIKE '%$this->procedure_type%' AND `procedure_notes` LIKE '%$this->procedure_notes%' AND `time` LIKE '%$this->time%' LIMIT $limit";
       $result = $this->db()->query($sql);
       $data = $result->fetchAll();
       $json_data = json_encode($data);
@@ -273,8 +243,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `medical_procedures` (`patient_id`, `doctor_id`, `procedure_date`, `procedure_type`, `procedure_notes`, `timee`, `time`) VALUES
-      ('$this->patient_id', '$this->doctor_id', '$this->procedure_date', '$this->procedure_type', '$this->procedure_notes', '$this->timee', '$this->time')";
+      $sql = "INSERT INTO `medical_procedures` (`id`, `patient_id`, `doctor_id`, `procedure_date`, `procedure_type`, `procedure_notes`, `time`) VALUES 
+      ('$this->id', '$this->patient_id', '$this->doctor_id', '$this->procedure_date', '$this->procedure_type', '$this->procedure_notes', '$this->time')";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -283,7 +253,7 @@
     }
 
     public function update(){
-      $sql = "UPDATE `medical_procedures` SET `id`='$this->id', `patient_id`='$this->patient_id', `doctor_id`='$this->doctor_id', `procedure_date`='$this->procedure_date', `procedure_type`='$this->procedure_type', `procedure_notes`='$this->procedure_notes', `timee`='$this->timee', `time`='$this->time' WHERE `id`='$this->id'";
+      $sql = "UPDATE `medical_procedures` SET `id`='$this->id', `patient_id`='$this->patient_id', `doctor_id`='$this->doctor_id', `procedure_date`='$this->procedure_date', `procedure_type`='$this->procedure_type', `procedure_notes`='$this->procedure_notes', `time`='$this->time' WHERE `id`='$this->id'";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -368,7 +338,7 @@
     }
 
     public function setProcedure_date($procedure_date){
-      if(is_string($procedure_date)){
+      if(is_numeric($procedure_date)){
         $this->procedure_date = filter($procedure_date);
         return true;
       }else{
@@ -394,17 +364,8 @@
       }
     }
 
-    public function setTimee($timee){
-      if(is_numeric($timee)){
-        $this->timee = filter($timee);
-        return true;
-      }else{
-        return false;
-      }
-    }
-
     public function setTime($time){
-      if(is_string($time)){
+      if(is_numeric($time)){
         $this->time = filter($time);
         return true;
       }else{
@@ -434,10 +395,6 @@
 
     public function getProcedure_notes(){
       return $this->procedure_notes;
-    }
-
-    public function getTimee(){
-      return $this->timee;
     }
 
     public function getTime(){

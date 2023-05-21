@@ -8,15 +8,14 @@ class Patient_history{
     this.notes = ''
     this.created_at = ''
     this.updated_at = ''
-    this.timee = ''
     this.time = ''
     this.msg = ''
     this.error = ''
     this.token = ''
   }
 
-  async add(){ try{ eval(await this.request('controller/patient_history.php?id=' + this.id + '&files_id=' + this.files_id + '&diagnosis=' + this.diagnosis + '&treatment=' + this.treatment + '&notes=' + this.notes + '&created_at=' + this.created_at + '&updated_at=' + this.updated_at + '&timee=' + this.timee + '&time=' + this.time + '&add=1')); }catch(err){}}
-  async update(){ try{ eval(await this.request('controller/patient_history.php?id=' + this.id + '&files_id=' + this.files_id + '&diagnosis=' + this.diagnosis + '&treatment=' + this.treatment + '&notes=' + this.notes + '&created_at=' + this.created_at + '&updated_at=' + this.updated_at + '&timee=' + this.timee + '&time=' + this.time + '&update=1')); }catch(err){}}
+  async add(){ try{ eval(await this.request('controller/patient_history.php?id=' + this.id + '&files_id=' + this.files_id + '&diagnosis=' + this.diagnosis + '&treatment=' + this.treatment + '&notes=' + this.notes + '&created_at=' + this.created_at + '&updated_at=' + this.updated_at + '&time=' + this.time + '&add=1')); }catch(err){}}
+  async update(){ try{ eval(await this.request('controller/patient_history.php?id=' + this.id + '&files_id=' + this.files_id + '&diagnosis=' + this.diagnosis + '&treatment=' + this.treatment + '&notes=' + this.notes + '&created_at=' + this.created_at + '&updated_at=' + this.updated_at + '&time=' + this.time + '&update=1')); }catch(err){}}
   async delete(){ try{ eval(await this.request('controller/patient_history.php?id=' + this.id + '&delete=1')); }catch(err){}}
   async getLastRow(){ try{ eval(await this.request('controller/patient_history.php?getLastRow=1')); }catch(err){}}
   async getFirstRow(){ try{ eval(await this.request('controller/patient_history.php?getFirstRow=1')); }catch(err){}}
@@ -27,10 +26,9 @@ class Patient_history{
   async getByNotes(){ try{ eval(await this.request('controller/patient_history.php?getByNotes=' + this.notes)); }catch(err){}}
   async getByCreated_at(){ try{ eval(await this.request('controller/patient_history.php?getByCreated_at=' + this.created_at)); }catch(err){}}
   async getByUpdated_at(){ try{ eval(await this.request('controller/patient_history.php?getByUpdated_at=' + this.updated_at)); }catch(err){}}
-  async getByTimee(){ try{ eval(await this.request('controller/patient_history.php?getByTimee=' + this.timee)); }catch(err){}}
   async getByTime(){ try{ eval(await this.request('controller/patient_history.php?getByTime=' + this.time)); }catch(err){}}
   // GET THE RESULT AS JSON
-  async getBySet(value = 100000){ try{ return await this.request('controller/patient_history.php?id=' + this.id + '&files_id=' + this.files_id + '&diagnosis=' + this.diagnosis + '&treatment=' + this.treatment + '&notes=' + this.notes + '&created_at=' + this.created_at + '&updated_at=' + this.updated_at + '&timee=' + this.timee + '&time=' + this.time + '&getBySet=' + value); }catch(err){}}
+  async getBySet(value = 100000){ try{ return await this.request('controller/patient_history.php?id=' + this.id + '&files_id=' + this.files_id + '&diagnosis=' + this.diagnosis + '&treatment=' + this.treatment + '&notes=' + this.notes + '&created_at=' + this.created_at + '&updated_at=' + this.updated_at + '&time=' + this.time + '&getBySet=' + value); }catch(err){}}
   async getAll(value = 100000){ try{ return await this.request('controller/patient_history.php?getAll=' + value); }catch(err){}}
   async getAllReversed(value = 100000){ try{ return await this.request('controller/patient_history.php?getAllReversed=' + value); }catch(err){}}
   // GET AS TEXT
@@ -44,7 +42,6 @@ class Patient_history{
   setNotes(notes){ this.notes = notes; }
   setCreated_at(created_at){ this.created_at = created_at; }
   setUpdated_at(updated_at){ this.updated_at = updated_at; }
-  setTimee(timee){ this.timee = timee; }
   setTime(time){ this.time = time; }
   // GETTER METHODS
   getId(){ return this.id; }
@@ -54,7 +51,6 @@ class Patient_history{
   getNotes(){ return this.notes; }
   getCreated_at(){ return this.created_at; }
   getUpdated_at(){ return this.updated_at; }
-  getTimee(){ return this.timee; }
   getTime(){ return this.time; }
   getMsg(){ return this.msg; }
 

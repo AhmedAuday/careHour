@@ -7,15 +7,14 @@ class Symptoms{
     this.start_date = ''
     this.end_date = ''
     this.notes = ''
-    this.timee = ''
     this.time = ''
     this.msg = ''
     this.error = ''
     this.token = ''
   }
 
-  async add(){ try{ eval(await this.request('controller/symptoms.php?id=' + this.id + '&patient_id=' + this.patient_id + '&symptom_name=' + this.symptom_name + '&start_date=' + this.start_date + '&end_date=' + this.end_date + '&notes=' + this.notes + '&timee=' + this.timee + '&time=' + this.time + '&add=1')); }catch(err){}}
-  async update(){ try{ eval(await this.request('controller/symptoms.php?id=' + this.id + '&patient_id=' + this.patient_id + '&symptom_name=' + this.symptom_name + '&start_date=' + this.start_date + '&end_date=' + this.end_date + '&notes=' + this.notes + '&timee=' + this.timee + '&time=' + this.time + '&update=1')); }catch(err){}}
+  async add(){ try{ eval(await this.request('controller/symptoms.php?id=' + this.id + '&patient_id=' + this.patient_id + '&symptom_name=' + this.symptom_name + '&start_date=' + this.start_date + '&end_date=' + this.end_date + '&notes=' + this.notes + '&time=' + this.time + '&add=1')); }catch(err){}}
+  async update(){ try{ eval(await this.request('controller/symptoms.php?id=' + this.id + '&patient_id=' + this.patient_id + '&symptom_name=' + this.symptom_name + '&start_date=' + this.start_date + '&end_date=' + this.end_date + '&notes=' + this.notes + '&time=' + this.time + '&update=1')); }catch(err){}}
   async delete(){ try{ eval(await this.request('controller/symptoms.php?id=' + this.id + '&delete=1')); }catch(err){}}
   async getLastRow(){ try{ eval(await this.request('controller/symptoms.php?getLastRow=1')); }catch(err){}}
   async getFirstRow(){ try{ eval(await this.request('controller/symptoms.php?getFirstRow=1')); }catch(err){}}
@@ -25,10 +24,9 @@ class Symptoms{
   async getByStart_date(){ try{ eval(await this.request('controller/symptoms.php?getByStart_date=' + this.start_date)); }catch(err){}}
   async getByEnd_date(){ try{ eval(await this.request('controller/symptoms.php?getByEnd_date=' + this.end_date)); }catch(err){}}
   async getByNotes(){ try{ eval(await this.request('controller/symptoms.php?getByNotes=' + this.notes)); }catch(err){}}
-  async getByTimee(){ try{ eval(await this.request('controller/symptoms.php?getByTimee=' + this.timee)); }catch(err){}}
   async getByTime(){ try{ eval(await this.request('controller/symptoms.php?getByTime=' + this.time)); }catch(err){}}
   // GET THE RESULT AS JSON
-  async getBySet(value = 100000){ try{ return await this.request('controller/symptoms.php?id=' + this.id + '&patient_id=' + this.patient_id + '&symptom_name=' + this.symptom_name + '&start_date=' + this.start_date + '&end_date=' + this.end_date + '&notes=' + this.notes + '&timee=' + this.timee + '&time=' + this.time + '&getBySet=' + value); }catch(err){}}
+  async getBySet(value = 100000){ try{ return await this.request('controller/symptoms.php?id=' + this.id + '&patient_id=' + this.patient_id + '&symptom_name=' + this.symptom_name + '&start_date=' + this.start_date + '&end_date=' + this.end_date + '&notes=' + this.notes + '&time=' + this.time + '&getBySet=' + value); }catch(err){}}
   async getAll(value = 100000){ try{ return await this.request('controller/symptoms.php?getAll=' + value); }catch(err){}}
   async getAllReversed(value = 100000){ try{ return await this.request('controller/symptoms.php?getAllReversed=' + value); }catch(err){}}
   // GET AS TEXT
@@ -41,7 +39,6 @@ class Symptoms{
   setStart_date(start_date){ this.start_date = start_date; }
   setEnd_date(end_date){ this.end_date = end_date; }
   setNotes(notes){ this.notes = notes; }
-  setTimee(timee){ this.timee = timee; }
   setTime(time){ this.time = time; }
   // GETTER METHODS
   getId(){ return this.id; }
@@ -50,7 +47,6 @@ class Symptoms{
   getStart_date(){ return this.start_date; }
   getEnd_date(){ return this.end_date; }
   getNotes(){ return this.notes; }
-  getTimee(){ return this.timee; }
   getTime(){ return this.time; }
   getMsg(){ return this.msg; }
 

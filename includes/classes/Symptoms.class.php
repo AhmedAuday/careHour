@@ -10,7 +10,6 @@
     private $start_date;
     private $end_date;
     private $notes;
-    private $timee;
     private $time;
 
     public function __construct($id = null){
@@ -30,7 +29,6 @@
           $this->start_date = $row['start_date'];
           $this->end_date = $row['end_date'];
           $this->notes = $row['notes'];
-          $this->timee = $row['timee'];
           $this->time = $row['time'];
         }
       }
@@ -43,7 +41,7 @@
       }else{
         return false;
       }
-    }
+    } 
 
     public function getAll($limit = 1000000){
       if(!is_numeric($limit)){ return '[]'; }
@@ -83,7 +81,6 @@
         $this->start_date = $row['start_date'];
         $this->end_date = $row['end_date'];
         $this->notes = $row['notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -102,7 +99,6 @@
         $this->start_date = $row['start_date'];
         $this->end_date = $row['end_date'];
         $this->notes = $row['notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -121,7 +117,6 @@
         $this->start_date = $row['start_date'];
         $this->end_date = $row['end_date'];
         $this->notes = $row['notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -140,7 +135,6 @@
         $this->start_date = $row['start_date'];
         $this->end_date = $row['end_date'];
         $this->notes = $row['notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -159,7 +153,6 @@
         $this->start_date = $row['start_date'];
         $this->end_date = $row['end_date'];
         $this->notes = $row['notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -178,26 +171,6 @@
         $this->start_date = $row['start_date'];
         $this->end_date = $row['end_date'];
         $this->notes = $row['notes'];
-        $this->timee = $row['timee'];
-        $this->time = $row['time'];
-        return true;
-      }else{
-         return false;
-      }
-    }
-
-    public function getByTimee(){
-      $sql = "SELECT * FROM `symptoms` WHERE `timee`='$this->timee'";
-      $result = $this->db()->query($sql);
-      if($result->rowCount() > 0){
-        $row = $result->fetch();
-        $this->id = $row['id'];
-        $this->patient_id = $row['patient_id'];
-        $this->symptom_name = $row['symptom_name'];
-        $this->start_date = $row['start_date'];
-        $this->end_date = $row['end_date'];
-        $this->notes = $row['notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -216,7 +189,6 @@
         $this->start_date = $row['start_date'];
         $this->end_date = $row['end_date'];
         $this->notes = $row['notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -235,7 +207,6 @@
         $this->start_date = $row['start_date'];
         $this->end_date = $row['end_date'];
         $this->notes = $row['notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -254,7 +225,6 @@
         $this->start_date = $row['start_date'];
         $this->end_date = $row['end_date'];
         $this->notes = $row['notes'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -264,7 +234,7 @@
 
     public function getBySet($limit){
       if(!is_numeric($limit)){ return '[]'; }
-      $sql = "SELECT * FROM `symptoms` WHERE `id` LIKE '%$this->id%' AND `patient_id` LIKE '%$this->patient_id%' AND `symptom_name` LIKE '%$this->symptom_name%' AND `start_date` LIKE '%$this->start_date%' AND `end_date` LIKE '%$this->end_date%' AND `notes` LIKE '%$this->notes%' AND `timee` LIKE '%$this->timee%' AND `time` LIKE '%$this->time%' LIMIT $limit";
+      $sql = "SELECT * FROM `symptoms` WHERE `id` LIKE '%$this->id%' AND `patient_id` LIKE '%$this->patient_id%' AND `symptom_name` LIKE '%$this->symptom_name%' AND `start_date` LIKE '%$this->start_date%' AND `end_date` LIKE '%$this->end_date%' AND `notes` LIKE '%$this->notes%' AND `time` LIKE '%$this->time%' LIMIT $limit";
       $result = $this->db()->query($sql);
       $data = $result->fetchAll();
       $json_data = json_encode($data);
@@ -273,8 +243,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `symptoms` (`patient_id`, `symptom_name`, `start_date`, `end_date`, `notes`, `timee`, `time`) VALUES
-      ('$this->patient_id', '$this->symptom_name', '$this->start_date', '$this->end_date', '$this->notes', '$this->timee', '$this->time')";
+      $sql = "INSERT INTO `symptoms` (`id`, `patient_id`, `symptom_name`, `start_date`, `end_date`, `notes`, `time`) VALUES 
+      ('$this->id', '$this->patient_id', '$this->symptom_name', '$this->start_date', '$this->end_date', '$this->notes', '$this->time')";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -283,7 +253,7 @@
     }
 
     public function update(){
-      $sql = "UPDATE `symptoms` SET `id`='$this->id', `patient_id`='$this->patient_id', `symptom_name`='$this->symptom_name', `start_date`='$this->start_date', `end_date`='$this->end_date', `notes`='$this->notes', `timee`='$this->timee', `time`='$this->time' WHERE `id`='$this->id'";
+      $sql = "UPDATE `symptoms` SET `id`='$this->id', `patient_id`='$this->patient_id', `symptom_name`='$this->symptom_name', `start_date`='$this->start_date', `end_date`='$this->end_date', `notes`='$this->notes', `time`='$this->time' WHERE `id`='$this->id'";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -368,7 +338,7 @@
     }
 
     public function setStart_date($start_date){
-      if(is_string($start_date)){
+      if(is_numeric($start_date)){
         $this->start_date = filter($start_date);
         return true;
       }else{
@@ -377,7 +347,7 @@
     }
 
     public function setEnd_date($end_date){
-      if(is_string($end_date)){
+      if(is_numeric($end_date)){
         $this->end_date = filter($end_date);
         return true;
       }else{
@@ -394,17 +364,8 @@
       }
     }
 
-    public function setTimee($timee){
-      if(is_numeric($timee)){
-        $this->timee = filter($timee);
-        return true;
-      }else{
-        return false;
-      }
-    }
-
     public function setTime($time){
-      if(is_string($time)){
+      if(is_numeric($time)){
         $this->time = filter($time);
         return true;
       }else{
@@ -434,10 +395,6 @@
 
     public function getNotes(){
       return $this->notes;
-    }
-
-    public function getTimee(){
-      return $this->timee;
     }
 
     public function getTime(){

@@ -11,7 +11,6 @@
     private $blood_pressure;
     private $heart_rate;
     private $respiratory_rate;
-    private $timee;
     private $time;
 
     public function __construct($id = null){
@@ -32,7 +31,6 @@
           $this->blood_pressure = $row['blood_pressure'];
           $this->heart_rate = $row['heart_rate'];
           $this->respiratory_rate = $row['respiratory_rate'];
-          $this->timee = $row['timee'];
           $this->time = $row['time'];
         }
       }
@@ -45,7 +43,7 @@
       }else{
         return false;
       }
-    }
+    } 
 
     public function getAll($limit = 1000000){
       if(!is_numeric($limit)){ return '[]'; }
@@ -86,7 +84,6 @@
         $this->blood_pressure = $row['blood_pressure'];
         $this->heart_rate = $row['heart_rate'];
         $this->respiratory_rate = $row['respiratory_rate'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -106,7 +103,6 @@
         $this->blood_pressure = $row['blood_pressure'];
         $this->heart_rate = $row['heart_rate'];
         $this->respiratory_rate = $row['respiratory_rate'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -126,7 +122,6 @@
         $this->blood_pressure = $row['blood_pressure'];
         $this->heart_rate = $row['heart_rate'];
         $this->respiratory_rate = $row['respiratory_rate'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -146,7 +141,6 @@
         $this->blood_pressure = $row['blood_pressure'];
         $this->heart_rate = $row['heart_rate'];
         $this->respiratory_rate = $row['respiratory_rate'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -166,7 +160,6 @@
         $this->blood_pressure = $row['blood_pressure'];
         $this->heart_rate = $row['heart_rate'];
         $this->respiratory_rate = $row['respiratory_rate'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -186,7 +179,6 @@
         $this->blood_pressure = $row['blood_pressure'];
         $this->heart_rate = $row['heart_rate'];
         $this->respiratory_rate = $row['respiratory_rate'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -206,27 +198,6 @@
         $this->blood_pressure = $row['blood_pressure'];
         $this->heart_rate = $row['heart_rate'];
         $this->respiratory_rate = $row['respiratory_rate'];
-        $this->timee = $row['timee'];
-        $this->time = $row['time'];
-        return true;
-      }else{
-         return false;
-      }
-    }
-
-    public function getByTimee(){
-      $sql = "SELECT * FROM `vitals` WHERE `timee`='$this->timee'";
-      $result = $this->db()->query($sql);
-      if($result->rowCount() > 0){
-        $row = $result->fetch();
-        $this->id = $row['id'];
-        $this->patient_id = $row['patient_id'];
-        $this->date_time = $row['date_time'];
-        $this->temperature = $row['temperature'];
-        $this->blood_pressure = $row['blood_pressure'];
-        $this->heart_rate = $row['heart_rate'];
-        $this->respiratory_rate = $row['respiratory_rate'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -246,7 +217,6 @@
         $this->blood_pressure = $row['blood_pressure'];
         $this->heart_rate = $row['heart_rate'];
         $this->respiratory_rate = $row['respiratory_rate'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -266,7 +236,6 @@
         $this->blood_pressure = $row['blood_pressure'];
         $this->heart_rate = $row['heart_rate'];
         $this->respiratory_rate = $row['respiratory_rate'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -286,7 +255,6 @@
         $this->blood_pressure = $row['blood_pressure'];
         $this->heart_rate = $row['heart_rate'];
         $this->respiratory_rate = $row['respiratory_rate'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -296,7 +264,7 @@
 
     public function getBySet($limit){
       if(!is_numeric($limit)){ return '[]'; }
-      $sql = "SELECT * FROM `vitals` WHERE `id` LIKE '%$this->id%' AND `patient_id` LIKE '%$this->patient_id%' AND `date_time` LIKE '%$this->date_time%' AND `temperature` LIKE '%$this->temperature%' AND `blood_pressure` LIKE '%$this->blood_pressure%' AND `heart_rate` LIKE '%$this->heart_rate%' AND `respiratory_rate` LIKE '%$this->respiratory_rate%' AND `timee` LIKE '%$this->timee%' AND `time` LIKE '%$this->time%' LIMIT $limit";
+      $sql = "SELECT * FROM `vitals` WHERE `id` LIKE '%$this->id%' AND `patient_id` LIKE '%$this->patient_id%' AND `date_time` LIKE '%$this->date_time%' AND `temperature` LIKE '%$this->temperature%' AND `blood_pressure` LIKE '%$this->blood_pressure%' AND `heart_rate` LIKE '%$this->heart_rate%' AND `respiratory_rate` LIKE '%$this->respiratory_rate%' AND `time` LIKE '%$this->time%' LIMIT $limit";
       $result = $this->db()->query($sql);
       $data = $result->fetchAll();
       $json_data = json_encode($data);
@@ -305,8 +273,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `vitals` (`patient_id`, `date_time`, `temperature`, `blood_pressure`, `heart_rate`, `respiratory_rate`, `timee`, `time`) VALUES
-      ('$this->patient_id', '$this->date_time', '$this->temperature', '$this->blood_pressure', '$this->heart_rate', '$this->respiratory_rate', '$this->timee', '$this->time')";
+      $sql = "INSERT INTO `vitals` (`id`, `patient_id`, `date_time`, `temperature`, `blood_pressure`, `heart_rate`, `respiratory_rate`, `time`) VALUES 
+      ('$this->id', '$this->patient_id', '$this->date_time', '$this->temperature', '$this->blood_pressure', '$this->heart_rate', '$this->respiratory_rate', '$this->time')";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -315,7 +283,7 @@
     }
 
     public function update(){
-      $sql = "UPDATE `vitals` SET `id`='$this->id', `patient_id`='$this->patient_id', `date_time`='$this->date_time', `temperature`='$this->temperature', `blood_pressure`='$this->blood_pressure', `heart_rate`='$this->heart_rate', `respiratory_rate`='$this->respiratory_rate', `timee`='$this->timee', `time`='$this->time' WHERE `id`='$this->id'";
+      $sql = "UPDATE `vitals` SET `id`='$this->id', `patient_id`='$this->patient_id', `date_time`='$this->date_time', `temperature`='$this->temperature', `blood_pressure`='$this->blood_pressure', `heart_rate`='$this->heart_rate', `respiratory_rate`='$this->respiratory_rate', `time`='$this->time' WHERE `id`='$this->id'";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -391,7 +359,7 @@
     }
 
     public function setDate_time($date_time){
-      if(is_string($date_time)){
+      if(is_numeric($date_time)){
         $this->date_time = filter($date_time);
         return true;
       }else{
@@ -400,7 +368,7 @@
     }
 
     public function setTemperature($temperature){
-      if(is_string($temperature)){
+      if(is_numeric($temperature)){
         $this->temperature = filter($temperature);
         return true;
       }else{
@@ -435,17 +403,8 @@
       }
     }
 
-    public function setTimee($timee){
-      if(is_numeric($timee)){
-        $this->timee = filter($timee);
-        return true;
-      }else{
-        return false;
-      }
-    }
-
     public function setTime($time){
-      if(is_string($time)){
+      if(is_numeric($time)){
         $this->time = filter($time);
         return true;
       }else{
@@ -479,10 +438,6 @@
 
     public function getRespiratory_rate(){
       return $this->respiratory_rate;
-    }
-
-    public function getTimee(){
-      return $this->timee;
     }
 
     public function getTime(){

@@ -7,9 +7,9 @@
     private $id;
     private $patient_id;
     private $doctor_id;
+    private $medication_id;
     private $prescription_date;
     private $dosage;
-    private $timee;
     private $time;
 
     public function __construct($id = null){
@@ -26,9 +26,9 @@
           $this->id = $row['id'];
           $this->patient_id = $row['patient_id'];
           $this->doctor_id = $row['doctor_id'];
+          $this->medication_id = $row['medication_id'];
           $this->prescription_date = $row['prescription_date'];
           $this->dosage = $row['dosage'];
-          $this->timee = $row['timee'];
           $this->time = $row['time'];
         }
       }
@@ -41,7 +41,7 @@
       }else{
         return false;
       }
-    }
+    } 
 
     public function getAll($limit = 1000000){
       if(!is_numeric($limit)){ return '[]'; }
@@ -78,9 +78,9 @@
         $this->id = $row['id'];
         $this->patient_id = $row['patient_id'];
         $this->doctor_id = $row['doctor_id'];
+        $this->medication_id = $row['medication_id'];
         $this->prescription_date = $row['prescription_date'];
         $this->dosage = $row['dosage'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -96,9 +96,9 @@
         $this->id = $row['id'];
         $this->patient_id = $row['patient_id'];
         $this->doctor_id = $row['doctor_id'];
+        $this->medication_id = $row['medication_id'];
         $this->prescription_date = $row['prescription_date'];
         $this->dosage = $row['dosage'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -114,9 +114,27 @@
         $this->id = $row['id'];
         $this->patient_id = $row['patient_id'];
         $this->doctor_id = $row['doctor_id'];
+        $this->medication_id = $row['medication_id'];
         $this->prescription_date = $row['prescription_date'];
         $this->dosage = $row['dosage'];
-        $this->timee = $row['timee'];
+        $this->time = $row['time'];
+        return true;
+      }else{
+         return false;
+      }
+    }
+
+    public function getByMedication_id(){
+      $sql = "SELECT * FROM `prescriptions` WHERE `medication_id`='$this->medication_id'";
+      $result = $this->db()->query($sql);
+      if($result->rowCount() > 0){
+        $row = $result->fetch();
+        $this->id = $row['id'];
+        $this->patient_id = $row['patient_id'];
+        $this->doctor_id = $row['doctor_id'];
+        $this->medication_id = $row['medication_id'];
+        $this->prescription_date = $row['prescription_date'];
+        $this->dosage = $row['dosage'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -132,9 +150,9 @@
         $this->id = $row['id'];
         $this->patient_id = $row['patient_id'];
         $this->doctor_id = $row['doctor_id'];
+        $this->medication_id = $row['medication_id'];
         $this->prescription_date = $row['prescription_date'];
         $this->dosage = $row['dosage'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -150,27 +168,9 @@
         $this->id = $row['id'];
         $this->patient_id = $row['patient_id'];
         $this->doctor_id = $row['doctor_id'];
+        $this->medication_id = $row['medication_id'];
         $this->prescription_date = $row['prescription_date'];
         $this->dosage = $row['dosage'];
-        $this->timee = $row['timee'];
-        $this->time = $row['time'];
-        return true;
-      }else{
-         return false;
-      }
-    }
-
-    public function getByTimee(){
-      $sql = "SELECT * FROM `prescriptions` WHERE `timee`='$this->timee'";
-      $result = $this->db()->query($sql);
-      if($result->rowCount() > 0){
-        $row = $result->fetch();
-        $this->id = $row['id'];
-        $this->patient_id = $row['patient_id'];
-        $this->doctor_id = $row['doctor_id'];
-        $this->prescription_date = $row['prescription_date'];
-        $this->dosage = $row['dosage'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -186,9 +186,9 @@
         $this->id = $row['id'];
         $this->patient_id = $row['patient_id'];
         $this->doctor_id = $row['doctor_id'];
+        $this->medication_id = $row['medication_id'];
         $this->prescription_date = $row['prescription_date'];
         $this->dosage = $row['dosage'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -204,9 +204,9 @@
         $this->id = $row['id'];
         $this->patient_id = $row['patient_id'];
         $this->doctor_id = $row['doctor_id'];
+        $this->medication_id = $row['medication_id'];
         $this->prescription_date = $row['prescription_date'];
         $this->dosage = $row['dosage'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -222,9 +222,9 @@
         $this->id = $row['id'];
         $this->patient_id = $row['patient_id'];
         $this->doctor_id = $row['doctor_id'];
+        $this->medication_id = $row['medication_id'];
         $this->prescription_date = $row['prescription_date'];
         $this->dosage = $row['dosage'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -234,7 +234,7 @@
 
     public function getBySet($limit){
       if(!is_numeric($limit)){ return '[]'; }
-      $sql = "SELECT * FROM `prescriptions` WHERE `id` LIKE '%$this->id%' AND `patient_id` LIKE '%$this->patient_id%' AND `doctor_id` LIKE '%$this->doctor_id%' AND `prescription_date` LIKE '%$this->prescription_date%' AND `dosage` LIKE '%$this->dosage%' AND `timee` LIKE '%$this->timee%' AND `time` LIKE '%$this->time%' LIMIT $limit";
+      $sql = "SELECT * FROM `prescriptions` WHERE `id` LIKE '%$this->id%' AND `patient_id` LIKE '%$this->patient_id%' AND `doctor_id` LIKE '%$this->doctor_id%' AND `medication_id` LIKE '%$this->medication_id%' AND `prescription_date` LIKE '%$this->prescription_date%' AND `dosage` LIKE '%$this->dosage%' AND `time` LIKE '%$this->time%' LIMIT $limit";
       $result = $this->db()->query($sql);
       $data = $result->fetchAll();
       $json_data = json_encode($data);
@@ -243,8 +243,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `prescriptions` (`patient_id`, `doctor_id`, `prescription_date`, `dosage`, `timee`, `time`) VALUES
-      ('$this->patient_id', '$this->doctor_id', '$this->prescription_date', '$this->dosage', '$this->timee', '$this->time')";
+      $sql = "INSERT INTO `prescriptions` (`id`, `patient_id`, `doctor_id`, `medication_id`, `prescription_date`, `dosage`, `time`) VALUES 
+      ('$this->id', '$this->patient_id', '$this->doctor_id', '$this->medication_id', '$this->prescription_date', '$this->dosage', '$this->time')";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -253,7 +253,7 @@
     }
 
     public function update(){
-      $sql = "UPDATE `prescriptions` SET `id`='$this->id', `patient_id`='$this->patient_id', `doctor_id`='$this->doctor_id', `prescription_date`='$this->prescription_date', `dosage`='$this->dosage', `timee`='$this->timee', `time`='$this->time' WHERE `id`='$this->id'";
+      $sql = "UPDATE `prescriptions` SET `id`='$this->id', `patient_id`='$this->patient_id', `doctor_id`='$this->doctor_id', `medication_id`='$this->medication_id', `prescription_date`='$this->prescription_date', `dosage`='$this->dosage', `time`='$this->time' WHERE `id`='$this->id'";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -337,8 +337,17 @@
       }
     }
 
+    public function setMedication_id($medication_id){
+      if(is_numeric($medication_id)){
+        $this->medication_id = filter($medication_id);
+        return true;
+      }else{
+        return false;
+      }
+    }
+
     public function setPrescription_date($prescription_date){
-      if(is_string($prescription_date)){
+      if(is_numeric($prescription_date)){
         $this->prescription_date = filter($prescription_date);
         return true;
       }else{
@@ -355,17 +364,8 @@
       }
     }
 
-    public function setTimee($timee){
-      if(is_numeric($timee)){
-        $this->timee = filter($timee);
-        return true;
-      }else{
-        return false;
-      }
-    }
-
     public function setTime($time){
-      if(is_string($time)){
+      if(is_numeric($time)){
         $this->time = filter($time);
         return true;
       }else{
@@ -385,16 +385,16 @@
       return $this->doctor_id;
     }
 
+    public function getMedication_id(){
+      return $this->medication_id;
+    }
+
     public function getPrescription_date(){
       return $this->prescription_date;
     }
 
     public function getDosage(){
       return $this->dosage;
-    }
-
-    public function getTimee(){
-      return $this->timee;
     }
 
     public function getTime(){

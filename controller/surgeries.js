@@ -7,15 +7,14 @@ class Surgeries{
     this.surgery_name = ''
     this.surgery_date = ''
     this.notes = ''
-    this.timee = ''
     this.time = ''
     this.msg = ''
     this.error = ''
     this.token = ''
   }
 
-  async add(){ try{ eval(await this.request('controller/surgeries.php?id=' + this.id + '&doctor_id=' + this.doctor_id + '&patient_id=' + this.patient_id + '&surgery_name=' + this.surgery_name + '&surgery_date=' + this.surgery_date + '&notes=' + this.notes + '&timee=' + this.timee + '&time=' + this.time + '&add=1')); }catch(err){}}
-  async update(){ try{ eval(await this.request('controller/surgeries.php?id=' + this.id + '&doctor_id=' + this.doctor_id + '&patient_id=' + this.patient_id + '&surgery_name=' + this.surgery_name + '&surgery_date=' + this.surgery_date + '&notes=' + this.notes + '&timee=' + this.timee + '&time=' + this.time + '&update=1')); }catch(err){}}
+  async add(){ try{ eval(await this.request('controller/surgeries.php?id=' + this.id + '&doctor_id=' + this.doctor_id + '&patient_id=' + this.patient_id + '&surgery_name=' + this.surgery_name + '&surgery_date=' + this.surgery_date + '&notes=' + this.notes + '&time=' + this.time + '&add=1')); }catch(err){}}
+  async update(){ try{ eval(await this.request('controller/surgeries.php?id=' + this.id + '&doctor_id=' + this.doctor_id + '&patient_id=' + this.patient_id + '&surgery_name=' + this.surgery_name + '&surgery_date=' + this.surgery_date + '&notes=' + this.notes + '&time=' + this.time + '&update=1')); }catch(err){}}
   async delete(){ try{ eval(await this.request('controller/surgeries.php?id=' + this.id + '&delete=1')); }catch(err){}}
   async getLastRow(){ try{ eval(await this.request('controller/surgeries.php?getLastRow=1')); }catch(err){}}
   async getFirstRow(){ try{ eval(await this.request('controller/surgeries.php?getFirstRow=1')); }catch(err){}}
@@ -25,10 +24,9 @@ class Surgeries{
   async getBySurgery_name(){ try{ eval(await this.request('controller/surgeries.php?getBySurgery_name=' + this.surgery_name)); }catch(err){}}
   async getBySurgery_date(){ try{ eval(await this.request('controller/surgeries.php?getBySurgery_date=' + this.surgery_date)); }catch(err){}}
   async getByNotes(){ try{ eval(await this.request('controller/surgeries.php?getByNotes=' + this.notes)); }catch(err){}}
-  async getByTimee(){ try{ eval(await this.request('controller/surgeries.php?getByTimee=' + this.timee)); }catch(err){}}
   async getByTime(){ try{ eval(await this.request('controller/surgeries.php?getByTime=' + this.time)); }catch(err){}}
   // GET THE RESULT AS JSON
-  async getBySet(value = 100000){ try{ return await this.request('controller/surgeries.php?id=' + this.id + '&doctor_id=' + this.doctor_id + '&patient_id=' + this.patient_id + '&surgery_name=' + this.surgery_name + '&surgery_date=' + this.surgery_date + '&notes=' + this.notes + '&timee=' + this.timee + '&time=' + this.time + '&getBySet=' + value); }catch(err){}}
+  async getBySet(value = 100000){ try{ return await this.request('controller/surgeries.php?id=' + this.id + '&doctor_id=' + this.doctor_id + '&patient_id=' + this.patient_id + '&surgery_name=' + this.surgery_name + '&surgery_date=' + this.surgery_date + '&notes=' + this.notes + '&time=' + this.time + '&getBySet=' + value); }catch(err){}}
   async getAll(value = 100000){ try{ return await this.request('controller/surgeries.php?getAll=' + value); }catch(err){}}
   async getAllReversed(value = 100000){ try{ return await this.request('controller/surgeries.php?getAllReversed=' + value); }catch(err){}}
   // GET AS TEXT
@@ -41,7 +39,6 @@ class Surgeries{
   setSurgery_name(surgery_name){ this.surgery_name = surgery_name; }
   setSurgery_date(surgery_date){ this.surgery_date = surgery_date; }
   setNotes(notes){ this.notes = notes; }
-  setTimee(timee){ this.timee = timee; }
   setTime(time){ this.time = time; }
   // GETTER METHODS
   getId(){ return this.id; }
@@ -50,7 +47,6 @@ class Surgeries{
   getSurgery_name(){ return this.surgery_name; }
   getSurgery_date(){ return this.surgery_date; }
   getNotes(){ return this.notes; }
-  getTimee(){ return this.timee; }
   getTime(){ return this.time; }
   getMsg(){ return this.msg; }
 

@@ -5,17 +5,20 @@
   class Patients extends Database {
     private $sqlCondition = 1;
     private $id;
-    private $user_id;
     private $first_name;
     private $middle_name;
     private $last_name;
+    private $username;
+    private $email;
+    private $passwordd;
+    private $image_of_id;
+    private $profile_image;
     private $date_of_birth;
     private $blood_type;
     private $gender;
-    private $address;
+    private $addresses;
     private $city;
     private $phone_number;
-    private $timee;
     private $time;
 
     public function __construct($id = null){
@@ -30,17 +33,20 @@
         if($result->rowCount() > 0){
           $row = $result->fetch();
           $this->id = $row['id'];
-          $this->user_id = $row['user_id'];
           $this->first_name = $row['first_name'];
           $this->middle_name = $row['middle_name'];
           $this->last_name = $row['last_name'];
+          $this->username = $row['username'];
+          $this->email = $row['email'];
+          $this->passwordd = $row['passwordd'];
+          $this->image_of_id = $row['image_of_id'];
+          $this->profile_image = $row['profile_image'];
           $this->date_of_birth = $row['date_of_birth'];
           $this->blood_type = $row['blood_type'];
           $this->gender = $row['gender'];
-          $this->address = $row['address'];
+          $this->addresses = $row['addresses'];
           $this->city = $row['city'];
           $this->phone_number = $row['phone_number'];
-          $this->timee = $row['timee'];
           $this->time = $row['time'];
         }
       }
@@ -53,7 +59,7 @@
       }else{
         return false;
       }
-    }
+    } 
 
     public function getAll($limit = 1000000){
       if(!is_numeric($limit)){ return '[]'; }
@@ -88,41 +94,20 @@
       if($result->rowCount() > 0){
         $row = $result->fetch();
         $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
         $this->date_of_birth = $row['date_of_birth'];
         $this->blood_type = $row['blood_type'];
         $this->gender = $row['gender'];
-        $this->address = $row['address'];
+        $this->addresses = $row['addresses'];
         $this->city = $row['city'];
         $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
-        $this->time = $row['time'];
-        return true;
-      }else{
-         return false;
-      }
-    }
-
-    public function getByUser_id(){
-      $sql = "SELECT * FROM `patients` WHERE `user_id`='$this->user_id'";
-      $result = $this->db()->query($sql);
-      if($result->rowCount() > 0){
-        $row = $result->fetch();
-        $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
-        $this->first_name = $row['first_name'];
-        $this->middle_name = $row['middle_name'];
-        $this->last_name = $row['last_name'];
-        $this->date_of_birth = $row['date_of_birth'];
-        $this->blood_type = $row['blood_type'];
-        $this->gender = $row['gender'];
-        $this->address = $row['address'];
-        $this->city = $row['city'];
-        $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -136,17 +121,20 @@
       if($result->rowCount() > 0){
         $row = $result->fetch();
         $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
         $this->date_of_birth = $row['date_of_birth'];
         $this->blood_type = $row['blood_type'];
         $this->gender = $row['gender'];
-        $this->address = $row['address'];
+        $this->addresses = $row['addresses'];
         $this->city = $row['city'];
         $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -160,17 +148,20 @@
       if($result->rowCount() > 0){
         $row = $result->fetch();
         $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
         $this->date_of_birth = $row['date_of_birth'];
         $this->blood_type = $row['blood_type'];
         $this->gender = $row['gender'];
-        $this->address = $row['address'];
+        $this->addresses = $row['addresses'];
         $this->city = $row['city'];
         $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -184,17 +175,155 @@
       if($result->rowCount() > 0){
         $row = $result->fetch();
         $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
         $this->date_of_birth = $row['date_of_birth'];
         $this->blood_type = $row['blood_type'];
         $this->gender = $row['gender'];
-        $this->address = $row['address'];
+        $this->addresses = $row['addresses'];
         $this->city = $row['city'];
         $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
+        $this->time = $row['time'];
+        return true;
+      }else{
+         return false;
+      }
+    }
+
+    public function getByUsername(){
+      $sql = "SELECT * FROM `patients` WHERE `username`='$this->username'";
+      $result = $this->db()->query($sql);
+      if($result->rowCount() > 0){
+        $row = $result->fetch();
+        $this->id = $row['id'];
+        $this->first_name = $row['first_name'];
+        $this->middle_name = $row['middle_name'];
+        $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
+        $this->date_of_birth = $row['date_of_birth'];
+        $this->blood_type = $row['blood_type'];
+        $this->gender = $row['gender'];
+        $this->addresses = $row['addresses'];
+        $this->city = $row['city'];
+        $this->phone_number = $row['phone_number'];
+        $this->time = $row['time'];
+        return true;
+      }else{
+         return false;
+      }
+    }
+
+    public function getByEmail(){
+      $sql = "SELECT * FROM `patients` WHERE `email`='$this->email'";
+      $result = $this->db()->query($sql);
+      if($result->rowCount() > 0){
+        $row = $result->fetch();
+        $this->id = $row['id'];
+        $this->first_name = $row['first_name'];
+        $this->middle_name = $row['middle_name'];
+        $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
+        $this->date_of_birth = $row['date_of_birth'];
+        $this->blood_type = $row['blood_type'];
+        $this->gender = $row['gender'];
+        $this->addresses = $row['addresses'];
+        $this->city = $row['city'];
+        $this->phone_number = $row['phone_number'];
+        $this->time = $row['time'];
+        return true;
+      }else{
+         return false;
+      }
+    }
+
+    public function getByPasswordd(){
+      $sql = "SELECT * FROM `patients` WHERE `passwordd`='$this->passwordd'";
+      $result = $this->db()->query($sql);
+      if($result->rowCount() > 0){
+        $row = $result->fetch();
+        $this->id = $row['id'];
+        $this->first_name = $row['first_name'];
+        $this->middle_name = $row['middle_name'];
+        $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
+        $this->date_of_birth = $row['date_of_birth'];
+        $this->blood_type = $row['blood_type'];
+        $this->gender = $row['gender'];
+        $this->addresses = $row['addresses'];
+        $this->city = $row['city'];
+        $this->phone_number = $row['phone_number'];
+        $this->time = $row['time'];
+        return true;
+      }else{
+         return false;
+      }
+    }
+
+    public function getByImage_of_id(){
+      $sql = "SELECT * FROM `patients` WHERE `image_of_id`='$this->image_of_id'";
+      $result = $this->db()->query($sql);
+      if($result->rowCount() > 0){
+        $row = $result->fetch();
+        $this->id = $row['id'];
+        $this->first_name = $row['first_name'];
+        $this->middle_name = $row['middle_name'];
+        $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
+        $this->date_of_birth = $row['date_of_birth'];
+        $this->blood_type = $row['blood_type'];
+        $this->gender = $row['gender'];
+        $this->addresses = $row['addresses'];
+        $this->city = $row['city'];
+        $this->phone_number = $row['phone_number'];
+        $this->time = $row['time'];
+        return true;
+      }else{
+         return false;
+      }
+    }
+
+    public function getByProfile_image(){
+      $sql = "SELECT * FROM `patients` WHERE `profile_image`='$this->profile_image'";
+      $result = $this->db()->query($sql);
+      if($result->rowCount() > 0){
+        $row = $result->fetch();
+        $this->id = $row['id'];
+        $this->first_name = $row['first_name'];
+        $this->middle_name = $row['middle_name'];
+        $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
+        $this->date_of_birth = $row['date_of_birth'];
+        $this->blood_type = $row['blood_type'];
+        $this->gender = $row['gender'];
+        $this->addresses = $row['addresses'];
+        $this->city = $row['city'];
+        $this->phone_number = $row['phone_number'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -208,17 +337,20 @@
       if($result->rowCount() > 0){
         $row = $result->fetch();
         $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
         $this->date_of_birth = $row['date_of_birth'];
         $this->blood_type = $row['blood_type'];
         $this->gender = $row['gender'];
-        $this->address = $row['address'];
+        $this->addresses = $row['addresses'];
         $this->city = $row['city'];
         $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -232,17 +364,20 @@
       if($result->rowCount() > 0){
         $row = $result->fetch();
         $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
         $this->date_of_birth = $row['date_of_birth'];
         $this->blood_type = $row['blood_type'];
         $this->gender = $row['gender'];
-        $this->address = $row['address'];
+        $this->addresses = $row['addresses'];
         $this->city = $row['city'];
         $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -256,17 +391,20 @@
       if($result->rowCount() > 0){
         $row = $result->fetch();
         $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
         $this->date_of_birth = $row['date_of_birth'];
         $this->blood_type = $row['blood_type'];
         $this->gender = $row['gender'];
-        $this->address = $row['address'];
+        $this->addresses = $row['addresses'];
         $this->city = $row['city'];
         $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -274,23 +412,26 @@
       }
     }
 
-    public function getByAddress(){
-      $sql = "SELECT * FROM `patients` WHERE `address`='$this->address'";
+    public function getByAddresses(){
+      $sql = "SELECT * FROM `patients` WHERE `addresses`='$this->addresses'";
       $result = $this->db()->query($sql);
       if($result->rowCount() > 0){
         $row = $result->fetch();
         $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
         $this->date_of_birth = $row['date_of_birth'];
         $this->blood_type = $row['blood_type'];
         $this->gender = $row['gender'];
-        $this->address = $row['address'];
+        $this->addresses = $row['addresses'];
         $this->city = $row['city'];
         $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -304,17 +445,20 @@
       if($result->rowCount() > 0){
         $row = $result->fetch();
         $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
         $this->date_of_birth = $row['date_of_birth'];
         $this->blood_type = $row['blood_type'];
         $this->gender = $row['gender'];
-        $this->address = $row['address'];
+        $this->addresses = $row['addresses'];
         $this->city = $row['city'];
         $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -328,41 +472,20 @@
       if($result->rowCount() > 0){
         $row = $result->fetch();
         $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
         $this->date_of_birth = $row['date_of_birth'];
         $this->blood_type = $row['blood_type'];
         $this->gender = $row['gender'];
-        $this->address = $row['address'];
+        $this->addresses = $row['addresses'];
         $this->city = $row['city'];
         $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
-        $this->time = $row['time'];
-        return true;
-      }else{
-         return false;
-      }
-    }
-
-    public function getByTimee(){
-      $sql = "SELECT * FROM `patients` WHERE `timee`='$this->timee'";
-      $result = $this->db()->query($sql);
-      if($result->rowCount() > 0){
-        $row = $result->fetch();
-        $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
-        $this->first_name = $row['first_name'];
-        $this->middle_name = $row['middle_name'];
-        $this->last_name = $row['last_name'];
-        $this->date_of_birth = $row['date_of_birth'];
-        $this->blood_type = $row['blood_type'];
-        $this->gender = $row['gender'];
-        $this->address = $row['address'];
-        $this->city = $row['city'];
-        $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -376,17 +499,20 @@
       if($result->rowCount() > 0){
         $row = $result->fetch();
         $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
         $this->date_of_birth = $row['date_of_birth'];
         $this->blood_type = $row['blood_type'];
         $this->gender = $row['gender'];
-        $this->address = $row['address'];
+        $this->addresses = $row['addresses'];
         $this->city = $row['city'];
         $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -400,17 +526,20 @@
       if($result->rowCount() > 0){
         $row = $result->fetch();
         $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
         $this->date_of_birth = $row['date_of_birth'];
         $this->blood_type = $row['blood_type'];
         $this->gender = $row['gender'];
-        $this->address = $row['address'];
+        $this->addresses = $row['addresses'];
         $this->city = $row['city'];
         $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -424,17 +553,20 @@
       if($result->rowCount() > 0){
         $row = $result->fetch();
         $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
         $this->date_of_birth = $row['date_of_birth'];
         $this->blood_type = $row['blood_type'];
         $this->gender = $row['gender'];
-        $this->address = $row['address'];
+        $this->addresses = $row['addresses'];
         $this->city = $row['city'];
         $this->phone_number = $row['phone_number'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -444,7 +576,7 @@
 
     public function getBySet($limit){
       if(!is_numeric($limit)){ return '[]'; }
-      $sql = "SELECT * FROM `patients` WHERE `id` LIKE '%$this->id%' AND `user_id` LIKE '%$this->user_id%' AND `first_name` LIKE '%$this->first_name%' AND `middle_name` LIKE '%$this->middle_name%' AND `last_name` LIKE '%$this->last_name%' AND `date_of_birth` LIKE '%$this->date_of_birth%' AND `blood_type` LIKE '%$this->blood_type%' AND `gender` LIKE '%$this->gender%' AND `address` LIKE '%$this->address%' AND `city` LIKE '%$this->city%' AND `phone_number` LIKE '%$this->phone_number%' AND `timee` LIKE '%$this->timee%' AND `time` LIKE '%$this->time%' LIMIT $limit";
+      $sql = "SELECT * FROM `patients` WHERE `id` LIKE '%$this->id%' AND `first_name` LIKE '%$this->first_name%' AND `middle_name` LIKE '%$this->middle_name%' AND `last_name` LIKE '%$this->last_name%' AND `username` LIKE '%$this->username%' AND `email` LIKE '%$this->email%' AND `passwordd` LIKE '%$this->passwordd%' AND `image_of_id` LIKE '%$this->image_of_id%' AND `profile_image` LIKE '%$this->profile_image%' AND `date_of_birth` LIKE '%$this->date_of_birth%' AND `blood_type` LIKE '%$this->blood_type%' AND `gender` LIKE '%$this->gender%' AND `addresses` LIKE '%$this->addresses%' AND `city` LIKE '%$this->city%' AND `phone_number` LIKE '%$this->phone_number%' AND `time` LIKE '%$this->time%' LIMIT $limit";
       $result = $this->db()->query($sql);
       $data = $result->fetchAll();
       $json_data = json_encode($data);
@@ -453,8 +585,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `patients` (`user_id`, `first_name`, `middle_name`, `last_name`, `date_of_birth`, `blood_type`, `gender`, `address`, `city`, `phone_number`, `timee`, `time`) VALUES 
-      ('$this->user_id', '$this->first_name', '$this->middle_name', '$this->last_name', '$this->date_of_birth', '$this->blood_type', '$this->gender', '$this->address', '$this->city', '$this->phone_number', '$this->timee', '$this->time')";
+      $sql = "INSERT INTO `patients` (`id`, `first_name`, `middle_name`, `last_name`, `username`, `email`, `passwordd`, `image_of_id`, `profile_image`, `date_of_birth`, `blood_type`, `gender`, `addresses`, `city`, `phone_number`, `time`) VALUES 
+      ('$this->id', '$this->first_name', '$this->middle_name', '$this->last_name', '$this->username', '$this->email', '$this->passwordd', '$this->image_of_id', '$this->profile_image', '$this->date_of_birth', '$this->blood_type', '$this->gender', '$this->addresses', '$this->city', '$this->phone_number', '$this->time')";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -463,7 +595,7 @@
     }
 
     public function update(){
-      $sql = "UPDATE `patients` SET `id`='$this->id', `user_id`='$this->user_id', `first_name`='$this->first_name', `middle_name`='$this->middle_name', `last_name`='$this->last_name', `date_of_birth`='$this->date_of_birth', `blood_type`='$this->blood_type', `gender`='$this->gender', `address`='$this->address', `city`='$this->city', `phone_number`='$this->phone_number', `timee`='$this->timee', `time`='$this->time' WHERE `id`='$this->id'";
+      $sql = "UPDATE `patients` SET `id`='$this->id', `first_name`='$this->first_name', `middle_name`='$this->middle_name', `last_name`='$this->last_name', `username`='$this->username', `email`='$this->email', `passwordd`='$this->passwordd', `image_of_id`='$this->image_of_id', `profile_image`='$this->profile_image', `date_of_birth`='$this->date_of_birth', `blood_type`='$this->blood_type', `gender`='$this->gender', `addresses`='$this->addresses', `city`='$this->city', `phone_number`='$this->phone_number', `time`='$this->time' WHERE `id`='$this->id'";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -529,15 +661,6 @@
       }
     }
 
-    public function setUser_id($user_id){
-      if(is_numeric($user_id)){
-        $this->user_id = filter($user_id);
-        return true;
-      }else{
-        return false;
-      }
-    }
-
     public function setFirst_name($first_name){
       if(is_string($first_name)){
         $this->first_name = filter($first_name);
@@ -565,8 +688,53 @@
       }
     }
 
+    public function setUsername($username){
+      if(is_string($username)){
+        $this->username = filter($username);
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    public function setEmail($email){
+      if(is_string($email)){
+        $this->email = filter($email);
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    public function setPasswordd($passwordd){
+      if(is_string($passwordd)){
+        $this->passwordd = filter($passwordd);
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    public function setImage_of_id($image_of_id){
+      if(is_string($image_of_id)){
+        $this->image_of_id = filter($image_of_id);
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    public function setProfile_image($profile_image){
+      if(is_string($profile_image)){
+        $this->profile_image = filter($profile_image);
+        return true;
+      }else{
+        return false;
+      }
+    }
+
     public function setDate_of_birth($date_of_birth){
-      if(is_string($date_of_birth)){
+      if(is_numeric($date_of_birth)){
         $this->date_of_birth = filter($date_of_birth);
         return true;
       }else{
@@ -592,9 +760,9 @@
       }
     }
 
-    public function setAddress($address){
-      if(is_string($address)){
-        $this->address = filter($address);
+    public function setAddresses($addresses){
+      if(is_string($addresses)){
+        $this->addresses = filter($addresses);
         return true;
       }else{
         return false;
@@ -619,17 +787,8 @@
       }
     }
 
-    public function setTimee($timee){
-      if(is_numeric($timee)){
-        $this->timee = filter($timee);
-        return true;
-      }else{
-        return false;
-      }
-    }
-
     public function setTime($time){
-      if(is_string($time)){
+      if(is_numeric($time)){
         $this->time = filter($time);
         return true;
       }else{
@@ -639,10 +798,6 @@
 
     public function getId(){
       return $this->id;
-    }
-
-    public function getUser_id(){
-      return $this->user_id;
     }
 
     public function getFirst_name(){
@@ -657,6 +812,26 @@
       return $this->last_name;
     }
 
+    public function getUsername(){
+      return $this->username;
+    }
+
+    public function getEmail(){
+      return $this->email;
+    }
+
+    public function getPasswordd(){
+      return $this->passwordd;
+    }
+
+    public function getImage_of_id(){
+      return $this->image_of_id;
+    }
+
+    public function getProfile_image(){
+      return $this->profile_image;
+    }
+
     public function getDate_of_birth(){
       return $this->date_of_birth;
     }
@@ -669,8 +844,8 @@
       return $this->gender;
     }
 
-    public function getAddress(){
-      return $this->address;
+    public function getAddresses(){
+      return $this->addresses;
     }
 
     public function getCity(){
@@ -679,10 +854,6 @@
 
     public function getPhone_number(){
       return $this->phone_number;
-    }
-
-    public function getTimee(){
-      return $this->timee;
     }
 
     public function getTime(){

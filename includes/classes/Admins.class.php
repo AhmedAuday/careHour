@@ -1,14 +1,14 @@
 <?php
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/config.inc.php';//get it from config dile or from database
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/config.inc.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/encrypt.inc.php';
 
   class Admins extends Database {
-    private $sqlCondition = 1;//to make the class more flexible
+    private $sqlCondition = 1;
     private $id;
     private $username;
     private $email;
+    private $image_of_id;
     private $passwordd;
-    private $timee;
     private $time;
 
     public function __construct($id = null){
@@ -25,8 +25,8 @@
           $this->id = $row['id'];
           $this->username = $row['username'];
           $this->email = $row['email'];
+          $this->image_of_id = $row['image_of_id'];
           $this->passwordd = $row['passwordd'];
-          $this->timee = $row['timee'];
           $this->time = $row['time'];
         }
       }
@@ -39,7 +39,7 @@
       }else{
         return false;
       }
-    }
+    } 
 
     public function getAll($limit = 1000000){
       if(!is_numeric($limit)){ return '[]'; }
@@ -76,8 +76,8 @@
         $this->id = $row['id'];
         $this->username = $row['username'];
         $this->email = $row['email'];
+        $this->image_of_id = $row['image_of_id'];
         $this->passwordd = $row['passwordd'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -93,8 +93,8 @@
         $this->id = $row['id'];
         $this->username = $row['username'];
         $this->email = $row['email'];
+        $this->image_of_id = $row['image_of_id'];
         $this->passwordd = $row['passwordd'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -110,8 +110,25 @@
         $this->id = $row['id'];
         $this->username = $row['username'];
         $this->email = $row['email'];
+        $this->image_of_id = $row['image_of_id'];
         $this->passwordd = $row['passwordd'];
-        $this->timee = $row['timee'];
+        $this->time = $row['time'];
+        return true;
+      }else{
+         return false;
+      }
+    }
+
+    public function getByImage_of_id(){
+      $sql = "SELECT * FROM `admins` WHERE `image_of_id`='$this->image_of_id'";
+      $result = $this->db()->query($sql);
+      if($result->rowCount() > 0){
+        $row = $result->fetch();
+        $this->id = $row['id'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->passwordd = $row['passwordd'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -127,25 +144,8 @@
         $this->id = $row['id'];
         $this->username = $row['username'];
         $this->email = $row['email'];
+        $this->image_of_id = $row['image_of_id'];
         $this->passwordd = $row['passwordd'];
-        $this->timee = $row['timee'];
-        $this->time = $row['time'];
-        return true;
-      }else{
-         return false;
-      }
-    }
-
-    public function getByTimee(){
-      $sql = "SELECT * FROM `admins` WHERE `timee`='$this->timee'";
-      $result = $this->db()->query($sql);
-      if($result->rowCount() > 0){
-        $row = $result->fetch();
-        $this->id = $row['id'];
-        $this->username = $row['username'];
-        $this->email = $row['email'];
-        $this->passwordd = $row['passwordd'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -161,8 +161,8 @@
         $this->id = $row['id'];
         $this->username = $row['username'];
         $this->email = $row['email'];
+        $this->image_of_id = $row['image_of_id'];
         $this->passwordd = $row['passwordd'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -178,8 +178,8 @@
         $this->id = $row['id'];
         $this->username = $row['username'];
         $this->email = $row['email'];
+        $this->image_of_id = $row['image_of_id'];
         $this->passwordd = $row['passwordd'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -195,8 +195,8 @@
         $this->id = $row['id'];
         $this->username = $row['username'];
         $this->email = $row['email'];
+        $this->image_of_id = $row['image_of_id'];
         $this->passwordd = $row['passwordd'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -206,7 +206,7 @@
 
     public function getBySet($limit){
       if(!is_numeric($limit)){ return '[]'; }
-      $sql = "SELECT * FROM `admins` WHERE `id` LIKE '%$this->id%' AND `username` LIKE '%$this->username%' AND `email` LIKE '%$this->email%' AND `passwordd` LIKE '%$this->passwordd%' AND `timee` LIKE '%$this->timee%'  LIMIT $limit";
+      $sql = "SELECT * FROM `admins` WHERE `id` LIKE '%$this->id%' AND `username` LIKE '%$this->username%' AND `email` LIKE '%$this->email%' AND `image_of_id` LIKE '%$this->image_of_id%' AND `passwordd` LIKE '%$this->passwordd%' AND `time` LIKE '%$this->time%' LIMIT $limit";
       $result = $this->db()->query($sql);
       $data = $result->fetchAll();
       $json_data = json_encode($data);
@@ -215,8 +215,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `admins` (`username`, `email`, `passwordd`, `timee`, `time`) VALUES
-      ('$this->username', '$this->email', '$this->passwordd', '$this->timee', '$this->time')";
+      $sql = "INSERT INTO `admins` (`id`, `username`, `email`, `image_of_id`, `passwordd`, `time`) VALUES 
+      ('$this->id', '$this->username', '$this->email', '$this->image_of_id', '$this->passwordd', '$this->time')";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -225,7 +225,7 @@
     }
 
     public function update(){
-      $sql = "UPDATE `admins` SET `id`='$this->id', `username`='$this->username', `email`='$this->email', `passwordd`='$this->passwordd', `timee`='$this->timee', `time`='$this->time' WHERE `id`='$this->id'";
+      $sql = "UPDATE `admins` SET `id`='$this->id', `username`='$this->username', `email`='$this->email', `image_of_id`='$this->image_of_id', `passwordd`='$this->passwordd', `time`='$this->time' WHERE `id`='$this->id'";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -309,6 +309,15 @@
       }
     }
 
+    public function setImage_of_id($image_of_id){
+      if(is_string($image_of_id)){
+        $this->image_of_id = filter($image_of_id);
+        return true;
+      }else{
+        return false;
+      }
+    }
+
     public function setPasswordd($passwordd){
       if(is_string($passwordd)){
         $this->passwordd = filter($passwordd);
@@ -318,17 +327,8 @@
       }
     }
 
-    public function setTimee($timee){
-      if(is_numeric($timee)){
-        $this->timee = filter($timee);
-        return true;
-      }else{
-        return false;
-      }
-    }
-
     public function setTime($time){
-      if(is_string($time)){
+      if(is_numeric($time)){
         $this->time = filter($time);
         return true;
       }else{
@@ -348,12 +348,12 @@
       return $this->email;
     }
 
-    public function getPasswordd(){
-      return $this->passwordd;
+    public function getImage_of_id(){
+      return $this->image_of_id;
     }
 
-    public function getTimee(){
-      return $this->timee;
+    public function getPasswordd(){
+      return $this->passwordd;
     }
 
     public function getTime(){

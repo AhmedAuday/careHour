@@ -1,36 +1,36 @@
 <?php
-      include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
-      include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
-      include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+    //   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+    //   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+    //   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 
-      $patient = new Patient_user();
-      if(isset($_POST['submit'])){
-      if(!empty($_POST['email']) && !empty($_POST['uname']) &&!empty($_POST['fname'])){
-        $patient->setEmail($_POST['email']);
-        $patient->setUsername($_POST['uname']);
-        $patient->setPassword(encrypt($_POST['password']));
-        $patient->setTimee(time());
-        $patient->add();
-        $patient->getLastRow();
-        $patient->giveAuthority();
-        $patient_data = new Patients();
-        $patient_data->setPatient_id($patient->getId());
-        $patient_data->setFirst_name($_POST['fname']);
-        $patient_data->setMiddle_name($_POST['mname']);
-        $patient_data->setLast_name($_POST['lname']);
-        $patient_data->setDate_of_birth($_POST['dob']);
-        $patient_data->setBlood_type($_POST['blood_type']);
-        $patient_data->setGender($_POST['customRadio1']);
-        $patient_data->setAddress($_POST['address']);
-        $patient_data->setCity($_POST['city']);
-        $patient_data->setPhone_number($_POST['phone']);
-        $patient_data->setTimee(time());
-        $patient_data->setTime(time());
-        $patient_data->add();
-        $patient->getLastRow();
-        $patient_data->giveAuthority();
-        echo " hi kaka";
-      }}
+    //   $patient = new Patient_user();
+    //   if(isset($_POST['submit'])){
+    //   if(!empty($_POST['email']) && !empty($_POST['uname']) &&!empty($_POST['fname'])){
+    //     $patient->setEmail($_POST['email']);
+    //     $patient->setUsername($_POST['uname']);
+    //     $patient->setPassword(encrypt($_POST['password']));
+    //     $patient->setTimee(time());
+    //     $patient->add();
+    //     $patient->getLastRow();
+    //     $patient->giveAuthority();
+    //     $patient_data = new Patients();
+    //     $patient_data->setPatient_id($patient->getId());
+    //     $patient_data->setFirst_name($_POST['fname']);
+    //     $patient_data->setMiddle_name($_POST['mname']);
+    //     $patient_data->setLast_name($_POST['lname']);
+    //     $patient_data->setDate_of_birth($_POST['dob']);
+    //     $patient_data->setBlood_type($_POST['blood_type']);
+    //     $patient_data->setGender($_POST['customRadio1']);
+    //     $patient_data->setAddress($_POST['address']);
+    //     $patient_data->setCity($_POST['city']);
+    //     $patient_data->setPhone_number($_POST['phone']);
+    //     $patient_data->setTimee(time());
+    //     $patient_data->setTime(time());
+    //     $patient_data->add();
+    //     $patient->getLastRow();
+    //     $patient_data->giveAuthority();
+    //     echo " hi kaka";
+    //   }}
     
       
 
@@ -381,13 +381,18 @@
                             accept="image/*"
                           />
                         </div> -->
+                        <div class="custom-file">
+                                 <input type="file" class="custom-file-input" id="validatedCustomFile" required="">
+                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                 <div class="invalid-feedback">Example invalid custom file feedback</div>
+                              </div>
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="customFile">
+                                                <input type="file" class="custom-file-input" id="validatedCustomFile" required="" name="Profile">
                                                     <label class="custom-file-label" for="customFile">Upload Your
                                                         Photo:</label>
                                                 </div><br><br>
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="customFile">
+                                                <input type="file" class="custom-file-input" id="validatedCustomFile" required="" name="photo_id">
                                                     <label class="custom-file-label" for="customFile">Upload ID
                                                         Photo:</label>
                                                 </div><br><br>

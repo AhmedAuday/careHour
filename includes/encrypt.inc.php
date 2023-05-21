@@ -1,7 +1,7 @@
 <?php
 
     function encrypt($data){
-        $data = md5(sha1(md5($data).sha1("my_password_is_hhh_123").$data));//change to ocarhour key, for double checking the password
+        $data = md5(sha1(md5($data).sha1("my_password_is_hhh_123").$data));
         return $data;
     }
 

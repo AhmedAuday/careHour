@@ -11,7 +11,6 @@
     private $notes;
     private $created_at;
     private $updated_at;
-    private $timee;
     private $time;
 
     public function __construct($id = null){
@@ -32,7 +31,6 @@
           $this->notes = $row['notes'];
           $this->created_at = $row['created_at'];
           $this->updated_at = $row['updated_at'];
-          $this->timee = $row['timee'];
           $this->time = $row['time'];
         }
       }
@@ -86,7 +84,6 @@
         $this->notes = $row['notes'];
         $this->created_at = $row['created_at'];
         $this->updated_at = $row['updated_at'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -106,7 +103,6 @@
         $this->notes = $row['notes'];
         $this->created_at = $row['created_at'];
         $this->updated_at = $row['updated_at'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -126,7 +122,6 @@
         $this->notes = $row['notes'];
         $this->created_at = $row['created_at'];
         $this->updated_at = $row['updated_at'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -146,7 +141,6 @@
         $this->notes = $row['notes'];
         $this->created_at = $row['created_at'];
         $this->updated_at = $row['updated_at'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -166,7 +160,6 @@
         $this->notes = $row['notes'];
         $this->created_at = $row['created_at'];
         $this->updated_at = $row['updated_at'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -186,7 +179,6 @@
         $this->notes = $row['notes'];
         $this->created_at = $row['created_at'];
         $this->updated_at = $row['updated_at'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -206,27 +198,6 @@
         $this->notes = $row['notes'];
         $this->created_at = $row['created_at'];
         $this->updated_at = $row['updated_at'];
-        $this->timee = $row['timee'];
-        $this->time = $row['time'];
-        return true;
-      }else{
-         return false;
-      }
-    }
-
-    public function getByTimee(){
-      $sql = "SELECT * FROM `patient_history` WHERE `timee`='$this->timee'";
-      $result = $this->db()->query($sql);
-      if($result->rowCount() > 0){
-        $row = $result->fetch();
-        $this->id = $row['id'];
-        $this->files_id = $row['files_id'];
-        $this->diagnosis = $row['diagnosis'];
-        $this->treatment = $row['treatment'];
-        $this->notes = $row['notes'];
-        $this->created_at = $row['created_at'];
-        $this->updated_at = $row['updated_at'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -246,7 +217,6 @@
         $this->notes = $row['notes'];
         $this->created_at = $row['created_at'];
         $this->updated_at = $row['updated_at'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -266,7 +236,6 @@
         $this->notes = $row['notes'];
         $this->created_at = $row['created_at'];
         $this->updated_at = $row['updated_at'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -286,7 +255,6 @@
         $this->notes = $row['notes'];
         $this->created_at = $row['created_at'];
         $this->updated_at = $row['updated_at'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -296,7 +264,7 @@
 
     public function getBySet($limit){
       if(!is_numeric($limit)){ return '[]'; }
-      $sql = "SELECT * FROM `patient_history` WHERE `id` LIKE '%$this->id%' AND `files_id` LIKE '%$this->files_id%' AND `diagnosis` LIKE '%$this->diagnosis%' AND `treatment` LIKE '%$this->treatment%' AND `notes` LIKE '%$this->notes%' AND `created_at` LIKE '%$this->created_at%' AND `updated_at` LIKE '%$this->updated_at%' AND `timee` LIKE '%$this->timee%' AND `time` LIKE '%$this->time%' LIMIT $limit";
+      $sql = "SELECT * FROM `patient_history` WHERE `id` LIKE '%$this->id%' AND `files_id` LIKE '%$this->files_id%' AND `diagnosis` LIKE '%$this->diagnosis%' AND `treatment` LIKE '%$this->treatment%' AND `notes` LIKE '%$this->notes%' AND `created_at` LIKE '%$this->created_at%' AND `updated_at` LIKE '%$this->updated_at%' AND `time` LIKE '%$this->time%' LIMIT $limit";
       $result = $this->db()->query($sql);
       $data = $result->fetchAll();
       $json_data = json_encode($data);
@@ -305,8 +273,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `patient_history` (`id`, `files_id`, `diagnosis`, `treatment`, `notes`, `created_at`, `updated_at`, `timee`, `time`) VALUES 
-      ('$this->id', '$this->files_id', '$this->diagnosis', '$this->treatment', '$this->notes', '$this->created_at', '$this->updated_at', '$this->timee', '$this->time')";
+      $sql = "INSERT INTO `patient_history` (`id`, `files_id`, `diagnosis`, `treatment`, `notes`, `created_at`, `updated_at`, `time`) VALUES 
+      ('$this->id', '$this->files_id', '$this->diagnosis', '$this->treatment', '$this->notes', '$this->created_at', '$this->updated_at', '$this->time')";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -315,7 +283,7 @@
     }
 
     public function update(){
-      $sql = "UPDATE `patient_history` SET `id`='$this->id', `files_id`='$this->files_id', `diagnosis`='$this->diagnosis', `treatment`='$this->treatment', `notes`='$this->notes', `created_at`='$this->created_at', `updated_at`='$this->updated_at', `timee`='$this->timee', `time`='$this->time' WHERE `id`='$this->id'";
+      $sql = "UPDATE `patient_history` SET `id`='$this->id', `files_id`='$this->files_id', `diagnosis`='$this->diagnosis', `treatment`='$this->treatment', `notes`='$this->notes', `created_at`='$this->created_at', `updated_at`='$this->updated_at', `time`='$this->time' WHERE `id`='$this->id'";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -418,7 +386,7 @@
     }
 
     public function setCreated_at($created_at){
-      if(is_string($created_at)){
+      if(is_numeric($created_at)){
         $this->created_at = filter($created_at);
         return true;
       }else{
@@ -427,7 +395,7 @@
     }
 
     public function setUpdated_at($updated_at){
-      if(is_string($updated_at)){
+      if(is_numeric($updated_at)){
         $this->updated_at = filter($updated_at);
         return true;
       }else{
@@ -435,17 +403,8 @@
       }
     }
 
-    public function setTimee($timee){
-      if(is_numeric($timee)){
-        $this->timee = filter($timee);
-        return true;
-      }else{
-        return false;
-      }
-    }
-
     public function setTime($time){
-      if(is_string($time)){
+      if(is_numeric($time)){
         $this->time = filter($time);
         return true;
       }else{
@@ -479,10 +438,6 @@
 
     public function getUpdated_at(){
       return $this->updated_at;
-    }
-
-    public function getTimee(){
-      return $this->timee;
     }
 
     public function getTime(){

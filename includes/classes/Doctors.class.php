@@ -9,18 +9,22 @@
     private $first_name;
     private $middle_name;
     private $last_name;
+    private $username;
+    private $email;
+    private $passwordd;
+    private $created_at;
     private $phone;
     private $image_of_id;
     private $profile_image;
     private $gender;
     private $dob;
     private $specialty;
+    private $addresses;
     private $education;
     private $experience_years;
     private $start_office_hour;
     private $end_office_hour;
     private $bio;
-    private $timee;
     private $time;
 
     public function __construct($id = null){
@@ -39,18 +43,22 @@
           $this->first_name = $row['first_name'];
           $this->middle_name = $row['middle_name'];
           $this->last_name = $row['last_name'];
+          $this->username = $row['username'];
+          $this->email = $row['email'];
+          $this->passwordd = $row['passwordd'];
+          $this->created_at = $row['created_at'];
           $this->phone = $row['phone'];
           $this->image_of_id = $row['image_of_id'];
           $this->profile_image = $row['profile_image'];
           $this->gender = $row['gender'];
           $this->dob = $row['dob'];
           $this->specialty = $row['specialty'];
+          $this->addresses = $row['addresses'];
           $this->education = $row['education'];
           $this->experience_years = $row['experience_years'];
           $this->start_office_hour = $row['start_office_hour'];
           $this->end_office_hour = $row['end_office_hour'];
           $this->bio = $row['bio'];
-          $this->timee = $row['timee'];
           $this->time = $row['time'];
         }
       }
@@ -63,7 +71,7 @@
       }else{
         return false;
       }
-    }
+    } 
 
     public function getAll($limit = 1000000){
       if(!is_numeric($limit)){ return '[]'; }
@@ -102,18 +110,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -131,18 +143,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -160,18 +176,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -189,18 +209,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -218,18 +242,154 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
+        $this->time = $row['time'];
+        return true;
+      }else{
+         return false;
+      }
+    }
+
+    public function getByUsername(){
+      $sql = "SELECT * FROM `doctors` WHERE `username`='$this->username'";
+      $result = $this->db()->query($sql);
+      if($result->rowCount() > 0){
+        $row = $result->fetch();
+        $this->id = $row['id'];
+        $this->user_id = $row['user_id'];
+        $this->first_name = $row['first_name'];
+        $this->middle_name = $row['middle_name'];
+        $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
+        $this->phone = $row['phone'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
+        $this->gender = $row['gender'];
+        $this->dob = $row['dob'];
+        $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
+        $this->education = $row['education'];
+        $this->experience_years = $row['experience_years'];
+        $this->start_office_hour = $row['start_office_hour'];
+        $this->end_office_hour = $row['end_office_hour'];
+        $this->bio = $row['bio'];
+        $this->time = $row['time'];
+        return true;
+      }else{
+         return false;
+      }
+    }
+
+    public function getByEmail(){
+      $sql = "SELECT * FROM `doctors` WHERE `email`='$this->email'";
+      $result = $this->db()->query($sql);
+      if($result->rowCount() > 0){
+        $row = $result->fetch();
+        $this->id = $row['id'];
+        $this->user_id = $row['user_id'];
+        $this->first_name = $row['first_name'];
+        $this->middle_name = $row['middle_name'];
+        $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
+        $this->phone = $row['phone'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
+        $this->gender = $row['gender'];
+        $this->dob = $row['dob'];
+        $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
+        $this->education = $row['education'];
+        $this->experience_years = $row['experience_years'];
+        $this->start_office_hour = $row['start_office_hour'];
+        $this->end_office_hour = $row['end_office_hour'];
+        $this->bio = $row['bio'];
+        $this->time = $row['time'];
+        return true;
+      }else{
+         return false;
+      }
+    }
+
+    public function getByPasswordd(){
+      $sql = "SELECT * FROM `doctors` WHERE `passwordd`='$this->passwordd'";
+      $result = $this->db()->query($sql);
+      if($result->rowCount() > 0){
+        $row = $result->fetch();
+        $this->id = $row['id'];
+        $this->user_id = $row['user_id'];
+        $this->first_name = $row['first_name'];
+        $this->middle_name = $row['middle_name'];
+        $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
+        $this->phone = $row['phone'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
+        $this->gender = $row['gender'];
+        $this->dob = $row['dob'];
+        $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
+        $this->education = $row['education'];
+        $this->experience_years = $row['experience_years'];
+        $this->start_office_hour = $row['start_office_hour'];
+        $this->end_office_hour = $row['end_office_hour'];
+        $this->bio = $row['bio'];
+        $this->time = $row['time'];
+        return true;
+      }else{
+         return false;
+      }
+    }
+
+    public function getByCreated_at(){
+      $sql = "SELECT * FROM `doctors` WHERE `created_at`='$this->created_at'";
+      $result = $this->db()->query($sql);
+      if($result->rowCount() > 0){
+        $row = $result->fetch();
+        $this->id = $row['id'];
+        $this->user_id = $row['user_id'];
+        $this->first_name = $row['first_name'];
+        $this->middle_name = $row['middle_name'];
+        $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
+        $this->phone = $row['phone'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
+        $this->gender = $row['gender'];
+        $this->dob = $row['dob'];
+        $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
+        $this->education = $row['education'];
+        $this->experience_years = $row['experience_years'];
+        $this->start_office_hour = $row['start_office_hour'];
+        $this->end_office_hour = $row['end_office_hour'];
+        $this->bio = $row['bio'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -247,18 +407,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -276,18 +440,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -305,18 +473,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -334,18 +506,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -363,18 +539,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -392,18 +572,55 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
+        $this->time = $row['time'];
+        return true;
+      }else{
+         return false;
+      }
+    }
+
+    public function getByAddresses(){
+      $sql = "SELECT * FROM `doctors` WHERE `addresses`='$this->addresses'";
+      $result = $this->db()->query($sql);
+      if($result->rowCount() > 0){
+        $row = $result->fetch();
+        $this->id = $row['id'];
+        $this->user_id = $row['user_id'];
+        $this->first_name = $row['first_name'];
+        $this->middle_name = $row['middle_name'];
+        $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
+        $this->phone = $row['phone'];
+        $this->image_of_id = $row['image_of_id'];
+        $this->profile_image = $row['profile_image'];
+        $this->gender = $row['gender'];
+        $this->dob = $row['dob'];
+        $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
+        $this->education = $row['education'];
+        $this->experience_years = $row['experience_years'];
+        $this->start_office_hour = $row['start_office_hour'];
+        $this->end_office_hour = $row['end_office_hour'];
+        $this->bio = $row['bio'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -421,18 +638,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -450,18 +671,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -479,18 +704,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -508,18 +737,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -537,47 +770,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
-        $this->time = $row['time'];
-        return true;
-      }else{
-         return false;
-      }
-    }
-
-    public function getByTimee(){
-      $sql = "SELECT * FROM `doctors` WHERE `timee`='$this->timee'";
-      $result = $this->db()->query($sql);
-      if($result->rowCount() > 0){
-        $row = $result->fetch();
-        $this->id = $row['id'];
-        $this->user_id = $row['user_id'];
-        $this->first_name = $row['first_name'];
-        $this->middle_name = $row['middle_name'];
-        $this->last_name = $row['last_name'];
-        $this->phone = $row['phone'];
-        $this->image_of_id = $row['image_of_id'];
-        $this->profile_image = $row['profile_image'];
-        $this->gender = $row['gender'];
-        $this->dob = $row['dob'];
-        $this->specialty = $row['specialty'];
-        $this->education = $row['education'];
-        $this->experience_years = $row['experience_years'];
-        $this->start_office_hour = $row['start_office_hour'];
-        $this->end_office_hour = $row['end_office_hour'];
-        $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -595,18 +803,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -624,18 +836,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -653,18 +869,22 @@
         $this->first_name = $row['first_name'];
         $this->middle_name = $row['middle_name'];
         $this->last_name = $row['last_name'];
+        $this->username = $row['username'];
+        $this->email = $row['email'];
+        $this->passwordd = $row['passwordd'];
+        $this->created_at = $row['created_at'];
         $this->phone = $row['phone'];
         $this->image_of_id = $row['image_of_id'];
         $this->profile_image = $row['profile_image'];
         $this->gender = $row['gender'];
         $this->dob = $row['dob'];
         $this->specialty = $row['specialty'];
+        $this->addresses = $row['addresses'];
         $this->education = $row['education'];
         $this->experience_years = $row['experience_years'];
         $this->start_office_hour = $row['start_office_hour'];
         $this->end_office_hour = $row['end_office_hour'];
         $this->bio = $row['bio'];
-        $this->timee = $row['timee'];
         $this->time = $row['time'];
         return true;
       }else{
@@ -674,7 +894,7 @@
 
     public function getBySet($limit){
       if(!is_numeric($limit)){ return '[]'; }
-      $sql = "SELECT * FROM `doctors` WHERE `id` LIKE '%$this->id%' AND `user_id` LIKE '%$this->user_id%' AND `first_name` LIKE '%$this->first_name%' AND `middle_name` LIKE '%$this->middle_name%' AND `last_name` LIKE '%$this->last_name%' AND `phone` LIKE '%$this->phone%' AND `image_of_id` LIKE '%$this->image_of_id%' AND `profile_image` LIKE '%$this->profile_image%' AND `gender` LIKE '%$this->gender%' AND `dob` LIKE '%$this->dob%' AND `specialty` LIKE '%$this->specialty%' AND `education` LIKE '%$this->education%' AND `experience_years` LIKE '%$this->experience_years%' AND `start_office_hour` LIKE '%$this->start_office_hour%' AND `end_office_hour` LIKE '%$this->end_office_hour%' AND `bio` LIKE '%$this->bio%' AND `timee` LIKE '%$this->timee%' AND `time` LIKE '%$this->time%' LIMIT $limit";
+      $sql = "SELECT * FROM `doctors` WHERE `id` LIKE '%$this->id%' AND `user_id` LIKE '%$this->user_id%' AND `first_name` LIKE '%$this->first_name%' AND `middle_name` LIKE '%$this->middle_name%' AND `last_name` LIKE '%$this->last_name%' AND `username` LIKE '%$this->username%' AND `email` LIKE '%$this->email%' AND `passwordd` LIKE '%$this->passwordd%' AND `created_at` LIKE '%$this->created_at%' AND `phone` LIKE '%$this->phone%' AND `image_of_id` LIKE '%$this->image_of_id%' AND `profile_image` LIKE '%$this->profile_image%' AND `gender` LIKE '%$this->gender%' AND `dob` LIKE '%$this->dob%' AND `specialty` LIKE '%$this->specialty%' AND `addresses` LIKE '%$this->addresses%' AND `education` LIKE '%$this->education%' AND `experience_years` LIKE '%$this->experience_years%' AND `start_office_hour` LIKE '%$this->start_office_hour%' AND `end_office_hour` LIKE '%$this->end_office_hour%' AND `bio` LIKE '%$this->bio%' AND `time` LIKE '%$this->time%' LIMIT $limit";
       $result = $this->db()->query($sql);
       $data = $result->fetchAll();
       $json_data = json_encode($data);
@@ -683,8 +903,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `doctors` (`user_id`, `first_name`, `middle_name`, `last_name`, `phone`, `image_of_id`, `profile_image`, `gender`, `dob`, `specialty`, `education`, `experience_years`, `start_office_hour`, `end_office_hour`, `bio`, `timee`, `time`) VALUES
-      ('$this->user_id', '$this->first_name', '$this->middle_name', '$this->last_name', '$this->phone', '$this->image_of_id', '$this->profile_image', '$this->gender', '$this->dob', '$this->specialty', '$this->education', '$this->experience_years', '$this->start_office_hour', '$this->end_office_hour', '$this->bio', '$this->timee', '$this->time')";
+      $sql = "INSERT INTO `doctors` (`id`, `user_id`, `first_name`, `middle_name`, `last_name`, `username`, `email`, `passwordd`, `created_at`, `phone`, `image_of_id`, `profile_image`, `gender`, `dob`, `specialty`, `addresses`, `education`, `experience_years`, `start_office_hour`, `end_office_hour`, `bio`, `time`) VALUES 
+      ('$this->id', '$this->user_id', '$this->first_name', '$this->middle_name', '$this->last_name', '$this->username', '$this->email', '$this->passwordd', '$this->created_at', '$this->phone', '$this->image_of_id', '$this->profile_image', '$this->gender', '$this->dob', '$this->specialty', '$this->addresses', '$this->education', '$this->experience_years', '$this->start_office_hour', '$this->end_office_hour', '$this->bio', '$this->time')";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -693,7 +913,7 @@
     }
 
     public function update(){
-      $sql = "UPDATE `doctors` SET `id`='$this->id', `user_id`='$this->user_id', `first_name`='$this->first_name', `middle_name`='$this->middle_name', `last_name`='$this->last_name', `phone`='$this->phone', `image_of_id`='$this->image_of_id', `profile_image`='$this->profile_image', `gender`='$this->gender', `dob`='$this->dob', `specialty`='$this->specialty', `education`='$this->education', `experience_years`='$this->experience_years', `start_office_hour`='$this->start_office_hour', `end_office_hour`='$this->end_office_hour', `bio`='$this->bio', `timee`='$this->timee', `time`='$this->time' WHERE `id`='$this->id'";
+      $sql = "UPDATE `doctors` SET `id`='$this->id', `user_id`='$this->user_id', `first_name`='$this->first_name', `middle_name`='$this->middle_name', `last_name`='$this->last_name', `username`='$this->username', `email`='$this->email', `passwordd`='$this->passwordd', `created_at`='$this->created_at', `phone`='$this->phone', `image_of_id`='$this->image_of_id', `profile_image`='$this->profile_image', `gender`='$this->gender', `dob`='$this->dob', `specialty`='$this->specialty', `addresses`='$this->addresses', `education`='$this->education', `experience_years`='$this->experience_years', `start_office_hour`='$this->start_office_hour', `end_office_hour`='$this->end_office_hour', `bio`='$this->bio', `time`='$this->time' WHERE `id`='$this->id'";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -795,6 +1015,42 @@
       }
     }
 
+    public function setUsername($username){
+      if(is_string($username)){
+        $this->username = filter($username);
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    public function setEmail($email){
+      if(is_string($email)){
+        $this->email = filter($email);
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    public function setPasswordd($passwordd){
+      if(is_string($passwordd)){
+        $this->passwordd = filter($passwordd);
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    public function setCreated_at($created_at){
+      if(is_numeric($created_at)){
+        $this->created_at = filter($created_at);
+        return true;
+      }else{
+        return false;
+      }
+    }
+
     public function setPhone($phone){
       if(is_string($phone)){
         $this->phone = filter($phone);
@@ -832,7 +1088,7 @@
     }
 
     public function setDob($dob){
-      if(is_string($dob)){
+      if(is_numeric($dob)){
         $this->dob = filter($dob);
         return true;
       }else{
@@ -843,6 +1099,15 @@
     public function setSpecialty($specialty){
       if(is_string($specialty)){
         $this->specialty = filter($specialty);
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    public function setAddresses($addresses){
+      if(is_string($addresses)){
+        $this->addresses = filter($addresses);
         return true;
       }else{
         return false;
@@ -868,7 +1133,7 @@
     }
 
     public function setStart_office_hour($start_office_hour){
-      if(is_string($start_office_hour)){
+      if(is_numeric($start_office_hour)){
         $this->start_office_hour = filter($start_office_hour);
         return true;
       }else{
@@ -877,7 +1142,7 @@
     }
 
     public function setEnd_office_hour($end_office_hour){
-      if(is_string($end_office_hour)){
+      if(is_numeric($end_office_hour)){
         $this->end_office_hour = filter($end_office_hour);
         return true;
       }else{
@@ -894,17 +1159,8 @@
       }
     }
 
-    public function setTimee($timee){
-      if(is_numeric($timee)){
-        $this->timee = filter($timee);
-        return true;
-      }else{
-        return false;
-      }
-    }
-
     public function setTime($time){
-      if(is_string($time)){
+      if(is_numeric($time)){
         $this->time = filter($time);
         return true;
       }else{
@@ -932,6 +1188,22 @@
       return $this->last_name;
     }
 
+    public function getUsername(){
+      return $this->username;
+    }
+
+    public function getEmail(){
+      return $this->email;
+    }
+
+    public function getPasswordd(){
+      return $this->passwordd;
+    }
+
+    public function getCreated_at(){
+      return $this->created_at;
+    }
+
     public function getPhone(){
       return $this->phone;
     }
@@ -956,6 +1228,10 @@
       return $this->specialty;
     }
 
+    public function getAddresses(){
+      return $this->addresses;
+    }
+
     public function getEducation(){
       return $this->education;
     }
@@ -974,10 +1250,6 @@
 
     public function getBio(){
       return $this->bio;
-    }
-
-    public function getTimee(){
-      return $this->timee;
     }
 
     public function getTime(){
