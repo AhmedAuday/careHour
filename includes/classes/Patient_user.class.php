@@ -9,7 +9,7 @@
     private $email;
     private $passwordd;
     private $timee;
-    private $time;
+    // private $time;
 
     public function __construct($id = null){
       $this->time = time();
@@ -27,7 +27,7 @@
           $this->email = $row['email'];
           $this->passwordd = $row['passwordd'];
           $this->timee = $row['timee'];
-          $this->time = $row['time'];
+          //$this->time = $row['time'];
         }
       }
     }
@@ -78,7 +78,7 @@
         $this->email = $row['email'];
         $this->passwordd = $row['passwordd'];
         $this->timee = $row['timee'];
-        $this->time = $row['time'];
+        //$this->time = $row['time'];
         return true;
       }else{
          return false;
@@ -95,7 +95,7 @@
         $this->email = $row['email'];
         $this->passwordd = $row['passwordd'];
         $this->timee = $row['timee'];
-        $this->time = $row['time'];
+        //$this->time = $row['time'];
         return true;
       }else{
          return false;
@@ -112,7 +112,7 @@
         $this->email = $row['email'];
         $this->passwordd = $row['passwordd'];
         $this->timee = $row['timee'];
-        $this->time = $row['time'];
+        //$this->time = $row['time'];
         return true;
       }else{
          return false;
@@ -129,7 +129,7 @@
         $this->email = $row['email'];
         $this->passwordd = $row['passwordd'];
         $this->timee = $row['timee'];
-        $this->time = $row['time'];
+        //$this->time = $row['time'];
         return true;
       }else{
          return false;
@@ -146,7 +146,7 @@
         $this->email = $row['email'];
         $this->passwordd = $row['passwordd'];
         $this->timee = $row['timee'];
-        $this->time = $row['time'];
+        //$this->time = $row['time'];
         return true;
       }else{
          return false;
@@ -163,7 +163,7 @@
         $this->email = $row['email'];
         $this->passwordd = $row['passwordd'];
         $this->timee = $row['timee'];
-        $this->time = $row['time'];
+        //$this->time = $row['time'];
         return true;
       }else{
          return false;
@@ -180,7 +180,7 @@
         $this->email = $row['email'];
         $this->passwordd = $row['passwordd'];
         $this->timee = $row['timee'];
-        $this->time = $row['time'];
+        // $this->time = $row['time'];
         return true;
       }else{
          return false;
@@ -197,7 +197,7 @@
         $this->email = $row['email'];
         $this->passwordd = $row['passwordd'];
         $this->timee = $row['timee'];
-        $this->time = $row['time'];
+        // $this->time = $row['time'];
         return true;
       }else{
          return false;
@@ -206,7 +206,7 @@
 
     public function getBySet($limit){
       if(!is_numeric($limit)){ return '[]'; }
-      $sql = "SELECT * FROM `patient_user` WHERE `id` LIKE '%$this->id%' AND `username` LIKE '%$this->username%' AND `email` LIKE '%$this->email%' AND `passwordd` LIKE '%$this->passwordd%' AND `timee` LIKE '%$this->timee%' AND `time` LIKE '%$this->time%' LIMIT $limit";
+      $sql = "SELECT * FROM `patient_user` WHERE `id` LIKE '%$this->id%' AND `username` LIKE '%$this->username%' AND `email` LIKE '%$this->email%' AND `passwordd` LIKE '%$this->passwordd%' AND `timee` LIKE '%$this->timee%'  LIMIT $limit";
       $result = $this->db()->query($sql);
       $data = $result->fetchAll();
       $json_data = json_encode($data);
@@ -215,8 +215,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `patient_user` (`username`, `email`, `passwordd`, `timee`, `time`) VALUES
-      ('$this->username', '$this->email', '$this->passwordd', '$this->timee', '$this->time')";
+      $sql = "INSERT INTO `patient_user` (`username`, `email`, `passwordd`, `timee`) VALUES
+      ('$this->username', '$this->email', '$this->passwordd', '$this->timee')";
       if($this->db()->query($sql)){
         return true;
       }else{
@@ -225,7 +225,7 @@
     }
 
     public function update(){
-      $sql = "UPDATE `patient_user` SET `id`='$this->id', `username`='$this->username', `email`='$this->email', `passwordd`='$this->passwordd', `timee`='$this->timee', `time`='$this->time' WHERE `id`='$this->id'";
+      $sql = "UPDATE `patient_user` SET `id`='$this->id', `username`='$this->username', `email`='$this->email', `passwordd`='$this->passwordd', `timee`='$this->timee' WHERE `id`='$this->id'";
       if($this->db()->query($sql)){
         return true;
       }else{

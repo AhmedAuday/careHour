@@ -5,7 +5,7 @@
 
       $patient = new Patient_user();
       if(isset($_POST['submit'])){
-      if(!empty($_POST['email']) && !empty($_POST['uname'])){
+      if(!empty($_POST['email']) && !empty($_POST['uname']) &&!empty($_POST['fname'])){
         $patient->setEmail($_POST['email']);
         $patient->setUsername($_POST['uname']);
         $patient->setPassword(encrypt($_POST['password']));
@@ -13,8 +13,6 @@
         $patient->add();
         $patient->getLastRow();
         $patient->giveAuthority();
-      }
-      if(!empty($_POST['fname'])){
         $patient_data = new Patients();
         $patient_data->setPatient_id($patient->getId());
         $patient_data->setFirst_name($_POST['fname']);
@@ -31,6 +29,7 @@
         $patient_data->add();
         $patient->getLastRow();
         $patient_data->giveAuthority();
+        echo " hi kaka";
       }}
     
       
