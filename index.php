@@ -245,7 +245,7 @@
                 <p>The Ceo of our company</p>
                 <div class="social">
               
-                <a href=""><i class="ri-github-fill"></i></a>
+                <a href="https://github.com/Holan-3-x"><i class="ri-github-fill"></i></a>
                 </div>
               </div>
             </div>
@@ -260,7 +260,7 @@
                 <p>Amazing IT sekills</p>
                 <div class="social">
 
-                  <a href=""><i class="ri-github-fill"></i></a>
+                  <a href="https://github.com/AhmedAuday"><i class="ri-github-fill"></i></a>
                 
                 </div>
               </div>
@@ -272,11 +272,10 @@
               <div class="pic"><img src="assets/img/Devolopers/Zhyar.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Zhyar Farhad</h4>
-                <span>Bussinis Mangment</span>
-                <p>Manges all the Bussniss side</p>
+                <span>Business Management</span>
+                <p>Manges all the Business side</p>
                 <div class="social">
-            
-                <a href=""><i class="ri-github-fill"></i></a>
+                <a href="https://github.com/zhyo21"><i class="ri-github-fill"></i></a>
                 </div>
               </div>
             </div>
