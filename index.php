@@ -47,12 +47,7 @@
         <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">Carehoure@gmail.com</a>
         <i class="bi bi-phone"></i>07508174623
       </div>
-      <div class="d-none d-lg-flex social-links align-items-center">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
-      </div>
+   
     </div>
   </div>
 
@@ -245,7 +240,7 @@
             <div class="member d-flex align-items-start">
               <div class="pic"><img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Holan Omed</h4>
+                <h4>Holan Omeed</h4>
                 <span>CEO</span>
                 <p>The Ceo of our company</p>
                 <div class="social">
@@ -364,13 +359,7 @@
           Designed by <a href="https://bootstrapmade.com/">CareHour</a>
         </div>
       </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
+    
     </div>
   </footer><!-- End Footer -->
 
