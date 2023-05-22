@@ -160,7 +160,8 @@
                                     </div>
                                 </div>
                                 <div class="iq-card-body">
-                                    <form id="form-wizard1" class="text-center mt-4" method="POST" action="sign-up-v2.php">
+                                    <form id="form-wizard1" class="text-center mt-4" method="POST"
+                                        action="sign-up-v2.php">
                                         <ul id="top-tab-list" class="p-0">
                                             <li class="active" id="account">
                                                 <a href="javascript:void();">
@@ -275,7 +276,8 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <label>City:</label>
-                                                        <select class="form-control" id="exampleFormControlSelect4" name="city">
+                                                        <select class="form-control" id="exampleFormControlSelect4"
+                                                            name="city">
                                                             <option value="">Select a City</option>
                                                             <option value="Anbar">Anbar</option>
                                                             <option value="Babil">Babil</option>
@@ -332,7 +334,8 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <label for="dob">Date Of Birth:</label>
-                                                        <input class="form-control" id="dob" value="1984-01-24" name="dob"/>
+                                                        <input class="form-control" id="dob" value="1984-01-24"
+                                                            name="dob" />
                                                     </div>
                                                     <!--  -->
                                                     <div class="col-sm-6">
@@ -358,7 +361,8 @@
                                                     </div>
                                                     <div class="form-group col-sm-6">
                                                         <label>Blood Type:</label>
-                                                        <select class="form-control" id="exampleFormControlSelect4" name="blood">
+                                                        <select class="form-control" id="exampleFormControlSelect4"
+                                                            name="blood">
 
                                                             <option value="A+">A+</option>
                                                             <option value="O-">O-</option>
@@ -427,28 +431,27 @@
                           />
                         </div> -->
                                                 <div class="custom-file">
-<<<<<<< HEAD
-                                                <input type="file" class="custom-file-input" id="validatedCustomFile"  name="Profile">
-=======
-                                                    <input type="file" class="custom-file-input"
-                                                        id="validatedCustomFile" required="" name="Profile">
->>>>>>> 6cc34de1c09087f4d69ff9f74353002af62c59f8
-                                                    <label class="custom-file-label" for="customFile">Upload Your
-                                                        Photo:</label>
+                                                    <<<<<<< HEAD <input type="file" class="custom-file-input"
+                                                        id="validatedCustomFile" name="Profile">
+                                                        =======
+                                                        <input type="file" class="custom-file-input"
+                                                            id="validatedCustomFile" required="" name="Profile">
+                                                        >>>>>>> 6cc34de1c09087f4d69ff9f74353002af62c59f8
+                                                        <label class="custom-file-label" for="customFile">Upload Your
+                                                            Photo:</label>
                                                 </div><br><br>
                                                 <div class="custom-file">
-<<<<<<< HEAD
-                                                <input type="file" class="custom-file-input" id="validatedCustomFile" name="photo_id">
-=======
-                                                    <input type="file" class="custom-file-input"
-                                                        id="validatedCustomFile" required="" name="photo_id">
->>>>>>> 6cc34de1c09087f4d69ff9f74353002af62c59f8
-                                                    <label class="custom-file-label" for="customFile">Upload ID
-                                                        Photo:</label>
+                                                    <<<<<<< HEAD <input type="file" class="custom-file-input"
+                                                        id="validatedCustomFile" name="photo_id">
+                                                        =======
+                                                        <input type="file" class="custom-file-input"
+                                                            id="validatedCustomFile" required="" name="photo_id">
+                                                        >>>>>>> 6cc34de1c09087f4d69ff9f74353002af62c59f8
+                                                        <label class="custom-file-label" for="customFile">Upload ID
+                                                            Photo:</label>
                                                 </div><br><br>
                                             </div>
-                                            <button type="submit" name="submit"
-                                               value="Submit">
+                                            <button type="submit" name="submit" value="Submit">
                                                 Submit
                                             </button>
                                             <button type="button" name="previous"
@@ -457,7 +460,7 @@
                                                 Previous
                                             </button>
                                         </fieldset>
-                                       
+
                                     </form>
                                 </div>
                             </div>
