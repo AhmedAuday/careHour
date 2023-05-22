@@ -25,6 +25,7 @@
         </div> -->
         <!-- loader END -->
         <!-- Sign in Start -->
+        
         <section class="sign-in-page">
             <div class="container sign-in-page-bg mt-5 p-0">
                 <div class="row no-gutters">
@@ -67,10 +68,38 @@
                     <div class="col-md-6 position-relative">
                         <div class="sign-in-from">
                             <h1 class="mb-0">Sign in</h1>
+                            <!--radio button for the user to choose if they are a patient or a doctor or a admin-->
+                        <div class="iq-card-body">
+                            <?php
+                            //error message if the user did not select a user type
+                            if(isset($_GET['error4'])){
+                                echo '<p class="alert alert-danger text-center">'.$_GET['error'].'</p>';
+                            }
+                            ?>
+
+                           <p>Please chose which user are you.</p>
+                           <div class="custom-control custom-radio custom-radio-color-checked custom-control-inline">
+                              <input type="radio" id="customRadio-1" name="user_type" value="patient" class="custom-control-input bg-primary" checked>
+                              <label class="custom-control-label" for="customRadio-1" > Patient </label>
+                           </div>
+                           <div class="custom-control custom-radio custom-radio-color-checked custom-control-inline">
+                              <input type="radio" id="customRadio-2" name="user_type" value="doctor" class="custom-control-input bg-success">
+                              <label class="custom-control-label" for="customRadio-2"> Doctor </label>
+                           </div>
+                           <div class="custom-control custom-radio custom-radio-color-checked custom-control-inline">
+                              <input type="radio" id="customRadio-3" name="user_type" value="admin" class="custom-control-input bg-danger">
+                              <label class="custom-control-label" for="customRadio-3"> Admin </label>
+                           </div>
+                        </div>
                             <p>
-                                Enter your email address and password to access admin panel.
+                                Enter your email address and password.
                             </p>
                             <form class="mt-4">
+                                <?php 
+                                if(isset($_GET['error2'])){
+                                    echo '<p class="alert alert-danger text-center">'.$_GET['error1'].'</p>';
+                                }
+                                ?>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
                                     <input type="email" class="form-control mb-0" id="exampleInputEmail1"
@@ -78,7 +107,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
-                                    <a href="#" class="float-right">Forgot password?</a>
+                                    <a href="recoverpw.php" class="float-right">Forgot password?</a>
                                     <input type="password" class="form-control mb-0" id="exampleInputPassword1"
                                         placeholder="Password" />
                                 </div>
@@ -135,3 +164,64 @@
     </body>
 
 </html>
+<?php
+
+//check by if stament if the user is a patient or a doctor or a admin after login button is clicked
+if(isset($_POST['Login'])){
+
+    if(isset($_POST['user_type'])){
+        $user_type = $_POST['user_type'];
+        if($user_type == 'patient'){
+            //mysql check if the user is a patient available in the database
+            //if email and password is set it will be stored in the variable
+            if(isset($_POST['email']) && isset($_POST['password'])){
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+
+
+            }else{
+                //if email and password is not set it will redirect to the sign-in page with an error message
+                header("Location: sign-in.php?error1=Please enter your email and password");
+                exit();
+            }
+
+            
+        }else if($user_type == 'doctor'){
+            //mysql check if the user is a doctor available in the database
+            if(isset($_POST['email']) && isset($_POST['password'])){
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+            }else{
+                //if email and password is not set it will redirect to the sign-in page with an error message
+                header("Location: sign-in.php?error2=Please enter your email and password");
+                exit();
+            }
+    
+        }else if($user_type == 'admin'){
+            //mysql check if the user is a admin available in the database
+            if(isset($_POST['email']) && isset($_POST['password'])){
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+            }else{
+                //if email and password is not set it will redirect to the sign-in page with an error message
+                header("Location: sign-in.php?error3=Please enter your email and password");
+                exit();
+            }
+
+    
+        }
+    }else{
+        // echo "Please select a user type";
+        header("Location: sign-in.php?error4=Please select a user type");
+        exit();
+    }
+
+
+
+
+}
+
+
+
+
+?>

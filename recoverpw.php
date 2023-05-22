@@ -20,10 +20,10 @@
 
 <body>
     <!-- loader Start -->
-    <div id="loading">
+    <!-- <div id="loading">
         <div id="loading-center">
         </div>
-    </div>
+    </div> -->
     <!-- loader END -->
     <!-- Sign in Start -->
     <section class="sign-in-page">
@@ -31,7 +31,9 @@
             <div class="row no-gutters">
                 <div class="col-md-6 text-center">
                     <div class="sign-in-detail text-white">
-                        <a class="sign-in-logo mb-5" href="#"><img src="images/logo-white.png" class="img-fluid" alt="logo"></a>
+                    <a class="sign-in-logo mb-5" href="#"><img src="/images/logo.png" class="img-fluid" alt="logo">
+                                <span class="spanLogo">CareHour</span>
+                            </a>
                         <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true" data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1" data-margin="0">
                             <div class="item">
                                 <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
