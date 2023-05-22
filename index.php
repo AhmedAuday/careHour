@@ -45,7 +45,7 @@
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">Carehoure@gmail.com</a>
-        <i class="bi bi-phone"></i>07508174623
+        <i class="bi bi-phone"></i>07501234567
       </div>
    
     </div>
@@ -96,7 +96,7 @@
 
         <div class="row">
           <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
+           
           </div>
 
           <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">

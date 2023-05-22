@@ -2,7 +2,7 @@
       include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
       include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
       include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
-<<<<<<< HEAD
+// <<<<<<< HEAD
 
      
       if(isset($_POST['submit'])){
@@ -29,36 +29,36 @@
                     // header("Location: ../patient.php");
                     // exit();
       }
-=======
+// =======
       
 
-      $patient = new Patients();
-      if(isset($_POST['submit'])){
-      if(!empty($_POST['email']) && !empty($_POST['uname']) &&!empty($_POST['fname'])){
-        $patient_data->setEmail($_POST['email']);
-        $patient_data->setUsername($_POST['uname']);
-        $patient_data->setPasswordd(encrypt($_POST['password']));
+    //   $patient = new Patients();
+    //   if(isset($_POST['submit'])){
+    //   if(!empty($_POST['email']) && !empty($_POST['uname']) &&!empty($_POST['fname'])){
+    //     $patient_data->setEmail($_POST['email']);
+    //     $patient_data->setUsername($_POST['uname']);
+    //     $patient_data->setPasswordd(encrypt($_POST['password']));
        
-        $patient_data->setFirst_name($_POST['fname']);
-        $patient_data->setMiddle_name($_POST['mname']);
-        $patient_data->setLast_name($_POST['lname']);
-        $patient_data->setDate_of_birth($_POST['dob']);
-        $patient_data->setBlood_type($_POST['blood_type']);
-        $patient_data->setGender($_POST['gender']);
-        $patient_data->setAddress($_POST['address']);
-        $patient_data->setCity($_POST['city']);
-        $patient_data->setPhone_number($_POST['phone']);
-        $patient_data->setImage_of_id("http://1");
-        $patient_data->setProfile_image("http://2");
-        $patient_data->setTime(time());
+    //     $patient_data->setFirst_name($_POST['fname']);
+    //     $patient_data->setMiddle_name($_POST['mname']);
+    //     $patient_data->setLast_name($_POST['lname']);
+    //     $patient_data->setDate_of_birth($_POST['dob']);
+    //     $patient_data->setBlood_type($_POST['blood_type']);
+    //     $patient_data->setGender($_POST['gender']);
+    //     $patient_data->setAddress($_POST['address']);
+    //     $patient_data->setCity($_POST['city']);
+    //     $patient_data->setPhone_number($_POST['phone']);
+    //     $patient_data->setImage_of_id("http://1");
+    //     $patient_data->setProfile_image("http://2");
+    //     $patient_data->setTime(time());
 
 
-        $patient_data->add();
-        $patient->getLastRow();
-        $patient_data->giveAuthority();
-        echo " hi kaka";
-      }}
->>>>>>> 6cc34de1c09087f4d69ff9f74353002af62c59f8
+    //     $patient_data->add();
+    //     $patient->getLastRow();
+    //     $patient_data->giveAuthority();
+    //     echo " hi kaka";
+    //   }}
+// >>>>>>> 6cc34de1c09087f4d69ff9f74353002af62c59f8
     
       
 
