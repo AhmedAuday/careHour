@@ -5,14 +5,14 @@
 
      
       if(isset($_POST['submit'])){
-         
+         echo "<script>alert('hi')</script>";
             $patient_data = new Patients();
                     $patient_data->setFirst_name($_POST['fname']);
                     $patient_data->setMiddle_name($_POST['mname']);
                     $patient_data->setLast_name($_POST['lname']);
                     $patient_data->setUsername($_POST['uname']);
                     $patient_data->setEmail($_POST['email']);
-                    $patient_data->setPasswordd(encrypt($_POST['password']));
+                    $patient_data->setPasswordd(encrypt($_POST['pwd']));
                     $patient_data->setImage_of_id("test1");
                     $patient_data->setProfile_image("test2");
                     $patient_data->setDate_of_birth($_POST['dob']);
@@ -21,13 +21,12 @@
                     $patient_data->setAddresses($_POST['address']);
                     $patient_data->setCity($_POST['city']);
                     $patient_data->setPhone_number($_POST['phone']);
-                    $patient_data->setTime(time());
                     $patient_data->add();
                     $patient_data->getLastRow();
                     $patient_data->giveAuthority();
                     // echo " hi kaka";
-                    header("Location: ../patient.php");
-                    exit();
+                    // header("Location: ../patient.php");
+                    // exit();
       }
     
       
@@ -130,7 +129,7 @@
                                     </div>
                                 </div>
                                 <div class="iq-card-body">
-                                    <form id="form-wizard1" class="text-center mt-4" method="POST" method="sign-up-v2.php">
+                                    <form id="form-wizard1" class="text-center mt-4" method="POST" action="sign-up-v2.php">
                                         <ul id="top-tab-list" class="p-0">
                                             <li class="active" id="account">
                                                 <a href="javascript:void();">
@@ -239,13 +238,13 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Contact No.: *</label>
-                                                            <input type="text" class="form-control" name="phno"
+                                                            <input type="text" class="form-control" name="phone"
                                                                 placeholder="Contact No." />
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <label>City:</label>
-                                                        <select class="form-control" id="exampleFormControlSelect4">
+                                                        <select class="form-control" id="exampleFormControlSelect4" name="city">
                                                             <option value="">Select a City</option>
                                                             <option value="Anbar">Anbar</option>
                                                             <option value="Babil">Babil</option>
@@ -302,7 +301,7 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <label for="dob">Date Of Birth:</label>
-                                                        <input class="form-control" id="dob" value="1984-01-24" />
+                                                        <input class="form-control" id="dob" value="1984-01-24" name="dob"/>
                                                     </div>
                                                     <!--  -->
                                                     <div class="col-sm-6">
@@ -375,7 +374,7 @@
                                                         <h3 class="mb-4">Image Upload:</h3>
                                                     </div>
                                                     <div class="col-5">
-                                                        <h2 class="steps">Step 3 - 4</h2>
+                                                        <h2 class="steps">Step 3 - 3</h2>
                                                     </div>
                                                 </div>
                                                 <!-- <div class="form-group">
@@ -397,18 +396,18 @@
                           />
                         </div> -->
                                                 <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="validatedCustomFile" required="" name="Profile">
+                                                <input type="file" class="custom-file-input" id="validatedCustomFile"  name="Profile">
                                                     <label class="custom-file-label" for="customFile">Upload Your
                                                         Photo:</label>
                                                 </div><br><br>
                                                 <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="validatedCustomFile" required="" name="photo_id">
+                                                <input type="file" class="custom-file-input" id="validatedCustomFile" name="photo_id">
                                                     <label class="custom-file-label" for="customFile">Upload ID
                                                         Photo:</label>
                                                 </div><br><br>
                                             </div>
-                                            <button type="button" name="submit"
-                                                class="btn btn-primary next action-button float-right" value="Submit">
+                                            <button type="submit" name="submit"
+                                               value="Submit">
                                                 Submit
                                             </button>
                                             <button type="button" name="previous"
@@ -417,37 +416,7 @@
                                                 Previous
                                             </button>
                                         </fieldset>
-                                        <fieldset>
-                                            <div class="form-card">
-                                                <div class="row">
-                                                    <div class="col-7">
-                                                        <h3 class="mb-4 text-left">Finish:</h3>
-                                                    </div>
-                                                    <div class="col-5">
-                                                        <h2 class="steps">Step 4 - 4</h2>
-                                                    </div>
-                                                </div>
-                                                <br /><br />
-                                                <h2 class="text-success text-center">
-                                                    <strong>SUCCESS !</strong>
-                                                </h2>
-                                                <br />
-                                                <div class="row justify-content-center">
-                                                    <div class="col-3">
-                                                        <img src="images/page-img/img-success.png" class="fit-image"
-                                                            alt="fit-image" />
-                                                    </div>
-                                                </div>
-                                                <br /><br />
-                                                <div class="row justify-content-center">
-                                                    <div class="col-7 text-center">
-                                                        <h5 class="purple-text text-center">
-                                                            You Have Successfully Signed Up
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
+                                       
                                     </form>
                                 </div>
                             </div>
@@ -510,6 +479,12 @@
         <script src="../../js/chart-custom.js"></script>
         <!-- Custom JavaScript -->
         <script src="../../js/custom.js"></script>
+        <!-- signup via js-->
+        <script src="controller\patients.js">
+
+
+
+        </script>
         <!-- Checking confirm password -->
 
         <!-- make a function keyup to confirm password pwd and cpwd wothout reload the page-->

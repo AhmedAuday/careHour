@@ -1,3 +1,97 @@
+<?php
+ include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+ include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+ include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+ // echo "hello1";
+// if (isset($_POST['user'])) {
+//     $selectedColor = $_POST['user'];
+//     echo "Selected color: " . $selectedColor;
+//   }
+
+//check by if stament if the user is a patient or a doctor or a admin after login button is clicked
+if(isset($_POST['Login'])){
+    // echo "hello2";
+    
+    if(isset($_POST['user_type'])){
+        // echo "hello3";
+        $user_type = $_POST['user_type'];
+        // echo $user_type;
+        if($user_type == 'patient'){
+            // echo "hello4";
+            //mysql check if the user is a patient available in the database
+            //if email and password is set it will be stored in the variable
+            if(isset($_POST['email']) && isset($_POST['password'])){
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+
+
+
+                $patient= new Patients();
+                $patient->setEmail($email);
+
+                if($patient->getByEmail()){
+                    // echo "email found";
+                    if($patient->getPasswordd() == encrypt($password)){
+                        // echo "password found";
+                        $patient->giveAuthority();
+                        if($patient->getAuthority() > 0){
+                            // echo($patient->getAuthority());
+                           //make a header to patint dashboard 
+                            header("Location: patient.php");
+                            exit();
+                        }
+                        exit();
+                    }
+                }
+                
+                
+               
+
+            }else{
+                //if email and password is not set it will redirect to the sign-in page with an error message
+                $error = urlencode('Invalid username or password.');
+                // header("Location: sign-in.php?error2=".$error);
+                // exit();
+            }
+
+            
+        }else if($user_type == 'doctor'){
+            //mysql check if the user is a doctor available in the database
+            if(isset($_POST['email']) && isset($_POST['password'])){
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+            }else{
+                //if email and password is not set it will redirect to the sign-in page with an error message
+                // header("Location: sign-in.php?error2=Please enter your email and password");
+                // exit();
+            }
+    
+        }else if($user_type == 'admin'){
+            //mysql check if the user is a admin available in the database
+            if(isset($_POST['email']) && isset($_POST['password'])){
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+            }else{
+                //if email and password is not set it will redirect to the sign-in page with an error message
+                // header("Location: sign-in.php?error2=Please enter your email and password");
+                // exit();
+            }
+
+    
+        }
+    }
+    // else{
+    //     // echo "Please select a user type";
+    //     $error = urlencode('Please select a user type.');
+    //             header("Location: sign-up.php?error1=".$error);
+                
+    //     // header("Location: sign-in.php?error1=Please select a user type");
+    //     exit();
+    // }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +163,12 @@
                         <div class="sign-in-from">
                             <h1 class="mb-0">Sign in</h1>
                             <!--radio button for the user to choose if they are a patient or a doctor or a admin-->
-                        <div class="iq-card-body">
+                        
+                            <p>
+                                Enter your email address and password.
+                            </p>
+                            <form class="mt-4" method="POST">
+                            <div class="iq-card-body">
                             <?php
                             //error message if the user did not select a user type                                                             
                             if(isset($_GET['error1'])){
@@ -78,8 +177,8 @@
                             ?>
 
                            <p>Please chose which user are you.</p>
-                           <!-- <div class="custom-control custom-radio custom-radio-color-checked custom-control-inline">
-                              <input type="radio" id="customRadio-1" name="user" value="patient" class="custom-control-input bg-primary" >
+                           <div class="custom-control custom-radio custom-radio-color-checked custom-control-inline">
+                              <input type="radio" id="customRadio-1" name="user_type" value="patient" class="custom-control-input bg-primary" >
                               <label class="custom-control-label" for="customRadio-1" > Patient </label>
                            </div>
                            <div class="custom-control custom-radio custom-radio-color-checked custom-control-inline">
@@ -90,13 +189,9 @@
                               <input type="radio" id="customRadio-3" name="user_type" value="admin" class="custom-control-input bg-danger">
                               <label class="custom-control-label" for="customRadio-3"> Admin </label>
 
-                           </div> -->
-                           <input type="radio" id="" name="user" value="admin" class="">Shot
+                           </div>
+                           <!-- <input type="radio" id="" name="user" value="admin" class="">Shot -->
                         </div>
-                            <p>
-                                Enter your email address and password.
-                            </p>
-                            <form class="mt-4" method="POST">
                                 <?php 
                                 if(isset($_GET['error2'])){
                                     echo '<p class="alert alert-danger text-center">'.$_GET['error2'].'</p>';
@@ -166,92 +261,3 @@
     </body>
 
 </html>
-<?php
-echo "hello1";
-if (isset($_POST['user'])) {
-    $selectedColor = $_POST['user'];
-    echo "Selected color: " . $selectedColor;
-  }
-
-//check by if stament if the user is a patient or a doctor or a admin after login button is clicked
-// if(isset($_POST['Login'])){
-//     echo "hello2";
-    
-//     if(isset($_POST['user_type'])){
-//         echo "hello3";
-//         $user_type = $_POST['user_type'];
-//         echo $user_type;
-//         if($user_type == 'patient'){
-//             echo "hello4";
-//             //mysql check if the user is a patient available in the database
-//             //if email and password is set it will be stored in the variable
-//             if(isset($_POST['email']) && isset($_POST['password'])){
-//                 $email = $_POST['email'];
-//                 $password = $_POST['password'];
-//                 $patient= new Patients();
-//                 $patient->setEmail($email);
-//                 $patient->setPassword($password);
-
-//                 $patient->getByEmail();
-//                 if($patient->getPassword() == $password){
-//                     $_SESSION['patient'] = $patient;
-//                     header("Location: index.php");
-//                     exit();}
-//                 else{
-//                     //if email and password is not set it will redirect to the sign-in page with an error message
-//                     $error = urlencode('Invalid username or password.');
-//                     header("Location: sign-in.php?error2=".$error);
-//                     exit();
-//                 }
-
-//             }else{
-//                 //if email and password is not set it will redirect to the sign-in page with an error message
-//                 $error = urlencode('Invalid username or password.');
-//                 header("Location: sign-in.php?error2=".$error);
-//                 exit();
-//             }
-
-            
-//         }else if($user_type == 'doctor'){
-//             //mysql check if the user is a doctor available in the database
-//             if(isset($_POST['email']) && isset($_POST['password'])){
-//                 $email = $_POST['email'];
-//                 $password = $_POST['password'];
-//             }else{
-//                 //if email and password is not set it will redirect to the sign-in page with an error message
-//                 header("Location: sign-in.php?error2=Please enter your email and password");
-//                 exit();
-//             }
-    
-//         }else if($user_type == 'admin'){
-//             //mysql check if the user is a admin available in the database
-//             if(isset($_POST['email']) && isset($_POST['password'])){
-//                 $email = $_POST['email'];
-//                 $password = $_POST['password'];
-//             }else{
-//                 //if email and password is not set it will redirect to the sign-in page with an error message
-//                 header("Location: sign-in.php?error2=Please enter your email and password");
-//                 exit();
-//             }
-
-    
-//         }
-//     }
-//     // else{
-//     //     // echo "Please select a user type";
-//     //     $error = urlencode('Please select a user type.');
-//     //             header("Location: sign-up.php?error1=".$error);
-                
-//     //     // header("Location: sign-in.php?error1=Please select a user type");
-//     //     exit();
-//     // }
-
-
-
-
-// }
-
-
-
-
-?>

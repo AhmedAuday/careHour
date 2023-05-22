@@ -1,16 +1,16 @@
 <?php
 
-// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
-// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
-// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
-// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/classes/Patients.class.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 
-
-// $patint=new Patients();
-
-// $patint->getById("1");
-
-
+$patint=new Patients();
+if($patint->getAuthority() <= 0){
+    header("Location: sign-in.php");
+    exit();
+}
+$patint->setId($patint->getAuthority());
+$patint->getById();
 
 ?>
 
@@ -653,10 +653,19 @@ label {
                                             <div class="text-center mt-3">
                                                 <h4>
                                                     <b>
-                                                        <?= $patint->getFirst_name()." ".$patint->getMiddle_name()?>
+                                                        <?php
+                                                        
+                                                        
+                                                        echo ($patint->getFirst_name()."-".$patint->getMiddle_name());
+                                                        
+                                                        
+                                                        
+                                                        ?>
                                                     </b>
                                                 </h4>
-                                                <p><?= date("Y:M:D")-$patint->getDate_of_birth()?></p>
+                                                <p><?php
+                                                    $t = time() - $patint->getDate_of_birth();
+                                                    echo ($t/86400/30/12); ?></p>
                                                 <p>
                                                     <?php echo "Patient" ?>
                                                 </p>
