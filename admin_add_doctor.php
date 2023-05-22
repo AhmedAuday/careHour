@@ -409,6 +409,7 @@
                                                     <a href="javascript:void();">.png</a>
                                                     <a href="javascript:void();">.jpeg</a>
                                                     <span>allowed</span>
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -418,6 +419,7 @@
 
 
                                     </form>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -449,17 +451,12 @@
                                                 </div>
 
 
-                                                <!-- TODO fix this add Speciality   -->
+                                              
                                                 <div class="form-group col-md-6">
-                                                    <label>Speciality:</label>
-                                                    <select class="form-control" id="selectcountry">
-                                                        <option>select From Speciality</option>
-                                                        <option>Caneda</option>
-                                                        <option>Noida</option>
-                                                        <option>USA</option>
-                                                        <option>India</option>
-                                                        <option>Africa</option>
-                                                    </select>
+                                                <label for="lname">Speciality:</label>
+                                                    <input type="text" class="form-control" id="Speciality"
+                                                        placeholder="Speciality" />
+                                                
                                                 </div>
 
 
@@ -474,6 +471,11 @@
                                                     <input class="form-control" id="dob" value="1984-01-24" />
                                                 </div>
 
+                                                <div class="col-sm-6">
+                                                    <label for="dob">Address:</label>
+                                                    <input type="text" class="form-control" id="dob" placeholder="Address"/>
+                                                </div>
+                                     
 
                                                 <div class="form-group col-md-6">
                                                     <label for="pno">Zip Code:</label>
@@ -486,6 +488,9 @@
                                                     <textarea class="form-control" name="address" rows="1"
                                                         style="line-height: 22px"></textarea>
                                                 </div>
+
+                                               
+
                                                 <div class="form-group col-md-6">
                                                     <label>Bio</label>
                                                     <textarea class="form-control" name="address" rows="1"
@@ -529,6 +534,7 @@
                                                             Other
                                                         </label>
                                                     </div>
+                                                
                                                 </div>
                                             </div>
 
@@ -554,6 +560,11 @@
                                                     <label for="rpass">Repeat Password:</label>
                                                     <input type="password" class="form-control" id="rpass"
                                                         placeholder="Repeat Password " />
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                <input type="file" class="custom-file-input"
+                                                        id="validatedCustomFile" required="" name="photo_id" >
+                                                    <label class="custom-file-label" for="customFile">Upload ID Photo:</label>
                                                 </div>
                                             </div>
                                             <div class="checkbox">
