@@ -238,16 +238,14 @@
 
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/devolopers/Holan.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Holan Omeed</h4>
                 <span>CEO</span>
                 <p>The Ceo of our company</p>
                 <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+              
+                <a href=""><i class="ri-github-fill"></i></a>
                 </div>
               </div>
             </div>
@@ -255,16 +253,15 @@
 
           <div class="col-lg-6 mt-4 mt-lg-0">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-2.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/Devolopers/Ahmad.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Ahmad Auday</h4>
                 <span>IT Mangment</span>
                 <p>Amazing IT sekills</p>
                 <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+
+                  <a href=""><i class="ri-github-fill"></i></a>
+                
                 </div>
               </div>
             </div>
@@ -272,16 +269,14 @@
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-3.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/Devolopers/Zhyar.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Zhyar Farhad</h4>
                 <span>Bussinis Mangment</span>
                 <p>Manges all the Bussniss side</p>
                 <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+            
+                <a href=""><i class="ri-github-fill"></i></a>
                 </div>
               </div>
             </div>
