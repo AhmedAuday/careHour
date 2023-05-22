@@ -71,6 +71,10 @@
 
                                 </ul>
                             </li>
+                            <li>
+                                <a href="doctor_calendar.php" class="iq-waves-effect"><i
+                                        class="ri-calendar-event-fill"></i><span>Calendar</span></a>
+                            </li>
 
                             <li>
                                 <a href="chat.php" class="iq-waves-effect"><i
