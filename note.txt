@@ -23,3 +23,16 @@ $admin->delete();//that it to delete
 ///////
 
 making a suggustion API call and qoutes 
+
+
+
+var p = new Patients();
+undefined
+p.setPasswordd("hama");
+undefined
+p.setEmail("hhama@gmial.com");
+undefined
+p.setPhone_number("034565432345");
+undefined
+p.add();
+Promise {<pending>}

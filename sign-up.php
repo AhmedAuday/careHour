@@ -1,3 +1,10 @@
+
+<?php
+ include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+ include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+ include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,6 +67,7 @@
                                 </div>
                             </div>
                         </div>
+                        <form method="POST">
                         <div class="col-lg-12">
                             <div class="iq-edit-list-data">
                                 <div class="tab-content">
@@ -82,7 +90,7 @@
                                                                     accept="image/*" />
                                                                     <label for="profile_image">Profile Image:</label> -->
                                                                     <input type="file" name="profile_image"
-                                                                        id="profile_image" accept="image/*" required>
+                                                                        id="profile_image" accept="image/*" >
 
                                                                 </div>
                                                             </div>
@@ -91,24 +99,24 @@
                                                     <div class="row align-items-center">
                                                         <div class="form-group col-sm-6">
                                                             <label for="fname">First Name:</label>
-                                                            <input type="text" class="form-control" id="fname"
+                                                            <input type="text" class="form-control" id="fname" name="fname"
                                                                 value="Bini" />
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label for="lname">Middle Name:</label>
-                                                            <input type="text" class="form-control" id="lname"
+                                                            <input type="text" class="form-control" id="lname" name="mname"
                                                                 value="Jets" />
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label for="lname">Last Name:</label>
-                                                            <input type="text" class="form-control" id="lname"
+                                                            <input type="text" class="form-control" id="lname" name="lname"
                                                                 value="Jets" />
                                                         </div>
 
                                                         <div class="form-group col-sm-6">
                                                             <label for="Phone number">Phone number:</label>
                                                             <input type="text" value="+964" class="form-control"
-                                                                oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                                                                oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="phone" />
                                                         </div>
 
 
@@ -142,8 +150,8 @@
                                                             <div
                                                                 class="custom-control custom-radio custom-control-inline">
                                                                 <input type="radio" id="customRadio6"
-                                                                    name="customRadio1" class="custom-control-input"
-                                                                    checked="" />
+                                                                    name="gender" class="custom-control-input"
+                                                                    checked="" value="male"/>
                                                                 <label class="custom-control-label" for="customRadio6">
                                                                     Male
                                                                 </label>
@@ -151,7 +159,7 @@
                                                             <div
                                                                 class="custom-control custom-radio custom-control-inline">
                                                                 <input type="radio" id="customRadio7"
-                                                                    name="customRadio1" class="custom-control-input" />
+                                                                    name="gender" class="custom-control-input" value="female"/>
                                                                 <label class="custom-control-label" for="customRadio7">
                                                                     Female
                                                                 </label>
@@ -159,7 +167,7 @@
                                                             <div
                                                                 class="custom-control custom-radio custom-control-inline">
                                                                 <input type="radio" id="customRadio8"
-                                                                    name="customRadio1" class="custom-control-input" />
+                                                                    name="gender" class="custom-control-input" value="other"/>
                                                                 <label class="custom-control-label" for="customRadio8">
                                                                     Other
                                                                 </label>
@@ -168,17 +176,17 @@
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label for="dob">Date Of Birth:</label>
-                                                            <input class="form-control" id="dob" value="1984-01-24" />
+                                                            <input class="form-control" id="dob" value="1984-01-24" name="dob"/>
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label>Marital Status:</label>
-                                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                            <select class="form-control" id="exampleFormControlSelect1" name="">
                                                                 <option selected="">Single</option>
                                                                 <option>Married</option>
 
                                                             </select>
                                                         </div>
-                                                        <div class="form-group col-sm-6">
+                                                        <!-- <div class="form-group col-sm-6">
                                                             <label>Age:</label>
                                                             <select class="form-control" id="exampleFormControlSelect2">
                                                                 <option>12-18</option>
@@ -188,18 +196,18 @@
                                                                 <option>63 ></option>
                                                                 <option>Above 63 ></option>
                                                             </select>
-                                                        </div>
+                                                        </div> -->
 
 
                                                         <div class="form-group col-sm-6">
                                                             <label>allergies:</label>
-                                                            <select class="form-control" id="exampleFormControlSelect3">
-                                                                <option>Dont have</option>
-                                                                <option>Asthma</option>
-                                                                <option>Eczema</option>
-                                                                <option selected="">Food allergies</option>
-                                                                <option>Insect sting allergies</option>
-                                                                <option>Drug allergies</option>
+                                                            <select class="form-control" id="exampleFormControlSelect3" name="">
+                                                                <option value="hi">Dont have</option>
+                                                                <option value="hi">Asthma</option>
+                                                                <option value="hi">Eczema</option>
+                                                                <option value="hi">Food allergies</option>
+                                                                <option value="hi">Insect sting allergies</option>
+                                                                <option value="hi">Drug allergies</option>
                                                             </select>
                                                         </div>
 
@@ -216,7 +224,7 @@
 
                                                         <div class="form-group col-sm-6">
                                                             <label>Blood Type:</label>
-                                                            <select class="form-control" id="exampleFormControlSelect4">
+                                                            <select class="form-control" id="exampleFormControlSelect4" name="blood">
 
                                                                 <option value="A+">A+</option>
                                                                 <option value="O-">O-</option>
@@ -287,7 +295,7 @@
                                                         <div class="form-group col-sm-6">
                                                             <label for="lname">Email</label>
                                                             <input type="text" class="form-control" id="lname"
-                                                                name="username" value="zhyar@" />
+                                                                name="uname" value="test@hi.c" />
                                                         </div>
 
                                                         <div class="form-group col-sm-6">
@@ -314,7 +322,7 @@
 
                                                     <div class="d-inline-block w-100">
 
-                                                        <button type="submit" class="btn btn-primary float-left">
+                                                        <button type="submit" class="btn btn-primary float-left" name="submit">
                                                             Register
                                                         </button>
                                                     </div>
@@ -447,7 +455,7 @@
                                                     <!-- the sign up button -->
 
                                                     <div class="d-inline-block w-100">
-                                                        <button type="submit" class="btn btn-primary float-right">
+                                                        <button type="submit" class="btn btn-primary float-right" name="submit">
                                                             Sign Up
                                                         </button>
                                                     </div>
@@ -469,6 +477,7 @@
                         </div>
                     </div>
                 </div>
+</form>
                 <!-- Footer -->
                 <footer class="bg-white iq-footer">
                     <div class="container-fluid">
@@ -527,7 +536,37 @@
         <!-- sign up JavaScript -->
         <script src="../../js/sign-up.js"></script>
     </body>
+<?php
 
+
+
+ if(isset($_POST['submit'])){
+    // echo "<script>alert('hello')</script>";
+    
+       $patient_data = new Patients();
+               $patient_data->setFirst_name($_POST['fname']);
+               $patient_data->setMiddle_name($_POST['mname']);
+               $patient_data->setLast_name($_POST['lname']);
+               $patient_data->setUsername($_POST['uname']);
+               $patient_data->setEmail($_POST['email']);
+               $patient_data->setPasswordd(encrypt($_POST['password']));
+               $patient_data->setImage_of_id("test1");
+               $patient_data->setProfile_image("test2");
+               $patient_data->setDate_of_birth($_POST['dob']);
+               $patient_data->setBlood_type($_POST['blood']);
+               $patient_data->setGender($_POST['gender']);
+               $patient_data->setAddresses($_POST['address']);
+               $patient_data->setCity($_POST['city']);
+               $patient_data->setPhone_number($_POST['phone']);
+               $patient_data->add();
+               $patient_data->getLastRow();
+               $patient_data->giveAuthority();
+               // echo " hi kaka";
+            //    header("Location: patient.php");
+            //    exit();
+ }
+
+?>
 
 
 </html>
