@@ -45,7 +45,7 @@
     <div class="container d-flex justify-content-between">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">Carehoure@gmail.com</a>
-        <i class="bi bi-phone"></i>07508174623
+        <i class="bi bi-phone"></i>07501234567
       </div>
    
     </div>
