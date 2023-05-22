@@ -4,12 +4,25 @@
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Care Hour</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no" />
+
+        <script>
+        // Ignore this in your implementation
+        window.isMbscDemo = true;
+        </script>
+
+        <title>CareHour</title>
+        <!-- Mobiscroll JS and CSS Includes -->
+        <link rel="stylesheet" href="css/mobiscroll.javascript.min.css">
+        <script src="js/mobiscroll.javascript.min.js"></script>
+
+
         <!-- Favicon -->
         <link rel="shortcut icon" href="/images/favicon.ico" />
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
         <!-- Typography CSS -->
         <link rel="stylesheet" href="/css/typography.css" />
         <!-- Style CSS -->
@@ -21,7 +34,14 @@
         <link href="/fullcalendar/daygrid/main.css" rel="stylesheet" />
         <link href="/fullcalendar/timegrid/main.css" rel="stylesheet" />
         <link href="/fullcalendar/list/main.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+        <link rel="stylesheet" href="/css/flatpickr.min.css" />
+
+        <link rel="stylesheet" href="/css/calander.css" />
+
+
+
+
+
     </head>
 
     <body>
@@ -35,7 +55,7 @@
             <!-- Sidebar  -->
             <div class="iq-sidebar">
                 <div class="iq-sidebar-logo d-flex justify-content-between">
-                    <a href="index.php">
+                    <a href="index.phpchat.php">
                         <img src="/images/logo.png" class="img-fluid" alt="" />
                         <span>CareHour</span>
                     </a>
@@ -55,29 +75,30 @@
                                 <i class="ri-subtract-line"></i><span>Dashboard</span>
                             </li>
                             <li>
-                                <a href="doctor_main_dashboard.php" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>Doctor Dashboard</span></a>
+                                <a href="index.phpchat.php" class="iq-waves-effect"><i
+                                        class="ri-hospital-fill"></i><span>Doctor Dashboard</span></a>
                             </li>
 
-                            <li class="active">
-                                <a href="doctor_document.php" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>document</span></a>
+                            <li>
+                                <a href="dashboard-3.phpchat.php" class="iq-waves-effect"><i
+                                        class="ri-group-fill"></i><span>Patient Dashboard</span></a>
                             </li>
 
                             <li>
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"
-                                    aria-expanded="false"><i class="ri-user-3-fill"></i><span>PATIENTS</span><i
+                                    aria-expanded="false"><i class="ri-user-3-fill"></i><span>Doctors</span><i
                                         class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                                 <ul id="doctor-info" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                                    <li>
+                                        <a href="doctor-list.phpchat.php"><i class="ri-file-list-fill"></i>All
+                                            Doctors</a>
+                                    </li>
 
                                     <li>
-                                        <a href="my-docotor-list.php"><i class="ri-profile-fill"></i>My Patient</a>
+                                        <a href="my-docotor-list.phpchat.php"><i class="ri-profile-fill"></i>MY
+                                            Doctors</a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li>
-                                <a href="doctor_calendar.php" class="iq-waves-effect"><i
-                                        class="ri-calendar-event-fill"></i><span>Calendar</span></a>
                             </li>
 
                             <li>
@@ -89,16 +110,14 @@
                     <div class="p-3"></div>
                 </div>
             </div>
-            <!-- End OF Sided BAr  -->
-
-            <!-- Begin page content -->
+            <!-- Page Content  -->
             <div id="content-page" class="content-page">
                 <!-- TOP Nav Bar -->
                 <div class="iq-top-navbar">
                     <div class="iq-navbar-custom">
                         <div class="iq-sidebar-logo">
                             <div class="top-logo">
-                                <a href="dashboard-3.php" class="logo">
+                                <a href="index.phpchat.php" class="logo">
                                     <img src="/images/logo.png" class="img-fluid" alt="" />
                                     <span>CareHour</span>
                                 </a>
@@ -125,6 +144,24 @@
                             </div>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav ml-auto navbar-list">
+                                    <li class="nav-item">
+                                        <a class="search-toggle iq-waves-effect language-title" href="#"><img
+                                                src="/images/small/flag-01.png" alt="img-flaf" class="img-fluid mr-1"
+                                                style="height: 16px; width: 16px" />
+                                            English <i class="ri-arrow-down-s-line"></i></a>
+                                        <div class="iq-sub-dropdown">
+                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-02.png"
+                                                    alt="img-flaf" class="img-fluid mr-2" />French</a>
+                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-03.png"
+                                                    alt="img-flaf" class="img-fluid mr-2" />Spanish</a>
+                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-04.png"
+                                                    alt="img-flaf" class="img-fluid mr-2" />Italian</a>
+                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-05.png"
+                                                    alt="img-flaf" class="img-fluid mr-2" />German</a>
+                                            <a class="iq-sub-card" href="#"><img src="/images/small/flag-06.png"
+                                                    alt="img-flaf" class="img-fluid mr-2" />Japanese</a>
+                                        </div>
+                                    </li>
                                     <li class="nav-item iq-full-screen">
                                         <a href="#" class="iq-waves-effect" id="btnFullscreen"><i
                                                 class="ri-fullscreen-line"></i></a>
@@ -300,7 +337,7 @@
                                                     </h5>
                                                     <span class="text-white font-size-12">Available</span>
                                                 </div>
-                                                <a href="pprofile.php" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="pprofile.phpchat.php" class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-file-user-line"></i>
@@ -313,7 +350,8 @@
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <a href="profile-edit.php" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="profile-edit.phpchat.php"
+                                                    class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-profile-line"></i>
@@ -327,7 +365,8 @@
                                                     </div>
                                                 </a>
 
-                                                <a href="privacy-setting.php" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="privacy-setting.phpchat.php"
+                                                    class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-lock-line"></i>
@@ -341,7 +380,7 @@
                                                     </div>
                                                 </a>
                                                 <div class="d-inline-block w-100 text-center p-3">
-                                                    <a class="bg-primary iq-sign-btn" href="sign-in.php"
+                                                    <a class="bg-primary iq-sign-btn" href="logout.php"
                                                         role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
                                                 </div>
                                             </div>
@@ -353,6 +392,178 @@
                     </div>
                 </div>
                 <!-- TOP Nav Bar END -->
+                <div class="container-fluid">
+                    <div class="row row-eq-height">
+                        <div class="col-md-3">
+                            <div class="iq-card calender-small">
+                                <div class="iq-card-body">
+                                    <input type="text" class="flatpicker d-none" />
+                                </div>
+                            </div>
+                            <div class="iq-card">
+                                <div class="iq-card-header d-flex justify-content-between">
+                                    <div class="iq-header-title">
+                                        <h4 class="card-title">Classification</h4>
+                                    </div>
+                                    <div class="iq-card-header-toolbar d-flex align-items-center">
+                                        <a href="#"><i class="fa fa-plus mr-0" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <div class="iq-card-body">
+                                    <ul class="m-0 p-0 job-classification">
+                                        <li class="">
+                                            <i class="ri-check-line bg-danger"></i>Meeting
+                                        </li>
+                                        <li class="">
+                                            <i class="ri-check-line bg-success"></i>Business travel
+                                        </li>
+                                        <li class="">
+                                            <i class="ri-check-line bg-warning"></i>Personal Work
+                                        </li>
+                                        <li class="">
+                                            <i class="ri-check-line bg-info"></i>Team Project
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="iq-card">
+                                <div class="iq-card-header d-flex justify-content-between">
+                                    <div class="iq-header-title">
+                                        <h4 class="card-title">Today's Schedule</h4>
+                                    </div>
+                                </div>
+                                <div class="iq-card-body">
+                                    <ul class="m-0 p-0 today-schedule">
+                                        <li class="d-flex">
+                                            <div class="schedule-icon">
+                                                <i class="ri-checkbox-blank-circle-fill text-primary"></i>
+                                            </div>
+                                            <div class="schedule-text">
+                                                <span>Web Design</span>
+                                                <span>09:00 to 12:00</span>
+                                            </div>
+                                        </li>
+                                        <li class="d-flex">
+                                            <div class="schedule-icon">
+                                                <i class="ri-checkbox-blank-circle-fill text-success"></i>
+                                            </div>
+                                            <div class="schedule-text">
+                                                <span>Participate in Design</span>
+                                                <span>09:00 to 12:00</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div mbsc-page class="demo-create-read-update-delete-CRUD">
+                                <div style="height:100%">
+                                    <div id="demo-add-delete-event"></div>
+
+                                    <div style="display: none">
+                                        <div id="demo-add-popup">
+                                            <div class="mbsc-form-group">
+                                                <label>
+                                                    Title
+                                                    <input mbsc-input id="event-title">
+                                                </label>
+                                                <label>
+                                                    Description
+                                                    <textarea mbsc-textarea id="event-desc"></textarea>
+                                                </label>
+                                            </div>
+                                            <div class="mbsc-form-group">
+                                                <label>
+                                                    All-day
+                                                    <input mbsc-switch id="event-all-day" type="checkbox" />
+                                                </label>
+                                                <label>
+                                                    Starts
+                                                    <input mbsc-input id="start-input" />
+                                                </label>
+                                                <label>
+                                                    Ends
+                                                    <input mbsc-input id="end-input" />
+                                                </label>
+                                                <div id="event-date"></div>
+                                                <div id="event-color-picker" class="event-color-c">
+                                                    <div class="event-color-label">Color</div>
+                                                    <div id="event-color-cont">
+                                                        <div id="event-color" class="event-color"></div>
+                                                    </div>
+                                                </div>
+                                                <label>
+                                                    Show as busy
+                                                    <input id="event-status-busy" mbsc-segmented type="radio"
+                                                        name="event-status" value="busy">
+                                                </label>
+                                                <label>
+                                                    Show as free
+                                                    <input id="event-status-free" mbsc-segmented type="radio"
+                                                        name="event-status" value="free">
+                                                </label>
+                                                <div class="mbsc-button-group">
+                                                    <button class="mbsc-button-block" id="event-delete" mbsc-button
+                                                        data-color="danger" data-variant="outline">Delete event</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="demo-event-color">
+                                            <div class="crud-color-row">
+                                                <div class="crud-color-c" data-value="#ffeb3c">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#ffeb3c"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#ff9900">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#ff9900"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#f44437">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#f44437"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#ea1e63">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#ea1e63"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#9c26b0">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#9c26b0"></div>
+                                                </div>
+                                            </div>
+                                            <div class="crud-color-row">
+                                                <div class="crud-color-c" data-value="#3f51b5">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#3f51b5"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="">
+                                                    <div
+                                                        class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check">
+                                                    </div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#009788">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#009788"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#4baf4f">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#4baf4f"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#7e5d4e">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#7e5d4e"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
                 <!-- Footer -->
                 <footer class="bg-white iq-footer">
@@ -368,19 +579,37 @@
                 <!-- Footer END -->
             </div>
         </div>
-        <!-- Wrapper END -->
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+        <!-- 
+        <script>
+        
+        </script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="/js/calandar.js"></script>
         <script src="/js/jquery.min.js"></script>
+        <script src="/js/jquery.counterup.min.js"></script>
+        <script src="/js/jquery.appear.js"></script>
+        <script src="/js/jquery.magnific-popup.min.js"></script>
         <script src="/js/popper.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
         <!-- Appear JavaScript -->
-        <script src="/js/jquery.appear.js"></script>
         <!-- Countdown JavaScript -->
         <script src="/js/countdown.min.js"></script>
         <!-- Counterup JavaScript -->
         <script src="/js/waypoints.min.js"></script>
-        <script src="/js/jquery.counterup.min.js"></script>
         <!-- Wow JavaScript -->
         <script src="/js/wow.min.js"></script>
         <!-- Apexcharts JavaScript -->
@@ -392,21 +621,17 @@
         <!-- Owl Carousel JavaScript -->
         <script src="/js/owl.carousel.min.js"></script>
         <!-- Magnific Popup JavaScript -->
-        <script src="/js/jquery.magnific-popup.min.js"></script>
         <!-- Smooth Scrollbar JavaScript -->
         <script src="/js/smooth-scrollbar.js"></script>
         <!-- lottie JavaScript -->
         <script src="/js/lottie.js"></script>
-        <!-- am core JavaScript -->
-        <script src="/js/core.js"></script>
-        <!-- am charts JavaScript -->
-        <script src="/js/charts.js"></script>
-        <!-- am animated JavaScript -->
-        <script src="/js/animated.js"></script>
-        <!-- am kelly JavaScript -->
-        <script src="/js/kelly.js"></script>
+        <!-- Full calendar -->
+        <script src="/fullcalendar/core/main.js"></script>
+        <script src="/fullcalendar/daygrid/main.js"></script>
+        <script src="/fullcalendar/timegrid/main.js"></script>
+        <script src="/fullcalendar/list/main.js"></script>
         <!-- Flatpicker Js -->
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script src="/js/flatpickr.js"></script>
         <!-- Chart Custom JavaScript -->
         <script src="/js/chart-custom.js"></script>
         <!-- Custom JavaScript -->

@@ -61,10 +61,14 @@
                                         class="ri-group-fill"></i><span>Patient Dashboard</span></a>
                             </li>
 
+
+
                             <li>
                                 <a href="document.html" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>document</span></a>
                             </li>
+
+                           
 
                             <li class="active main-active">
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"

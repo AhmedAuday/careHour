@@ -81,7 +81,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="calendar.html" class="iq-waves-effect"><i
+                                <a href="doctor_calendar.php" class="iq-waves-effect"><i
                                         class="ri-calendar-event-fill"></i><span>Calendar</span></a>
                             </li>
 

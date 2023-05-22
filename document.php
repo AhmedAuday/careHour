@@ -65,6 +65,8 @@
                                         class="ri-group-fill"></i><span>document</span></a>
                             </li>
 
+                            
+
                             <li>
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"
                                     aria-expanded="false"><i class="ri-user-3-fill"></i><span>Doctors</span><i
