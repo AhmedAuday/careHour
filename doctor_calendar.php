@@ -37,18 +37,13 @@
         <link rel="stylesheet" href="/css/flatpickr.min.css" />
 
         <link rel="stylesheet" href="/css/calander.css" />
-
-
-
-
-
     </head>
 
     <body>
         <!-- loader Start -->
         <!--<div id="loading">
             <div id="loading-center"></div>
-        </div>-->
+        </div> -->
         <!-- loader END -->
         <!-- Wrapper Start -->
         <div class="wrapper">
