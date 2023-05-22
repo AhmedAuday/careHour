@@ -1,36 +1,34 @@
 <?php
-    //   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
-    //   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
-    //   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+      include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+      include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+      include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 
-    //   $patient = new Patient_user();
-    //   if(isset($_POST['submit'])){
-    //   if(!empty($_POST['email']) && !empty($_POST['uname']) &&!empty($_POST['fname'])){
-    //     $patient->setEmail($_POST['email']);
-    //     $patient->setUsername($_POST['uname']);
-    //     $patient->setPassword(encrypt($_POST['password']));
-    //     $patient->setTimee(time());
-    //     $patient->add();
-    //     $patient->getLastRow();
-    //     $patient->giveAuthority();
-    //     $patient_data = new Patients();
-    //     $patient_data->setPatient_id($patient->getId());
-    //     $patient_data->setFirst_name($_POST['fname']);
-    //     $patient_data->setMiddle_name($_POST['mname']);
-    //     $patient_data->setLast_name($_POST['lname']);
-    //     $patient_data->setDate_of_birth($_POST['dob']);
-    //     $patient_data->setBlood_type($_POST['blood_type']);
-    //     $patient_data->setGender($_POST['customRadio1']);
-    //     $patient_data->setAddress($_POST['address']);
-    //     $patient_data->setCity($_POST['city']);
-    //     $patient_data->setPhone_number($_POST['phone']);
-    //     $patient_data->setTimee(time());
-    //     $patient_data->setTime(time());
-    //     $patient_data->add();
-    //     $patient->getLastRow();
-    //     $patient_data->giveAuthority();
-    //     echo " hi kaka";
-    //   }}
+     
+      if(isset($_POST['submit'])){
+         
+            $patient_data = new Patients();
+                    $patient_data->setFirst_name($_POST['fname']);
+                    $patient_data->setMiddle_name($_POST['mname']);
+                    $patient_data->setLast_name($_POST['lname']);
+                    $patient_data->setUsername($_POST['uname']);
+                    $patient_data->setEmail($_POST['email']);
+                    $patient_data->setPasswordd(encrypt($_POST['password']));
+                    $patient_data->setImage_of_id("test1");
+                    $patient_data->setProfile_image("test2");
+                    $patient_data->setDate_of_birth($_POST['dob']);
+                    $patient_data->setBlood_type($_POST['blood']);
+                    $patient_data->setGender($_POST['gender']);
+                    $patient_data->setAddresses($_POST['address']);
+                    $patient_data->setCity($_POST['city']);
+                    $patient_data->setPhone_number($_POST['phone']);
+                    $patient_data->setTime(time());
+                    $patient_data->add();
+                    $patient_data->getLastRow();
+                    $patient_data->giveAuthority();
+                    // echo " hi kaka";
+                    header("Location: ../patient.php");
+                    exit();
+      }
     
       
 
@@ -56,6 +54,23 @@
       //   $admin->getLastRow();
       //   $admin->giveAuthority();
       // }
+//       include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+//       include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+//       include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+
+// $patient=new Patients();
+
+// $patient->setFirst_name($_POST['']);
+// //give the object setters
+// $patient->
+
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -115,7 +130,7 @@
                                     </div>
                                 </div>
                                 <div class="iq-card-body">
-                                    <form id="form-wizard1" class="text-center mt-4" method="POST">
+                                    <form id="form-wizard1" class="text-center mt-4" method="POST" method="sign-up-v2.php">
                                         <ul id="top-tab-list" class="p-0">
                                             <li class="active" id="account">
                                                 <a href="javascript:void();">
@@ -255,21 +270,21 @@
                                                     <div class="col-sm-6">
                                                         <label class="d-block">Gender:</label>
                                                         <div class="custom-control custom-radio custom-control-inline">
-                                                            <input type="radio" id="customRadio6" name="customRadio1"
+                                                            <input type="radio" id="customRadio6" name="gender"
                                                                 class="custom-control-input" checked="" />
                                                             <label class="custom-control-label" for="customRadio6">
                                                                 Male
                                                             </label>
                                                         </div>
                                                         <div class="custom-control custom-radio custom-control-inline">
-                                                            <input type="radio" id="customRadio7" name="customRadio1"
+                                                            <input type="radio" id="customRadio7" name="gender"
                                                                 class="custom-control-input" />
                                                             <label class="custom-control-label" for="customRadio7">
                                                                 Female
                                                             </label>
                                                         </div>
                                                         <div class="custom-control custom-radio custom-control-inline">
-                                                            <input type="radio" id="customRadio8" name="customRadio1"
+                                                            <input type="radio" id="customRadio8" name="gender"
                                                                 class="custom-control-input" />
                                                             <label class="custom-control-label" for="customRadio8">
                                                                 Other
@@ -313,7 +328,7 @@
                                                     </div>
                                                     <div class="form-group col-sm-6">
                                                         <label>Blood Type:</label>
-                                                        <select class="form-control" id="exampleFormControlSelect4">
+                                                        <select class="form-control" id="exampleFormControlSelect4" name="blood">
 
                                                             <option value="A+">A+</option>
                                                             <option value="O-">O-</option>

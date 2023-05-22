@@ -41,6 +41,227 @@
         <link href="/fullcalendar/list/main.css" rel="stylesheet" />
 
         <link rel="stylesheet" href="/css/flatpickr.min.css" />
+        <style>
+            @import "bourbon";
+@import "neat";
+
+$base-duration: 500ms;
+
+// Colors
+$color-1: #2c3e50;
+$color-2: #3498db;
+$color-3: #2ecc71;
+$color-4: #e74c3c;
+
+// Breakpoints
+$sm: new-breakpoint(min-width 320px);
+$med: new-breakpoint(min-width 768px);
+$lg: new-breakpoint(min-width 1024px);
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	outline: none;
+}
+
+body {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
+	background-color: whitesmoke;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 16px;
+	font-smooth: auto;
+	font-weight: 300;
+	line-height: 1.5;
+	color: #444;
+	background-image: url("http://dakotarumors.com/assets/img/header-bg.jpg");
+	background-position: center center;
+	background-size: cover;
+
+	&:before {
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(white, 0.7);
+		z-index: -1;
+	}
+}
+
+p {
+	font-weight: 400;
+}
+
+a {
+	text-decoration: none;
+}
+
+label {
+	cursor: pointer;
+}
+
+.modal-btn {
+	position: relative;
+	display: table-cell;
+	width: 100px;
+	height: 100px;
+	background-color: $color-1;
+	box-shadow: 0 0 40px rgba(black, 0.3);
+	border-radius: 50%;
+	font-size: 36px;
+	color: white;
+	text-align: center;
+	line-height: 2.75;
+	transition: box-shadow 250ms ease;
+
+	&:hover {
+		box-shadow: 0 0 5px rgba(black, 0.3);
+	}
+}
+
+.modal-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: 10;
+	visibility: hidden;
+	transition: background-color $base-duration/2 linear;
+}
+
+.modal-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	height: auto;
+	margin-top: -18%;
+	margin-left: -25%;
+	padding: 30px;
+	background-color: white;
+	border-radius: 4px;
+	box-shadow: 0 0 50px rgba(black, 0.5);
+	transform: scale(0);
+	transition: transform $base-duration/2 ease;
+	visibility: hidden;
+	z-index: 20;
+
+	.close {
+		position: relative;
+		float: right;
+		font-size: 18px;
+		transition: transform $base-duration ease;
+		z-index: 11;
+
+		&:hover {
+			color: $color-2;
+			transform: rotate(540deg);
+		}
+	}
+
+	header {
+		position: relative;
+		display: block;
+		border-bottom: 1px solid #eee;
+		//background-color: gray;
+
+		h2 {
+			margin: 0 0 10px;
+			padding: 0;
+			font-size: 28px;
+		}
+	}
+
+	article {
+		position: relative;
+		display: block;
+		margin: 0;
+		padding: 0;
+		font-size: 16px;
+		line-height: 1.75;
+
+		p {
+			//margin-bottom: 30px;
+		}
+	}
+
+	footer {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		width: 100%;
+		margin: 0;
+		padding: 10px 0 0;
+
+		.button {
+			position: relative;
+			padding: 10px 30px;
+			border-radius: 3px;
+			font-size: 14px;
+			font-weight: 400;
+			color: white;
+			text-transform: uppercase;
+			overflow: hidden;
+
+			&:before {
+				position: absolute;
+				content: "";
+				top: 0;
+				left: 0;
+				width: 0;
+				height: 100%;
+				background-color: rgba(white, 0.2);
+				transition: width 250ms ease;
+				z-index: 0;
+			}
+
+			&:hover {
+				&:before {
+					width: 100%;
+				}
+			}
+
+			&.success {
+				margin-right: 5px;
+				background-color: $color-3;
+			}
+
+			&.danger {
+				background-color: $color-4;
+			}
+		}
+	}
+}
+
+#modal {
+	display: none;
+
+	&:checked ~ .modal-bg {
+		visibility: visible;
+		background-color: black;
+		opacity: 0.7;
+		transition: background-color $base-duration/2 linear;
+	}
+
+	&:checked ~ .modal-content {
+		visibility: visible;
+		transform: scale(1);
+		transition: transform $base-duration/2 ease;
+		z-index: 111;
+	}
+}
+</style>
     </head>
 
     <body class="sidebar-main-menu">
@@ -119,7 +340,7 @@
                     <div class="iq-navbar-custom">
                         <div class="iq-sidebar-logo">
                             <div class="top-logo">
-                                <a href="index.php" class="logo">
+                                <a href="patient.php" class="logo">
                                     <img src="/images/logo.png" class="img-fluid" alt="" />
                                     <span>CareHour</span>
                                 </a>
@@ -395,6 +616,29 @@
                 <!-- TOP Nav Bar END -->
 
                 <div class="container-fluid">
+                    <input type="checkbox" id="modal" />
+                    <p class="blurp">Do it. Click the Button. I dare you.</p>
+                    <label for="modal" class="modal-btn">
+                    	<i class="fa fa-fire" aria-hidden="true"></i>
+                    </label>
+                    <!-- <div class="modal-bg"></div> -->
+                    <label for="modal" class="modal-bg"></label>
+                    <div class="modal-content">
+                    	<label for="modal" class="close">
+                    		<i class="fa fa-times" aria-hidden="true"></i>
+                    	</label>
+                    	<header>
+                    		<h2>So This is a Modal</h3>
+                    	</header>
+                    	<article class="content">
+                    		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.</p>
+                    	</article>
+                    	<footer>
+    
+                    		<label for="modal" class="button danger">Close</label>
+                    	</footer>
+                    </div>
+                 </div>      
                     <div class="row">
                         <div class="col-lg-4 row m-0 p-0">
                             <div class="col-sm-12">
@@ -758,6 +1002,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
                 <!-- Footer -->
                 <footer class="bg-white iq-footer">
@@ -774,6 +1019,11 @@
             </div>
         </div>
         <!-- Wrapper END -->
+        <!-- Start Pop UP quotes -->
+        
+        <!-- End Pop UP quotes -->
+
+
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

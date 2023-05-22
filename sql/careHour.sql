@@ -31,7 +31,7 @@ CREATE TABLE `admins` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `image_of_id` mediumblob NOT NULL,
+  `image_of_id` text NOT NULL,
   `passwordd` varchar(255) NOT NULL,
   `time` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

@@ -9,7 +9,9 @@
         $admin->setEmail($_POST['email']);
         $admin->setUsername($_POST['uname']);
         $admin->setPasswordd(encrypt($_POST['password']));
-        $admin->setTimee(time());
+        $admin->setImage_of_id("test1");
+
+
         $admin->add();
         $admin->getLastRow();
         
