@@ -76,7 +76,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="my-docotor-list.html"><i class="ri-profile-fill"></i>MY Doctors</a>
+                                        <a href="my-docotor-list.php"><i class="ri-profile-fill"></i>MY Doctors</a>
                                     </li>
                                 </ul>
                             </li>
