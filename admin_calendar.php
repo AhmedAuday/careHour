@@ -1,43 +1,62 @@
-<?php
-
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no" />
+
+        <script>
+        // Ignore this in your implementation
+        window.isMbscDemo = true;
+        </script>
+
         <title>CareHour</title>
+        <!-- Mobiscroll JS and CSS Includes -->
+        <link rel="stylesheet" href="css/mobiscroll.javascript.min.css">
+        <script src="js/mobiscroll.javascript.min.js"></script>
+
+
         <!-- Favicon -->
-        <link rel="shortcut icon" href="../../images/favicon.ico" />
+        <link rel="shortcut icon" href="/images/favicon.ico" />
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
         <!-- Typography CSS -->
-        <link rel="stylesheet" href="../../css/typography.css" />
+        <link rel="stylesheet" href="/css/typography.css" />
         <!-- Style CSS -->
-        <link rel="stylesheet" href="../../css/style.css" />
+        <link rel="stylesheet" href="/css/style.css" />
         <!-- Responsive CSS -->
-        <link rel="stylesheet" href="../../css/responsive.css" />
+        <link rel="stylesheet" href="/css/responsive.css" />
+        <!-- Full calendar -->
+        <link href="/fullcalendar/core/main.css" rel="stylesheet" />
+        <link href="/fullcalendar/daygrid/main.css" rel="stylesheet" />
+        <link href="/fullcalendar/timegrid/main.css" rel="stylesheet" />
+        <link href="/fullcalendar/list/main.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/flatpickr.min.css" />
+
+        <link rel="stylesheet" href="/css/calander.css" />
+
+
+
+
+
     </head>
 
     <body>
         <!-- loader Start -->
-        <!-- <div id="loading">
+        <!--<div id="loading">
             <div id="loading-center"></div>
-        </div> -->
+        </div>-->
         <!-- loader END -->
         <!-- Wrapper Start -->
         <div class="wrapper">
             <!-- Sidebar  -->
             <div class="iq-sidebar">
                 <div class="iq-sidebar-logo d-flex justify-content-between">
-                    <a href="index.html">
-                        <img src="../../images/logo.png" class="img-fluid" alt="" />
+                    <a href="index.phpchat.php">
+                        <img src="/images/logo.png" class="img-fluid" alt="" />
                         <span>CareHour</span>
                     </a>
                     <div class="iq-menu-bt-sidebar">
@@ -53,42 +72,52 @@
                     <nav class="iq-sidebar-menu">
                         <ul id="iq-sidebar-toggle" class="iq-menu">
                             <li class="iq-menu-title">
-                                <i class="ri-subtract-line"></i><span>Dashboard</span>
+                                <i class="ri-subtract-line"></i><span>Doctor Dashboard</span>
+                            </li>
+                            <li>
+                                <a href="admin_main_dashboard.php" class="iq-waves-effect"><i
+                                        class="ri-briefcase-4-fill"></i><span>Dashboard</span></a>
                             </li>
 
                             <li>
-                                <a href="dashboard-3.html" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>Patient Dashboard</span></a>
+                                <a href="admin_patient_dashboard.php" class="iq-waves-effect"><i
+                                        class="ri-briefcase-4-fill"></i><span>Patient Dashboard</span></a>
                             </li>
 
 
+
+                            <li class="active">
+                                <a href="doctor_calendar.php" class="iq-waves-effect"><i
+                                        class="ri-calendar-event-fill"></i><span>Calendar</span></a>
+                            </li>
 
                             <li>
-                                <a href="document.html" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>document</span></a>
-                            </li>
-
-                           
-
-                            <li class="active main-active">
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"
-                                    aria-expanded="true"><i class="ri-user-3-fill"></i><span>Doctors</span><i
+                                    aria-expanded="false"><i class="ri-user-3-fill"></i><span>Doctors</span><i
                                         class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                                <ul id="doctor-info" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
-                                    <li class="active">
-                                        <a href="doctor-list.html"><i class="ri-file-list-fill"></i>All Doctors</a>
-                                    </li>
-
+                                <ul id="doctor-info" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                                     <li>
-                                        <a href="my-docotor-list.php"><i class="ri-profile-fill"></i>MY Doctors</a>
+                                        <a href="admin_doctor-list.php"><i class="ri-file-list-fill"></i>All
+                                            Doctors</a>
+                                    </li>
+                                    <li>
+                                        <a href="admin_add_doctor.php"><i class="ri-user-add-fill"></i>
+                                            Add Doctor</a>
+                                    </li>
+                                    <li>
+                                        <a href="admin_doctor_profile.php"><i class="ri-profile-fill"></i>Doctor
+                                            Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="admin_doctor_profile_edit.php"><i class="ri-file-edit-fill"></i>
+                                            Edit Doctor</a>
                                     </li>
                                 </ul>
                             </li>
 
-                            <li>
-                                <a href="chat.php" class="iq-waves-effect"><i
-                                        class="ri-message-fill"></i><span>Chat</span></a>
-                            </li>
+
+
+                            <!-- Todo here -->
                         </ul>
                     </nav>
                     <div class="p-3"></div>
@@ -101,7 +130,7 @@
                     <div class="iq-navbar-custom">
                         <div class="iq-sidebar-logo">
                             <div class="top-logo">
-                                <a href="index.php" class="logo">
+                                <a href="index.phpchat.php" class="logo">
                                     <img src="/images/logo.png" class="img-fluid" alt="" />
                                     <span>CareHour</span>
                                 </a>
@@ -110,7 +139,8 @@
                         <nav class="navbar navbar-expand-lg navbar-light p-0">
                             <div class="iq-search-bar">
                                 <form action="#" class="searchbox">
-                                    <input type="text" class="text search-input" placeholder="Type here to search..." />
+                                    <input type="text" class="text search-input" placeholder="Type
+                    here to search..." />
                                     <a class="search-link" href="#"><i class="ri-search-line"></i></a>
                                 </form>
                             </div>
@@ -320,7 +350,7 @@
                                                     </h5>
                                                     <span class="text-white font-size-12">Available</span>
                                                 </div>
-                                                <a href="pprofile.php" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="pprofile.phpchat.php" class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-file-user-line"></i>
@@ -333,7 +363,8 @@
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <a href="profile-edit.php" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="profile-edit.phpchat.php"
+                                                    class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-profile-line"></i>
@@ -347,7 +378,8 @@
                                                     </div>
                                                 </a>
 
-                                                <a href="privacy-setting.html" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="privacy-setting.phpchat.php"
+                                                    class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-lock-line"></i>
@@ -361,7 +393,7 @@
                                                     </div>
                                                 </a>
                                                 <div class="d-inline-block w-100 text-center p-3">
-                                                    <a class="bg-primary iq-sign-btn" href="sign-in.html"
+                                                    <a class="bg-primary iq-sign-btn" href="logout.php"
                                                         role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
                                                 </div>
                                             </div>
@@ -374,102 +406,249 @@
                 </div>
                 <!-- TOP Nav Bar END -->
                 <div class="container-fluid">
-                    <div class=$d->">
-                        <div class="col-sm-12">
+                    <div class="row row-eq-height">
+                        <div class="col-md-3">
+                            <div class="iq-card calender-small">
+                                <div class="iq-card-body">
+                                    <input type="text" class="flatpicker d-none" />
+                                </div>
+                            </div>
                             <div class="iq-card">
                                 <div class="iq-card-header d-flex justify-content-between">
                                     <div class="iq-header-title">
-                                        <h4 class="card-title">Doctors List</h4>
+                                        <h4 class="card-title">Classification</h4>
+                                    </div>
+                                    <div class="iq-card-header-toolbar d-flex align-items-center">
+                                        <a href="#"><i class="fa fa-plus mr-0" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
+                                <div class="iq-card-body">
+                                    <ul class="m-0 p-0 job-classification">
+                                        <li class="">
+                                            <i class="ri-check-line bg-danger"></i>Meeting
+                                        </li>
+                                        <li class="">
+                                            <i class="ri-check-line bg-success"></i>Business travel
+                                        </li>
+                                        <li class="">
+                                            <i class="ri-check-line bg-warning"></i>Personal Work
+                                        </li>
+                                        <li class="">
+                                            <i class="ri-check-line bg-info"></i>Team Project
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
                             <div class="iq-card">
-                                <div class="iq-card-body text-center">
-                                    <div class="doc-profile">
-                                        <img class="rounded-circle img-fluid avatar-80" src="../../images/user/12.jpg"
-                                            alt="profile" />
+                                <div class="iq-card-header d-flex justify-content-between">
+                                    <div class="iq-header-title">
+                                        <h4 class="card-title">Today's Schedule</h4>
                                     </div>
-                                    <div class="iq-doc-info mt-3">
-                                        <h4>Dr. Anna Mull</h4>
-                                        <p class="mb-0">Cardiologists</p>
-                                        <a href="javascript:void();">www.demo.com</a>
-                                    </div>
-                                    <div class="iq-doc-description mt-2">
-                                        <p class="mb-0">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Nam auctor non erat non gravida. In id ipsum consequat
-                                        </p>
-                                    </div>
-                                    <div class="iq-doc-social-info mt-3 mb-3">
-                                        <ul class="m-0 p-0 list-inline">
-                                            <li>
-                                                <a href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-twitter-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="ri-google-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <a href="profile.html" class="btn btn-primary">View Profile</a>
+                                </div>
+                                <div class="iq-card-body">
+                                    <ul class="m-0 p-0 today-schedule">
+                                        <li class="d-flex">
+                                            <div class="schedule-icon">
+                                                <i class="ri-checkbox-blank-circle-fill text-primary"></i>
+                                            </div>
+                                            <div class="schedule-text">
+                                                <span>Web Design</span>
+                                                <span>09:00 to 12:00</span>
+                                            </div>
+                                        </li>
+                                        <li class="d-flex">
+                                            <div class="schedule-icon">
+                                                <i class="ri-checkbox-blank-circle-fill text-success"></i>
+                                            </div>
+                                            <div class="schedule-text">
+                                                <span>Participate in Design</span>
+                                                <span>09:00 to 12:00</span>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-9">
+                            <div mbsc-page class="demo-create-read-update-delete-CRUD">
+                                <div style="height:100%">
+                                    <div id="demo-add-delete-event"></div>
 
+                                    <div style="display: none">
+                                        <div id="demo-add-popup">
+                                            <div class="mbsc-form-group">
+                                                <label>
+                                                    Title
+                                                    <input mbsc-input id="event-title">
+                                                </label>
+                                                <label>
+                                                    Description
+                                                    <textarea mbsc-textarea id="event-desc"></textarea>
+                                                </label>
+                                            </div>
+                                            <div class="mbsc-form-group">
+                                                <label>
+                                                    All-day
+                                                    <input mbsc-switch id="event-all-day" type="checkbox" />
+                                                </label>
+                                                <label>
+                                                    Starts
+                                                    <input mbsc-input id="start-input" />
+                                                </label>
+                                                <label>
+                                                    Ends
+                                                    <input mbsc-input id="end-input" />
+                                                </label>
+                                                <div id="event-date"></div>
+                                                <div id="event-color-picker" class="event-color-c">
+                                                    <div class="event-color-label">Color</div>
+                                                    <div id="event-color-cont">
+                                                        <div id="event-color" class="event-color"></div>
+                                                    </div>
+                                                </div>
+                                                <label>
+                                                    Show as busy
+                                                    <input id="event-status-busy" mbsc-segmented type="radio"
+                                                        name="event-status" value="busy">
+                                                </label>
+                                                <label>
+                                                    Show as free
+                                                    <input id="event-status-free" mbsc-segmented type="radio"
+                                                        name="event-status" value="free">
+                                                </label>
+                                                <div class="mbsc-button-group">
+                                                    <button class="mbsc-button-block" id="event-delete" mbsc-button
+                                                        data-color="danger" data-variant="outline">Delete event</button>
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                        <div id="demo-event-color">
+                                            <div class="crud-color-row">
+                                                <div class="crud-color-c" data-value="#ffeb3c">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#ffeb3c"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#ff9900">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#ff9900"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#f44437">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#f44437"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#ea1e63">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#ea1e63"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#9c26b0">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#9c26b0"></div>
+                                                </div>
+                                            </div>
+                                            <div class="crud-color-row">
+                                                <div class="crud-color-c" data-value="#3f51b5">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#3f51b5"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="">
+                                                    <div
+                                                        class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check">
+                                                    </div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#009788">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#009788"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#4baf4f">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#4baf4f"></div>
+                                                </div>
+                                                <div class="crud-color-c" data-value="#7e5d4e">
+                                                    <div class="crud-color mbsc-icon mbsc-font-icon mbsc-icon-material-check"
+                                                        style="background:#7e5d4e"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
-                    <!-- Footer -->
-                    <footer class="bg-white iq-footer">
-                        <div class="container-fluid">
-                            <div class=$d->">
-                                <div class="col-lg-2"></div>
-                                <div class="col-lg-6 text-right">
-                                    Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
-                                </div>
+                </div>
+
+                <!-- Footer -->
+                <footer class="bg-white iq-footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-6 text-right">
+                                Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
                             </div>
                         </div>
-                    </footer>
-                    <!-- Footer END -->
-                </div>
+                    </div>
+                </footer>
+                <!-- Footer END -->
             </div>
-            <!-- Wrapper END -->
-            <!-- Optional JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="../../js/jquery.min.js"></script>
-            <script src="../../js/popper.min.js"></script>
-            <script src="../../js/bootstrap.min.js"></script>
-            <!-- Appear JavaScript -->
-            <script src="../../js/jquery.appear.js"></script>
-            <!-- Countdown JavaScript -->
-            <script src="../../js/countdown.min.js"></script>
-            <!-- Counterup JavaScript -->
-            <script src="../../js/waypoints.min.js"></script>
-            <script src="../../js/jquery.counterup.min.js"></script>
-            <!-- Wow JavaScript -->
-            <script src="../../js/wow.min.js"></script>
-            <!-- Apexcharts JavaScript -->
-            <script src="../../js/apexcharts.js"></script>
-            <!-- Slick JavaScript -->
-            <script src="../../js/slick.min.js"></script>
-            <!-- Select2 JavaScript -->
-            <script src="../../js/select2.min.js"></script>
-            <!-- Owl Carousel JavaScript -->
-            <script src="../../js/owl.carousel.min.js"></script>
-            <!-- Magnific Popup JavaScript -->
-            <script src="../../js/jquery.magnific-popup.min.js"></script>
-            <!-- Smooth Scrollbar JavaScript -->
-            <script src="../../js/smooth-scrollbar.js"></script>
-            <!-- lottie JavaScript -->
-            <script src="../../js/lottie.js"></script>
-            <!-- Chart Custom JavaScript -->
-            <script src="../../js/chart-custom.js"></script>
-            <!-- Custom JavaScript -->
-            <script src="../../js/custom.js"></script>
+        </div>
+
+
+        <!-- 
+        <script>
+        
+        </script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="/js/calandar.js"></script>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/jquery.counterup.min.js"></script>
+        <script src="/js/jquery.appear.js"></script>
+        <script src="/js/jquery.magnific-popup.min.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <!-- Appear JavaScript -->
+        <!-- Countdown JavaScript -->
+        <script src="/js/countdown.min.js"></script>
+        <!-- Counterup JavaScript -->
+        <script src="/js/waypoints.min.js"></script>
+        <!-- Wow JavaScript -->
+        <script src="/js/wow.min.js"></script>
+        <!-- Apexcharts JavaScript -->
+        <script src="/js/apexcharts.js"></script>
+        <!-- Slick JavaScript -->
+        <script src="/js/slick.min.js"></script>
+        <!-- Select2 JavaScript -->
+        <script src="/js/select2.min.js"></script>
+        <!-- Owl Carousel JavaScript -->
+        <script src="/js/owl.carousel.min.js"></script>
+        <!-- Magnific Popup JavaScript -->
+        <!-- Smooth Scrollbar JavaScript -->
+        <script src="/js/smooth-scrollbar.js"></script>
+        <!-- lottie JavaScript -->
+        <script src="/js/lottie.js"></script>
+        <!-- Full calendar -->
+        <script src="/fullcalendar/core/main.js"></script>
+        <script src="/fullcalendar/daygrid/main.js"></script>
+        <script src="/fullcalendar/timegrid/main.js"></script>
+        <script src="/fullcalendar/list/main.js"></script>
+        <!-- Flatpicker Js -->
+        <script src="/js/flatpickr.js"></script>
+        <!-- Chart Custom JavaScript -->
+        <script src="/js/chart-custom.js"></script>
+        <!-- Custom JavaScript -->
+        <script src="/js/custom.js"></script>
     </body>
 
 </html>

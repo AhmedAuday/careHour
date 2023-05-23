@@ -47,7 +47,7 @@
                         <ul id="iq-sidebar-toggle" class="iq-menu">
 
                             <li class="iq-menu-title">
-                                <i class="ri-subtract-line"></i><span>Dashboard</span>
+                                <i class="ri-subtract-line"></i><span>Doctor Dashboard</span>
                             </li>
                             <li>
                                 <a href="admin_main_dashboard.php" class="iq-waves-effect"><i
@@ -61,7 +61,10 @@
 
 
 
-
+                            <li>
+                                <a href="admin_calendar.php" class="iq-waves-effect"><i
+                                        class="ri-calendar-event-fill"></i><span>Calendar</span></a>
+                            </li>
 
                             <li>
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"
@@ -86,10 +89,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="calendar.php" class="iq-waves-effect"><i
-                                        class="ri-calendar-event-fill"></i><span>Calendar</span></a>
-                            </li>
+
                         </ul>
                     </nav>
                     <div class="p-3"></div>

@@ -82,6 +82,7 @@ $doctor->getById(session_id());
                                 <a href="document.php" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>document</span></a>
                             </li>
+                           
 
                             <li>
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"
@@ -401,7 +402,7 @@ $doctor->getById(session_id());
                                             <!-- get the name of the doctor check?-->
                                             <h4><b><?= $doctor->getFirst_name()." ".$doctor->getMiddle_name()?></b></h4>
                                             <p>Doctor</p>
-                                               <!-- add a variable for the doctors discption if you want?? -->
+                                            <!-- add a variable for the doctors discption if you want?? -->
                                             <p class="mb-0">
                                                 Lorem ipsum dolor sit amet, consectetur adipisicing
                                                 elit. Delectus repudiandae eveniet harum.
@@ -453,7 +454,7 @@ $doctor->getById(session_id());
                                             </div>
                                             <div class="col-4">Phone:</div>
                                             <div class="col-8">
-                                                        <!-- check??? -->
+                                                <!-- check??? -->
 
                                                 <a href="tel:001-2351-25612"><?= $doctor->getPhone()?></a>
                                             </div>
@@ -473,66 +474,73 @@ $doctor->getById(session_id());
                                             <ul class="speciality-list m-0 p-0">
                                                 <li class="d-flex mb-4 align-items-center">
                                                     <div class="user-img img-fluid">
-                                                        <a href="#" class="iq-bg-primary"><i class="ri-calendar-event-line"></i></a>
+                                                        <a href="#" class="iq-bg-primary"><i
+                                                                class="ri-calendar-event-line"></i></a>
                                                     </div>
                                                     <div class="media-support-info ml-3">
-                                                    <h6>Satuday</h6>
-                                                    <p class="mb-0">From:6AM-9PM</p>
+                                                        <h6>Satuday</h6>
+                                                        <p class="mb-0">From:6AM-9PM</p>
                                                     </div>
                                                 </li>
                                                 <li class="d-flex mb-4 align-items-center">
                                                     <div class="user-img img-fluid">
-                                                        <a href="#" class="iq-bg-info"><i class="ri-calendar-event-line"></i></a>
+                                                        <a href="#" class="iq-bg-info"><i
+                                                                class="ri-calendar-event-line"></i></a>
                                                     </div>
                                                     <div class="media-support-info ml-3">
-                                                    <h6>Sunday</h6>
-                                                    <p class="mb-0">From:6AM-9PM</p>
+                                                        <h6>Sunday</h6>
+                                                        <p class="mb-0">From:6AM-9PM</p>
                                                     </div>
                                                 </li>
                                                 <li class="d-flex mb-4 align-items-center">
                                                     <div class="user-img img-fluid">
-                                                        <a href="#" class="iq-bg-info"><i class="ri-calendar-event-line"></i></a>
+                                                        <a href="#" class="iq-bg-info"><i
+                                                                class="ri-calendar-event-line"></i></a>
                                                     </div>
                                                     <div class="media-support-info ml-3">
-                                                    <h6>Monday</h6>
-                                                    <p class="mb-0">From:6AM-9PM</p>
+                                                        <h6>Monday</h6>
+                                                        <p class="mb-0">From:6AM-9PM</p>
                                                     </div>
                                                 </li>
 
                                                 <li class="d-flex mb-4 align-items-center">
                                                     <div class="user-img img-fluid">
-                                                        <a href="#" class="iq-bg-info"><i class="ri-calendar-event-line"></i></a>
+                                                        <a href="#" class="iq-bg-info"><i
+                                                                class="ri-calendar-event-line"></i></a>
                                                     </div>
                                                     <div class="media-support-info ml-3">
-                                                    <h6>Tusday</h6>
-                                                    <p class="mb-0">From:6AM-9PM</p>
+                                                        <h6>Tusday</h6>
+                                                        <p class="mb-0">From:6AM-9PM</p>
                                                     </div>
                                                 </li>
                                                 <li class="d-flex mb-4 align-items-center">
                                                     <div class="user-img img-fluid">
-                                                        <a href="#" class="iq-bg-info"><i class="ri-calendar-event-line"></i></a>
+                                                        <a href="#" class="iq-bg-info"><i
+                                                                class="ri-calendar-event-line"></i></a>
                                                     </div>
                                                     <div class="media-support-info ml-3">
-                                                    <h6>Wednesday</h6>
-                                                    <p class="mb-0">From:6AM-9PM</p>
+                                                        <h6>Wednesday</h6>
+                                                        <p class="mb-0">From:6AM-9PM</p>
                                                     </div>
                                                 </li>
                                                 <li class="d-flex mb-4 align-items-center">
                                                     <div class="user-img img-fluid">
-                                                        <a href="#" class="iq-bg-info"><i class="ri-calendar-event-line"></i></a>
+                                                        <a href="#" class="iq-bg-info"><i
+                                                                class="ri-calendar-event-line"></i></a>
                                                     </div>
                                                     <div class="media-support-info ml-3">
-                                                    <h6>Thursday</h6>
-                                                    <p class="mb-0">From:6AM-9PM</p>
+                                                        <h6>Thursday</h6>
+                                                        <p class="mb-0">From:6AM-9PM</p>
                                                     </div>
                                                 </li>
                                                 <li class="d-flex mb-4 align-items-center">
                                                     <div class="user-img img-fluid">
-                                                        <a href="#" class="iq-bg-warning"><i class="ri-calendar-event-line"></i></a>
+                                                        <a href="#" class="iq-bg-warning"><i
+                                                                class="ri-calendar-event-line"></i></a>
                                                     </div>
                                                     <div class="media-support-info ml-3">
-                                                    <h6>Friday</h6>
-                                                    <p class="mb-0">Holiday</p>
+                                                        <h6>Friday</h6>
+                                                        <p class="mb-0">Holiday</p>
                                                     </div>
                                                 </li>
 
@@ -541,7 +549,7 @@ $doctor->getById(session_id());
                                     </div>
                                 </div>
                             </div>
-                          
+
                         </div>
                         <div class="col-lg-8">
                             <div class="row">

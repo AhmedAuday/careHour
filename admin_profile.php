@@ -45,38 +45,53 @@
                 <div id="sidebar-scrollbar">
                     <nav class="iq-sidebar-menu">
                         <ul id="iq-sidebar-toggle" class="iq-menu">
+
+
                             <li class="iq-menu-title">
-                                <i class="ri-subtract-line"></i><span>Dashboard</span>
+                                <i class="ri-subtract-line"></i><span>Doctor Dashboard</span>
+                            </li>
+                            <li>
+                                <a href="admin_main_dashboard.php" class="iq-waves-effect"><i
+                                        class="ri-briefcase-4-fill"></i><span>Dashboard</span></a>
                             </li>
 
                             <li>
-                                <a href="dashboard-3.php" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>Patient Dashboard</span></a>
+                                <a href="admin_patient_dashboard.php" class="iq-waves-effect"><i
+                                        class="ri-briefcase-4-fill"></i><span>Patient Dashboard</span></a>
                             </li>
 
+
                             <li>
-                                <a href="document.php" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>document</span></a>
+                                <a href="admin_calendar.php" class="iq-waves-effect"><i
+                                        class="ri-calendar-event-fill"></i><span>Calendar</span></a>
                             </li>
+
 
                             <li>
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"
-                                    aria-expanded="true"><i class="ri-user-3-fill"></i><span>Doctors</span><i
+                                    aria-expanded="false"><i class="ri-user-3-fill"></i><span>Doctors</span><i
                                         class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                                 <ul id="doctor-info" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                                     <li>
-                                        <a href="doctor-list.php"><i class="ri-file-list-fill"></i>All Doctors</a>
+                                        <a href="admin_doctor-list.php"><i class="ri-file-list-fill"></i>All
+                                            Doctors</a>
                                     </li>
                                     <li>
-                                        <a href="my-docotor-list.php"><i class="ri-profile-fill"></i>MY Doctors</a>
+                                        <a href="admin_add_doctor.php"><i class="ri-user-add-fill"></i>
+                                            Add Doctor</a>
+                                    </li>
+                                    <li>
+                                        <a href="admin_doctor_profile.php"><i class="ri-profile-fill"></i>Doctor
+                                            Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="admin_doctor_profile_edit.php"><i class="ri-file-edit-fill"></i>
+                                            Edit Doctor</a>
                                     </li>
                                 </ul>
                             </li>
 
-                            <li>
-                                <a href="chat.php" class="iq-waves-effect"><i
-                                        class="ri-message-fill"></i><span>Chat</span></a>
-                            </li>
+
                         </ul>
                     </nav>
                     <div class="p-3"></div>
