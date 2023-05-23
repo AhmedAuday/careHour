@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
@@ -6,6 +7,44 @@
 ?>
 
 
+=======
+
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+// Required variables
+$FROMEMAIL  = '"Nobody" <holandeveloper@gmail.com>';
+$TOEMAIL    = "holandeveloper@gmail.com";
+$SUBJECT    = "A simple hello";
+$PLAINTEXT  = "Hello from my PHP script";
+$RANDOMHASH = "anyrandomhash";
+$FICTIONALSERVER = "@email.myownserver.com";
+$ORGANIZATION = "myownserver.com";
+
+// Basic headers
+$headers = "From: ".$FROMEMAIL."\n";
+$headers .= "Reply-To: ".$FROMEMAIL."\n";
+$headers .= "Return-path: ".$FROMEMAIL."\n";
+$headers .= "Message-ID: <".$RANDOMHASH.$FICTIONALSERVER.">\n";
+$headers .= "X-Mailer: Your Website\n";
+$headers .= "Organization: $ORGANIZATION\n";
+$headers .= "MIME-Version: 1.0\n";
+
+// Add content type (plain text encoded in quoted printable, in this example)
+$headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
+
+// Convert plain text body to quoted printable
+$message = quoted_printable_encode($PLAINTEXT);
+
+// Create a BASE64 encoded subject
+$subject = "=?UTF-8?B?".base64_encode($SUBJECT)."?=";
+
+// Send email
+// mail($TOEMAIL, $subject, $message, $headers, "-f".$FROMEMAIL);
+mail($TOEMAIL, $subject, $message );
+?>
+>>>>>>> 06fb09cff6ca0dd09b2406feb546e64002089f26
 
 
 <!doctype html>

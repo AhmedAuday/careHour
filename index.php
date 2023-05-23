@@ -9,9 +9,15 @@
         <meta content="" name="description">
         <meta content="" name="keywords">
 
+<<<<<<< HEAD
+  <!-- Favicons -->
+  <!-- <link href="assets/img/favicon.png" rel="icon"> -->
+  <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+=======
         <!-- Favicons -->
         <link href="assets/img/favicon.png" rel="icon">
         <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+>>>>>>> 8aa616dfcf8b8cd9f2662a73e17123430c575077
 
         <!-- Google Fonts -->
         <link
