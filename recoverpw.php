@@ -60,7 +60,7 @@ require 'phpmailer/src/SMTP.php';
                 <div class="row no-gutters">
                     <div class="col-md-6 text-center">
                         <div class="sign-in-detail text-white">
-                            <a class="sign-in-logo mb-5" href="#"><img src="/images/logo.png" class="img-fluid"
+                            <a class="sign-in-logo mb-5" href="index.php"><img src="/images/logo.png" class="img-fluid"
                                     alt="logo">
                                 <span class="spanLogo">CareHour</span>
                             </a>
@@ -96,8 +96,10 @@ require 'phpmailer/src/SMTP.php';
                             </div>
 
                                 <div class="d-inline-block w-100">
+                               
+                                <a class="float-left" href="sign-in.php">Back to Sign in</a>
 
-
+                                
                                 <button type="submit" name="send" class="btn btn-primary float-right">Reset Password</button>
                             </div>
                             <h4 id="check"></h4>
