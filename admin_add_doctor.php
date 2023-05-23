@@ -10,10 +10,7 @@
 
        $admin = new Admins();
        $new_doctor = new Doctors();
-
-       
-
-               $new_doctor->setUser_id($admin->getById());//TODO check this pls
+               $new_doctor->setUser_id($admin->getId()); //TODO Cheak this plssse
                $new_doctor->setFirst_name($_POST['fname']);
                $new_doctor->setMiddle_name($_POST['mname']);
                $new_doctor->setLast_name($_POST['lname']);
@@ -34,8 +31,8 @@
                $new_doctor->setPhone($_POST['phone']);
 
                $new_doctor->add();
-               $new_doctor->getLastRow();
-               $new_doctor->giveAuthority();
+               
+              
 
                
               
@@ -441,7 +438,7 @@
                                 </div>
                                 <div class="iq-card-body">
 
-                                    <!-- TODO ### FIX THIS ### -->
+                                    <!-- TODO ### FIX THIS add upload to it### -->
                                     <form>
                                         <div class="form-group">
                                             <div class="add-img-user profile-img-edit">
