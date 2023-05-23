@@ -1,38 +1,95 @@
 
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 
-// Required variables
-$FROMEMAIL  = '"Nobody" <holandeveloper@gmail.com>';
-$TOEMAIL    = "holandeveloper@gmail.com";
-$SUBJECT    = "A simple hello";
-$PLAINTEXT  = "Hello from my PHP script";
-$RANDOMHASH = "anyrandomhash";
-$FICTIONALSERVER = "@email.myownserver.com";
-$ORGANIZATION = "myownserver.com";
 
-// Basic headers
-$headers = "From: ".$FROMEMAIL."\n";
-$headers .= "Reply-To: ".$FROMEMAIL."\n";
-$headers .= "Return-path: ".$FROMEMAIL."\n";
-$headers .= "Message-ID: <".$RANDOMHASH.$FICTIONALSERVER.">\n";
-$headers .= "X-Mailer: Your Website\n";
-$headers .= "Organization: $ORGANIZATION\n";
-$headers .= "MIME-Version: 1.0\n";
 
-// Add content type (plain text encoded in quoted printable, in this example)
-$headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
+function generate_random_number() {
+    return rand(10000000, 99999999);
+}
 
-// Convert plain text body to quoted printable
-$message = quoted_printable_encode($PLAINTEXT);
+$random_number = generate_random_number();
+echo $random_number;
 
-// Create a BASE64 encoded subject
-$subject = "=?UTF-8?B?".base64_encode($SUBJECT)."?=";
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-// Send email
-// mail($TOEMAIL, $subject, $message, $headers, "-f".$FROMEMAIL);
-mail($TOEMAIL, $subject, $message );
+require 'phpmailer/src/Exception.php';
+require 'phpmailer/src/PHPMailer.php';
+require 'phpmailer/src/SMTP.php';
+
+if(isset($_POST['send'])){
+    if(empty($_POST['email'])){
+        // echo "Please enter your email";
+        echo '<script>document.getElementById("check").innerhtml = "Please enter your email";</script>';
+    }
+        elseif(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
+            // echo "Please enter a valid email";
+            echo '<script>document.getElementById("check").innerhtml = "Please enter a valid email";</script>';
+        }
+        else{
+            $email=$_POST['email'];
+            $sql="SELECT * FROM users WHERE email='$email'";
+            $result=mysqli_query($conn,$sql);
+            $row=mysqli_fetch_assoc($result);
+            $count=mysqli_num_rows($result);
+            if($count==1){
+                $sql="UPDATE users SET password='$random_number' WHERE email='$email'";
+                $result=mysqli_query($conn,$sql);
+                if($result){
+                    echo "Your new password is $random_number";
+                    
+                    $mail=new PHPMailer(true);
+                    $mail->isSMTP();
+                    $mail->Host="smtp.gmail.com";
+                    $mail->SMTPAuth=true;
+                    $mail->Username="holandeveloper@gmail.com";
+                    $mail->Password="mtcdjzwlwnwfoptz";
+                    $mail->SMTPSecure="ssl";
+                    $mail->Port=465;
+
+                    $mail->setFrom("holandeveloper@gmail.com");
+                    $mail->addAddress($_POST['email']);
+
+                    $mail->isHTML(true);
+                    $mail->Subject="Reset Password";
+                    $text=" <h1>Reset Password</h1><br><br><br>
+                    <h3>This your random new password</h3><br><br>
+                    <h1>$random_number</h1><br><br>
+                    <h3>Thank you for using our service</h3><br><br>
+                    <h3>Regards</h3><br><br>
+                    <h3>CareHour</h3><br><br>
+                    <h3>Team</h3><br><br>
+                    ";
+
+                    $mail->Body=$text;  
+
+                    $mail->send();
+                    // make a script to show that the email has been sent by java script by id check
+
+
+                    echo '<script>document.getElementById("check").innerhtml = "Email sent please check you email";</script>';
+                    
+                }
+                else{
+                    echo "Something went wrong 404";
+                }
+            }
+            else{
+                // echo "Email does not exist";
+                echo '<script>document.getElementById("check").innerhtml = "Email does not exist";</script>';
+            }
+        }
+
+
+    
+
+    
+}
+
+
 ?>
 
 
@@ -75,18 +132,18 @@ mail($TOEMAIL, $subject, $message );
                         <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true" data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1" data-margin="0">
                             <div class="item">
                                 <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                <h4 class="mb-1 text-white">Manage your orders</h4>
-                                <p>It is a long established fact that a reader will be distracted by the readable content.</p>
+                                <h4 class="mb-1 text-white">On CareHour</h4>
+                                <p>We helpto find better solution to health care.</p>
                             </div>
                             <div class="item">
                                 <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                <h4 class="mb-1 text-white">Manage your orders</h4>
-                                <p>It is a long established fact that a reader will be distracted by the readable content.</p>
+                                <h4 class="mb-1 text-white">We you and Doctor</h4>
+                                <p>Everyone desrev a system to get easy  to use.</p>
                             </div>
                             <div class="item">
                                 <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                <h4 class="mb-1 text-white">Manage your orders</h4>
-                                <p>It is a long established fact that a reader will be distracted by the readable content.</p>
+                                <h4 class="mb-1 text-white">Thank You</h4>
+                                <p>Thank you for chosing us.</p>
                             </div>
                         </div>
                     </div>
@@ -95,17 +152,18 @@ mail($TOEMAIL, $subject, $message );
                     <div class="sign-in-from">
                         <h1 class="mb-0">Reset Password</h1>
                         <p>Enter your email address and we'll send you an email with instructions to reset your password.</p>
-                        <form class="mt-4">
+                        <form class="mt-4" method="POST">
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email">
+                                <input type="email" name="email" class="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email">
                             </div>
 
                             <div class="d-inline-block w-100">
 
-                                <button type="submit" class="btn btn-primary float-right">Reset Password</button>
+                                <button type="submit" name="send" class="btn btn-primary float-right">Reset Password</button>
                             </div>
+                            <p id="check"></p>
 
                         </form>
                     </div>
