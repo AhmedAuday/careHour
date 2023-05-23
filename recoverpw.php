@@ -21,74 +21,6 @@ require 'phpmailer/src/Exception.php';
 require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
 
-if(isset($_POST['send'])){
-    if(empty($_POST['email'])){
-        // echo "Please enter your email";
-        echo '<script>document.getElementById("check").innerhtml = "Please enter your email";</script>';
-    }
-        elseif(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
-            // echo "Please enter a valid email";
-            echo '<script>document.getElementById("check").innerhtml = "Please enter a valid email";</script>';
-        }
-        else{
-            $email=$_POST['email'];
-            $sql="SELECT * FROM users WHERE email='$email'";
-            $result=mysqli_query($conn,$sql);
-            $row=mysqli_fetch_assoc($result);
-            $count=mysqli_num_rows($result);
-            if($count==1){
-                $sql="UPDATE users SET password='$random_number' WHERE email='$email'";
-                $result=mysqli_query($conn,$sql);
-                if($result){
-                    echo "Your new password is $random_number";
-                    
-                    $mail=new PHPMailer(true);
-                    $mail->isSMTP();
-                    $mail->Host="smtp.gmail.com";
-                    $mail->SMTPAuth=true;
-                    $mail->Username="holandeveloper@gmail.com";
-                    $mail->Password="mtcdjzwlwnwfoptz";
-                    $mail->SMTPSecure="ssl";
-                    $mail->Port=465;
-
-                    $mail->setFrom("holandeveloper@gmail.com");
-                    $mail->addAddress($_POST['email']);
-
-                    $mail->isHTML(true);
-                    $mail->Subject="Reset Password";
-                    $text=" <h1>Reset Password</h1><br><br><br>
-                    <h3>This your random new password</h3><br><br>
-                    <h1>$random_number</h1><br><br>
-                    <h3>Thank you for using our service</h3><br><br>
-                    <h3>Regards</h3><br><br>
-                    <h3>CareHour</h3><br><br>
-                    <h3>Team</h3><br><br>
-                    ";
-
-                    $mail->Body=$text;  
-
-                    $mail->send();
-                    // make a script to show that the email has been sent by java script by id check
-
-
-                    echo '<script>document.getElementById("check").innerhtml = "Email sent please check you email";</script>';
-                    
-                }
-                else{
-                    echo "Something went wrong 404";
-                }
-            }
-            else{
-                // echo "Email does not exist";
-                echo '<script>document.getElementById("check").innerhtml = "Email does not exist";</script>';
-            }
-        }
-
-
-    
-
-    
-}
 
 
 ?>
@@ -168,7 +100,7 @@ if(isset($_POST['send'])){
 
                                 <button type="submit" name="send" class="btn btn-primary float-right">Reset Password</button>
                             </div>
-                            <p id="check"></p>
+                            <h4 id="check"></h4>
 
 
                             </form>
@@ -210,6 +142,93 @@ if(isset($_POST['send'])){
         <script src="js/chart-custom.js"></script>
         <!-- Custom JavaScript -->
         <script src="js/custom.js"></script>
+        <?php
+        
+if(isset($_POST['send'])){
+    if(empty($_POST['email'])){
+        // echo "Please enter your email";
+        echo '<script>document.getElementById("check").textContent = "Please enter your email";</script>';
+    }
+        elseif(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
+            // echo "Please enter a valid email";
+            echo '<script>document.getElementById("check").textContent = "Please enter a valid email";</script>';
+        }
+        else{
+            $email=$_POST['email'];
+            $sql="SELECT * FROM patients WHERE email='$email'";
+            $patint=new Patients();
+            $data=$patint->getAll();
+            $check=0;
+        foreach($data  as $vla){
+           
+            
+            if($vla->email==$email){
+                $check=1;   
+            }
+
+
+        }
+            // print_r($data);
+
+            
+            if($check==1){
+                $sql="UPDATE patients SET passwordd='$random_number' WHERE email='$email'";
+                $result=$patint->exeQuery($sql);
+
+                echo $result;
+                if($result>0){
+                    // echo "Your new password is $random_number";
+                    
+                    $mail=new PHPMailer(true);
+                    $mail->isSMTP();
+                    $mail->Host="smtp.gmail.com";
+                    $mail->SMTPAuth=true;
+                    $mail->Username="holandeveloper@gmail.com";
+                    $mail->Password="mtcdjzwlwnwfoptz";
+                    $mail->SMTPSecure="ssl";
+                    $mail->Port=465;
+
+                    $mail->setFrom("holandeveloper@gmail.com");
+                    $mail->addAddress($_POST['email']);
+
+                    $mail->isHTML(true);
+                    $mail->Subject="Reset Password";
+                    $text=" <h1>Reset Password</h1><br><br><br>
+                    <h3>This your random new password</h3><br><br>
+                    <h1>$random_number</h1><br><br>
+                    <h3>Thank you for using our service</h3><br><br>
+                    <h3>Regards</h3><br><br>
+                    <h3>CareHour</h3><br><br>
+                    <h3>Team</h3><br><br>
+                    ";
+
+                    $mail->Body=$text;  
+
+                    $mail->send();
+                    // make a script to show that the email has been sent by java script by id check
+
+
+                    echo '<script>document.getElementById("check").textContent = "Email sent please check you email";</script>';
+                    
+                }
+                else{
+                    echo "Something went wrong 404";
+                }
+            }
+            else{
+                // echo "Email does not exist";
+                echo '<script>document.getElementById("check").textContent  = "Email does not exist";</script>';
+            }
+        }
+
+
+    
+
+    
+}
+        
+        
+        ?>
     </body>
 
 </html>
