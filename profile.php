@@ -1,19 +1,8 @@
 <?php
 
-// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
-// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
-// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
-// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/classes/Doctors.class.php';
-
-
-// $Doctors=new Doctors();
-
-// $Doctors->getById(session_id());
-
-
-
-
-
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 ?>
 
 
@@ -439,7 +428,9 @@
                                             <div class="col-4">Last Name:</div>
                                             <div class="col-8"><?= $Doctors->getlast_name()?></div>
                                             <div class="col-4">Age:</div>
-                                            <div class="col-8"><?= date_default_timezone_set('Asia/Baghdad');$date = date('Y-m-d', time());-$Doctors->getdob()?></div>
+                                            <div class="col-8">
+                                                <?= date_default_timezone_set('Asia/Baghdad');$date = date('Y-m-d', time());-$Doctors->getdob()?>
+                                            </div>
                                             <div class="col-4">Position:</div>
                                             <div class="col-8">Senior doctor</div>
                                             <div class="col-4">Email:</div>

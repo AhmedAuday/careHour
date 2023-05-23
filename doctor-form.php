@@ -16,12 +16,6 @@ $doctor->getById(session_id());
 
 ?>
 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,7 +76,7 @@ $doctor->getById(session_id());
                                 <a href="document.php" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>document</span></a>
                             </li>
-                           
+
 
                             <li>
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"

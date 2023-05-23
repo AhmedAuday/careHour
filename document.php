@@ -1,3 +1,12 @@
+<?php
+
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,7 +74,7 @@
                                         class="ri-group-fill"></i><span>document</span></a>
                             </li>
 
-                            
+
 
                             <li>
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"

@@ -1,3 +1,47 @@
+<?php
+
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+
+  if(isset($_POST['submit'])){
+    echo "<script>alert('hi')</script>";
+       $new_doctor = new Patients();
+               $new_doctor->setFirst_name($_POST['fname']);
+               $new_doctor->setMiddle_name($_POST['mname']);
+               $new_doctor->setLast_name($_POST['lname']);
+               $new_doctor->setUsername($_POST['uname']);
+               $new_doctor->setEmail($_POST['email']);
+               $new_doctor->setPasswordd(encrypt($_POST['pwd']));
+               $new_doctor->setImage_of_id("test1");
+               $new_doctor->setProfile_image("test2");
+               $new_doctor->setDate_of_birth($_POST['dob']);
+               $new_doctor->setBlood_type($_POST['blood']);
+               $new_doctor->setGender($_POST['gender']);
+               $new_doctor->setAddresses($_POST['address']);
+               $new_doctor->setCity($_POST['city']);
+               $new_doctor->setPhone_number($_POST['phone']);
+               $new_doctor->add();
+               $new_doctor->getLastRow();
+               $new_doctor->giveAuthority();
+
+               
+              
+               
+               // $allergies_data->getLastRow();
+               // $allergies_data->giveAuthority();
+       
+               // echo " hi kaka";
+               // header("Location: ../patient.php");
+               // exit();
+ }
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -391,6 +435,8 @@
                                     </div>
                                 </div>
                                 <div class="iq-card-body">
+
+                                <!-- TODO ### FIX THIS ### -->
                                     <form>
                                         <div class="form-group">
                                             <div class="add-img-user profile-img-edit">
@@ -398,7 +444,7 @@
                                                     alt="profile-pic" />
                                                 <div class="p-image">
                                                     <a href="javascript:void();" class="upload-button btn
-                            iq-bg-primary">File Upload</a>
+                                                      iq-bg-primary">File Upload</a>
                                                     <input class="file-upload" type="file" accept="image/*" />
                                                 </div>
                                             </div>
@@ -409,7 +455,7 @@
                                                     <a href="javascript:void();">.png</a>
                                                     <a href="javascript:void();">.jpeg</a>
                                                     <span>allowed</span>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -419,7 +465,7 @@
 
 
                                     </form>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -432,7 +478,7 @@
                                 </div>
                                 <div class="iq-card-body">
                                     <div class="new-user-info">
-                                        <form>
+                                        <form action="admin_add_doctor.php" method="post" id="add-doctor">
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label for="fname">First Name:</label>
@@ -451,12 +497,12 @@
                                                 </div>
 
 
-                                              
+
                                                 <div class="form-group col-md-6">
-                                                <label for="lname">Speciality:</label>
+                                                    <label for="lname">Speciality:</label>
                                                     <input type="text" class="form-control" id="Speciality"
                                                         placeholder="Speciality" />
-                                                
+
                                                 </div>
 
 
@@ -473,9 +519,10 @@
 
                                                 <div class="col-sm-6">
                                                     <label for="dob">Address:</label>
-                                                    <input type="text" class="form-control" id="dob" placeholder="Address"/>
+                                                    <input type="text" class="form-control" id="dob"
+                                                        placeholder="Address" />
                                                 </div>
-                                     
+
 
                                                 <div class="form-group col-md-6">
                                                     <label for="pno">Zip Code:</label>
@@ -489,7 +536,7 @@
                                                         style="line-height: 22px"></textarea>
                                                 </div>
 
-                                               
+
 
                                                 <div class="form-group col-md-6">
                                                     <label>Bio</label>
@@ -534,7 +581,7 @@
                                                             Other
                                                         </label>
                                                     </div>
-                                                
+
                                                 </div>
                                             </div>
 
@@ -562,9 +609,10 @@
                                                         placeholder="Repeat Password " />
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                <input type="file" class="custom-file-input"
-                                                        id="validatedCustomFile" required="" name="photo_id" >
-                                                    <label class="custom-file-label" for="customFile">Upload ID Photo:</label>
+                                                    <input type="file" class="custom-file-input"
+                                                        id="validatedCustomFile" required="" name="photo_id">
+                                                    <label class="custom-file-label" for="customFile">Upload ID
+                                                        Photo:</label>
                                                 </div>
                                             </div>
                                             <div class="checkbox">

@@ -5,6 +5,12 @@
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 ?>
 
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,7 +74,7 @@
                                         class="ri-group-fill"></i><span>document</span></a>
                             </li>
 
-                           
+
 
                             <li class="active main-active">
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"
@@ -374,7 +380,66 @@
                 </div>
                 <!-- TOP Nav Bar END -->
                 <div class="container-fluid">
-                    <div class=$d->">
+
+
+
+
+                    <?php
+
+$doctor = new Doctors();
+$doctors = $doctor->getAll();
+
+
+foreach ($doctors as $d){
+
+
+  echo "
+            <div class='col-sm-6 col-md-3'>
+             <div class='iq-card'>
+               <div class='iq-card-body text-center'>
+                 <div class='doc-profile'>
+                   <img
+                     class='rounded-circle img-fluid avatar-80'
+                     src='../../images/user/12.jpg'
+                     alt='profile'
+                   />
+                 </div>
+                 <div class='iq-doc-info mt-3'>
+                   <h4>Dr. ".$d->first_name.' '.$d->last_name."</h4>
+                   <p class='mb-0'>".$d->specialty."</p>
+                   
+                 </div>
+                 <div class='iq-doc-description mt-2'>
+                   <p class='mb-0'>
+                     ".$d->bio."
+                   </p>
+                 </div>
+                 <div class='iq-doc-social-info mt-3 mb-3'>
+                   <ul class='m-0 p-0 list-inline'>
+                     <li>
+                       <a href='#'><i class='ri-facebook-fill'></i></a>
+                     </li>
+                     <li>
+                       <a href='#'><i class='ri-twitter-fill'></i></a>
+                     </li>
+                     <li>
+                       <a href='#'><i class='ri-google-fill'></i></a>
+                     </li>
+                   </ul>
+                 </div>
+                 <a href='profile.html' class='btn btn-primary'
+                   >View Profile</a
+                 >
+               </div>
+             </div>
+           </div>
+         ";
+
+}
+
+
+?>
+                    <!-- <div>
                         <div class="col-sm-12">
                             <div class="iq-card">
                                 <div class="iq-card-header d-flex justify-content-between">
@@ -418,58 +483,58 @@
                                     <a href="profile.html" class="btn btn-primary">View Profile</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
 
 
-                    </div>
-                    <!-- Footer -->
-                    <footer class="bg-white iq-footer">
-                        <div class="container-fluid">
-                            <div class=$d->">
-                                <div class="col-lg-2"></div>
-                                <div class="col-lg-6 text-right">
-                                    Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
-                                </div>
+                </div>
+                <!-- Footer -->
+                <footer class="bg-white iq-footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-6 text-right">
+                                Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
                             </div>
                         </div>
-                    </footer>
-                    <!-- Footer END -->
-                </div>
+                    </div>
+                </footer>
+                <!-- Footer END -->
             </div>
-            <!-- Wrapper END -->
-            <!-- Optional JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="../../js/jquery.min.js"></script>
-            <script src="../../js/popper.min.js"></script>
-            <script src="../../js/bootstrap.min.js"></script>
-            <!-- Appear JavaScript -->
-            <script src="../../js/jquery.appear.js"></script>
-            <!-- Countdown JavaScript -->
-            <script src="../../js/countdown.min.js"></script>
-            <!-- Counterup JavaScript -->
-            <script src="../../js/waypoints.min.js"></script>
-            <script src="../../js/jquery.counterup.min.js"></script>
-            <!-- Wow JavaScript -->
-            <script src="../../js/wow.min.js"></script>
-            <!-- Apexcharts JavaScript -->
-            <script src="../../js/apexcharts.js"></script>
-            <!-- Slick JavaScript -->
-            <script src="../../js/slick.min.js"></script>
-            <!-- Select2 JavaScript -->
-            <script src="../../js/select2.min.js"></script>
-            <!-- Owl Carousel JavaScript -->
-            <script src="../../js/owl.carousel.min.js"></script>
-            <!-- Magnific Popup JavaScript -->
-            <script src="../../js/jquery.magnific-popup.min.js"></script>
-            <!-- Smooth Scrollbar JavaScript -->
-            <script src="../../js/smooth-scrollbar.js"></script>
-            <!-- lottie JavaScript -->
-            <script src="../../js/lottie.js"></script>
-            <!-- Chart Custom JavaScript -->
-            <script src="../../js/chart-custom.js"></script>
-            <!-- Custom JavaScript -->
-            <script src="../../js/custom.js"></script>
+        </div>
+        <!-- Wrapper END -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="../../js/jquery.min.js"></script>
+        <script src="../../js/popper.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <!-- Appear JavaScript -->
+        <script src="../../js/jquery.appear.js"></script>
+        <!-- Countdown JavaScript -->
+        <script src="../../js/countdown.min.js"></script>
+        <!-- Counterup JavaScript -->
+        <script src="../../js/waypoints.min.js"></script>
+        <script src="../../js/jquery.counterup.min.js"></script>
+        <!-- Wow JavaScript -->
+        <script src="../../js/wow.min.js"></script>
+        <!-- Apexcharts JavaScript -->
+        <script src="../../js/apexcharts.js"></script>
+        <!-- Slick JavaScript -->
+        <script src="../../js/slick.min.js"></script>
+        <!-- Select2 JavaScript -->
+        <script src="../../js/select2.min.js"></script>
+        <!-- Owl Carousel JavaScript -->
+        <script src="../../js/owl.carousel.min.js"></script>
+        <!-- Magnific Popup JavaScript -->
+        <script src="../../js/jquery.magnific-popup.min.js"></script>
+        <!-- Smooth Scrollbar JavaScript -->
+        <script src="../../js/smooth-scrollbar.js"></script>
+        <!-- lottie JavaScript -->
+        <script src="../../js/lottie.js"></script>
+        <!-- Chart Custom JavaScript -->
+        <script src="../../js/chart-custom.js"></script>
+        <!-- Custom JavaScript -->
+        <script src="../../js/custom.js"></script>
     </body>
 
 </html>
