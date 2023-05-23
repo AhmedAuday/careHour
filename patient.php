@@ -12,7 +12,25 @@ if($patint->getAuthority() <= 0){
 $patint->setId($patint->getAuthority());
 $patint->getById();
 
+$curl = curl_init();
+curl_setopt_array($curl, [
+    CURLOPT_URL => "https://api.api-ninjas.com/v1/quotes?category=medical",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => [
+        "x-api-key: ikvZ6B8DHjPbdg/jQ9RgNQ==uclebjeFzSf94Ic3"
+    ],
+]);
+
+
+
 ?>
+
 
 
 <!DOCTYPE html>
@@ -262,6 +280,55 @@ label {
 	}
 }
 </style>
+<style media="screen">
+    	*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* body{
+    background-color: #0855ae;
+} */
+.popup{
+    background-color: #ceebee;
+    width: 420px;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    font-family: "Poppins",sans-serif;
+    display: none; 
+    text-align: center;
+}
+.popup #close{
+    display: block;
+    margin:  0 0 20px auto;
+    background-color: transparent;
+    font-size: 30px;
+    color: #ffffff;
+		background: #03549a;
+		border-radius: 100%;
+		width: 40px;
+		height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.popup .out_title{
+	margin-top: -20px;
+}
+.popup .qoute{
+    font-size: 14px;
+    text-align: justify;
+    margin: 20px 0;
+    line-height: 25px;
+}
+
+    </style>
     </head>
 
     <body class="sidebar-main-menu">
@@ -1029,7 +1096,44 @@ label {
         </div>
         <!-- Wrapper END -->
         <!-- Start Pop UP quotes -->
-        
+        <div class="popup">
+        <button id="close">&times;</button>
+        <h2 class="out_title">Healthy Qoute</h2>
+        <p class="qoute">
+            <?php 
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            curl_close($curl);
+            if ($err) {
+                echo "cURL Error #:" . $err;
+            } else {
+                foreach (json_decode($response) as $key => $value) {
+                    echo $value->quote;
+                }
+                //echo $response;
+            }
+            
+            ?>
+            
+        </p>
+       
+    </div>
+    <!--Script-->
+    <script type="text/javascript">
+window.addEventListener("load", function(){
+    setTimeout(
+        function open(event){
+            document.querySelector(".popup").style.display = "block";
+        },
+        2000 
+    )
+});
+
+
+document.querySelector("#close").addEventListener("click", function(){
+    document.querySelector(".popup").style.display = "none";
+});
+    </script>
         <!-- End Pop UP quotes -->
 
 
