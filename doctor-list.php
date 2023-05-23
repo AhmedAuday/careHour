@@ -42,7 +42,7 @@
             <!-- Sidebar  -->
             <div class="iq-sidebar">
                 <div class="iq-sidebar-logo d-flex justify-content-between">
-                    <a href="index.html">
+                    <a href="doctor-list.php">
                         <img src="../../images/logo.png" class="img-fluid" alt="" />
                         <span>CareHour</span>
                     </a>
@@ -63,14 +63,14 @@
                             </li>
 
                             <li>
-                                <a href="dashboard-3.html" class="iq-waves-effect"><i
+                                <a href="patient.php" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>Patient Dashboard</span></a>
                             </li>
 
 
 
                             <li>
-                                <a href="document.html" class="iq-waves-effect"><i
+                                <a href="document.php" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>document</span></a>
                             </li>
 
@@ -82,7 +82,7 @@
                                         class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                                 <ul id="doctor-info" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
                                     <li class="active">
-                                        <a href="doctor-list.html"><i class="ri-file-list-fill"></i>All Doctors</a>
+                                        <a href="doctor-list.php"><i class="ri-file-list-fill"></i>All Doctors</a>
                                     </li>
 
                                     <li>
@@ -353,7 +353,7 @@
                                                     </div>
                                                 </a>
 
-                                                <a href="privacy-setting.html" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="#" class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-lock-line"></i>
@@ -367,7 +367,7 @@
                                                     </div>
                                                 </a>
                                                 <div class="d-inline-block w-100 text-center p-3">
-                                                    <a class="bg-primary iq-sign-btn" href="sign-in.html"
+                                                    <a class="bg-primary iq-sign-btn" href="sign-in.php"
                                                         role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
                                                 </div>
                                             </div>
@@ -427,7 +427,7 @@ foreach ($doctors as $d){
                      </li>
                    </ul>
                  </div>
-                 <a href='profile.html' class='btn btn-primary'
+                 <a href='profile.php' class='btn btn-primary'
                    >View Profile</a
                  >
                </div>

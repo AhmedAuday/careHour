@@ -154,7 +154,7 @@ if(isset($_POST['Login'])){
                 <div class="row no-gutters">
                     <div class="col-md-6 text-center">
                         <div class="sign-in-detail text-white">
-                            <a class="sign-in-logo mb-5" href="#"><img src="/images/logo.png" class="img-fluid"
+                            <a class="sign-in-logo mb-5" href="index.php"><img src="/images/logo.png" class="img-fluid"
                                     alt="logo" />
                                 <span class="spanLogo">CareHour</span>
                             </a>

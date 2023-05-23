@@ -4,6 +4,7 @@
 include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
 include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
 include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/encrypt.inc.php';
 
 
 
@@ -12,6 +13,10 @@ function generate_random_number() {
 }
 
 $random_number = generate_random_number();
+$pass=$random_number;
+
+
+// echo encrypt($random_number);
 // echo $random_number;
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -174,7 +179,7 @@ if(isset($_POST['send'])){
 
             
             if($check==1){
-                $sql="UPDATE patients SET passwordd='$random_number' WHERE email='$email'";
+                $sql="UPDATE patients SET passwordd='".encrypt($random_number)."' WHERE email='$email'";
                 $result=$patint->exeQuery($sql);
 
                 echo $result;
@@ -197,7 +202,7 @@ if(isset($_POST['send'])){
                     $mail->Subject="Reset Password";
                     $text=" <h1>Reset Password</h1><br><br><br>
                     <h3>This your random new password</h3><br><br>
-                    <h1>$random_number</h1><br><br>
+                    <h1>$pass</h1><br><br>
                     <h3>Thank you for using our service</h3><br><br>
                     <h3>Regards</h3><br><br>
                     <h3>CareHour</h3><br><br>
