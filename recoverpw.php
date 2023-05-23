@@ -12,7 +12,7 @@ function generate_random_number() {
 }
 
 $random_number = generate_random_number();
-echo $random_number;
+// echo $random_number;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
