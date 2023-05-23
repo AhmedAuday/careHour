@@ -25,10 +25,27 @@
                     $patient_data->add();
                     $patient_data->getLastRow();
                     $patient_data->giveAuthority();
+
+                    
+                    $allergies_data = new Allergies();
+                    $allergies_data->setName($_POST['name_allergie']);
+                    $allergies_data->setSeverity($_POST['allergies_severity']);
+                    $allergies_data->setSpicifie_allerge($_POST['allergies_severity']);
+                    $allergies_data->setPatient_id($patient_data->getId());
+                    $allergies_data->add();
+                    
+                    // $allergies_data->getLastRow();
+                    // $allergies_data->giveAuthority();
+            
                     // echo " hi kaka";
                     // header("Location: ../patient.php");
                     // exit();
       }
+
+
+
+
+     
 // =======
       
 
@@ -149,7 +166,7 @@
             <!-- Page Content  -->
             <div id="content-page" class="content-page">
 
-                <!-- TOP Nav Bar END -->
+                
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-lg-12">
@@ -340,22 +357,25 @@
                                                     <!--  -->
                                                     <div class="col-sm-6">
                                                         <label>allergies:</label>
-                                                        <select class="form-control" id="exampleFormControlSelect3">
-                                                            <option>Dont have</option>
-                                                            <option>Asthma</option>
-                                                            <option>Eczema</option>
-                                                            <option selected="">Food allergies</option>
-                                                            <option>Insect sting allergies</option>
-                                                            <option>Drug allergies</option>
+                                                        <select class="form-control" id="exampleFormControlSelect3"
+                                                            name="name_allergie">
+                                                            <option selected="" value="Dont have">Dont have</option>
+                                                            <option value="Asthma">Asthma</option>
+                                                            <option value="Eczema">Eczema</option>
+                                                            <option value="Food allergies">Food allergies</option>
+                                                            <option value="Insect sting allergies">Insect sting
+                                                                allergies</option>
+                                                            <option value="Drug allergies">Drug allergies</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <label>allergies severity:</label>
-                                                        <select class="form-control" id="exampleFormControlSelect3">
-                                                            <option>None</option>
-                                                            <option>Mild</option>
-                                                            <option>Moderate</option>
-                                                            <option>Severe</option>
+                                                        <select class="form-control" id="exampleFormControlSelect3"
+                                                            name="allergies_severity">
+                                                            <option selected="" value="None">None</option>
+                                                            <option value="Mild">Mild</option>
+                                                            <option value="Moderate">Moderate</option>
+                                                            <option value="Severe">Severe</option>
 
                                                         </select>
                                                     </div>
@@ -378,7 +398,7 @@
 
                                                     <div class="form-group col-sm-12">
                                                         <label>spicifie your allerge:</label>
-                                                        <textarea class="form-control" name="address" rows="5"
+                                                        <textarea class="form-control" name="spicifie_allerge" rows="5"
                                                             style="line-height: 22px">
                                                                               </textarea>
                                                     </div>
@@ -430,22 +450,27 @@
                             accept="image/*"
                           />
                         </div> -->
+
+
+                                                <!-- TODO fix this shit plssssssssssssssssssssssssssssssss -->
                                                 <div class="custom-file">
                                                     <<<<<<< HEAD <input type="file" class="custom-file-input"
                                                         id="validatedCustomFile" name="Profile">
                                                         =======
                                                         <input type="file" class="custom-file-input"
-                                                            id="validatedCustomFile" required="" name="Profile">
+                                                            id="validatedCustomFile" name="Profile">
                                                         >>>>>>> 6cc34de1c09087f4d69ff9f74353002af62c59f8
                                                         <label class="custom-file-label" for="customFile">Upload Your
                                                             Photo:</label>
                                                 </div><br><br>
+
+
                                                 <div class="custom-file">
                                                     <<<<<<< HEAD <input type="file" class="custom-file-input"
                                                         id="validatedCustomFile" name="photo_id">
                                                         =======
                                                         <input type="file" class="custom-file-input"
-                                                            id="validatedCustomFile" required="" name="photo_id">
+                                                            id="validatedCustomFile" name="photo_id">
                                                         >>>>>>> 6cc34de1c09087f4d69ff9f74353002af62c59f8
                                                         <label class="custom-file-label" for="customFile">Upload ID
                                                             Photo:</label>

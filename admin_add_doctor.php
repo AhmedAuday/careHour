@@ -1,3 +1,49 @@
+<?php
+
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+
+  if(isset($_POST['submit'])){
+    echo "<script>alert('hi')</script>";
+
+       $admin = new Admins();
+       $new_doctor = new Doctors();
+               $new_doctor->setUser_id($admin->getId()); //TODO Cheak this plssse
+               $new_doctor->setFirst_name($_POST['fname']);
+               $new_doctor->setMiddle_name($_POST['mname']);
+               $new_doctor->setLast_name($_POST['lname']);
+               $new_doctor->setUsername($_POST['uname']);
+               $new_doctor->setEmail($_POST['email']);
+               $new_doctor->setPasswordd(encrypt($_POST['pwd']));
+               $new_doctor->setImage_of_id("test1");
+               $new_doctor->setProfile_image("test2");
+               $new_doctor->setDob($_POST['dob']);
+               $new_doctor->setSpecialty($_POST['specialty']);
+               $new_doctor->setGender($_POST['gender']);
+               $new_doctor->setAddresses($_POST['address']);
+               $new_doctor->setEducation($_POST['education']);
+               $new_doctor->setExperience_years($_POST['experience']);
+               $new_doctor->setStart_office_hour($_POST['start_office_hour']);
+               $new_doctor->setEnd_office_hour($_POST['end_office_hour']);
+               $new_doctor->setBio($_POST['bio']);
+               $new_doctor->setPhone($_POST['phone']);
+
+               $new_doctor->add();
+               
+              
+
+               
+              
+              
+ }
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -391,6 +437,8 @@
                                     </div>
                                 </div>
                                 <div class="iq-card-body">
+
+                                    <!-- TODO ### FIX THIS add upload to it### -->
                                     <form>
                                         <div class="form-group">
                                             <div class="add-img-user profile-img-edit">
@@ -398,7 +446,7 @@
                                                     alt="profile-pic" />
                                                 <div class="p-image">
                                                     <a href="javascript:void();" class="upload-button btn
-                            iq-bg-primary">File Upload</a>
+                                                      iq-bg-primary">File Upload</a>
                                                     <input class="file-upload" type="file" accept="image/*" />
                                                 </div>
                                             </div>
@@ -409,7 +457,7 @@
                                                     <a href="javascript:void();">.png</a>
                                                     <a href="javascript:void();">.jpeg</a>
                                                     <span>allowed</span>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -419,7 +467,7 @@
 
 
                                     </form>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -432,109 +480,109 @@
                                 </div>
                                 <div class="iq-card-body">
                                     <div class="new-user-info">
-                                        <form>
+                                        <form action="admin_add_doctor.php" method="post" id="add-doctor">
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label for="fname">First Name:</label>
-                                                    <input type="text" class="form-control" id="fname"
+                                                    <input type="text" class="form-control" id="fname" name="fname"
                                                         placeholder="First Name" />
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="Mname">Middle Name:</label>
-                                                    <input type="text" class="form-control" id="Mname"
+                                                    <input type="text" class="form-control" id="Mname" name="mname"
                                                         placeholder="Middle Name" />
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="lname">Last Name:</label>
-                                                    <input type="text" class="form-control" id="lname"
+                                                    <input type="text" class="form-control" id="lname" name="lname"
                                                         placeholder="Last Name" />
                                                 </div>
 
 
-                                              
+
                                                 <div class="form-group col-md-6">
-                                                <label for="lname">Speciality:</label>
+                                                    <label for="lname">Speciality:</label>
                                                     <input type="text" class="form-control" id="Speciality"
-                                                        placeholder="Speciality" />
-                                                
+                                                        name="speciality" placeholder="Speciality" />
+
                                                 </div>
 
 
                                                 <div class="form-group col-md-6">
                                                     <label for="mobno">Mobile Number:</label>
-                                                    <input type="text" class="form-control" id="mobno"
+                                                    <input type="text" class="form-control" id="mobno" name="phone"
                                                         placeholder="Mobile Number" />
                                                 </div>
 
                                                 <div class="col-sm-6">
                                                     <label for="dob">Date Of Birth:</label>
-                                                    <input class="form-control" id="dob" value="1984-01-24" />
+                                                    <input class="form-control" id="dob" value="19840124" name="dob" />
                                                 </div>
 
                                                 <div class="col-sm-6">
                                                     <label for="dob">Address:</label>
-                                                    <input type="text" class="form-control" id="dob" placeholder="Address"/>
+                                                    <input type="text" class="form-control" id="dob"
+                                                        placeholder="Address" name="address" />
                                                 </div>
-                                     
 
-                                                <div class="form-group col-md-6">
-                                                    <label for="pno">Zip Code:</label>
-                                                    <input type="text" class="form-control" id="pno"
-                                                        placeholder="Zip Code" />
-                                                </div>
+
+
 
                                                 <div class="form-group col-md-6">
                                                     <label>Education</label>
-                                                    <textarea class="form-control" name="address" rows="1"
+                                                    <textarea class="form-control" name="education" rows="1"
                                                         style="line-height: 22px"></textarea>
                                                 </div>
 
-                                               
+
 
                                                 <div class="form-group col-md-6">
                                                     <label>Bio</label>
-                                                    <textarea class="form-control" name="address" rows="1"
+                                                    <textarea class="form-control" name="bio" rows="1"
                                                         style="line-height: 22px"></textarea>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="officeS">Start Ofiice Hour:</label>
-                                                    <input class="form-control" id="officeS" value="" type="time" />
+                                                    <input class="form-control" id="officeS" value="" type="time"
+                                                        name="start_office_hour" />
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <label for="officeE">End Ofiice Hour:</label>
-                                                    <input class="form-control" id="officeE" value="" type="time" />
+                                                    <input class="form-control" id="officeE" value="" type="time"
+                                                        name="end_office_hour" />
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <label for="exe"> Experience Year </label>
-                                                    <input class="form-control" id="exe" value="" type="number" />
+                                                    <input class="form-control" id="exe" value="" type="number"
+                                                        name="experience" />
                                                 </div>
                                                 <br>
                                                 <div class="col-md-10">
                                                     <label class="d-block">Gender:</label>
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" id="customRadio6" name="customRadio1"
+                                                        <input type="radio" id="customRadio6" name="gender"
                                                             class="custom-control-input" checked="" />
                                                         <label class="custom-control-label" for="customRadio6">
                                                             Male
                                                         </label>
                                                     </div>
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" id="customRadio7" name="customRadio1"
+                                                        <input type="radio" id="customRadio7" name="gender"
                                                             class="custom-control-input" />
                                                         <label class="custom-control-label" for="customRadio7">
                                                             Female
                                                         </label>
                                                     </div>
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" id="customRadio8" name="customRadio1"
+                                                        <input type="radio" id="customRadio8" name="gender"
                                                             class="custom-control-input" />
                                                         <label class="custom-control-label" for="customRadio8">
                                                             Other
                                                         </label>
                                                     </div>
-                                                
+
                                                 </div>
                                             </div>
 
@@ -543,30 +591,37 @@
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label for="uname">User Name:</label>
-                                                    <input type="text" class="form-control" id="uname"
+                                                    <input type="text" class="form-control" id="uname" name="uname"
                                                         placeholder="User Name" />
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="email">Email:</label>
-                                                    <input type="email" class="form-control" id="email"
+                                                    <input type="email" class="form-control" id="email" name="email"
                                                         placeholder="Email" />
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="pass">Password:</label>
                                                     <input type="password" class="form-control" id="pass"
-                                                        placeholder="Password" />
+                                                        placeholder="Password" name="pwd" />
                                                 </div>
+
+                                                <!-- TODO FIX THIS  -->
                                                 <div class="form-group col-md-6">
                                                     <label for="rpass">Repeat Password:</label>
                                                     <input type="password" class="form-control" id="rpass"
                                                         placeholder="Repeat Password " />
                                                 </div>
+
+                                                <!-- TODO FIX THIS  -->
                                                 <div class="form-group col-md-6">
-                                                <input type="file" class="custom-file-input"
-                                                        id="validatedCustomFile" required="" name="photo_id" >
-                                                    <label class="custom-file-label" for="customFile">Upload ID Photo:</label>
+                                                    <input type="file" class="custom-file-input"
+                                                        id="validatedCustomFile" required="" name="photo_id">
+                                                    <label class="custom-file-label" for="customFile">Upload ID
+                                                        Photo:</label>
                                                 </div>
                                             </div>
+
+                                            <!-- TODO FIX THIS too if possible  -->
                                             <div class="checkbox">
                                                 <label><input class="mr-2" type="checkbox" />Accept And continue</label>
                                             </div>
