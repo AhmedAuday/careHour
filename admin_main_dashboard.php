@@ -3,6 +3,10 @@
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+  $doc = new Doctors();
+
+  $patient = new Patients();
 ?>
 
 
@@ -111,7 +115,6 @@
                     <div class="p-3"></div>
                 </div>
             </div>
-
             <!-- Page Content  -->
             <div id="content-page" class="content-page">
                 <!-- TOP Nav Bar -->
@@ -403,13 +406,14 @@
                                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                                         <div class="iq-card-body iq-bg-primary rounded">
                                             <div class="d-flex align-items-center
-                        justify-content-between">
+                                                            justify-content-between">
                                                 <div class="rounded-circle iq-card-icon bg-primary">
                                                     <i class="ri-user-fill"></i>
                                                 </div>
                                                 <div class="text-right">
                                                     <h2 class="mb-0">
-                                                        <span class="counter">5600</span>
+                                                        <span
+                                                            class="counter"><?php echo $doc->getNumberOfRows() ?></span>
                                                     </h2>
                                                     <h5 class="">Doctors</h5>
                                                 </div>
@@ -422,13 +426,14 @@
                                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                                         <div class="iq-card-body iq-bg-danger rounded">
                                             <div class="d-flex align-items-center
-                        justify-content-between">
+                                                    justify-content-between">
                                                 <div class="rounded-circle iq-card-icon bg-danger">
                                                     <i class="ri-group-fill"></i>
                                                 </div>
                                                 <div class="text-right">
                                                     <h2 class="mb-0">
-                                                        <span class="counter">3500</span>
+                                                        <span
+                                                            class="counter"><?php echo $patient->getNumberOfRows() ?></span>
                                                     </h2>
                                                     <h5 class="">Patients</h5>
                                                 </div>
@@ -444,6 +449,8 @@
                                                 <div class="rounded-circle iq-card-icon bg-info">
                                                     <i class="ri-group-fill"></i>
                                                 </div>
+
+                                                <!-- TODO add Apotiments -->
                                                 <div class="text-right">
                                                     <h2 class="mb-0">
                                                         <span class="counter">4500</span>
@@ -468,25 +475,31 @@
                                 <div class="iq-card-body">
                                     <ul id="doster-list-slide" class="d-flex flex-wrap align-items-center p-0">
 
-                                        <!-- TODO implemnt Doctors Here with php  -->
-                                        <!-- !! there has to be at least 6 card in order to show correctly  -->
+
                                         <li class="doctor-list-item col-md-3 text-center p-2">
-                                            <div class="doctor-list-item-inner rounded">
-                                                <div class="donter-profile">
-                                                    <img src="images/user/05.jpg" class="img-fluid rounded-circle"
-                                                        alt="user-img" />
-                                                </div>
-                                                <div class="doctor-detail mt-3">
-                                                    <h5>Dr. Paul Molive</h5>
-                                                    <h6>Doctor</h6>
-                                                </div>
-                                                <hr />
-                                                <div class="doctor-description">
-                                                    <p class="mb-0 text-center pl-2 pr-2">
-                                                        California Hospital Medical Center
-                                                    </p>
-                                                </div>
-                                            </div>
+
+
+                                            <?php 
+                                        foreach ($doc as $d) {
+                                           echo "<div class='doctor-list-item-inner rounded'>
+                                           <div class='donter-profile'>
+                                               <img src='images/user/05.jpg' class='img-fluid rounded-circle'
+                                                   alt='user-img' />
+                                           </div>
+                                           <div class='doctor-detail mt-3'>
+                                               <h5>Dr.$d->first_name.' '.$d->last_name.</h5>
+                                               <h6>.$d->specialty.</h6>
+                                           </div>
+                                           <hr />
+                                           <div class='doctor-description'>
+                                               <p class='mb-0 text-center pl-2 pr-2'>
+                                                   .$d->bio.
+                                               </p>
+                                           </div>
+                                       </div>";
+                                        }
+
+                                        ?>
                                         </li>
                                         <!-- Card end  -->
                                     </ul>
