@@ -14,39 +14,44 @@
   $admin->getById();
 
 
-  if(isset($_POST['submit'])){
-    echo "<script>alert('hi')</script>";
 
-       $admin = new Admins();
-       $new_doctor = new Doctors();
-               $new_doctor->setUser_id($admin->getId()); //TODO Cheak this plssse
-               $new_doctor->setFirst_name($_POST['fname']);
-               $new_doctor->setMiddle_name($_POST['mname']);
-               $new_doctor->setLast_name($_POST['lname']);
-               $new_doctor->setUsername($_POST['uname']);
-               $new_doctor->setEmail($_POST['email']);
-               $new_doctor->setPasswordd(encrypt($_POST['pwd']));
-               $new_doctor->setImage_of_id("test1");
-               $new_doctor->setProfile_image("test2");
-               $new_doctor->setDob($_POST['dob']);
-               $new_doctor->setSpecialty($_POST['specialty']);
-               $new_doctor->setGender($_POST['gender']);
-               $new_doctor->setAddresses($_POST['address']);
-               $new_doctor->setEducation($_POST['education']);
-               $new_doctor->setExperience_years($_POST['experience']);
-               $new_doctor->setStart_office_hour($_POST['start_office_hour']);
-               $new_doctor->setEnd_office_hour($_POST['end_office_hour']);
-               $new_doctor->setBio($_POST['bio']);
-               $new_doctor->setPhone($_POST['phone']);
+  try {
+    if(isset($_POST['submit'])){
+        echo "<script>alert('hi')</script>";
 
-               $new_doctor->add();
-               
-              
+           $new_doctor = new Doctors();
+                   $new_doctor->setUser_id($admin->getId()); //TODO Cheak this plssse
+                   $new_doctor->setFirst_name($_POST['fname']);
+                   $new_doctor->setMiddle_name($_POST['mname']);
+                   $new_doctor->setLast_name($_POST['lname']);
+                   $new_doctor->setUsername($_POST['uname']);
+                   $new_doctor->setEmail($_POST['email']);
+                   $new_doctor->setPasswordd(encrypt($_POST['pwd']));
+                   $new_doctor->setImage_of_id("test1");
+                   $new_doctor->setProfile_image("test2");
+                   $new_doctor->setDob($_POST['dob']);
+                   $new_doctor->setSpecialty($_POST['specialty']);
+                   $new_doctor->setGender($_POST['gender']);
+                   $new_doctor->setAddresses($_POST['address']);
+                   $new_doctor->setEducation($_POST['education']);
+                   $new_doctor->setExperience_years($_POST['experience']);
+                   $new_doctor->setStart_office_hour(time()/84600/24/$_POST['start_office_hour']);
+                   $new_doctor->setEnd_office_hour(time($_POST['end_office_hour']));
+                   $new_doctor->setBio($_POST['bio']);
+                   $new_doctor->setPhone($_POST['phone']);
+                   $new_doctor->add();
+                   
+                   
+                  
+    
+                  
+     }
+  } catch (\Throwable $th) {
+    print_r($th);
+    
+  }
 
-               
-              
-              
- }
+  
 
 
 
@@ -346,7 +351,7 @@
                                 </div>
                                 <div class="iq-card-body">
                                     <div class="new-user-info">
-                                        <form action="admin_add_doctor.php" method="post" id="add-doctor">
+                                        <form action="admin_add_doctor.php" method="POST" id="add-doctor">
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label for="fname">First Name:</label>
@@ -367,9 +372,9 @@
 
 
                                                 <div class="form-group col-md-6">
-                                                    <label for="lname">Speciality:</label>
+                                                    <label for="lname">specialty:</label>
                                                     <input type="text" class="form-control" id="Speciality"
-                                                        name="speciality" placeholder="Speciality" />
+                                                        name="specialty" placeholder="specialty" />
 
                                                 </div>
 
@@ -409,13 +414,13 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="officeS">Start Ofiice Hour:</label>
-                                                    <input class="form-control" id="officeS" value="" type="time"
+                                                    <input class="form-control" id="officeS" value="" type="nub"
                                                         name="start_office_hour" />
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <label for="officeE">End Ofiice Hour:</label>
-                                                    <input class="form-control" id="officeE" value="" type="time"
+                                                    <input class="form-control" id="officeE" value="" type="num"
                                                         name="end_office_hour" />
                                                 </div>
 
@@ -491,7 +496,7 @@
                                             <div class="checkbox">
                                                 <label><input class="mr-2" type="checkbox" />Accept And continue</label>
                                             </div>
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" class="btn btn-primary" name="submit">
                                                 Add New Doctor
                                             </button>
                                         </form>

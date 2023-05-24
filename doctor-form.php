@@ -10,9 +10,13 @@ $doctor=new Doctors();
 
 $doctor->getById(session_id());
 
-
-
-
+$doctor = new Doctors();
+if($doctor->getAuthority() <= 0){
+    header("Location: sign-in.php");
+    exit();
+}
+$doctor->setId($doctor->getAuthority());
+$doctor->getById();
 
 ?>
 

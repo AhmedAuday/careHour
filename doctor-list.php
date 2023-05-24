@@ -11,6 +11,16 @@ if($patint->getAuthority() <= 0){
 }
 $patint->setId($patint->getAuthority());
 $patint->getById();
+
+
+$doctor = new Doctors();
+$doctors = $doctor->getAll();
+
+
+
+
+
+
 ?>
 
 
@@ -71,8 +81,8 @@ $patint->getById();
                             </li>
 
                             <li>
-                                <a href="patient.php" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>Patient Dashboard</span></a>
+                                <a href="patient.php" class="iq-waves-effect"><i class="ri-group-fill"></i><span>Patient
+                                        Dashboard</span></a>
                             </li>
 
 
@@ -394,8 +404,7 @@ $patint->getById();
 
                     <?php
 
-$doctor = new Doctors();
-$doctors = $doctor->getAll();
+
 
 
 foreach ($doctors as $d){
