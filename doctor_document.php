@@ -13,6 +13,11 @@
   $Doc->setId($Doc->getAuthority());
   $Doc->getById();
 
+
+
+
+  $patient=new Patients();
+  
 ?>
 
 
@@ -317,7 +322,7 @@
                                             <div class="iq-card-body p-0">
                                                 <div class="bg-primary p-3">
                                                     <h5 class="mb-0 text-white line-height">
-                                                        Hello <?= $Doc->getUsername()  ?>
+                                                        Hello <?= $Doc->getUsername()?>
                                                     </h5>
                                                     <span class="text-white font-size-12">Available</span>
                                                 </div>
@@ -374,6 +379,87 @@
                     </div>
                 </div>
                 <!-- TOP Nav Bar END -->
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                            <div class="iq-card-header d-flex justify-content-between">
+                                <div class="iq-header-title">
+                                    <h4 class="card-title">Patients</h4>
+                                </div>
+
+                            </div>
+                            <div class="iq-card-body">
+                                <div class="table-responsive">
+                                    <table class="table mb-0 table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Patient</th>
+                                                <th scope="col">File Name</th>
+                                                <th scope="col">Document</th>
+                                                <th scope="col">diagnosis</th>
+                                                <th scope="col">Treatment</th>
+
+                                            </tr>
+                                        </thead>
+
+                                        <?php
+
+                                               $patients= $patient->getAll();
+
+                                            foreach ($patients as $p) {
+                                                $patient_his =new Patient_files();
+                                                $patient_his->setPatient_id($p->id);
+                                                $patient_his->getByPatient_id();
+
+                                                $patient_history = new Patient_history();
+                                                $patient_history->setFiles_id($patient_his->getId());
+                                                $patient_history->getByFiles_id();
+
+
+
+                                                
+
+                                                echo "<tbody>
+                                                <tr>
+                                                    <td>$p->first_name $p->middle_name</td>
+
+                                                    <td>".$patient_his->getByFile_name()."</td>
+                                                    <td>{$patient_his->getDocuments()}l</td>
+                                                    <td>{$patient_history->getdiagnosis()}</td>
+                                                    <td>{$patient_history->gettreatment()}</td>
+                                                </tr>
+
+                                            </tbody>";
+
+                                            }
+
+                                            
+                                            
+                                            ?>
+
+
+
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
 
                 <!-- Footer -->
                 <footer class="bg-white iq-footer">

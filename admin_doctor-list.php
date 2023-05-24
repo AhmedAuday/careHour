@@ -11,6 +11,18 @@
   }
   $admin->setId($admin->getAuthority());
   $admin->getById();
+
+
+
+
+
+  if(!empty($_GET['delete'])){
+    $doctor = new Doctors($_GET['d_id']);
+    $doctor->delete();
+  }
+
+
+  
 ?>
 
 
@@ -520,6 +532,12 @@ foreach ($doctors as $d){
                  </div>
                  <a href='admin_doctor_profile.php?id=".$d->id."' class='btn btn-primary'
                    >View Profile</a
+
+                 >
+
+                 <a href='admin_doctor-list.php?d_id=".$d->id."&delete=1' class='btn btn-primary'
+                   >Delete</a
+                   
                  >
                </div>
              </div>
