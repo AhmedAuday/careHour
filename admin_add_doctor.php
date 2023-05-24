@@ -19,7 +19,7 @@
 
        $admin = new Admins();
        $new_doctor = new Doctors();
-               $new_doctor->setUser_id($admin->getById()); //TODO Cheak this plssse
+               $new_doctor->setUser_id($admin->getId()); //TODO Cheak this plssse
                $new_doctor->setFirst_name($_POST['fname']);
                $new_doctor->setMiddle_name($_POST['mname']);
                $new_doctor->setLast_name($_POST['lname']);
@@ -375,7 +375,7 @@
                                             <div class="iq-card-body p-0">
                                                 <div class="bg-primary p-3">
                                                     <h5 class="mb-0 text-white line-height">
-                                                        Hello Bini Jets
+                                                        Hello <?=$admin->get?>
                                                     </h5>
                                                     <span class="text-white font-size-12">Available</span>
                                                 </div>
