@@ -3,7 +3,7 @@
     class Database{
         private $host = "localhost";
         private $user = "root";
-        private $pwd = "AA@@ts1990";
+        private $pwd = "";
         private $dbName = "carehour";
 
         protected function db(){

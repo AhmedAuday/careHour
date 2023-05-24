@@ -518,7 +518,7 @@ foreach ($doctors as $d){
                      </li>
                    </ul>
                  </div>
-                 <a href='admin_doctor_profile.php' class='btn btn-primary'
+                 <a href='admin_doctor_profile.php?id=".$d->id."' class='btn btn-primary'
                    >View Profile</a
                  >
                </div>
