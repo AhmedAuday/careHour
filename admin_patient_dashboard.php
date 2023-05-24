@@ -7,7 +7,7 @@
   $patient = new Patients();
 
   $admin = new Admins();
-  $admin->getById();
+
   $currentUserA = $admin-> getUsername();
   
 
