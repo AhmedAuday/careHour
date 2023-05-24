@@ -3,6 +3,20 @@
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+  $id=$_GET['id'];
+
+
+  $patint=new Patients();
+if($patint->getAuthority() <= 0){
+    header("Location: sign-in.php");
+    exit();
+}
+$patint->setId($patint->getAuthority());
+$patint->getById();
+
+
+  
 ?>
 
 
@@ -434,22 +448,27 @@
                                                         <div class="form-group col-sm-6">
                                                             <label for="fname">First Name:</label>
                                                             <input type="text" class="form-control" id="fname"
-                                                                value="Bini" />
+                                                                value="<?=$patint->getFirst_name()?>" />
+                                                        </div>
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="lname">Middle Name:</label>
+                                                            <input type="text" class="form-control" id="lname"
+                                                                value="<?=$patint->getMiddle_name()?>" />
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label for="lname">Last Name:</label>
                                                             <input type="text" class="form-control" id="lname"
-                                                                value="Jets" />
+                                                                value="<?=$patint->getLast_name()?>" />
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label for="uname">User Name:</label>
                                                             <input type="text" class="form-control" id="uname"
-                                                                value="Bini@01" />
+                                                                value="<?=$patint->getUsername()?>" />
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label for="cname">City:</label>
                                                             <input type="text" class="form-control" id="cname"
-                                                                value="Atlanta" />
+                                                                value="<?=$patint->getCity()?>" />
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label class="d-block">Gender:</label>
