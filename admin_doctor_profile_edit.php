@@ -5,8 +5,12 @@
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 
   $admin = new Admins();
-  $admin->setId($admin->getAuthority());
-  $admin->getById();
+if($admin->getAuthority() <= 0){
+    header("Location: sign-in.php");
+    exit();
+}
+$admin->setId($admin->getAuthority());
+$admin->getById();
 ?>
 
 
