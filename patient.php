@@ -620,7 +620,7 @@ curl_setopt_array($curl, [
                                     <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
                                         <img src="/images/user/1.jpg" class="img-fluid rounded mr-3" alt="user" />
                                         <div class="caption">
-                                            <h6 class="mb-0 line-height">Bini Jets</h6>
+                                            <h6 class="mb-0 line-height"><?= $patint->getFirst_name()?></h6>
                                             <span class="font-size-12">Available</span>
                                         </div>
                                     </a>
@@ -629,7 +629,7 @@ curl_setopt_array($curl, [
                                             <div class="iq-card-body p-0">
                                                 <div class="bg-primary p-3">
                                                     <h5 class="mb-0 text-white line-height">
-                                                        Hello Bini Jets
+                                                        Hello <?= $patint->getFirst_name()." ".$patint->getLast_name()?>
                                                     </h5>
                                                     <span class="text-white font-size-12">Available</span>
                                                 </div>
@@ -646,7 +646,7 @@ curl_setopt_array($curl, [
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <a href="profile-edit.php" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="profile-edit.php?id=<?=$patint->getID()?>" class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-profile-line"></i>
@@ -738,7 +738,7 @@ curl_setopt_array($curl, [
                                                 </h4>
                                                 <p><?php
                                                     $t = time() - $patint->getDate_of_birth();
-                                                    echo ($t/86400/30/12); ?></p>
+                                                    echo floor($t/86400/30/12); ?></p>
                                                 <p>
                                                     <?php echo "Patient" ?>
                                                 </p>

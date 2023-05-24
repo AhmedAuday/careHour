@@ -69,7 +69,7 @@ if(isset($_POST['Login'])){
 
             if($doctor->getByEmail()){
                 // echo "email found";
-                if($doctor->getPasswordd() == encrypt($password)){
+                if($doctor->getPasswordd() == $password){
                     // echo "password found";
                     $doctor->giveAuthority();
                     if($doctor->getAuthority() > 0){

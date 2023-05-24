@@ -115,7 +115,7 @@ $patint->getById();
                     <div class="iq-navbar-custom">
                         <div class="iq-sidebar-logo">
                             <div class="top-logo">
-                                <a href="index.php" class="logo">
+                                <a href="patient.php" class="logo">
                                     <img src="/images/logo.png" class="img-fluid" alt="" />
                                     <span>CareHour</span>
                                 </a>
@@ -435,7 +435,7 @@ foreach ($doctors as $d){
                      </li>
                    </ul>
                  </div>
-                 <a href='profile.php' class='btn btn-primary'
+                 <a href='profile.php?id=".$d->id."' class='btn btn-primary'
                    >View Profile</a
                  >
                </div>

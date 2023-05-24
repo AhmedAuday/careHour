@@ -45,7 +45,7 @@
             <!-- Sidebar  -->
             <div class="iq-sidebar">
                 <div class="iq-sidebar-logo d-flex justify-content-between">
-                    <a href="index.php">
+                    <a href="patient.php">
                         <img src="/images/logo.png" class="img-fluid" alt="" />
                         <span>CareHour</span>
                     </a>
@@ -65,7 +65,7 @@
                                 <i class="ri-subtract-line"></i><span>Dashboard</span>
                             </li>
                             <li>
-                                <a href="dashboard-3.php" class="iq-waves-effect"><i
+                                <a href="patient.php" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>Patient Dashboard</span></a>
                             </li>
 
