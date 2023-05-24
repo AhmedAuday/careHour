@@ -383,7 +383,7 @@
                                                         <label>Blood Type:</label>
                                                         <select class="form-control" id="exampleFormControlSelect4"
                                                             name="blood">
-
+                                                            
                                                             <option value="A+">A+</option>
                                                             <option value="O-">O-</option>
                                                             <option value="A-">A-</option>

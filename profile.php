@@ -448,21 +448,23 @@ $curent_doc->getById();
                                             <div class="col-4">Age:</div>
                                             <div class="col-8">
                                                 <?php
-                                            $t = time() - $curent_doc->getDate_of_birth();
+                                            $t = time() - $curent_doc->getDob();
                                                     echo floor($t/86400/30/12); ?></p>?>
                                             <div class="col-4">Position:</div>
                                             <div class="col-8">Senior doctor</div>
                                             <div class="col-4">Email:</div>
                                             <div class="col-4">Gender:</div>
-                                            <div class="col-8"><?= $Doctors->getGender()?></div>
+                                            <div class="col-8"><?= $curent_doc->getGender()?></div>
                                             <div class="col-8">
-                                                <a href="mailto:biniJets24@demo.com">
-                                                    biniJets24@demo.com
-                                                </a>
+                                                <?php
+                                                echo "<a href=".$curent_doc->getEmail().">"
+                                                    .$curent_doc->getEmail()
+                                                ."</a>"
+                                                ?>
                                             </div>
                                             <div class="col-4">Phone:</div>
                                             <div class="col-8">
-                                                <a href="tel:001-2351-25612"><?= $Doctors->getPhone()?></a>
+                                                <a href="tel:001-2351-25612"><?= $curent_doc->getPhone()?></a>
                                             </div>
                                             <div class="col-4">Location:</div>
                                             <div class="col-8">USA</div>
