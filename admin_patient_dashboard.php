@@ -31,7 +31,7 @@ $admin->getById();
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1,
       shrink-to-fit=no" />
-        <title>Doctor Dash</title>
+        <title>CareHour</title>
         <!-- Favicon -->
         <link rel="shortcut icon" href="images/favicon.ico" />
         <!-- Bootstrap CSS -->
@@ -80,7 +80,7 @@ $admin->getById();
                         <ul id="iq-sidebar-toggle" class="iq-menu">
 
                             <li class="iq-menu-title">
-                                <i class="ri-subtract-line"></i><span>Doctor Dashboard</span>
+                                <i class="ri-subtract-line"></i><span>Admin Dashboard</span>
                             </li>
                             <li>
                                 <a href="admin_main_dashboard.php" class="iq-waves-effect"><i
@@ -269,7 +269,7 @@ $admin->getById();
                                             <div class="iq-card-body p-0">
                                                 <div class="bg-primary p-3">
                                                     <h5 class="mb-0 text-white line-height">
-                                                        Hello Bini Jets
+                                                        Hello <?=$admin->getUsername()?>
                                                     </h5>
                                                     <span class="text-white font-size-12">Available</span>
                                                 </div>

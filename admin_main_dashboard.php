@@ -79,7 +79,7 @@
                         <ul id="iq-sidebar-toggle" class="iq-menu">
 
                             <li class="iq-menu-title">
-                                <i class="ri-subtract-line"></i><span>Doctor Dashboard</span>
+                                <i class="ri-subtract-line"></i><span>Admin Dashboard</span>
                             </li>
                             <li class="active">
                                 <a href="admin_main_dashboard.php" class="iq-waves-effect"><i
@@ -343,7 +343,7 @@
                     align-items-center">
                                         <img src="images/user/1.jpg" class="img-fluid rounded mr-3" alt="user" />
                                         <div class="caption">
-                                            <h6 class="mb-0 line-height">Bini Jets</h6>
+                                            <h6 class="mb-0 line-height"><?=$admin->getUsername()?></h6>
                                             <span class="font-size-12">Available</span>
                                         </div>
                                     </a>
@@ -352,7 +352,7 @@
                                             <div class="iq-card-body p-0">
                                                 <div class="bg-primary p-3">
                                                     <h5 class="mb-0 text-white line-height">
-                                                        Hello Bini Jets
+                                                        Hello <?=$admin->getUsername()?>
                                                     </h5>
                                                     <span class="text-white font-size-12">Available</span>
                                                 </div>
