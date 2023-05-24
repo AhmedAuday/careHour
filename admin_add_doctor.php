@@ -103,7 +103,7 @@
                         <ul id="iq-sidebar-toggle" class="iq-menu">
 
                             <li class="iq-menu-title">
-                                <i class="ri-subtract-line"></i><span>Doctor Dashboard</span>
+                                <i class="ri-subtract-line"></i><span>Admin Dashboard</span>
                             </li>
                             <li>
                                 <a href="admin_main_dashboard.php" class="iq-waves-effect"><i
@@ -212,152 +212,9 @@
                                             <i class="ri-notification-3-fill"></i>
                                             <span class="bg-danger dots"></span>
                                         </a>
-                                        <div class="iq-sub-dropdown">
-                                            <div class="iq-card shadow-none m-0">
-                                                <div class="iq-card-body p-0">
-                                                    <div class="bg-primary p-3">
-                                                        <h5 class="mb-0 text-white">
-                                                            All Notifications<small class="badge badge-light
-                                float-right pt-1">4</small>
-                                                        </h5>
-                                                    </div>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/01.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Emma Watson Bini</h6>
-                                                                <small class="float-right font-size-12">Just Now</small>
-                                                                <p class="mb-0">95 MB</p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/02.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">New customer is join</h6>
-                                                                <small class="float-right font-size-12">5 days
-                                                                    ago</small>
-                                                                <p class="mb-0">Jond Bini</p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/03.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Two customer is left</h6>
-                                                                <small class="float-right font-size-12">2 days
-                                                                    ago</small>
-                                                                <p class="mb-0">Jond Bini</p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/04.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">New Mail from Fenny</h6>
-                                                                <small class="float-right font-size-12">3 days
-                                                                    ago</small>
-                                                                <p class="mb-0">Jond Bini</p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </li>
-                                    <li class="nav-item dropdown">
-                                        <a href="#" class="search-toggle iq-waves-effect">
-                                            <i class="ri-mail-open-fill"></i>
-                                            <span class="bg-primary count-mail"></span>
-                                        </a>
-                                        <div class="iq-sub-dropdown">
-                                            <div class="iq-card shadow-none m-0">
-                                                <div class="iq-card-body p-0">
-                                                    <div class="bg-primary p-3">
-                                                        <h5 class="mb-0 text-white">
-                                                            All Messages<small class="badge badge-light
-                                float-right pt-1">5</small>
-                                                        </h5>
-                                                    </div>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/01.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Bini Emma Watson</h6>
-                                                                <small class="float-left font-size-12">13 Jun</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/02.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Lorem Ipsum Watson</h6>
-                                                                <small class="float-left font-size-12">20 Apr</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/03.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Why do we use it?</h6>
-                                                                <small class="float-left font-size-12">30 Jun</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/04.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Variations Passages</h6>
-                                                                <small class="float-left font-size-12">12 Sep</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/05.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Lorem Ipsum generators</h6>
-                                                                <small class="float-left font-size-12">5 Dec</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+
                                 </ul>
                             </div>
                             <ul class="navbar-list">
@@ -366,7 +223,7 @@
                                            align-items-center">
                                         <img src="images/user/1.jpg" class="img-fluid rounded mr-3" alt="user" />
                                         <div class="caption">
-                                            <h6 class="mb-0 line-height">Bini Jets</h6>
+                                            <h6 class="mb-0 line-height"><?=$admin->getUsername()?></h6>
                                             <span class="font-size-12">Available</span>
                                         </div>
                                     </a>
