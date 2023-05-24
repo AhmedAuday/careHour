@@ -20,6 +20,12 @@ $patient = new Patients();
 $docc = new Doctors();
 $cDoc= $docc->getAll();
 
+$id=$_GET['id'];
+
+
+$curent_doc->setId($id);
+$curent_doc->getById();
+// echo $curent_doc->getFirst_name();
 
 
 // $patint->setId($patint->getAuthority());
@@ -495,21 +501,21 @@ $cDoc= $docc->getAll();
                                                 class="avatar-130 img-fluid" />
                                         </div>
                                         <div class="text-center mt-3 pl-3 pr-3">
-                                            <h4><b><?php   echo $cDoc->first_name;   ?></b></h4>
+                                            <h4><b><?php   echo $curent_doc->getFirst_name();   ?></b></h4>
                                             <p>Doctor</p>
                                             <p class="mb-0">
-                                                <?php   echo $cDoc->bio;   ?>
+                                                <?php   echo $curent_doc->getBio();   ?>
                                             </p>
                                         </div>
                                         <hr />
                                         <ul
                                             class="doctoe-sedual d-flex align-items-center justify-content-between p-0 m-0">
                                             <li class="text-center">
-                                                <h3 class="counter"><?php echo $cDoc->experience_years; ?></h3>
+                                                <h3 class="counter"><?php echo $curent_doc->getExperience_years(); ?></h3>
                                                 <span>Experience Year</span>
                                             </li>
                                             <li class="text-center">
-                                                <h3 class="counter"><?php echo $cDoc->dob; ?></h3>
+                                                <h3 class="counter"><?php echo $curent_doc->getDob(); ?></h3>
                                                 <span>Date</span>
                                             </li>
 
@@ -549,23 +555,23 @@ $cDoc= $docc->getAll();
                                     <div class="about-info m-0 p-0">
                                         <div class="row">
                                             <div class="col-4">First Name:</div>
-                                            <div class="col-8"><?php echo $cDoc->first_name; ?></div>
+                                            <div class="col-8"><?php echo $curent_doc->getFirst_name(); ?></div>
                                             <div class="col-4">Last Name:</div>
-                                            <div class="col-8"><?php echo $cDoc->last_name; ?></div>
+                                            <div class="col-8"><?php echo $curent_doc->getLast_name(); ?></div>
                                             <div class="col-4">Age:</div>
-                                            <div class="col-8"><?php echo $cDoc->dob; ?></div>
+                                            <div class="col-8"><?php echo $curent_doc->getDob(); ?></div>
                                             <div class="col-4">Specialty:</div>
-                                            <div class="col-8"><?php echo $cDoc->specialty; ?></div>
+                                            <div class="col-8"><?php echo $curent_doc->getSpecialty(); ?></div>
                                             <div class="col-4">Email:</div>
                                             <div class="col-8">
                                                 <a>
-                                                    <?php echo $cDoc->email; ?>
+                                                    <?php echo $curent_doc->getEmail(); ?>
                                                 </a>
                                             </div>
                                             <div class="col-4">Phone:</div>
                                             <div class="col-8">
                                                 <a>+964
-                                                    <?php echo $cDoc->phone; ?> </a>
+                                                    <?php echo $curent_doc->getPhone(); ?> </a>
                                             </div>
 
                                         </div>
