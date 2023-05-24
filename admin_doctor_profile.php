@@ -7,15 +7,17 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 
 
 $admin = new Admins();
+if($admin->getAuthority() <= 0){
+    header("Location: sign-in.php");
+    exit();
+}
 $admin->setId($admin->getAuthority());
 $admin->getById();
-$curent_doc = new Doctors();
 
+$curent_doc = new Doctors();
 $patient = new Patients();
 
-
 $docc = new Doctors();
-
 $cDoc= $docc->getAll();
 
 
