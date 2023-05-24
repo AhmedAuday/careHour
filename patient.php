@@ -343,7 +343,7 @@ label {
             <!-- Sidebar  -->
             <div class="iq-sidebar">
                 <div class="iq-sidebar-logo d-flex justify-content-between">
-                    <a href="dashboard-3.php">
+                    <a href="patient.php">
                         <img src="/images/logo.png" class="img-fluid" alt="" />
                         <span>CareHour</span>
                     </a>
@@ -364,7 +364,7 @@ label {
                             </li>
 
                             <li>
-                                <a href="dashboard-3.php" class="iq-waves-effect"><i
+                                <a href="patient.php" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>Patient Dashboard</span></a>
                             </li>
 
@@ -683,12 +683,12 @@ label {
                 <!-- TOP Nav Bar END -->
 
                 <div class="container-fluid">
-                    <input type="checkbox" id="modal" />
+                    <!-- <input type="checkbox" id="modal" />
                     <p class="blurp">Do it. Click the Button. I dare you.</p>
                     <label for="modal" class="modal-btn">
                     	<i class="fa fa-fire" aria-hidden="true"></i>
                     </label>
-                    <!-- <div class="modal-bg"></div> -->
+                    <div class="modal-bg"></div> 
                     <label for="modal" class="modal-bg"></label>
                     <div class="modal-content">
                     	<label for="modal" class="close">
@@ -705,7 +705,7 @@ label {
                     		<label for="modal" class="button danger">Close</label>
                     	</footer>
                     </div>
-                 </div>      
+                 </div>       -->
                     <div class="row">
                         <div class="col-lg-4 row m-0 p-0">
                             <div class="col-sm-12">

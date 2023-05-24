@@ -154,7 +154,7 @@ if(isset($_POST['Login'])){
                 <div class="row no-gutters">
                     <div class="col-md-6 text-center">
                         <div class="sign-in-detail text-white">
-                            <a class="sign-in-logo mb-5" href="#"><img src="/images/logo.png" class="img-fluid"
+                            <a class="sign-in-logo mb-5" href="index.php"><img src="/images/logo.png" class="img-fluid"
                                     alt="logo" />
                                 <span class="spanLogo">CareHour</span>
                             </a>
@@ -233,7 +233,7 @@ if(isset($_POST['Login'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
-                                    <a href="recoverpw.php" class="float-right">Forgot password?</a>
+                                    <a href="recoverpw.php" id="forget_pass" class="float-right">Forgot password?</a>
                                     <input type="password" class="form-control mb-0" id="exampleInputPassword1"
                                         placeholder="Password" name="password" />
                                 </div>
@@ -287,6 +287,26 @@ if(isset($_POST['Login'])){
         <script src="/js/chart-custom.js"></script>
         <!-- Custom JavaScript -->
         <script src="/js/custom.js"></script>
+        <script>
+  $(document).ready(function() {
+    var elementToHide = $("#forget_pass");
+
+    // Check the initial state of the radio buttons
+    if ($('input[name=user_type][value=admin]').is(':checked')||$('input[name=user_type][value=doctor]').is(':checked')) {
+      elementToHide.hide();
+    }
+
+    // Add event listener to the radio buttons
+    $('input[name=user_type]').change(function() {
+      if ($(this).val() === "admin"||$(this).val() === "doctor") {
+        elementToHide.hide();
+      } else {
+        elementToHide.show();
+      }
+    });
+  });
+</script>
+        
     </body>
 
 </html>

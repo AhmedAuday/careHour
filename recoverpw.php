@@ -1,50 +1,35 @@
-<<<<<<< HEAD
-<?php
 
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
-?>
-
-
-=======
 
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/encrypt.inc.php';
 
-// Required variables
-$FROMEMAIL  = '"Nobody" <holandeveloper@gmail.com>';
-$TOEMAIL    = "holandeveloper@gmail.com";
-$SUBJECT    = "A simple hello";
-$PLAINTEXT  = "Hello from my PHP script";
-$RANDOMHASH = "anyrandomhash";
-$FICTIONALSERVER = "@email.myownserver.com";
-$ORGANIZATION = "myownserver.com";
 
-// Basic headers
-$headers = "From: ".$FROMEMAIL."\n";
-$headers .= "Reply-To: ".$FROMEMAIL."\n";
-$headers .= "Return-path: ".$FROMEMAIL."\n";
-$headers .= "Message-ID: <".$RANDOMHASH.$FICTIONALSERVER.">\n";
-$headers .= "X-Mailer: Your Website\n";
-$headers .= "Organization: $ORGANIZATION\n";
-$headers .= "MIME-Version: 1.0\n";
 
-// Add content type (plain text encoded in quoted printable, in this example)
-$headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
+function generate_random_number() {
+    return rand(10000000, 99999999);
+}
 
-// Convert plain text body to quoted printable
-$message = quoted_printable_encode($PLAINTEXT);
+$random_number = generate_random_number();
+$pass=$random_number;
 
-// Create a BASE64 encoded subject
-$subject = "=?UTF-8?B?".base64_encode($SUBJECT)."?=";
 
-// Send email
-// mail($TOEMAIL, $subject, $message, $headers, "-f".$FROMEMAIL);
-mail($TOEMAIL, $subject, $message );
+// echo encrypt($random_number);
+// echo $random_number;
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'phpmailer/src/Exception.php';
+require 'phpmailer/src/PHPMailer.php';
+require 'phpmailer/src/SMTP.php';
+
+
+
 ?>
->>>>>>> 06fb09cff6ca0dd09b2406feb546e64002089f26
+
 
 
 <!doctype html>
@@ -54,7 +39,7 @@ mail($TOEMAIL, $subject, $message );
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>XRay - Responsive Bootstrap 4 Admin Dashboard Template</title>
+        <title>CareHour</title>
         <!-- Favicon -->
         <link rel="shortcut icon" href="images/favicon.ico" />
         <!-- Bootstrap CSS -->
@@ -80,51 +65,50 @@ mail($TOEMAIL, $subject, $message );
                 <div class="row no-gutters">
                     <div class="col-md-6 text-center">
                         <div class="sign-in-detail text-white">
-                            <a class="sign-in-logo mb-5" href="#"><img src="/images/logo.png" class="img-fluid"
+                            <a class="sign-in-logo mb-5" href="index.php"><img src="/images/logo.png" class="img-fluid"
                                     alt="logo">
                                 <span class="spanLogo">CareHour</span>
                             </a>
-                            <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false"
-                                data-dots="true" data-items="1" data-items-laptop="1" data-items-tab="1"
-                                data-items-mobile="1" data-items-mobile-sm="1" data-margin="0">
-                                <div class="item">
-                                    <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                    <h4 class="mb-1 text-white">Manage your orders</h4>
-                                    <p>It is a long established fact that a reader will be distracted by the readable
-                                        content.</p>
-                                </div>
-                                <div class="item">
-                                    <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                    <h4 class="mb-1 text-white">Manage your orders</h4>
-                                    <p>It is a long established fact that a reader will be distracted by the readable
-                                        content.</p>
-                                </div>
-                                <div class="item">
-                                    <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                    <h4 class="mb-1 text-white">Manage your orders</h4>
-                                    <p>It is a long established fact that a reader will be distracted by the readable
-                                        content.</p>
-                                </div>
+
+                        <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true" data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1" data-margin="0">
+                            <div class="item">
+                                <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
+                                <h4 class="mb-1 text-white">On CareHour</h4>
+                                <p>We helpto find better solution to health care.</p>
+                            </div>
+                            <div class="item">
+                                <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
+                                <h4 class="mb-1 text-white">We you and Doctor</h4>
+                                <p>Everyone desrev a system to get easy  to use.</p>
+                            </div>
+                            <div class="item">
+                                <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
+                                <h4 class="mb-1 text-white">Thank You</h4>
+                                <p>Thank you for chosing us.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 position-relative">
-                        <div class="sign-in-from">
-                            <h1 class="mb-0">Reset Password</h1>
-                            <p>Enter your email address and we'll send you an email with instructions to reset your
-                                password.</p>
-                            <form class="mt-4">
+                </div>
+                <div class="col-md-6 position-relative">
+                    <div class="sign-in-from">
+                        <h1 class="mb-0">Reset Password</h1>
+                        <p>Enter your email address and we'll send you an email with instructions to reset your password.</p>
+                        <form class="mt-4" method="POST">
 
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control mb-0" id="exampleInputEmail1"
-                                        placeholder="Enter email">
-                                </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" name="email" class="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email">
+                            </div>
 
                                 <div class="d-inline-block w-100">
+                               
+                                <a class="float-left" href="sign-in.php">Back to Sign in</a>
 
-                                    <button type="submit" class="btn btn-primary float-right">Reset Password</button>
-                                </div>
+                                
+                                <button type="submit" name="send" class="btn btn-primary float-right">Reset Password</button>
+                            </div>
+                            <h4 id="check"></h4>
+
 
                             </form>
                         </div>
@@ -165,6 +149,93 @@ mail($TOEMAIL, $subject, $message );
         <script src="js/chart-custom.js"></script>
         <!-- Custom JavaScript -->
         <script src="js/custom.js"></script>
+        <?php
+        
+if(isset($_POST['send'])){
+    if(empty($_POST['email'])){
+        // echo "Please enter your email";
+        echo '<script>document.getElementById("check").textContent = "Please enter your email";</script>';
+    }
+        elseif(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
+            // echo "Please enter a valid email";
+            echo '<script>document.getElementById("check").textContent = "Please enter a valid email";</script>';
+        }
+        else{
+            $email=$_POST['email'];
+            $sql="SELECT * FROM patients WHERE email='$email'";
+            $patint=new Patients();
+            $data=$patint->getAll();
+            $check=0;
+        foreach($data  as $vla){
+           
+            
+            if($vla->email==$email){
+                $check=1;   
+            }
+
+
+        }
+            // print_r($data);
+
+            
+            if($check==1){
+                $sql="UPDATE patients SET passwordd='".encrypt($random_number)."' WHERE email='$email'";
+                $result=$patint->exeQuery($sql);
+
+                echo $result;
+                if($result>0){
+                    // echo "Your new password is $random_number";
+                    
+                    $mail=new PHPMailer(true);
+                    $mail->isSMTP();
+                    $mail->Host="smtp.gmail.com";
+                    $mail->SMTPAuth=true;
+                    $mail->Username="holandeveloper@gmail.com";
+                    $mail->Password="mtcdjzwlwnwfoptz";
+                    $mail->SMTPSecure="ssl";
+                    $mail->Port=465;
+
+                    $mail->setFrom("holandeveloper@gmail.com");
+                    $mail->addAddress($_POST['email']);
+
+                    $mail->isHTML(true);
+                    $mail->Subject="Reset Password";
+                    $text=" <h1>Reset Password</h1><br><br><br>
+                    <h3>This your random new password</h3><br><br>
+                    <h1>$pass</h1><br><br>
+                    <h3>Thank you for using our service</h3><br><br>
+                    <h3>Regards</h3><br><br>
+                    <h3>CareHour</h3><br><br>
+                    <h3>Team</h3><br><br>
+                    ";
+
+                    $mail->Body=$text;  
+
+                    $mail->send();
+                    // make a script to show that the email has been sent by java script by id check
+
+
+                    echo '<script>document.getElementById("check").textContent = "Email sent please check you email";</script>';
+                    
+                }
+                else{
+                    echo "Something went wrong 404";
+                }
+            }
+            else{
+                // echo "Email does not exist";
+                echo '<script>document.getElementById("check").textContent  = "Email does not exist";</script>';
+            }
+        }
+
+
+    
+
+    
+}
+        
+        
+        ?>
     </body>
 
 </html>

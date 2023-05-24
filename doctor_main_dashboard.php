@@ -3,6 +3,18 @@
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+
+  $doctor=new Doctors();
+  if($doctor->getAuthority() <= 0){
+      header("Location: sign-in.php");
+      exit();
+  }
+  $doctor->setId($doctor->getAuthority());
+  $doctor->getById();
+
+
+
 ?>
 
 
