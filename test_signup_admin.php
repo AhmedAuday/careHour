@@ -6,9 +6,10 @@
       $admin = new Admins();
 
       // if(!empty($_POST['email']) && !empty($_POST['uname'])){
-        $admin->setEmail("holanomeed@carehour.com");
-        $admin->setUsername("holan");
-        $admin->setPasswordd(encrypt("12345678"));
+        $admin->setId(19);
+        $admin->setEmail("ahmedauday@careHour.com");
+        $admin->setUsername("auday");
+        $admin->setPasswordd(encrypt("123456789"));
         $admin->setImage_of_id("test1");
         $admin->add();
         $admin->getLastRow();
