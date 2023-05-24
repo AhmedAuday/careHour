@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2023 at 09:32 PM
+-- Generation Time: May 24, 2023 at 11:54 AM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `holan`
+-- Database: `carehour`
 --
 
 -- --------------------------------------------------------
@@ -35,6 +35,15 @@ CREATE TABLE `admins` (
   `passwordd` varchar(255) NOT NULL,
   `time` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `username`, `email`, `image_of_id`, `passwordd`, `time`) VALUES
+(5, 'ahmed', 'Ahmedauday@carehour.com', 'test1', 'e8f2371579ed52ff0207ecd2d585f53c', 1684758691),
+(6, 'zhyar', 'zhyarfarhad@carehour.com', 'test1', 'e8f2371579ed52ff0207ecd2d585f53c', 1684758723),
+(7, 'holan', 'holanomeed@carehour.com', 'test1', 'e8f2371579ed52ff0207ecd2d585f53c', 1684758755);
 
 -- --------------------------------------------------------
 
@@ -97,6 +106,13 @@ CREATE TABLE `doctors` (
   `time` int(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`id`, `user_id`, `first_name`, `middle_name`, `last_name`, `username`, `email`, `passwordd`, `created_at`, `phone`, `image_of_id`, `profile_image`, `gender`, `dob`, `specialty`, `addresses`, `education`, `experience_years`, `start_office_hour`, `end_office_hour`, `bio`, `time`) VALUES
+(8, 7, '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]', 0, '[value-10]', '[value-11]', '[value-12]', '[value-13]', 0, '[value-15]', '[value-16]', '[value-17]', 0, 0, 0, '[value-21]', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -137,6 +153,15 @@ CREATE TABLE `patients` (
   `phone_number` varchar(15) DEFAULT NULL,
   `time` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `patients`
+--
+
+INSERT INTO `patients` (`id`, `first_name`, `middle_name`, `last_name`, `username`, `email`, `passwordd`, `image_of_id`, `profile_image`, `date_of_birth`, `blood_type`, `gender`, `addresses`, `city`, `phone_number`, `time`) VALUES
+(21, 'hola', 'fghj', 'fgchj', 'test', 'holandeveloper@gmail.com', 'e8f2371579ed52ff0207ecd2d585f53c', 'test1', 'test2', 0, 'A+', 'on', 'dfghjk', 'Erbil', '1234567', 1684748678),
+(22, 'holan', 'omeed', 'kunimohammed', 'holan', 'holan1@gmail.com', 'e8f2371579ed52ff0207ecd2d585f53c', 'test1', 'test2', 990512672, 'A+', 'on', '                                                                                                    ', 'Erbil', '9647981', 1684749649),
+(24, 'holan', 'omeed', 'Mohammed', 'holan101', 'holanomed83@gmail.com', '13287572', 'afljk', 'fdgdfsg', 1165465, 'O+', 'male', 'erbil', 'erbil', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -341,7 +366,7 @@ ALTER TABLE `vitals`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `allergies`
@@ -359,7 +384,7 @@ ALTER TABLE `disabilities`
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `medical_procedures`
@@ -371,7 +396,7 @@ ALTER TABLE `medical_procedures`
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `patient_files`
