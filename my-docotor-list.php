@@ -1,3 +1,21 @@
+<?php
+
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+$patint=new Patients();
+if($patint->getAuthority() <= 0){
+    header("Location: sign-in.php");
+    exit();
+}
+$patint->setId($patint->getAuthority());
+$patint->getById();
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +68,7 @@
                             </li>
 
                             <li>
-                                <a href="dashboard-3.php" class="iq-waves-effect"><i
+                                <a href="patient.php" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>Patient Dashboard</span></a>
                             </li>
 

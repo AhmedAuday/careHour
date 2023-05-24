@@ -1,3 +1,24 @@
+<?php
+
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+
+  $Doc = new Doctors();
+  if($Doc->getAuthority() <= 0){
+      header("Location: sign-in.php");
+      exit();
+  }
+  $Doc->setId($Doc->getAuthority());
+  $Doc->getById();
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -287,7 +308,7 @@
                                     <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
                                         <img src="/images/user/1.jpg" class="img-fluid rounded mr-3" alt="user" />
                                         <div class="caption">
-                                            <h6 class="mb-0 line-height">Bini Jets</h6>
+                                            <h6 class="mb-0 line-height"><?= $Doc->getUsername()  ?></h6>
                                             <span class="font-size-12">Available</span>
                                         </div>
                                     </a>
@@ -296,7 +317,7 @@
                                             <div class="iq-card-body p-0">
                                                 <div class="bg-primary p-3">
                                                     <h5 class="mb-0 text-white line-height">
-                                                        Hello Bini Jets
+                                                        Hello <?= $Doc->getUsername()  ?>
                                                     </h5>
                                                     <span class="text-white font-size-12">Available</span>
                                                 </div>

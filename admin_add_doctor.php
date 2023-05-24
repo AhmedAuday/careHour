@@ -1,3 +1,63 @@
+<?php
+
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+
+  $admin = new Admins();
+  if($admin->getAuthority() <= 0){
+      header("Location: sign-in.php");
+      exit();
+  }
+  $admin->setId($admin->getAuthority());
+  $admin->getById();
+
+
+
+  try {
+    if(isset($_POST['submit'])){
+        echo "<script>alert('hi')</script>";
+
+           $new_doctor = new Doctors();
+                   $new_doctor->setUser_id($admin->getId()); //TODO Cheak this plssse
+                   $new_doctor->setFirst_name($_POST['fname']);
+                   $new_doctor->setMiddle_name($_POST['mname']);
+                   $new_doctor->setLast_name($_POST['lname']);
+                   $new_doctor->setUsername($_POST['uname']);
+                   $new_doctor->setEmail($_POST['email']);
+                   $new_doctor->setPasswordd(encrypt($_POST['pwd']));
+                   $new_doctor->setImage_of_id("test1");
+                   $new_doctor->setProfile_image("test2");
+                   $new_doctor->setDob($_POST['dob']);
+                   $new_doctor->setSpecialty($_POST['specialty']);
+                   $new_doctor->setGender($_POST['gender']);
+                   $new_doctor->setAddresses($_POST['address']);
+                   $new_doctor->setEducation($_POST['education']);
+                   $new_doctor->setExperience_years($_POST['experience']);
+                   $new_doctor->setStart_office_hour(time()/84600/24/$_POST['start_office_hour']);
+                   $new_doctor->setEnd_office_hour(time($_POST['end_office_hour']));
+                   $new_doctor->setBio($_POST['bio']);
+                   $new_doctor->setPhone($_POST['phone']);
+                   $new_doctor->add();
+                   
+                   
+                  
+    
+                  
+     }
+  } catch (\Throwable $th) {
+    print_r($th);
+    
+  }
+
+  
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +108,7 @@
                         <ul id="iq-sidebar-toggle" class="iq-menu">
 
                             <li class="iq-menu-title">
-                                <i class="ri-subtract-line"></i><span>Doctor Dashboard</span>
+                                <i class="ri-subtract-line"></i><span>Admin Dashboard</span>
                             </li>
                             <li>
                                 <a href="admin_main_dashboard.php" class="iq-waves-effect"><i
@@ -157,152 +217,9 @@
                                             <i class="ri-notification-3-fill"></i>
                                             <span class="bg-danger dots"></span>
                                         </a>
-                                        <div class="iq-sub-dropdown">
-                                            <div class="iq-card shadow-none m-0">
-                                                <div class="iq-card-body p-0">
-                                                    <div class="bg-primary p-3">
-                                                        <h5 class="mb-0 text-white">
-                                                            All Notifications<small class="badge badge-light
-                                float-right pt-1">4</small>
-                                                        </h5>
-                                                    </div>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/01.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Emma Watson Bini</h6>
-                                                                <small class="float-right font-size-12">Just Now</small>
-                                                                <p class="mb-0">95 MB</p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/02.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">New customer is join</h6>
-                                                                <small class="float-right font-size-12">5 days
-                                                                    ago</small>
-                                                                <p class="mb-0">Jond Bini</p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/03.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Two customer is left</h6>
-                                                                <small class="float-right font-size-12">2 days
-                                                                    ago</small>
-                                                                <p class="mb-0">Jond Bini</p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/04.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">New Mail from Fenny</h6>
-                                                                <small class="float-right font-size-12">3 days
-                                                                    ago</small>
-                                                                <p class="mb-0">Jond Bini</p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </li>
-                                    <li class="nav-item dropdown">
-                                        <a href="#" class="search-toggle iq-waves-effect">
-                                            <i class="ri-mail-open-fill"></i>
-                                            <span class="bg-primary count-mail"></span>
-                                        </a>
-                                        <div class="iq-sub-dropdown">
-                                            <div class="iq-card shadow-none m-0">
-                                                <div class="iq-card-body p-0">
-                                                    <div class="bg-primary p-3">
-                                                        <h5 class="mb-0 text-white">
-                                                            All Messages<small class="badge badge-light
-                                float-right pt-1">5</small>
-                                                        </h5>
-                                                    </div>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/01.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Bini Emma Watson</h6>
-                                                                <small class="float-left font-size-12">13 Jun</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/02.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Lorem Ipsum Watson</h6>
-                                                                <small class="float-left font-size-12">20 Apr</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/03.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Why do we use it?</h6>
-                                                                <small class="float-left font-size-12">30 Jun</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/04.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Variations Passages</h6>
-                                                                <small class="float-left font-size-12">12 Sep</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/05.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Lorem Ipsum generators</h6>
-                                                                <small class="float-left font-size-12">5 Dec</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+
                                 </ul>
                             </div>
                             <ul class="navbar-list">
@@ -311,7 +228,7 @@
                                            align-items-center">
                                         <img src="images/user/1.jpg" class="img-fluid rounded mr-3" alt="user" />
                                         <div class="caption">
-                                            <h6 class="mb-0 line-height">Bini Jets</h6>
+                                            <h6 class="mb-0 line-height"><?=$admin->getUsername()?></h6>
                                             <span class="font-size-12">Available</span>
                                         </div>
                                     </a>
@@ -320,7 +237,7 @@
                                             <div class="iq-card-body p-0">
                                                 <div class="bg-primary p-3">
                                                     <h5 class="mb-0 text-white line-height">
-                                                        Hello Bini Jets
+                                                        Hello <?=$admin->getUsername()?>
                                                     </h5>
                                                     <span class="text-white font-size-12">Available</span>
                                                 </div>
@@ -391,6 +308,8 @@
                                     </div>
                                 </div>
                                 <div class="iq-card-body">
+
+                                    <!-- TODO ### FIX THIS add upload to it### -->
                                     <form>
                                         <div class="form-group">
                                             <div class="add-img-user profile-img-edit">
@@ -398,7 +317,7 @@
                                                     alt="profile-pic" />
                                                 <div class="p-image">
                                                     <a href="javascript:void();" class="upload-button btn
-                            iq-bg-primary">File Upload</a>
+                                                      iq-bg-primary">File Upload</a>
                                                     <input class="file-upload" type="file" accept="image/*" />
                                                 </div>
                                             </div>
@@ -409,7 +328,7 @@
                                                     <a href="javascript:void();">.png</a>
                                                     <a href="javascript:void();">.jpeg</a>
                                                     <span>allowed</span>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -419,7 +338,7 @@
 
 
                                     </form>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -432,109 +351,109 @@
                                 </div>
                                 <div class="iq-card-body">
                                     <div class="new-user-info">
-                                        <form>
+                                        <form action="admin_add_doctor.php" method="POST" id="add-doctor">
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label for="fname">First Name:</label>
-                                                    <input type="text" class="form-control" id="fname"
+                                                    <input type="text" class="form-control" id="fname" name="fname"
                                                         placeholder="First Name" />
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="Mname">Middle Name:</label>
-                                                    <input type="text" class="form-control" id="Mname"
+                                                    <input type="text" class="form-control" id="Mname" name="mname"
                                                         placeholder="Middle Name" />
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="lname">Last Name:</label>
-                                                    <input type="text" class="form-control" id="lname"
+                                                    <input type="text" class="form-control" id="lname" name="lname"
                                                         placeholder="Last Name" />
                                                 </div>
 
 
-                                              
+
                                                 <div class="form-group col-md-6">
-                                                <label for="lname">Speciality:</label>
+                                                    <label for="lname">specialty:</label>
                                                     <input type="text" class="form-control" id="Speciality"
-                                                        placeholder="Speciality" />
-                                                
+                                                        name="specialty" placeholder="specialty" />
+
                                                 </div>
 
 
                                                 <div class="form-group col-md-6">
                                                     <label for="mobno">Mobile Number:</label>
-                                                    <input type="text" class="form-control" id="mobno"
+                                                    <input type="text" class="form-control" id="mobno" name="phone"
                                                         placeholder="Mobile Number" />
                                                 </div>
 
                                                 <div class="col-sm-6">
                                                     <label for="dob">Date Of Birth:</label>
-                                                    <input class="form-control" id="dob" value="1984-01-24" />
+                                                    <input class="form-control" id="dob" value="19840124" name="dob" />
                                                 </div>
 
                                                 <div class="col-sm-6">
                                                     <label for="dob">Address:</label>
-                                                    <input type="text" class="form-control" id="dob" placeholder="Address"/>
+                                                    <input type="text" class="form-control" id="dob"
+                                                        placeholder="Address" name="address" />
                                                 </div>
-                                     
 
-                                                <div class="form-group col-md-6">
-                                                    <label for="pno">Zip Code:</label>
-                                                    <input type="text" class="form-control" id="pno"
-                                                        placeholder="Zip Code" />
-                                                </div>
+
+
 
                                                 <div class="form-group col-md-6">
                                                     <label>Education</label>
-                                                    <textarea class="form-control" name="address" rows="1"
+                                                    <textarea class="form-control" name="education" rows="1"
                                                         style="line-height: 22px"></textarea>
                                                 </div>
 
-                                               
+
 
                                                 <div class="form-group col-md-6">
                                                     <label>Bio</label>
-                                                    <textarea class="form-control" name="address" rows="1"
+                                                    <textarea class="form-control" name="bio" rows="1"
                                                         style="line-height: 22px"></textarea>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="officeS">Start Ofiice Hour:</label>
-                                                    <input class="form-control" id="officeS" value="" type="time" />
+                                                    <input class="form-control" id="officeS" value="" type="nub"
+                                                        name="start_office_hour" />
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <label for="officeE">End Ofiice Hour:</label>
-                                                    <input class="form-control" id="officeE" value="" type="time" />
+                                                    <input class="form-control" id="officeE" value="" type="num"
+                                                        name="end_office_hour" />
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <label for="exe"> Experience Year </label>
-                                                    <input class="form-control" id="exe" value="" type="number" />
+                                                    <input class="form-control" id="exe" value="" type="number"
+                                                        name="experience" />
                                                 </div>
                                                 <br>
                                                 <div class="col-md-10">
                                                     <label class="d-block">Gender:</label>
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" id="customRadio6" name="customRadio1"
+                                                        <input type="radio" id="customRadio6" name="gender"
                                                             class="custom-control-input" checked="" />
                                                         <label class="custom-control-label" for="customRadio6">
                                                             Male
                                                         </label>
                                                     </div>
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" id="customRadio7" name="customRadio1"
+                                                        <input type="radio" id="customRadio7" name="gender"
                                                             class="custom-control-input" />
                                                         <label class="custom-control-label" for="customRadio7">
                                                             Female
                                                         </label>
                                                     </div>
                                                     <div class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" id="customRadio8" name="customRadio1"
+                                                        <input type="radio" id="customRadio8" name="gender"
                                                             class="custom-control-input" />
                                                         <label class="custom-control-label" for="customRadio8">
                                                             Other
                                                         </label>
                                                     </div>
-                                                
+
                                                 </div>
                                             </div>
 
@@ -543,34 +462,41 @@
                                             <div class="row">
                                                 <div class="form-group col-md-6">
                                                     <label for="uname">User Name:</label>
-                                                    <input type="text" class="form-control" id="uname"
+                                                    <input type="text" class="form-control" id="uname" name="uname"
                                                         placeholder="User Name" />
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="email">Email:</label>
-                                                    <input type="email" class="form-control" id="email"
+                                                    <input type="email" class="form-control" id="email" name="email"
                                                         placeholder="Email" />
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="pass">Password:</label>
                                                     <input type="password" class="form-control" id="pass"
-                                                        placeholder="Password" />
+                                                        placeholder="Password" name="pwd" />
                                                 </div>
+
+                                                <!-- TODO FIX THIS  -->
                                                 <div class="form-group col-md-6">
                                                     <label for="rpass">Repeat Password:</label>
                                                     <input type="password" class="form-control" id="rpass"
                                                         placeholder="Repeat Password " />
                                                 </div>
+
+                                                <!-- TODO FIX THIS  -->
                                                 <div class="form-group col-md-6">
-                                                <input type="file" class="custom-file-input"
-                                                        id="validatedCustomFile" required="" name="photo_id" >
-                                                    <label class="custom-file-label" for="customFile">Upload ID Photo:</label>
+                                                    <input type="file" class="custom-file-input"
+                                                        id="validatedCustomFile" required="" name="photo_id">
+                                                    <label class="custom-file-label" for="customFile">Upload ID
+                                                        Photo:</label>
                                                 </div>
                                             </div>
+
+                                            <!-- TODO FIX THIS too if possible  -->
                                             <div class="checkbox">
                                                 <label><input class="mr-2" type="checkbox" />Accept And continue</label>
                                             </div>
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" class="btn btn-primary" name="submit">
                                                 Add New Doctor
                                             </button>
                                         </form>

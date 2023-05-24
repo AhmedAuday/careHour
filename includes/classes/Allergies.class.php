@@ -215,8 +215,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `allergies` (`id`, `patient_id`, `name`, `severity`, `spicifie_allerge`, `time`) VALUES 
-      ('$this->id', '$this->patient_id', '$this->name', '$this->severity', '$this->spicifie_allerge', '$this->time')";
+      $sql = "INSERT INTO `allergies` ( `patient_id`, `name`, `severity`, `spicifie_allerge`, `time`) VALUES 
+      ( '$this->patient_id', '$this->name', '$this->severity', '$this->spicifie_allerge', '$this->time')";
       if($this->db()->query($sql)){
         return true;
       }else{

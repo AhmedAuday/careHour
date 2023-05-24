@@ -903,8 +903,8 @@
     }
 
     public function add(){
-      $sql = "INSERT INTO `doctors` (`id`, `user_id`, `first_name`, `middle_name`, `last_name`, `username`, `email`, `passwordd`, `created_at`, `phone`, `image_of_id`, `profile_image`, `gender`, `dob`, `specialty`, `addresses`, `education`, `experience_years`, `start_office_hour`, `end_office_hour`, `bio`, `time`) VALUES 
-      ('$this->id', '$this->user_id', '$this->first_name', '$this->middle_name', '$this->last_name', '$this->username', '$this->email', '$this->passwordd', '$this->created_at', '$this->phone', '$this->image_of_id', '$this->profile_image', '$this->gender', '$this->dob', '$this->specialty', '$this->addresses', '$this->education', '$this->experience_years', '$this->start_office_hour', '$this->end_office_hour', '$this->bio', '$this->time')";
+      $sql = "INSERT INTO `doctors` ( `user_id`, `first_name`, `middle_name`, `last_name`, `username`, `email`, `passwordd`, `created_at`, `phone`, `image_of_id`, `profile_image`, `gender`, `dob`, `specialty`, `addresses`, `education`, `experience_years`, `start_office_hour`, `end_office_hour`, `bio`, `time`) VALUES 
+      ( '$this->user_id', '$this->first_name', '$this->middle_name', '$this->last_name', '$this->username', '$this->email', '$this->passwordd', '$this->created_at', '$this->phone', '$this->image_of_id', '$this->profile_image', '$this->gender', '$this->dob', '$this->specialty', '$this->addresses', '$this->education', '$this->experience_years', '$this->start_office_hour', '$this->end_office_hour', '$this->bio', '$this->time')";
       if($this->db()->query($sql)){
         return true;
       }else{

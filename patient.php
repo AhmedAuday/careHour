@@ -12,7 +12,25 @@ if($patint->getAuthority() <= 0){
 $patint->setId($patint->getAuthority());
 $patint->getById();
 
+$curl = curl_init();
+curl_setopt_array($curl, [
+    CURLOPT_URL => "https://api.api-ninjas.com/v1/quotes?category=medical",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => [
+        "x-api-key: ikvZ6B8DHjPbdg/jQ9RgNQ==uclebjeFzSf94Ic3"
+    ],
+]);
+
+
+
 ?>
+
 
 
 <!DOCTYPE html>
@@ -42,226 +60,280 @@ $patint->getById();
 
         <link rel="stylesheet" href="/css/flatpickr.min.css" />
         <style>
-            @import "bourbon";
-@import "neat";
+        @import "bourbon";
+        @import "neat";
 
-$base-duration: 500ms;
+        $base-duration: 500ms;
 
-// Colors
-$color-1: #2c3e50;
-$color-2: #3498db;
-$color-3: #2ecc71;
-$color-4: #e74c3c;
+        // Colors
+        $color-1: #2c3e50;
+        $color-2: #3498db;
+        $color-3: #2ecc71;
+        $color-4: #e74c3c;
 
-// Breakpoints
-$sm: new-breakpoint(min-width 320px);
-$med: new-breakpoint(min-width 768px);
-$lg: new-breakpoint(min-width 1024px);
+        // Breakpoints
+        $sm: new-breakpoint(min-width 320px);
+        $med: new-breakpoint(min-width 768px);
+        $lg: new-breakpoint(min-width 1024px);
 
-*,
-*:before,
-*:after {
-	box-sizing: border-box;
-	outline: none;
-}
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+            outline: none;
+        }
 
-body {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100vh;
-	background-color: whitesmoke;
-	font-family: "Source Sans Pro", sans-serif;
-	font-size: 16px;
-	font-smooth: auto;
-	font-weight: 300;
-	line-height: 1.5;
-	color: #444;
-	background-image: url("http://dakotarumors.com/assets/img/header-bg.jpg");
-	background-position: center center;
-	background-size: cover;
+        body {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            background-color: whitesmoke;
+            font-family: "Source Sans Pro", sans-serif;
+            font-size: 16px;
+            font-smooth: auto;
+            font-weight: 300;
+            line-height: 1.5;
+            color: #444;
+            background-image: url("http://dakotarumors.com/assets/img/header-bg.jpg");
+            background-position: center center;
+            background-size: cover;
 
-	&:before {
-		position: absolute;
-		content: "";
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(white, 0.7);
-		z-index: -1;
-	}
-}
+            &:before {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(white, 0.7);
+                z-index: -1;
+            }
+        }
 
-p {
-	font-weight: 400;
-}
+        p {
+            font-weight: 400;
+        }
 
-a {
-	text-decoration: none;
-}
+        a {
+            text-decoration: none;
+        }
 
-label {
-	cursor: pointer;
-}
+        label {
+            cursor: pointer;
+        }
 
-.modal-btn {
-	position: relative;
-	display: table-cell;
-	width: 100px;
-	height: 100px;
-	background-color: $color-1;
-	box-shadow: 0 0 40px rgba(black, 0.3);
-	border-radius: 50%;
-	font-size: 36px;
-	color: white;
-	text-align: center;
-	line-height: 2.75;
-	transition: box-shadow 250ms ease;
+        .modal-btn {
+            position: relative;
+            display: table-cell;
+            width: 100px;
+            height: 100px;
+            background-color: $color-1;
+            box-shadow: 0 0 40px rgba(black, 0.3);
+            border-radius: 50%;
+            font-size: 36px;
+            color: white;
+            text-align: center;
+            line-height: 2.75;
+            transition: box-shadow 250ms ease;
 
-	&:hover {
-		box-shadow: 0 0 5px rgba(black, 0.3);
-	}
-}
+            &:hover {
+                box-shadow: 0 0 5px rgba(black, 0.3);
+            }
+        }
 
-.modal-bg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	z-index: 10;
-	visibility: hidden;
-	transition: background-color $base-duration/2 linear;
-}
+        .modal-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 10;
+            visibility: hidden;
+            transition: background-color $base-duration/2 linear;
+        }
 
-.modal-content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 50%;
-	height: auto;
-	margin-top: -18%;
-	margin-left: -25%;
-	padding: 30px;
-	background-color: white;
-	border-radius: 4px;
-	box-shadow: 0 0 50px rgba(black, 0.5);
-	transform: scale(0);
-	transition: transform $base-duration/2 ease;
-	visibility: hidden;
-	z-index: 20;
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50%;
+            height: auto;
+            margin-top: -18%;
+            margin-left: -25%;
+            padding: 30px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 0 50px rgba(black, 0.5);
+            transform: scale(0);
+            transition: transform $base-duration/2 ease;
+            visibility: hidden;
+            z-index: 20;
 
-	.close {
-		position: relative;
-		float: right;
-		font-size: 18px;
-		transition: transform $base-duration ease;
-		z-index: 11;
+            .close {
+                position: relative;
+                float: right;
+                font-size: 18px;
+                transition: transform $base-duration ease;
+                z-index: 11;
 
-		&:hover {
-			color: $color-2;
-			transform: rotate(540deg);
-		}
-	}
+                &:hover {
+                    color: $color-2;
+                    transform: rotate(540deg);
+                }
+            }
 
-	header {
-		position: relative;
-		display: block;
-		border-bottom: 1px solid #eee;
-		//background-color: gray;
+            header {
+                position: relative;
+                display: block;
+                border-bottom: 1px solid #eee;
+                //background-color: gray;
 
-		h2 {
-			margin: 0 0 10px;
-			padding: 0;
-			font-size: 28px;
-		}
-	}
+                h2 {
+                    margin: 0 0 10px;
+                    padding: 0;
+                    font-size: 28px;
+                }
+            }
 
-	article {
-		position: relative;
-		display: block;
-		margin: 0;
-		padding: 0;
-		font-size: 16px;
-		line-height: 1.75;
+            article {
+                position: relative;
+                display: block;
+                margin: 0;
+                padding: 0;
+                font-size: 16px;
+                line-height: 1.75;
 
-		p {
-			//margin-bottom: 30px;
-		}
-	}
+                p {
+                    //margin-bottom: 30px;
+                }
+            }
 
-	footer {
-		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		width: 100%;
-		margin: 0;
-		padding: 10px 0 0;
+            footer {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                width: 100%;
+                margin: 0;
+                padding: 10px 0 0;
 
-		.button {
-			position: relative;
-			padding: 10px 30px;
-			border-radius: 3px;
-			font-size: 14px;
-			font-weight: 400;
-			color: white;
-			text-transform: uppercase;
-			overflow: hidden;
+                .button {
+                    position: relative;
+                    padding: 10px 30px;
+                    border-radius: 3px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: white;
+                    text-transform: uppercase;
+                    overflow: hidden;
 
-			&:before {
-				position: absolute;
-				content: "";
-				top: 0;
-				left: 0;
-				width: 0;
-				height: 100%;
-				background-color: rgba(white, 0.2);
-				transition: width 250ms ease;
-				z-index: 0;
-			}
+                    &:before {
+                        position: absolute;
+                        content: "";
+                        top: 0;
+                        left: 0;
+                        width: 0;
+                        height: 100%;
+                        background-color: rgba(white, 0.2);
+                        transition: width 250ms ease;
+                        z-index: 0;
+                    }
 
-			&:hover {
-				&:before {
-					width: 100%;
-				}
-			}
+                    &:hover {
+                        &:before {
+                            width: 100%;
+                        }
+                    }
 
-			&.success {
-				margin-right: 5px;
-				background-color: $color-3;
-			}
+                    &.success {
+                        margin-right: 5px;
+                        background-color: $color-3;
+                    }
 
-			&.danger {
-				background-color: $color-4;
-			}
-		}
-	}
-}
+                    &.danger {
+                        background-color: $color-4;
+                    }
+                }
+            }
+        }
 
-#modal {
-	display: none;
+        #modal {
+            display: none;
 
-	&:checked ~ .modal-bg {
-		visibility: visible;
-		background-color: black;
-		opacity: 0.7;
-		transition: background-color $base-duration/2 linear;
-	}
+            &:checked~.modal-bg {
+                visibility: visible;
+                background-color: black;
+                opacity: 0.7;
+                transition: background-color $base-duration/2 linear;
+            }
 
-	&:checked ~ .modal-content {
-		visibility: visible;
-		transform: scale(1);
-		transition: transform $base-duration/2 ease;
-		z-index: 111;
-	}
-}
-</style>
+            &:checked~.modal-content {
+                visibility: visible;
+                transform: scale(1);
+                transition: transform $base-duration/2 ease;
+                z-index: 111;
+            }
+        }
+
+        </style>
+        <style media="screen">
+        *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* body{
+    background-color: #0855ae;
+} */
+        .popup {
+            background-color: #ceebee;
+            width: 420px;
+            padding: 30px 40px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            border-radius: 8px;
+            font-family: "Poppins", sans-serif;
+            display: none;
+            text-align: center;
+        }
+
+        .popup #close {
+            display: block;
+            margin: 0 0 20px auto;
+            background-color: transparent;
+            font-size: 30px;
+            color: #ffffff;
+            background: #03549a;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .popup .out_title {
+            margin-top: -20px;
+        }
+
+        .popup .qoute {
+            font-size: 14px;
+            text-align: justify;
+            margin: 20px 0;
+            line-height: 25px;
+        }
+
+        </style>
     </head>
 
     <body class="sidebar-main-menu">
@@ -276,7 +348,7 @@ label {
             <!-- Sidebar  -->
             <div class="iq-sidebar">
                 <div class="iq-sidebar-logo d-flex justify-content-between">
-                    <a href="dashboard-3.php">
+                    <a href="patient.php">
                         <img src="/images/logo.png" class="img-fluid" alt="" />
                         <span>CareHour</span>
                     </a>
@@ -297,8 +369,8 @@ label {
                             </li>
 
                             <li>
-                                <a href="dashboard-3.php" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>Patient Dashboard</span></a>
+                                <a href="patient.php" class="iq-waves-effect"><i class="ri-group-fill"></i><span>Patient
+                                        Dashboard</span></a>
                             </li>
 
                             <li>
@@ -548,7 +620,7 @@ label {
                                     <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
                                         <img src="/images/user/1.jpg" class="img-fluid rounded mr-3" alt="user" />
                                         <div class="caption">
-                                            <h6 class="mb-0 line-height">Bini Jets</h6>
+                                            <h6 class="mb-0 line-height"><?= $patint->getFirst_name()?></h6>
                                             <span class="font-size-12">Available</span>
                                         </div>
                                     </a>
@@ -557,7 +629,7 @@ label {
                                             <div class="iq-card-body p-0">
                                                 <div class="bg-primary p-3">
                                                     <h5 class="mb-0 text-white line-height">
-                                                        Hello Bini Jets
+                                                        Hello <?= $patint->getFirst_name()." ".$patint->getLast_name()?>
                                                     </h5>
                                                     <span class="text-white font-size-12">Available</span>
                                                 </div>
@@ -574,7 +646,7 @@ label {
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <a href="profile-edit.php" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="profile-edit.php?id=<?=$patint->getID()?>" class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-profile-line"></i>
@@ -616,12 +688,13 @@ label {
                 <!-- TOP Nav Bar END -->
 
                 <div class="container-fluid">
-                    <input type="checkbox" id="modal" />
+                    <br><br><br>
+                    <!-- <input type="checkbox" id="modal" />
                     <p class="blurp">Do it. Click the Button. I dare you.</p>
                     <label for="modal" class="modal-btn">
                     	<i class="fa fa-fire" aria-hidden="true"></i>
                     </label>
-                    <!-- <div class="modal-bg"></div> -->
+                    <div class="modal-bg"></div> 
                     <label for="modal" class="modal-bg"></label>
                     <div class="modal-content">
                     	<label for="modal" class="close">
@@ -638,7 +711,7 @@ label {
                     		<label for="modal" class="button danger">Close</label>
                     	</footer>
                     </div>
-                 </div>      
+                 </div>       -->
                     <div class="row">
                         <div class="col-lg-4 row m-0 p-0">
                             <div class="col-sm-12">
@@ -656,7 +729,7 @@ label {
                                                         <?php
                                                         
                                                         
-                                                        echo ($patint->getFirst_name()."-".$patint->getMiddle_name());
+                                                        echo ($patint->getFirst_name()."".$patint->getMiddle_name());
                                                         
                                                         
                                                         
@@ -665,7 +738,7 @@ label {
                                                 </h4>
                                                 <p><?php
                                                     $t = time() - $patint->getDate_of_birth();
-                                                    echo ($t/86400/30/12); ?></p>
+                                                    echo floor($t/86400/30/12); ?></p>
                                                 <p>
                                                     <?php echo "Patient" ?>
                                                 </p>
@@ -1011,7 +1084,7 @@ label {
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <!-- Footer -->
                 <footer class="bg-white iq-footer">
@@ -1029,7 +1102,44 @@ label {
         </div>
         <!-- Wrapper END -->
         <!-- Start Pop UP quotes -->
-        
+        <div class="popup">
+            <button id="close">&times;</button>
+            <h2 class="out_title">Healthy Qoute</h2>
+            <p class="qoute">
+                <?php 
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            curl_close($curl);
+            if ($err) {
+                echo "cURL Error #:" . $err;
+            } else {
+                foreach (json_decode($response) as $key => $value) {
+                    echo $value->quote;
+                }
+                //echo $response;
+            }
+            
+            ?>
+
+            </p>
+
+        </div>
+        <!--Script-->
+        <script type="text/javascript">
+        window.addEventListener("load", function() {
+            setTimeout(
+                function open(event) {
+                    document.querySelector(".popup").style.display = "block";
+                },
+                2000
+            )
+        });
+
+
+        document.querySelector("#close").addEventListener("click", function() {
+            document.querySelector(".popup").style.display = "none";
+        });
+        </script>
         <!-- End Pop UP quotes -->
 
 

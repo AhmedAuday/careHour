@@ -1,19 +1,26 @@
 <?php
 
-// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
-// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
-// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
-// include_once $_SERVER["DOCUMENT_ROOT"].'/includes/classes/Doctors.class.php';
-
-
-// $Doctors=new Doctors();
-
-// $Doctors->getById(session_id());
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 
 
 
+  $id=$_GET['id'];
 
 
+  $patint=new Patients();
+if($patint->getAuthority() <= 0){
+    header("Location: sign-in.php");
+    exit();
+}
+$patint->setId($patint->getAuthority());
+$patint->getById();
+$id=$_GET['id'];
+
+$curent_doc = new Doctors();
+$curent_doc->setId($id);
+$curent_doc->getById();
 ?>
 
 
@@ -398,7 +405,7 @@
                                                 class="avatar-130 img-fluid" />
                                         </div>
                                         <div class="text-center mt-3 pl-3 pr-3">
-                                            <h4><b>zhyar</b></h4>
+                                            <h4><b><?=$curent_doc->getFirst_name()?></b></h4>
                                             <p>Doctor</p>
                                             <p class="mb-0">
                                                 Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -435,24 +442,29 @@
                                         <div class="row">
                                             <!-- check this part Holan -->
                                             <div class="col-4">First Name:</div>
-                                            <div class="col-8"><?= $Doctors->getFirst_name()?></div>
+                                            <div class="col-8"><?= $curent_doc->getFirst_name()?></div>
                                             <div class="col-4">Last Name:</div>
-                                            <div class="col-8"><?= $Doctors->getlast_name()?></div>
+                                            <div class="col-8"><?= $curent_doc->getlast_name()?></div>
                                             <div class="col-4">Age:</div>
-                                            <div class="col-8"><?= date_default_timezone_set('Asia/Baghdad');$date = date('Y-m-d', time());-$Doctors->getdob()?></div>
+                                            <div class="col-8">
+                                                <?php
+                                            $t = time() - $curent_doc->getDob();
+                                                    echo floor($t/86400/30/12); ?></p>?>
                                             <div class="col-4">Position:</div>
                                             <div class="col-8">Senior doctor</div>
                                             <div class="col-4">Email:</div>
                                             <div class="col-4">Gender:</div>
-                                            <div class="col-8"><?= $Doctors->getGender()?></div>
+                                            <div class="col-8"><?= $curent_doc->getGender()?></div>
                                             <div class="col-8">
-                                                <a href="mailto:biniJets24@demo.com">
-                                                    biniJets24@demo.com
-                                                </a>
+                                                <?php
+                                                echo "<a href=".$curent_doc->getEmail().">"
+                                                    .$curent_doc->getEmail()
+                                                ."</a>"
+                                                ?>
                                             </div>
                                             <div class="col-4">Phone:</div>
                                             <div class="col-8">
-                                                <a href="tel:001-2351-25612"><?= $Doctors->getPhone()?></a>
+                                                <a href="tel:001-2351-25612"><?= $curent_doc->getPhone()?></a>
                                             </div>
                                             <div class="col-4">Location:</div>
                                             <div class="col-8">USA</div>

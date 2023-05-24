@@ -9,9 +9,9 @@
         <meta content="" name="description">
         <meta content="" name="keywords">
 
-        <!-- Favicons -->
-        <link href="assets/img/favicon.png" rel="icon">
-        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Favicons -->
+  <!-- <link href="assets/img/favicon.png" rel="icon"> -->
+  <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
 
         <!-- Google Fonts -->
         <link
@@ -57,7 +57,7 @@
         <header id="header" class="fixed-top">
             <div class="container d-flex align-items-center">
 
-                <h1 class="logo me-auto"><a href="index.html">CareHour</a></h1>
+                <h1 class="logo me-auto"><a href="index.php">CareHour</a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -262,7 +262,7 @@
                                     <p>The Ceo of our company</p>
                                     <div class="social">
 
-                                        <a href=""><i class="ri-github-fill"></i></a>
+                                        <a href="https://github.com/holan-3-x"><i class="ri-github-fill"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -278,7 +278,7 @@
                                     <p>Amazing IT sekills</p>
                                     <div class="social">
 
-                                        <a href=""><i class="ri-github-fill"></i></a>
+                                        <a href="https://github.com/AhmedAuday"><i class="ri-github-fill"></i></a>
 
                                     </div>
                                 </div>
@@ -295,7 +295,7 @@
                                     <p>Manges all the Bussniss side</p>
                                     <div class="social">
 
-                                        <a href=""><i class="ri-github-fill"></i></a>
+                                        <a href="https://github.com/Zhyo21"><i class="ri-github-fill"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -377,7 +377,7 @@
                         <!-- You can delete the links only if you purchased the pro version. -->
                         <!-- Licensing information: https://bootstrapmade.com/license/ -->
                         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/ -->
-                        Designed by <a href="https://bootstrapmade.com/">CareHour</a>
+                        Designed by <a href="#">CareHour</a>
                     </div>
                 </div>
 

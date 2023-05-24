@@ -10,17 +10,15 @@ $doctor=new Doctors();
 
 $doctor->getById(session_id());
 
-
-
-
+$doctor = new Doctors();
+if($doctor->getAuthority() <= 0){
+    header("Location: sign-in.php");
+    exit();
+}
+$doctor->setId($doctor->getAuthority());
+$doctor->getById();
 
 ?>
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +72,7 @@ $doctor->getById(session_id());
                             </li>
 
                             <li>
-                                <a href="dashboard-3.php" class="iq-waves-effect"><i
+                                <a href="patient.php" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>Patient Dashboard</span></a>
                             </li>
 
@@ -82,7 +80,7 @@ $doctor->getById(session_id());
                                 <a href="document.php" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>document</span></a>
                             </li>
-                           
+
 
                             <li>
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"

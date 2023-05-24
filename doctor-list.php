@@ -1,9 +1,33 @@
 <?php
 
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
-  include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
+include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+$patint=new Patients();
+if($patint->getAuthority() <= 0){
+    header("Location: sign-in.php");
+    exit();
+}
+$patint->setId($patint->getAuthority());
+$patint->getById();
+
+
+$doctor = new Doctors();
+$doctors = $doctor->getAll();
+
+
+
+
+
+
 ?>
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +60,7 @@
             <!-- Sidebar  -->
             <div class="iq-sidebar">
                 <div class="iq-sidebar-logo d-flex justify-content-between">
-                    <a href="index.html">
+                    <a href="doctor-list.php">
                         <img src="../../images/logo.png" class="img-fluid" alt="" />
                         <span>CareHour</span>
                     </a>
@@ -57,18 +81,18 @@
                             </li>
 
                             <li>
-                                <a href="dashboard-3.html" class="iq-waves-effect"><i
-                                        class="ri-group-fill"></i><span>Patient Dashboard</span></a>
+                                <a href="patient.php" class="iq-waves-effect"><i class="ri-group-fill"></i><span>Patient
+                                        Dashboard</span></a>
                             </li>
 
 
 
                             <li>
-                                <a href="document.html" class="iq-waves-effect"><i
+                                <a href="document.php" class="iq-waves-effect"><i
                                         class="ri-group-fill"></i><span>document</span></a>
                             </li>
 
-                           
+
 
                             <li class="active main-active">
                                 <a href="#doctor-info" class="iq-waves-effect collapsed" data-toggle="collapse"
@@ -76,11 +100,11 @@
                                         class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                                 <ul id="doctor-info" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
                                     <li class="active">
-                                        <a href="doctor-list.html"><i class="ri-file-list-fill"></i>All Doctors</a>
+                                        <a href="doctor-list.php"><i class="ri-file-list-fill"></i>All Doctors</a>
                                     </li>
 
                                     <li>
-                                        <a href="my-docotor-list.html"><i class="ri-profile-fill"></i>MY Doctors</a>
+                                        <a href="my-docotor-list.php"><i class="ri-profile-fill"></i>MY Doctors</a>
                                     </li>
                                 </ul>
                             </li>
@@ -101,7 +125,7 @@
                     <div class="iq-navbar-custom">
                         <div class="iq-sidebar-logo">
                             <div class="top-logo">
-                                <a href="index.php" class="logo">
+                                <a href="patient.php" class="logo">
                                     <img src="/images/logo.png" class="img-fluid" alt="" />
                                     <span>CareHour</span>
                                 </a>
@@ -347,7 +371,7 @@
                                                     </div>
                                                 </a>
 
-                                                <a href="privacy-setting.html" class="iq-sub-card iq-bg-primary-hover">
+                                                <a href="#" class="iq-sub-card iq-bg-primary-hover">
                                                     <div class="media align-items-center">
                                                         <div class="rounded iq-card-icon iq-bg-primary">
                                                             <i class="ri-lock-line"></i>
@@ -361,7 +385,7 @@
                                                     </div>
                                                 </a>
                                                 <div class="d-inline-block w-100 text-center p-3">
-                                                    <a class="bg-primary iq-sign-btn" href="sign-in.html"
+                                                    <a class="bg-primary iq-sign-btn" href="sign-in.php"
                                                         role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
                                                 </div>
                                             </div>
@@ -374,7 +398,65 @@
                 </div>
                 <!-- TOP Nav Bar END -->
                 <div class="container-fluid">
-                    <div class=$d->">
+
+
+
+
+                    <?php
+
+
+
+
+foreach ($doctors as $d){
+
+
+  echo "
+            <div class='col-sm-6 col-md-3'>
+             <div class='iq-card'>
+               <div class='iq-card-body text-center'>
+                 <div class='doc-profile'>
+                   <img
+                     class='rounded-circle img-fluid avatar-80'
+                     src='../../images/user/12.jpg'
+                     alt='profile'
+                   />
+                 </div>
+                 <div class='iq-doc-info mt-3'>
+                   <h4>Dr. ".$d->first_name.' '.$d->last_name."</h4>
+                   <p class='mb-0'>".$d->specialty."</p>
+                   
+                 </div>
+                 <div class='iq-doc-description mt-2'>
+                   <p class='mb-0'>
+                     ".$d->bio."
+                   </p>
+                 </div>
+                 <div class='iq-doc-social-info mt-3 mb-3'>
+                   <ul class='m-0 p-0 list-inline'>
+                     <li>
+                       <a href='#'><i class='ri-facebook-fill'></i></a>
+                     </li>
+                     <li>
+                       <a href='#'><i class='ri-twitter-fill'></i></a>
+                     </li>
+                     <li>
+                       <a href='#'><i class='ri-google-fill'></i></a>
+                     </li>
+                   </ul>
+                 </div>
+                 <a href='profile.php?id=".$d->id."' class='btn btn-primary'
+                   >View Profile</a
+                 >
+               </div>
+             </div>
+           </div>
+         ";
+
+}
+
+
+?>
+                    <!-- <div>
                         <div class="col-sm-12">
                             <div class="iq-card">
                                 <div class="iq-card-header d-flex justify-content-between">
@@ -418,58 +500,58 @@
                                     <a href="profile.html" class="btn btn-primary">View Profile</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
 
 
-                    </div>
-                    <!-- Footer -->
-                    <footer class="bg-white iq-footer">
-                        <div class="container-fluid">
-                            <div class=$d->">
-                                <div class="col-lg-2"></div>
-                                <div class="col-lg-6 text-right">
-                                    Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
-                                </div>
+                </div>
+                <!-- Footer -->
+                <footer class="bg-white iq-footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-6 text-right">
+                                Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
                             </div>
                         </div>
-                    </footer>
-                    <!-- Footer END -->
-                </div>
+                    </div>
+                </footer>
+                <!-- Footer END -->
             </div>
-            <!-- Wrapper END -->
-            <!-- Optional JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="../../js/jquery.min.js"></script>
-            <script src="../../js/popper.min.js"></script>
-            <script src="../../js/bootstrap.min.js"></script>
-            <!-- Appear JavaScript -->
-            <script src="../../js/jquery.appear.js"></script>
-            <!-- Countdown JavaScript -->
-            <script src="../../js/countdown.min.js"></script>
-            <!-- Counterup JavaScript -->
-            <script src="../../js/waypoints.min.js"></script>
-            <script src="../../js/jquery.counterup.min.js"></script>
-            <!-- Wow JavaScript -->
-            <script src="../../js/wow.min.js"></script>
-            <!-- Apexcharts JavaScript -->
-            <script src="../../js/apexcharts.js"></script>
-            <!-- Slick JavaScript -->
-            <script src="../../js/slick.min.js"></script>
-            <!-- Select2 JavaScript -->
-            <script src="../../js/select2.min.js"></script>
-            <!-- Owl Carousel JavaScript -->
-            <script src="../../js/owl.carousel.min.js"></script>
-            <!-- Magnific Popup JavaScript -->
-            <script src="../../js/jquery.magnific-popup.min.js"></script>
-            <!-- Smooth Scrollbar JavaScript -->
-            <script src="../../js/smooth-scrollbar.js"></script>
-            <!-- lottie JavaScript -->
-            <script src="../../js/lottie.js"></script>
-            <!-- Chart Custom JavaScript -->
-            <script src="../../js/chart-custom.js"></script>
-            <!-- Custom JavaScript -->
-            <script src="../../js/custom.js"></script>
+        </div>
+        <!-- Wrapper END -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="../../js/jquery.min.js"></script>
+        <script src="../../js/popper.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <!-- Appear JavaScript -->
+        <script src="../../js/jquery.appear.js"></script>
+        <!-- Countdown JavaScript -->
+        <script src="../../js/countdown.min.js"></script>
+        <!-- Counterup JavaScript -->
+        <script src="../../js/waypoints.min.js"></script>
+        <script src="../../js/jquery.counterup.min.js"></script>
+        <!-- Wow JavaScript -->
+        <script src="../../js/wow.min.js"></script>
+        <!-- Apexcharts JavaScript -->
+        <script src="../../js/apexcharts.js"></script>
+        <!-- Slick JavaScript -->
+        <script src="../../js/slick.min.js"></script>
+        <!-- Select2 JavaScript -->
+        <script src="../../js/select2.min.js"></script>
+        <!-- Owl Carousel JavaScript -->
+        <script src="../../js/owl.carousel.min.js"></script>
+        <!-- Magnific Popup JavaScript -->
+        <script src="../../js/jquery.magnific-popup.min.js"></script>
+        <!-- Smooth Scrollbar JavaScript -->
+        <script src="../../js/smooth-scrollbar.js"></script>
+        <!-- lottie JavaScript -->
+        <script src="../../js/lottie.js"></script>
+        <!-- Chart Custom JavaScript -->
+        <script src="../../js/chart-custom.js"></script>
+        <!-- Custom JavaScript -->
+        <script src="../../js/custom.js"></script>
     </body>
 
 </html>

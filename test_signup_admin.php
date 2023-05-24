@@ -5,20 +5,19 @@
 
       $admin = new Admins();
 
-      if(!empty($_POST['email']) && !empty($_POST['uname'])){
-        $admin->setEmail($_POST['email']);
-        $admin->setUsername($_POST['uname']);
-        $admin->setPasswordd(encrypt($_POST['password']));
+      // if(!empty($_POST['email']) && !empty($_POST['uname'])){
+        $admin->setId(19);
+        $admin->setEmail("ahmedauday@careHour.com");
+        $admin->setUsername("auday");
+        $admin->setPasswordd(encrypt("123456789"));
         $admin->setImage_of_id("test1");
-
-
         $admin->add();
         $admin->getLastRow();
         
         $admin->giveAuthority();
-      }
+      // }
 ?>
-
+<!-- 
 
 <form method="POST">
     email:<input type="text" name="email" placeholder="email"><br>
@@ -26,4 +25,4 @@
     password<input type="text" name="password" placeholder="password"><br>
     <input type="submit" name="submit" value="submit">
 
-</form>
+</form> -->

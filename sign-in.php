@@ -50,32 +50,61 @@ if(isset($_POST['Login'])){
 
             }else{
                 //if email and password is not set it will redirect to the sign-in page with an error message
-                $error = urlencode('Invalid username or password.');
-                // header("Location: sign-in.php?error2=".$error);
+                // $error = urlencode('Invalid username or password.');
+                // header("Location: sign-in.php?error2=hikaka");
                 // exit();
+
+
             }
 
             
         }else if($user_type == 'doctor'){
-            //mysql check if the user is a doctor available in the database
-            if(isset($_POST['email']) && isset($_POST['password'])){
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-            }else{
-                //if email and password is not set it will redirect to the sign-in page with an error message
-                // header("Location: sign-in.php?error2=Please enter your email and password");
-                // exit();
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+
+
+            $doctor= new Doctors();
+            $doctor->setEmail($email);
+
+            if($doctor->getByEmail()){
+                // echo "email found";
+                if($doctor->getPasswordd() == $password){
+                    // echo "password found";
+                    $doctor->giveAuthority();
+                    if($doctor->getAuthority() > 0){
+                        // echo($patient->getAuthority());
+                       //make a header to patint dashboard 
+                        header("Location: doctor_main_dashboard.php");
+                        exit();
+                    }
+                    exit();
+                }
             }
     
         }else if($user_type == 'admin'){
             //mysql check if the user is a admin available in the database
-            if(isset($_POST['email']) && isset($_POST['password'])){
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-            }else{
-                //if email and password is not set it will redirect to the sign-in page with an error message
-                // header("Location: sign-in.php?error2=Please enter your email and password");
-                // exit();
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+
+
+            $admin= new Admins();
+            $admin->setEmail($email);
+
+            if($admin->getByEmail()){
+                // echo "email found";
+                if($admin->getPasswordd() == encrypt($password)){
+                    // echo "password found";
+                    $admin->giveAuthority();
+                    if($admin->getAuthority() > 0){
+                        // echo($patient->getAuthority());
+                       //make a header to patint dashboard 
+                        header("Location: admin_main_dashboard.php");
+                        exit();
+                    }
+                    exit();
+                }
             }
 
     
@@ -125,7 +154,7 @@ if(isset($_POST['Login'])){
                 <div class="row no-gutters">
                     <div class="col-md-6 text-center">
                         <div class="sign-in-detail text-white">
-                            <a class="sign-in-logo mb-5" href="#"><img src="/images/logo.png" class="img-fluid"
+                            <a class="sign-in-logo mb-5" href="index.php"><img src="/images/logo.png" class="img-fluid"
                                     alt="logo" />
                                 <span class="spanLogo">CareHour</span>
                             </a>
@@ -164,9 +193,7 @@ if(isset($_POST['Login'])){
                             <h1 class="mb-0">Sign in</h1>
                             <!--radio button for the user to choose if they are a patient or a doctor or a admin-->
                         
-                            <p>
-                                Enter your email address and password.
-                            </p>
+                            
                             <form class="mt-4" method="POST">
                             <div class="iq-card-body">
                             <?php
@@ -191,7 +218,9 @@ if(isset($_POST['Login'])){
 
                            </div>
                            <!-- <input type="radio" id="" name="user" value="admin" class="">Shot -->
-                        </div>
+                        </div><p>
+                                Enter your email address and password.
+                            </p>
                                 <?php 
                                 if(isset($_GET['error2'])){
                                     echo '<p class="alert alert-danger text-center">'.$_GET['error2'].'</p>';
@@ -204,7 +233,7 @@ if(isset($_POST['Login'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
-                                    <a href="recoverpw.php" class="float-right">Forgot password?</a>
+                                    <a href="recoverpw.php" id="forget_pass" class="float-right">Forgot password?</a>
                                     <input type="password" class="form-control mb-0" id="exampleInputPassword1"
                                         placeholder="Password" name="password" />
                                 </div>
@@ -258,6 +287,26 @@ if(isset($_POST['Login'])){
         <script src="/js/chart-custom.js"></script>
         <!-- Custom JavaScript -->
         <script src="/js/custom.js"></script>
+        <script>
+  $(document).ready(function() {
+    var elementToHide = $("#forget_pass");
+
+    // Check the initial state of the radio buttons
+    if ($('input[name=user_type][value=admin]').is(':checked')||$('input[name=user_type][value=doctor]').is(':checked')) {
+      elementToHide.hide();
+    }
+
+    // Add event listener to the radio buttons
+    $('input[name=user_type]').change(function() {
+      if ($(this).val() === "admin"||$(this).val() === "doctor") {
+        elementToHide.hide();
+      } else {
+        elementToHide.show();
+      }
+    });
+  });
+</script>
+        
     </body>
 
 </html>
