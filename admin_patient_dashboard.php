@@ -1,14 +1,21 @@
 <?php
-
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 
   $patient = new Patients();
+  
+ 
+
 
   $admin = new Admins();
-
-  $currentUserA = $admin-> getUsername();
+if($admin->getAuthority() <= 0){
+    header("Location: sign-in.php");
+    exit();
+}
+$admin->setId($admin->getAuthority());
+$admin->getById();
+  
   
 
 
@@ -253,7 +260,7 @@
                     align-items-center">
                                         <img src="images/user/1.jpg" class="img-fluid rounded mr-3" alt="user" />
                                         <div class="caption">
-                                            <h6 class="mb-0 line-height"><?php echo $currentUserA  ?></h6>
+                                            <h6 class="mb-0 line-height"><?php echo $admin->getUsername()  ?></h6>
                                             <span class="font-size-12">Available</span>
                                         </div>
                                     </a>

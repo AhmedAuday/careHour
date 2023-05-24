@@ -5,15 +5,23 @@ include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
 include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 
 
+
+$admin = new Admins();
+$admin->setId($admin->getAuthority());
+$admin->getById();
 $curent_doc = new Doctors();
 
 $patient = new Patients();
 
 
 $docc = new Doctors();
-$docc->getById();
+
 $cDoc= $docc->getAll();
 
+
+
+// $patint->setId($patint->getAuthority());
+// $patint->getById()
 
 ?>
 

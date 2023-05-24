@@ -4,6 +4,10 @@
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 
+  $admin = new Admins();
+  $admin->setId($admin->getAuthority());
+  $admin->getById();
+
 
   if(isset($_POST['submit'])){
     echo "<script>alert('hi')</script>";

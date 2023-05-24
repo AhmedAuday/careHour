@@ -8,6 +8,10 @@
 
   $patient = new Patients();
 
+  $admin = new Admins();
+  $admin->setId($admin->getAuthority());
+  $admin->getById();
+
   
 
 
