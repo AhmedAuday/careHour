@@ -1,8 +1,24 @@
 <?php
-
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/autoloader.inc.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
+
+  $patient = new Patients();
+  
+ 
+
+
+  $admin = new Admins();
+if($admin->getAuthority() <= 0){
+    header("Location: sign-in.php");
+    exit();
+}
+$admin->setId($admin->getAuthority());
+$admin->getById();
+  
+  
+
+
 ?>
 
 
@@ -191,54 +207,15 @@
                                                                     alt="" />
                                                             </div>
                                                             <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Emma Watson Bini</h6>
-                                                                <small class="float-right font-size-12">Just Now</small>
-                                                                <p class="mb-0">95 MB</p>
+                                                                <h6 class="mb-0"></h6>
+                                                                <small class="float-right font-size-12"></small>
+                                                                <p class="mb-0"></p>
                                                             </div>
                                                         </div>
                                                     </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/02.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">New customer is join</h6>
-                                                                <small class="float-right font-size-12">5 days
-                                                                    ago</small>
-                                                                <p class="mb-0">Jond Bini</p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/03.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Two customer is left</h6>
-                                                                <small class="float-right font-size-12">2 days
-                                                                    ago</small>
-                                                                <p class="mb-0">Jond Bini</p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/04.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">New Mail from Fenny</h6>
-                                                                <small class="float-right font-size-12">3 days
-                                                                    ago</small>
-                                                                <p class="mb-0">Jond Bini</p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
+
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -269,54 +246,8 @@
                                                             </div>
                                                         </div>
                                                     </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/02.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Lorem Ipsum Watson</h6>
-                                                                <small class="float-left font-size-12">20 Apr</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/03.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Why do we use it?</h6>
-                                                                <small class="float-left font-size-12">30 Jun</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/04.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Variations Passages</h6>
-                                                                <small class="float-left font-size-12">12 Sep</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card">
-                                                        <div class="media align-items-center">
-                                                            <div class="">
-                                                                <img class="avatar-40 rounded" src="images/user/05.jpg"
-                                                                    alt="" />
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Lorem Ipsum generators</h6>
-                                                                <small class="float-left font-size-12">5 Dec</small>
-                                                            </div>
-                                                        </div>
-                                                    </a>
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -329,7 +260,7 @@
                     align-items-center">
                                         <img src="images/user/1.jpg" class="img-fluid rounded mr-3" alt="user" />
                                         <div class="caption">
-                                            <h6 class="mb-0 line-height">Bini Jets</h6>
+                                            <h6 class="mb-0 line-height"><?php echo $admin->getUsername()  ?></h6>
                                             <span class="font-size-12">Available</span>
                                         </div>
                                     </a>
@@ -398,6 +329,8 @@
                 <!-- TOP Nav Bar END -->
                 <div class="container-fluid">
                     <div class="row">
+
+                        <!-- TODO Make An Patient Rigsrty statics ocer month -->
                         <div class="col-lg-8">
                             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                                 <div class="iq-card-header d-flex justify-content-between">
@@ -410,6 +343,12 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!--  end Make An Patient Rigsrty statics ocer month -->
+
+
+
+                        <!-- TODO CHange Image  -->
                         <div class="col-lg-4">
                             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                                 <div class="iq-card-body p-0 rounded">
@@ -417,6 +356,12 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+                        <!-- TODO We have to find Charts or connect them somehow to php cuz its js -->
+
+
                         <div class="col-md-6">
                             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                                 <div class="iq-card-header d-flex justify-content-between">
@@ -429,6 +374,10 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+
                         <div class="col-md-6">
                             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                                 <div class="iq-card-header d-flex justify-content-between">
@@ -441,386 +390,17 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+                        <!-- End of TODO We have to find Charts   -->
+
+
+
+
+
                     </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-                                <div class="iq-card-header d-flex justify-content-between">
-                                    <div class="iq-header-title">
-                                        <h4 class="card-title">Patients Satisfactions</h4>
-                                    </div>
-                                </div>
-                                <div class="iq-card-body">
-                                    <h2>
-                                        3,897<span class="text-success font-size-14 ml-3 mr-3"><i
-                                                class="ri-arrow-up-fill mr-2"></i>+3.3%</span><small
-                                            class="text-secondary font-size-14">Generated by clients</small>
-                                    </h2>
-                                    <div class="progress mt-3">
-                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="40"
-                                            aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-                                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="20"
-                                            aria-valuemin="0" aria-valuemax="100" style="width: 20%"></div>
-                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="10"
-                                            aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
-                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="40"
-                                            aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20"
-                                            aria-valuemin="0" aria-valuemax="100" style="width: 20%"></div>
-                                        <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="10"
-                                            aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
-                                    </div>
-                                    <div class="table-responsive mt-4">
-                                        <table class="table mb-0 table-borderless">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div class="iq-profile-avatar status-online mt-4"></div>
-                                                    </td>
-                                                    <td>
-                                                        <h4>Excellent</h4>
-                                                    </td>
-                                                    <td><span class="text-muted">2400</span></td>
-                                                    <td>60%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="iq-profile-avatar status-blue mt-4"></div>
-                                                    </td>
-                                                    <td>
-                                                        <h4>Very Good</h4>
-                                                    </td>
-                                                    <td><span class="text-muted">1200</span></td>
-                                                    <td>30%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="iq-profile-avatar status-primary mt-4"></div>
-                                                    </td>
-                                                    <td>
-                                                        <h4>Good</h4>
-                                                    </td>
-                                                    <td><span class="text-muted">240</span></td>
-                                                    <td>6%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="iq-profile-avatar status-info mt-4"></div>
-                                                    </td>
-                                                    <td>
-                                                        <h4>Fair</h4>
-                                                    </td>
-                                                    <td><span class="text-muted">80</span></td>
-                                                    <td>2%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="iq-profile-avatar status-away mt-4"></div>
-                                                    </td>
-                                                    <td>
-                                                        <h4>Poor</h4>
-                                                    </td>
-                                                    <td><span class="text-muted">40</span></td>
-                                                    <td>1%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="iq-profile-avatar status-danger mt-4"></div>
-                                                    </td>
-                                                    <td>
-                                                        <h4>Very Poor</h4>
-                                                    </td>
-                                                    <td><span class="text-muted">40</span></td>
-                                                    <td>1%</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-                                <div class="iq-card-header d-flex justify-content-between">
-                                    <div class="iq-header-title">
-                                        <h4 class="card-title">Tasks</h4>
-                                    </div>
-                                    <div class="iq-card-header-toolbar d-flex align-items-center">
-                                        <ul class="nav nav-pills" id="myTab" role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
-                                                    role="tab" aria-controls="home" aria-selected="true">Home</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
-                                                    role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact"
-                                                    role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="iq-card-body">
-                                    <div class="tab-content" id="myTabContent">
-                                        <div class="tab-pane fade show active" id="home" role="tabpanel"
-                                            aria-labelledby="home-tab">
-                                            <div class="d-flex tasks-card" role="alert">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck11" />
-                                                    <label class="custom-control-label" for="customCheck11">You should
-                                                        check in some of
-                                                        below.</label>
-                                                </div>
-                                                <button type="button" class="close ml-auto" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <i class="ri-close-line"></i>
-                                                </button>
-                                            </div>
-                                            <div class="d-flex tasks-card" role="alert">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck10" />
-                                                    <label class="custom-control-label" for="customCheck10">Get the
-                                                        address of customer</label>
-                                                </div>
-                                                <button type="button" class="close ml-auto" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <i class="ri-close-line"></i>
-                                                </button>
-                                            </div>
-                                            <div class="d-flex tasks-card" role="alert">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck12" />
-                                                    <label class="custom-control-label" for="customCheck12">Contact
-                                                        Vendor for parcel</label>
-                                                </div>
-                                                <button type="button" class="close ml-auto" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <i class="ri-close-line"></i>
-                                                </button>
-                                            </div>
-                                            <div class="d-flex tasks-card" role="alert">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck13" />
-                                                    <label class="custom-control-label" for="customCheck13">Refule
-                                                        delivery truck</label>
-                                                </div>
-                                                <button type="button" class="close ml-auto" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <i class="ri-close-line"></i>
-                                                </button>
-                                            </div>
-                                            <div class="d-flex tasks-card" role="alert">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck14" />
-                                                    <label class="custom-control-label" for="customCheck14">Pick up for
-                                                        order no. 334</label>
-                                                </div>
-                                                <button type="button" class="close ml-auto" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <i class="ri-close-line"></i>
-                                                </button>
-                                            </div>
-                                            <div class="d-flex tasks-card" role="alert">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck15" />
-                                                    <label class="custom-control-label" for="customCheck15">Pay taxes
-                                                        for every bill</label>
-                                                </div>
-                                                <button type="button" class="close ml-auto" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <i class="ri-close-line"></i>
-                                                </button>
-                                            </div>
-                                            <div class="d-flex tasks-card" role="alert">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck16" />
-                                                    <label class="custom-control-label" for="customCheck16">I am
-                                                        designers &amp; I have no
-                                                        life</label>
-                                                </div>
-                                                <button type="button" class="close ml-auto" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <i class="ri-close-line"></i>
-                                                </button>
-                                            </div>
-                                            <div class="d-flex tasks-card" role="alert">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck17" />
-                                                    <label class="custom-control-label" for="customCheck17">This is a
-                                                        good product. Buy it
-                                                        :)
-                                                    </label>
-                                                </div>
-                                                <button type="button" class="close ml-auto" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <i class="ri-close-line"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="profile" role="tabpanel"
-                                            aria-labelledby="profile-tab">
-                                            <div class="d-flex tasks-card" role="alert">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck18" />
-                                                    <label class="custom-control-label" for="customCheck18">You should
-                                                        check in on some of
-                                                        below.</label>
-                                                </div>
-                                                <button type="button" class="close ml-auto" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <i class="ri-close-line"></i>
-                                                </button>
-                                            </div>
-                                            <div class="d-flex tasks-card" role="alert">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck19" />
-                                                    <label class="custom-control-label" for="customCheck19">You should
-                                                        check in on some of
-                                                        below.</label>
-                                                </div>
-                                                <button type="button" class="close ml-auto" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <i class="ri-close-line"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="contact" role="tabpanel"
-                                            aria-labelledby="contact-tab">
-                                            <div class="d-flex tasks-card" role="alert">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck110" />
-                                                    <label class="custom-control-label" for="customCheck110">You should
-                                                        check in on some of
-                                                        below.</label>
-                                                </div>
-                                                <button type="button" class="close ml-auto" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <i class="ri-close-line"></i>
-                                                </button>
-                                            </div>
-                                            <div class="d-flex tasks-card" role="alert">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck111" />
-                                                    <label class="custom-control-label" for="customCheck111">You should
-                                                        check in on some of
-                                                        below.</label>
-                                                </div>
-                                                <button type="button" class="close ml-auto" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <i class="ri-close-line"></i>
-                                                </button>
-                                            </div>
-                                            <div class="d-flex tasks-card" role="alert">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="customCheck112" />
-                                                    <label class="custom-control-label" for="customCheck112">You should
-                                                        check in on some of
-                                                        below.</label>
-                                                </div>
-                                                <button type="button" class="close ml-auto" data-dismiss="alert"
-                                                    aria-label="Close">
-                                                    <i class="ri-close-line"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-                                <div class="iq-card-header d-flex justify-content-between">
-                                    <div class="iq-header-title">
-                                        <h4 class="card-title">Patient Timeline</h4>
-                                    </div>
-                                    <div class="iq-card-header-toolbar d-flex align-items-center">
-                                        <div class="dropdown">
-                                            <span class="dropdown-toggle text-primary" id="dropdownMenuButton4"
-                                                data-toggle="dropdown">
-                                                View All
-                                            </span>
-                                            <div class="dropdown-menu dropdown-menu-right"
-                                                aria-labelledby="dropdownMenuButton4">
-                                                <a class="dropdown-item" href="#"><i class="ri-eye-fill
-                            mr-2"></i>View</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="ri-printer-fill mr-2"></i>Print</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="ri-file-download-fill mr-2"></i>Download</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="iq-card-body">
-                                    <ul class="iq-timeline">
-                                        <li>
-                                            <div class="timeline-dots"></div>
-                                            <h6 class="float-left mb-1">Patient Checkup</h6>
-                                            <small class="float-right mt-1">23 November 2019</small>
-                                            <div class="d-inline-block w-100">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit. Quisque scelerisque
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="timeline-dots border-success"></div>
-                                            <h6 class="float-left mb-1">Patient Admit</h6>
-                                            <small class="float-right mt-1">24 November 2019</small>
-                                            <div class="d-inline-block w-100">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit. Quisque scelerisque
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="timeline-dots border-primary"></div>
-                                            <h6 class="float-left mb-1">Treatment Starts</h6>
-                                            <small class="float-right mt-1">24 November 2019</small>
-                                            <div class="d-inline-block w-100">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit. Quisque scelerisque
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="timeline-dots border-warning"></div>
-                                            <h6 class="float-left mb-1">Patient Discharge</h6>
-                                            <small class="float-right mt-1">30 November 2019</small>
-                                            <div class="d-inline-block w-100">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit. Quisque scelerisque
-                                                </p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
@@ -837,7 +417,7 @@
                                             <div class="dropdown-menu dropdown-menu-right"
                                                 aria-labelledby="dropdownMenuButton5">
                                                 <a class="dropdown-item" href="#"><i class="ri-eye-fill
-                            mr-2"></i>View</a>
+                                        mr-2"></i>View</a>
                                                 <a class="dropdown-item" href="#"><i
                                                         class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
                                                 <a class="dropdown-item" href="#"><i
@@ -858,35 +438,36 @@
                                                     <th scope="col">Patient</th>
                                                     <th scope="col">E-mail Id</th>
                                                     <th scope="col">Contact</th>
-                                                    <th scope="col">Disease</th>
+                                                    <th scope="col">City</th>
                                                 </tr>
                                             </thead>
+                                            <?php
+
+                                            $patients= $patient->getAll();
+
+                                          foreach ($patients as $pp) {
+
+                                            echo "
                                             <tbody>
-                                                <tr>
-                                                    <td>Petey Cruiser</td>
-                                                    <td>peteycruiser01@gmail.com</td>
-                                                    <td>+1-202-555-0146</td>
-                                                    <td>Fever</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Anna Sthesia</td>
-                                                    <td>annasthesia121@gmail.com</td>
-                                                    <td>+1-202-555-0164</td>
-                                                    <td>Cancer</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Paul Molive</td>
-                                                    <td>paulmolive30@gmail.com</td>
-                                                    <td>+1-202-555-0153</td>
-                                                    <td>Diabetes</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Anna Mull</td>
-                                                    <td>annamull07@gmail.com</td>
-                                                    <td>+1-202-555-0154</td>
-                                                    <td>eye</td>
-                                                </tr>
-                                            </tbody>
+                                            <tr>
+                                                <td>$pp->first_name $pp->middle_name </td>
+                                                <td>$pp->email</td>
+                                                <td>$pp->phone_number</td>
+                                                <td>$pp->city</td>
+                                            </tr>
+
+                                        </tbody>
+                                            ";
+                                            # code...
+                                          }
+
+
+
+                                          
+                                          
+                                          
+                                          
+                                          ?>
                                         </table>
                                     </div>
                                 </div>
@@ -901,42 +482,34 @@
                                 </div>
                                 <div class="iq-card-body">
                                     <ul class="report-lists m-0 p-0">
-                                        <li class="d-flex mb-4 align-items-center">
-                                            <div class="media-support-info">
-                                                <h6>X-ray.pdf</h6>
-                                                <a href="#">View report</a>
-                                            </div>
-                                            <button type="button" class="btn btn-success" name="button">
-                                                Download
-                                            </button>
-                                        </li>
-                                        <li class="d-flex mb-4 align-items-center">
-                                            <div class="media-support-info">
-                                                <h6>pathologyreport.pdf</h6>
-                                                <a href="#">View report</a>
-                                            </div>
-                                            <button type="button" class="btn btn-success" name="button">
-                                                Download
-                                            </button>
-                                        </li>
-                                        <li class="d-flex mb-4 align-items-center">
-                                            <div class="media-support-info">
-                                                <h6>laboratoryreports.pdf</h6>
-                                                <a href="#">View report</a>
-                                            </div>
-                                            <button type="button" class="btn btn-danger" name="button">
-                                                On Hold
-                                            </button>
-                                        </li>
-                                        <li class="d-flex align-items-center">
-                                            <div class="media-support-info">
-                                                <h6>operativereport.pdf</h6>
-                                                <a href="#">View report</a>
-                                            </div>
-                                            <button type="button" class="btn btn-success" name="button">
-                                                Download
-                                            </button>
-                                        </li>
+
+
+
+                                        <?php 
+
+                                    $pf = new Patient_files();
+                                    $pFile = $pf->getAll();
+
+                                    foreach ($pFile as $pF) {
+
+                                        echo " <li class='d-flex mb-4 align-items-center'>
+                                        <div class='media-support-info'>
+                                            <h6>$pF->file_name</h6>
+                                            <a href=''>View report</a>
+                                        </div>
+                                        <button type='button' class='btn btn-success' name='button'>
+                                            Download
+                                        </button>
+                                    </li>";
+                                        
+                                    }
+                                    
+                                    
+                                    ?>
+
+
+
+
                                     </ul>
                                 </div>
                             </div>

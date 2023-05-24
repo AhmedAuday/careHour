@@ -5,6 +5,15 @@
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 
 
+  $admin = new Admins();
+  if($admin->getAuthority() <= 0){
+      header("Location: sign-in.php");
+      exit();
+  }
+  $admin->setId($admin->getAuthority());
+  $admin->getById();
+
+
   if(isset($_POST['submit'])){
     echo "<script>alert('hi')</script>";
 
