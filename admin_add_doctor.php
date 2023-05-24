@@ -19,7 +19,7 @@
 
        $admin = new Admins();
        $new_doctor = new Doctors();
-               $new_doctor->setUser_id($admin->getId()); //TODO Cheak this plssse
+               $new_doctor->setUser_id($admin->getById()); //TODO Cheak this plssse
                $new_doctor->setFirst_name($_POST['fname']);
                $new_doctor->setMiddle_name($_POST['mname']);
                $new_doctor->setLast_name($_POST['lname']);
