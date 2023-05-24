@@ -4,7 +4,7 @@
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/secuerity.inc.php';
   include_once $_SERVER["DOCUMENT_ROOT"].'/includes/time.inc.php';
 
-  $id=$_GET['id'];
+  
 
 
   $patint=new Patients();
@@ -14,6 +14,7 @@ if($patint->getAuthority() <= 0){
 }
 $patint->setId($patint->getAuthority());
 $patint->getById();
+// $id=$patint->getId();
 
 
   
@@ -49,11 +50,12 @@ $patint->getById();
         </div>-->
         <!-- loader END -->
         <!-- Wrapper Start -->
+        <form method="POST">
         <div class="wrapper">
             <!-- Sidebar  -->
             <div class="iq-sidebar">
                 <div class="iq-sidebar-logo d-flex justify-content-between">
-                    <a href="index.php">
+                    <a href="patient.php">
                         <img src="/images/logo.png" class="img-fluid" alt="" />
                         <span>CareHour</span>
                     </a>
@@ -121,12 +123,7 @@ $patint->getById();
                             </div>
                         </div>
                         <nav class="navbar navbar-expand-lg navbar-light p-0">
-                            <div class="iq-search-bar">
-                                <form action="#" class="searchbox">
-                                    <input type="text" class="text search-input" placeholder="Type here to search..." />
-                                    <a class="search-link" href="#"><i class="ri-search-line"></i></a>
-                                </form>
-                            </div>
+                           
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -404,11 +401,11 @@ $patint->getById();
                                                     Change Password
                                                 </a>
                                             </li>
-                                            <li class="col-md-3 p-0">
+                                            <!-- <li class="col-md-3 p-0">
                                                 <a class="nav-link" data-toggle="pill" href="#emailandsms">
                                                     Email and SMS
                                                 </a>
-                                            </li>
+                                            </li> -->
                                             <li class="col-md-3 p-0">
                                                 <a class="nav-link" data-toggle="pill" href="#manage-contact">
                                                     Manage Contact
@@ -448,28 +445,48 @@ $patint->getById();
                                                         <div class="form-group col-sm-6">
                                                             <label for="fname">First Name:</label>
                                                             <input type="text" class="form-control" id="fname"
+                                                            name="fname"
                                                                 value="<?=$patint->getFirst_name()?>" />
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label for="lname">Middle Name:</label>
                                                             <input type="text" class="form-control" id="lname"
+                                                            name="mname"
                                                                 value="<?=$patint->getMiddle_name()?>" />
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label for="lname">Last Name:</label>
                                                             <input type="text" class="form-control" id="lname"
+                                                            name="lname"
                                                                 value="<?=$patint->getLast_name()?>" />
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label for="uname">User Name:</label>
                                                             <input type="text" class="form-control" id="uname"
+                                                            name="uname"
                                                                 value="<?=$patint->getUsername()?>" />
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label for="cname">City:</label>
                                                             <input type="text" class="form-control" id="cname"
+                                                            name="city"
                                                                 value="<?=$patint->getCity()?>" />
                                                         </div>
+                                                        <div class="form-group col-sm-6">
+                                                        <label>Blood Type:</label>
+                                                        <select class="form-control" id="exampleFormControlSelect4"
+                                                            name="blood">
+                                                            <option value="<?php echo $patint->getBlood_type(); ?>" ><?php echo $patint->getBlood_type(); ?></option>
+                                                            <option value="A+">A+</option>
+                                                            <option value="O-">O-</option>
+                                                            <option value="A-">A-</option>
+                                                            <option value="B+">B+</option>
+                                                            <option value="B-">B-</option>
+                                                            <option value="AB+">AB+</option>
+                                                            <option value="AB-">AB-</option>
+                                                            <option value="O+">O+</option>
+                                                        </select>
+                                                    </div>
                                                         <div class="form-group col-sm-6">
                                                             <label class="d-block">Gender:</label>
                                                             <div
@@ -492,7 +509,11 @@ $patint->getById();
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label for="dob">Date Of Birth:</label>
-                                                            <input class="form-control" id="dob" value="1984-01-24" />
+                                                            <input class="form-control" id="dob" value="<?php
+                                                            $t = time() - $patint->getDate_of_birth();
+                                                    echo showYear()-floor($t/86400/30/12); 
+                                                    ?>">
+                                                    </p>
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label>Marital Status:</label>
@@ -506,46 +527,27 @@ $patint->getById();
                                                         </div>
                                                         <div class="form-group col-sm-6">
                                                             <label>Age:</label>
-                                                            <select class="form-control" id="exampleFormControlSelect2">
-                                                                <option>12-18</option>
-                                                                <option>19-32</option>
-                                                                <option selected="">33-45</option>
-                                                                <option>46-62</option>
-                                                                <option>63 ></option>
-                                                            </select>
+                                                            
+                                                            <input class="form-control" id="dob" value="<?php
+                                                            $t = time() - $patint->getDate_of_birth();
+                                                    echo floor($t/86400/30/12); 
+                                                    ?>">
                                                         </div>
-                                                        <div class="form-group col-sm-6">
-                                                            <label>Country:</label>
-                                                            <select class="form-control" id="exampleFormControlSelect3">
-                                                                <option>Caneda</option>
-                                                                <option>Noida</option>
-                                                                <option selected="">USA</option>
-                                                                <option>India</option>
-                                                                <option>Africa</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="form-group col-sm-6">
-                                                            <label>State:</label>
-                                                            <select class="form-control" id="exampleFormControlSelect4">
-                                                                <option>California</option>
-                                                                <option>Florida</option>
-                                                                <option selected="">Georgia</option>
-                                                                <option>Connecticut</option>
-                                                                <option>Louisiana</option>
-                                                            </select>
-                                                        </div>
+                                                    
+                                                        
                                                         <div class="form-group col-sm-12">
                                                             <label>Address:</label>
                                                             <textarea class="form-control" name="address" rows="5"
+                                                        name="address"
                                                                 style="line-height: 22px">
-                                  37 Cardinal Lane
-                                  Petersburg, VA 23803
-                                  United States of America
-                                  Zip Code: 85001
+                                                                <?php
+                                                                echo $patint->getAddresses();
+                                                                
+                                                                ?>
                                              </textarea>
                                                         </div>
                                                     </div>
-                                                    <button type="submit" class="btn btn-primary mr-2">
+                                                    <button type="submit" class="btn btn-primary mr-2" name="submit_update">
                                                         Submit
                                                     </button>
                                                     <button type="reset" class="btn iq-bg-danger">
@@ -563,25 +565,28 @@ $patint->getById();
                                                 </div>
                                             </div>
                                             <div class="iq-card-body">
-                                                <form>
+                                                
                                                     <div class="form-group">
                                                         <label for="cpass">Current Password:</label>
-                                                        <a href="javascripe:void();" class="float-right">Forgot
-                                                            Password</a>
+                                                        
+                                                        <input type="submit" name="forget" value="Forgot Password" class="float-right">
                                                         <input type="Password" class="form-control" id="cpass"
-                                                            value="" />
+                                                        name="cpass"
+                                                            />
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="npass">New Password:</label>
                                                         <input type="Password" class="form-control" id="npass"
+                                                        name="npass"
                                                             value="" />
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="vpass">Verify Password:</label>
                                                         <input type="Password" class="form-control" id="vpass"
+                                                        name="vpass"
                                                             value="" />
                                                     </div>
-                                                    <button type="submit" class="btn btn-primary mr-2">
+                                                    <button type="submit" class="btn btn-primary mr-2" name="submit_update">
                                                         Submit
                                                     </button>
                                                     <button type="reset" class="btn iq-bg-danger">
@@ -591,7 +596,7 @@ $patint->getById();
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="emailandsms" role="tabpanel">
+                                    <!--<div class="tab-pane fade" id="emailandsms" role="tabpanel">
                                         <div class="iq-card">
                                             <div class="iq-card-header d-flex justify-content-between">
                                                 <div class="iq-header-title">
@@ -668,7 +673,7 @@ $patint->getById();
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button type="submit" class="btn btn-primary mr-2">
+                                                    <button type="submit" class="btn btn-primary mr-2" name="submit_update">
                                                         Submit
                                                     </button>
                                                     <button type="reset" class="btn iq-bg-danger">
@@ -678,7 +683,7 @@ $patint->getById();
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="manage-contact" role="tabpanel">
+--><div class="tab-pane fade" id="manage-contact" role="tabpanel">
                                         <div class="iq-card">
                                             <div class="iq-card-header d-flex justify-content-between">
                                                 <div class="iq-header-title">
@@ -690,19 +695,17 @@ $patint->getById();
                                                     <div class="form-group">
                                                         <label for="cno">Contact Number:</label>
                                                         <input type="text" class="form-control" id="cno"
-                                                            value="001 2536 123 458" />
+                                                        name="phone"
+                                                            value="<?=$patint->getPhone_number()?>" />
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="email">Email:</label>
                                                         <input type="text" class="form-control" id="email"
-                                                            value="Binijone@demo.com" />
+                                                        name="email"
+                                                            value="<?=$patint->getEmail()?>" />
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="url">Url:</label>
-                                                        <input type="text" class="form-control" id="url"
-                                                            value="https://getbootstrap.com" />
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary mr-2">
+                                                   
+                                                    <button type="submit" class="btn btn-primary mr-2" name="submit_update">
                                                         Submit
                                                     </button>
                                                     <button type="reset" class="btn iq-bg-danger">
@@ -723,7 +726,7 @@ $patint->getById();
                         <div class="row">
                             <div class="col-lg-2"></div>
                             <div class="col-lg-6 text-right">
-                                Copyright 2023 <a href="#">CareHour</a> All Rights Reserved.
+                                Copyright <?=date("Y")?> <a href="#">CareHour</a> All Rights Reserved.
                             </div>
                         </div>
                     </div>
@@ -767,3 +770,82 @@ $patint->getById();
     </body>
 
 </html>
+<?php
+
+
+if(isset($_POST['submit_update'])){
+
+
+
+
+if($patint->getFirst_name()!=$_POST['fname']){
+$patint->setFirst_name($_POST['fname']);
+
+
+}
+
+
+  if($patint->getMiddle_name()!=$_POST['mname']){
+
+$patint->setMiddle_name($_POST['mname']);
+
+
+
+  }
+
+
+  if($patint->getLast_name()!=$_POST['lname']){
+
+    $patint->setLast_name($_POST['lname']);
+  }
+  
+
+  if($patint->getUsername()!=$_POST['uname']){
+    $patint->setUsername($_POST['uname']);
+  }
+ 
+
+//   if($patint->getEmail()!=$_POST['email']){
+// $patint->setEmail($_POST['email']);
+//   }
+  
+
+ 
+  
+ 
+
+ 
+
+  
+
+  if($patint->getBlood_type()!=$_POST['blood']){
+    $patint->setBlood_type($_POST['blood']);
+  }
+  
+
+ 
+
+  if($patint->getAddresses()!=$_POST['address']){
+    $patint->setAddresses($_POST['address']);
+  }
+ 
+
+  if($patint->getCity()!=$_POST['city']){
+    $patint->setCity($_POST['city']);   
+  }
+ 
+
+  
+
+
+
+$patint->update();
+
+
+
+
+
+
+}
+
+?>
