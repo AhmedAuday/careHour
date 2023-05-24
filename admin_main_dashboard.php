@@ -7,6 +7,14 @@
   $doc = new Doctors();
 
   $patient = new Patients();
+
+  
+
+
+ 
+
+
+
 ?>
 
 
@@ -479,7 +487,12 @@
                                         <li class="doctor-list-item col-md-3 text-center p-2">
 
 
+
+
+
                                             <?php 
+
+                                            $doctors =$doc->getAll();
                                         foreach ($doc as $d) {
                                            echo "<div class='doctor-list-item-inner rounded'>
                                            <div class='donter-profile'>
@@ -506,7 +519,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 col-lg-8">
+                        <div class="col-lg-12 col-lg-8">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <!-- Patient Report Start  -->
@@ -545,47 +558,65 @@
                                                         <tr>
                                                             <th scope="col">Patient</th>
                                                             <th scope="col">Patient Name</th>
-                                                            <th scope="col">Doctors Team</th>
-                                                            <th scope="col">Date Of Operation</th>
-                                                            <th scope="col">Report</th>
-                                                            <th scope="col">Diseases</th>
+                                                            <th scope="col">Diagnosis</th>
+                                                            <th scope="col">Treatment</th>
+                                                            <th scope="col">Notes</th>
+                                                            <th scope="col">Date</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <!-- Todo Implemnt Patient here -->
-                                                        <tr>
-                                                            <td class="text-center">
-                                                                <img class="rounded-circle img-fluid avatar-40"
-                                                                    src="images/user/01.jpg" alt="profile" />
+
+
+
+                                                        <?php
+
+                                                                $patients= $patient->getAll();
+              
+                                                    
+                                                     foreach ($patients as $p) {
+
+                                                        $patient_his =new Patient_files();
+                                                        $patient_his->setPatient_id($p->id);
+                                                        $patient_his->getByPatient_id();
+
+                                                    
+
+            
+
+                                                        $patient_history = new Patient_history();
+                                                        $patient_history->setFiles_id($patient_his->getId());
+                                                        $patient_history->getByFiles_id();
+
+                                                        
+                                                        
+                                                       echo "
+                                                       <tr>
+                                                            <td class='text-center'>
+                                                                <img class='rounded-circle img-fluid avatar-40'
+                                                                    src='images/user/01.jpg' alt='profile' />
                                                             </td>
-                                                            <td>Petey Cruiser</td>
-                                                            <td>
-                                                                <div class="iq-media-group">
-                                                                    <a href="#" class="iq-media">
-                                                                        <img class="img-fluid avatar-40 rounded-circle"
-                                                                            src="images/user/05.jpg" alt="" />
-                                                                    </a>
-                                                                    <a href="#" class="iq-media">
-                                                                        <img class="img-fluid avatar-40 rounded-circle"
-                                                                            src="images/user/06.jpg" alt="" />
-                                                                    </a>
-                                                                    <a href="#" class="iq-media">
-                                                                        <img class="img-fluid avatar-40 rounded-circle"
-                                                                            src="images/user/07.jpg" alt="" />
-                                                                    </a>
-                                                                </div>
-                                                            </td>
-                                                            <td>12-02-2020</td>
-                                                            <td>
-                                                                <i class="ri-file-pdf-line font-size-16
-                                  text-danger"></i>
-                                                            </td>
-                                                            <td>Fracture</td>
-                                                        </tr>
+                                                       <td>. $p->first_name .</td>
+                                                           <td>
+                                                           .{$patient_history->getDiagnosis()}.
+                                                               
+                                                           </td>
+                                                           
+                                                           <td>12-02-2020</td>
+                                                           <td>
+                                                               <i class='ri-file-pdf-line font-size-16 text-danger'></i>
+                                                           </td>
+                                                           <td>Fracture</td>
+                                                           </tr>
 
 
 
                                                     </tbody>
+                                                       ";
+                                                     }
+                                                    
+                                                     ?>
+
+
                                                 </table>
                                             </div>
                                         </div>
@@ -598,105 +629,6 @@
 
 
 
-                                <div class="col-md-12 col-lg-6">
-                                    <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-                                        <div class="iq-card-header d-flex justify-content-between">
-                                            <div class="iq-header-title">
-                                                <h4 class="card-title">Recent Activity</h4>
-                                            </div>
-                                            <div class="iq-card-header-toolbar d-flex align-items-center">
-                                                <div class="dropdown">
-                                                    <span class="dropdown-toggle text-primary" id="dropdownMenuButton4"
-                                                        data-toggle="dropdown">
-                                                        View All
-                                                    </span>
-                                                    <div class="dropdown-menu dropdown-menu-right"
-                                                        aria-labelledby="dropdownMenuButton4">
-                                                        <a class="dropdown-item" href="#"><i
-                                                                class="ri-eye-fill mr-2"></i>View</a>
-                                                        <a class="dropdown-item" href="#"><i
-                                                                class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                        <a class="dropdown-item" href="#"><i
-                                                                class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                        <a class="dropdown-item" href="#"><i
-                                                                class="ri-printer-fill mr-2"></i>Print</a>
-                                                        <a class="dropdown-item" href="#"><i
-                                                                class="ri-file-download-fill mr-2"></i>Download</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="iq-card-body">
-                                            <ul class="iq-timeline">
-                                                <li>
-                                                    <div class="timeline-dots-fill"></div>
-                                                    <h6 class="float-left mb-2 text-dark">
-                                                        <i class="ri-user-fill"></i> 5 min ago
-                                                    </h6>
-                                                    <small class="float-right mt-1">Active</small>
-                                                    <div class="d-inline-block w-100">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                            elit. Quisque scelerisque
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="timeline-dots-fill bg-success"></div>
-                                                    <h6 class="float-left mb-2 text-dark">
-                                                        <i class="ri-user-fill"></i> 6 min ago
-                                                    </h6>
-                                                    <small class="float-right mt-1">Away</small>
-                                                    <div class="d-inline-block w-100">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                            elit. Quisque scelerisque
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="timeline-dots-fill bg-info"></div>
-                                                    <h6 class="float-left mb-2 text-dark">
-                                                        <i class="ri-user-fill"></i> 10 min ago
-                                                    </h6>
-                                                    <small class="float-right mt-1">Active</small>
-                                                    <div class="d-inline-block w-100">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                            elit. Quisque scelerisque
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="timeline-dots-fill bg-warning"></div>
-                                                    <h6 class="float-left mb-2 text-dark">
-                                                        <i class="ri-user-fill"></i> 15 min ago
-                                                    </h6>
-                                                    <small class="float-right mt-1">Offline</small>
-                                                    <div class="d-inline-block w-100">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                            elit. Quisque scelerisque
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="timeline-dots-fill bg-danger"></div>
-                                                    <h6 class="float-left mb-2 text-dark">
-                                                        <i class="ri-user-fill"></i> 18 min ago
-                                                    </h6>
-                                                    <small class="float-right mt-1">Away</small>
-                                                    <div class="d-inline-block w-100">
-                                                        <p>
-                                                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                            elit. Quisque scelerisque
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <!-- <div class="col-md-12 col-lg-4">
