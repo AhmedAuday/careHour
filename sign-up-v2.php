@@ -33,6 +33,12 @@
                     $allergies_data->setSpicifie_allerge($_POST['allergies_severity']);
                     $allergies_data->setPatient_id($patient_data->getId());
                     $allergies_data->add();
+
+
+                    
+                        header("Location: sign-in.php");
+                        exit();
+                    
                     
                     // $allergies_data->getLastRow();
                     // $allergies_data->giveAuthority();
@@ -166,7 +172,7 @@
             <!-- Page Content  -->
             <div id="content-page" class="content-page">
 
-                
+
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-lg-12">
@@ -383,7 +389,7 @@
                                                         <label>Blood Type:</label>
                                                         <select class="form-control" id="exampleFormControlSelect4"
                                                             name="blood">
-                                                            
+
                                                             <option value="A+">A+</option>
                                                             <option value="O-">O-</option>
                                                             <option value="A-">A-</option>
